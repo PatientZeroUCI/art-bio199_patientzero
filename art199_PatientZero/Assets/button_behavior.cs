@@ -41,7 +41,7 @@ public class button_behavior : MonoBehaviour
             pressed = false;
         }
         // Prevent button from springing back up past its original position
-        if (transform.position.y < startPos.y)
+        if (transform.position.y < startPos.y | transform.position.y > startPos.y + 2 )
         {
             transform.position = new Vector3(transform.position.x, startPos.y, transform.position.z);
         }
