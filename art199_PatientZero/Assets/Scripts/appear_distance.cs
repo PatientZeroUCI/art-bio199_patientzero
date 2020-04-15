@@ -36,9 +36,9 @@ public class appear_distance : MonoBehaviour
         Vector3 player_pos = go.transform.position;
         Vector3 object_pos = gameObject.transform.position;
 
-        Debug.Log(player_pos);
-        Debug.Log(object_pos);
-        Debug.Log(Vector3.Distance(player_pos, object_pos));
+        //Debug.Log(player_pos);
+        //Debug.Log(object_pos);
+        //Debug.Log(Vector3.Distance(player_pos, object_pos));
         if(Vector3.Distance(player_pos, object_pos) > 1)
         {
             text.enabled = false;

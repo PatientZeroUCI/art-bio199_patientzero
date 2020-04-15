@@ -2539,6 +2539,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596963614}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &605840861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5950046561095536292, guid: ebca96d4329942d458d3d419de7d15f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5950046561834600029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &608534189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,6 +2970,7 @@ GameObject:
   - component: {fileID: 639365720}
   - component: {fileID: 639365719}
   - component: {fileID: 639365718}
+  - component: {fileID: 639365721}
   m_Layer: 0
   m_Name: Logic_Board
   m_TagString: Untagged
@@ -3060,6 +3067,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639365716}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &639365721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639365716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227bb8775aca1274b95a8e7478d2c758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit1: {fileID: 605840861}
+  unit2: {fileID: 253478636}
+  unit3: {fileID: 729938691}
+  unit4: {fileID: 552299165}
+  unit5: {fileID: 553186126}
+  wrong_connection: {fileID: 2100000, guid: a0318e881fe942d43a21ac3dd2ffb33f, type: 2}
+  good_connection: {fileID: 2100000, guid: 421c14b106432c245ade0db22551eafd, type: 2}
 --- !u!4 &687715562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7123566277792532575, guid: 4daa1b898def1d1469ab9e4e5c339097,
@@ -12302,6 +12328,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5950046562500442328, guid: ebca96d4329942d458d3d419de7d15f2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 421c14b106432c245ade0db22551eafd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebca96d4329942d458d3d419de7d15f2, type: 3}
 --- !u!1 &6002707177301410751
