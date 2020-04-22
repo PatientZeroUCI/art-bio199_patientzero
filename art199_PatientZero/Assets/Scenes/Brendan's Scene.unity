@@ -491,6 +491,12 @@ Transform:
   m_Father: {fileID: 82519352}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &144396718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b94761454f9775f4bab1a557c56f02e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 720205272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &154279173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3122,6 +3128,95 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &720205272
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2014796280}
+    m_Modifications:
+    - target: {fileID: -5975033157549033438, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.006797049
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.021654963
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.057006855
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000008940697
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2416733968201007103, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4e0bfb4c082f72469533623b5fdf9b5, type: 2}
+    - target: {fileID: -927199367670048503, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_Name
+      value: hologram_end
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b94761454f9775f4bab1a557c56f02e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b94761454f9775f4bab1a557c56f02e4, type: 3}
 --- !u!1 &729938691
 GameObject:
   m_ObjectHideFlags: 0
@@ -7863,7 +7958,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: b94761454f9775f4bab1a557c56f02e4,
         type: 3}
       propertyPath: m_Name
-      value: hologram
+      value: hologram_start
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b94761454f9775f4bab1a557c56f02e4, type: 3}
@@ -8001,6 +8096,86 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669716002}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1685569370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7123566278406789396, guid: 4daa1b898def1d1469ab9e4e5c339097,
+    type: 3}
+  m_PrefabInstance: {fileID: 2046280682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1685569372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685569370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3206cdad64122df49b8ad9f08881b9f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRestingPointReached:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMinLimitReached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 436995819}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 144396718}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnMinLimitExited:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMaxLimitReached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 144396718}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 436995819}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnMaxLimitExited:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1685904212 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 4f665beecc0be9e469ec31f98e732987,
