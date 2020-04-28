@@ -14,7 +14,10 @@ public class SpawnDNA : MonoBehaviour
     [SerializeField]
     private float offsetScalar;
 
-    public bool isRNA = false;
+    public System.String startingStrands;
+
+    public bool isRandomlyGenerated = true; // leave this public as well
+    public bool isRNA = false;  // leave this public; otherwise, it won't know to be RNA...
 
     private bool puzzleComplete = false;
 
@@ -28,7 +31,19 @@ public class SpawnDNA : MonoBehaviour
     void Start()
     {
         SpawnDNASegments();
-        RandomizeStrands();
+
+        // this will randomly generate the strand you have to solve for
+        if (isRandomlyGenerated)
+        {
+            RandomizeStrands();
+        }
+
+        // this will take an array of chars that will be used to 
+        // decide the strand you have to solve
+        else
+        {
+            CreateCustomStrand(startingStrands);
+        }
     }
 
     private void Update()
@@ -121,6 +136,56 @@ public class SpawnDNA : MonoBehaviour
         }
         while (puzzleEqualsPlayer());
     }
+
+    void CreateCustomStrand(System.String bases)
+    {
+        if (bases.Length != playerStrands.Length)
+        {
+            Debug.LogError("CreateCustomStrand(): bases has more or less cells than the strands available");
+        }
+
+        else
+        {
+            // check bases to see if the characters used are valide
+            string DNA = "GTAC";
+            string RNA = "GCAU";
+
+          
+            for (int i = 0; i < bases.Length; ++i)
+            {
+                System.String currentBase = bases[i].ToString();
+
+                if (isRNA)
+                {
+                    if (!RNA.Contains(currentBase))
+                    {
+                        Debug.LogError("CreateCustomsStrand(): Invalid bases");
+                    }
+                }
+                else
+                {
+                    if (!DNA.Contains(currentBase))
+                    {
+                        Debug.LogError("CreateCustomsStrand(): Invalid bases");
+                    }
+                }
+
+            }
+
+            for (int i = 0; i < playerStrands.Length; ++i)
+            {
+                playerStrands[i].text = bases[i].ToString();
+            }
+
+            // Makes sure the puzzle segment won't end up being the same as the player strand
+            do
+            {
+                RandomizeBases(puzzleStrands, isRNA);
+            }
+            while (puzzleEqualsPlayer());
+        }
+    }
+    
 
     bool puzzleEqualsPlayer()
     {

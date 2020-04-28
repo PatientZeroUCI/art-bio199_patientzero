@@ -10,17 +10,11 @@ public class ChangeStrandBase : MonoBehaviour
     [SerializeField]
     private Material deselected;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     private void OnMouseOver()
     {
         MeshRenderer renderer = gameObject.GetComponent<MeshRenderer>();
         renderer.material = selected; 
-
     }
 
     private void OnMouseExit()
