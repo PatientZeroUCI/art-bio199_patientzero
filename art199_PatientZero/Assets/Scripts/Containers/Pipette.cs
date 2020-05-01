@@ -2,38 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// A pipette can draw liquid from a container and drop it on dropable things
 public class Pipette : MonoBehaviour {
-    public Liquid contents = null;
+    public GameObject contents = null;
+    public Transform entryPoint = null;
 
-    // Draw liquid from a container
-    // Fails if the container is empty of the pipette already contains liquid
-    public bool DrawLiquid(LiquidContainer container) {
-        if (contents != null) {
-            return false;
+    void Update() {
+        /*if (Input.GetKeyDown(KeyCode.Z)) {
+            DrawLiquid();
+        } else if (Input.GetKey(KeyCode.X)) {
+            DropLiquid();
         }
 
-        if (container.contents == null) {
-            return false;
-        }
-
-        contents = container.contents;
-        return true;
+        transform.Translate(Input.GetAxis("Horizontal") * 0.1f, 0, 0, Space.World);*/
     }
 
-    // Drops the contents onto something
-    // Fails if the pipette is empty
-    // If TakeLiquid returns true, it empties the pipette
-    public bool DropLiquid(Dropable dropable) {
-        if (contents == null) {
-            return false;
+    public void DrawLiquid() {
+        foreach (Collider collider in Physics.OverlapSphere(entryPoint.position, 0.1f)) {
+            LiquidContainer container;
+            if ((container = collider.GetComponent<LiquidContainer>()) != null) {
+                contents = container.contents;
+                return;
+            }
         }
+    }
 
-        if (dropable.TakeLiquid(contents)) {
-            contents = null;
-            return true;
+    public void DropLiquid() {
+        if (contents != null) {
+            GameObject liquid = Instantiate(contents);
+            liquid.transform.position = entryPoint.position;
+            liquid.SetActive(true);
         }
-
-        return false;
     }
 }
