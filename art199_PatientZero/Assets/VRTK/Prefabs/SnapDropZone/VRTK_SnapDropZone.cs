@@ -817,7 +817,7 @@ namespace VRTK
             if (applyScalingOnSnap)
             {
                 checkObject.StoreLocalScale();
-                newLocalScale = Vector3.Scale(checkObject.transform.localScale, transform.localScale);
+                newLocalScale = Vector3.Scale(checkObject.transform.localScale, (transform.localScale - new Vector3(1,-(1/5),1)));
             }
             return newLocalScale;
         }
@@ -999,6 +999,7 @@ namespace VRTK
             //If there is a given highlight prefab and no existing highlight object then create a new highlight object
             if (highlightObjectPrefab != null && highlightObject == null && transform.Find(ObjectPath(HIGHLIGHT_OBJECT_NAME)) == null)
             {
+                //highlightObjectPrefab.transform.localScale += new Vector3(10, 10, 10);
                 CopyObject(highlightObjectPrefab, ref highlightObject, HIGHLIGHT_OBJECT_NAME);
             }
 
