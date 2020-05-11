@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class ToolCenter : MonoBehaviour
 {
-    public GameObject surface;
-    public Transform spawnLoc;
-    public float speed;
+    public GameObject currSurface;
+    public GameObject surface1;
+    public GameObject surface2;
+    
     public Transform surfacePos;
-    public GameObject toSpawn;
-    Rigidbody rb;
+    public Transform spawnLoc;
+
     bool spawned = false;
     bool spawningAlready = false;
 
+    public float speed;
+
     public float delay;
+
+    Rigidbody rb;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = surface.GetComponent<Rigidbody>();
+        rb = currSurface.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -27,8 +32,8 @@ public class ToolCenter : MonoBehaviour
         if (spawned == true)
         {
             float step = speed * Time.deltaTime;
-            surface.transform.position = Vector3.MoveTowards(surface.transform.position, surfacePos.position, step);
-            if (surface.transform.position == surfacePos.position)
+            currSurface.transform.position = Vector3.MoveTowards(currSurface.transform.position, surfacePos.position, step);
+            if (currSurface.transform.position == surfacePos.position)
             {
                 spawned = false;
                 spawningAlready = false;
@@ -44,24 +49,35 @@ public class ToolCenter : MonoBehaviour
 
     }
 
-    public void dropSurface()
+    public void dropSurface1()
     {
         if (spawningAlready == false)
         {
             rb.isKinematic = false;
-            StartCoroutine(MyCoroutine());
+            StartCoroutine(MyCoroutine(surface1));
             spawningAlready = true;
         }
 
     }
 
-    IEnumerator MyCoroutine()
+    public void dropSurface2()
+    {
+        if (spawningAlready == false)
+        {
+            rb.isKinematic = false;
+            StartCoroutine(MyCoroutine(surface2));
+            spawningAlready = true;
+        }
+
+    }
+
+    IEnumerator MyCoroutine(GameObject toSpawn)
     {
 
         yield return new WaitForSeconds(delay);
 
-        surface = Instantiate(toSpawn, spawnLoc.transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
-        rb = surface.GetComponent<Rigidbody>();
+        currSurface = Instantiate(toSpawn, spawnLoc.transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+        rb = currSurface.GetComponent<Rigidbody>();
         spawned = true;
 
     }
