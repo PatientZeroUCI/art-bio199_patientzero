@@ -11,12 +11,20 @@ public class IGSTestSlide : MonoBehaviour {
     // i.e. for state DyeAdded, tells how much dye has been added so far
     public int progress = 0;
 
+    ProgressBar progressBar = null;
+
+    void Start() {
+        progressBar = GetComponentInChildren<ProgressBar>();
+        progressBar.Visible = false;
+    }
+
     void OnCollisionEnter(Collision collision) {
         switch (state) {
             case State.Start:
                 WaterDrop water;
                 if ((water = collision.gameObject.GetComponent<WaterDrop>()) != null) {
                     state = State.WaterAdded;
+                    Destroy(water.gameObject);
                 }
                 break;
             case State.WaterAdded:
@@ -28,18 +36,30 @@ public class IGSTestSlide : MonoBehaviour {
             case State.Heated:
                 IGSDye dye;
                 if ((dye = collision.gameObject.GetComponent<IGSDye>()) != null) {
-                    if (++progress >= 60) {
+                    if (++progress >= 50) {
                         state = State.DyeAdded;
                         progress = 0;
+                        progressBar.Value = 0;
+                        progressBar.Visible = false;
+                    } else {
+                        progressBar.Value = progress / 50f;
+                        progressBar.Visible = true;
                     }
+                    Destroy(dye.gameObject);
                 }
                 break;
             case State.DyeAdded:
                 if ((water = collision.gameObject.GetComponent<WaterDrop>()) != null) {
-                    if (++progress >= 60) {
+                    if (++progress >= 50) {
                         state = State.Washed;
                         progress = 0;
+                        progressBar.Value = 0;
+                        progressBar.Visible = false;
+                    } else {
+                        progressBar.Value = progress / 50f;
+                        progressBar.Visible = true;
                     }
+                    Destroy(water.gameObject);
                 }
                 break;
         }
