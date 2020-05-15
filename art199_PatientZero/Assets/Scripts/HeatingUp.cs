@@ -66,6 +66,6 @@ public class HeatingUp : MonoBehaviour
     //heat up method
     void HeatUp()
     {
-        currentHP -= 1f * Time.deltaTime;
+        currentHP -= 0.2f * Time.deltaTime;
     }
 }
