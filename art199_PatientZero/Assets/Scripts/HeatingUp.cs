@@ -9,19 +9,23 @@ public class HeatingUp : MonoBehaviour
     public bool isInFire;
     private Rigidbody rb;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        maxHP = 7;
+        maxHP = 5;
         currentHP = maxHP;
         isInFire = false;
         rb = GetComponent<Rigidbody>();
     }
 
+    void update()
+    {
+    }
     //If sample enters fire set isInFire to true
     void onTriggerEnter(Collider other)
     {
-        //Debug.Log("Sample entered the trigger");
+        print("Sample entered the trigger");
         if (other.gameObject.CompareTag("Fire Hitbox"))
         {
             isInFire = true;
@@ -31,11 +35,11 @@ public class HeatingUp : MonoBehaviour
     //take away HP until HP = 0 then change the color of the sample 
     void OnTriggerStay(Collider other)
     {
-        Debug.Log("Sample stayed in the trigger");
+        print("Sample stayed in the trigger");
 
         if (other.gameObject.CompareTag("Fire Hitbox"))
         {
-            while (currentHP > 0)
+            if (currentHP > 0)
             {
                 HeatUp();
             }
@@ -55,7 +59,7 @@ public class HeatingUp : MonoBehaviour
     //when out of the fire set isInFire
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("Sample exited the trigger");
+        print("Sample exited the trigger");
         if (other.gameObject.CompareTag("Fire Hitbox"))
         {
             isInFire = false;
@@ -66,6 +70,7 @@ public class HeatingUp : MonoBehaviour
     //heat up method
     void HeatUp()
     {
-        currentHP -= 1f * Time.deltaTime;
+        currentHP -= Time.deltaTime;
+
     }
 }
