@@ -32,8 +32,7 @@ public class Swab : VRTK_InteractableObject
     // Update is called once per frame
     override protected void Update()
     {
-        
-        
+  
         // float tipHeight = transform.Find("Tip").transform.localScale.y;
         Vector3 tip = transform.Find("Tip").transform.position;
         // tipHeight should be last parameter...
@@ -46,7 +45,7 @@ public class Swab : VRTK_InteractableObject
             }
 
             // VRTK_ControllerHaptics.TriggerHapticPulse(controller, 0.1f); // haptic feedback
-            Debug.Log(gameObject);
+            
             
             petriDish = swabTouching.collider.gameObject.GetComponent<PetriDish>();
             petriDish.setSwabSize(swabTipSize);

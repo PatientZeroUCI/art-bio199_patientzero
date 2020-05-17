@@ -22,12 +22,16 @@ public class PetriDish : MonoBehaviour
     private float posX, posY;
     private float lastX, lastY;
 
+    private GameObject glow;
+
     // Start is called before the first frame update
     void Start()
     {
         Renderer renderer = GetComponent<Renderer>();
         texture = new Texture2D(textureSize, textureSize);
         renderer.material.mainTexture = texture;
+
+        glow = gameObject.transform.Find("LightSource").gameObject;
     }
 
     // Update is called once per frame
@@ -38,11 +42,12 @@ public class PetriDish : MonoBehaviour
         int y = (int)(posY * textureSize - (swabSize / 2));
 
 
-        checkIfSwabComplete(0.75f); // half-covered seems decent
+        checkIfSwabComplete(0.5f); // half-covered seems decent
+       
         
         if (touchingLast && !swabComplete && currentSwabColor.Equals(petriColor)) // we want to check if the swab is "correct" (we'll use color to check) //add glow...
         {
-            Debug.Log(x + " " + y + " " + gameObject.name);
+            // Debug.Log(x + " " + y + " " + gameObject.name);
             texture.SetPixels(x, y, swabSize, swabSize, color);
 
             for (float t = 0.01f; t < 1.0f; t += 0.01f)
@@ -54,6 +59,13 @@ public class PetriDish : MonoBehaviour
             }
 
             
+        }
+        
+        
+        if (swabComplete)
+        {
+            glow.GetComponent<Light>().color = petriColor;
+            glow.SetActive(true);
         }
 
         lastX = (float)x;
@@ -73,24 +85,34 @@ public class PetriDish : MonoBehaviour
         // this updates the swabComplete bool above
         // by iterating through all the pixels and checking
         // if it is above a certain ratio
-        Color32[] pixels = texture.GetPixels32();
+        Color[] pixels = texture.GetPixels();
         
         for (int i = 0; i < pixels.Length; ++i)
         {
-            float colorRatio = pixelcount / pixels.Length;
+            float colorRatio = pixelcount / (float)pixels.Length;
             
             if (colorRatio > desiredRatio)
             {
                 swabComplete = true;
             }
-            
+
+            // Debug.Log(pixels[i].ToString() + "" + petriColor.ToString());
+
             if (pixels[i].Equals(petriColor))
             {
+                
                 pixelcount += 1.0f;
             }
+
+            
         }
+        Debug.Log(pixelcount / (float)pixels.Length);
+      
+
+
 
         pixelcount = 0.0f;
+        
     }
 
 
