@@ -9,13 +9,29 @@ public class IGSTestSlide : MonoBehaviour {
     
     // progress depending on the different state
     // i.e. for state DyeAdded, tells how much dye has been added so far
-    public int progress = 0;
+    public float progress = 0;
 
     ProgressBar progressBar = null;
 
     void Start() {
         progressBar = GetComponentInChildren<ProgressBar>();
         progressBar.Visible = false;
+    }
+
+    void Update() {
+        if (state == State.SampleLoaded) {
+            progress += Time.deltaTime;
+
+            if (progress >= 10f) {
+                state = State.SampleDried;
+                progress = 0;
+                progressBar.Value = 0;
+                progressBar.Visible = false;
+            } else {
+                progressBar.Value = progress / 10f;
+                progressBar.Visible = true;
+            }
+        }
     }
 
     void OnCollisionEnter(Collision collision) {
