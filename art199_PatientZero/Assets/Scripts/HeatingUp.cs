@@ -4,73 +4,70 @@ using UnityEngine;
 
 public class HeatingUp : MonoBehaviour
 {
-    private float maxHP;
-    public float currentHP;
-    public bool isInFire;
-    private Rigidbody rb;
+    //IGSsample gameobject
+    public GameObject IGSsample;
 
+    public GameObject IGSscooper;
+
+    //not sure if I need this just precation
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        maxHP = 5;
-        currentHP = maxHP;
-        isInFire = false;
         rb = GetComponent<Rigidbody>();
     }
 
-    void update()
+    //subtract 1 HP every second until HP = 0
+    //HP can't be below 0
+    //when HP = 0 then change the color of the sample/scooper 
+    void OnTriggerStay(Collider IGSsample)
     {
-    }
-    //If sample enters fire set isInFire to true
-    void onTriggerEnter(Collider other)
-    {
-        print("Sample entered the trigger");
-        if (other.gameObject.CompareTag("Fire Hitbox"))
+        if (IGSsample.gameObject.CompareTag("IGSsample"))
         {
-            isInFire = true;
+            if (IGSsample.GetComponent<IGSTestSlide>().progress < 5)
+            {
+                heatUpSample();
+            }
+
+            if (IGSsample.GetComponent<IGSTestSlide>().progress > 5)
+            {
+                IGSsample.GetComponent<IGSTestSlide>().progress = 5;
+            }
+
+            if (IGSsample.GetComponent<IGSTestSlide>().progress == 5)
+            {
+                IGSsample.GetComponent<Renderer>().material.color = Color.red;
+            }
+        }
+
+        if (IGSsample.gameObject.CompareTag("IGSscooper"))
+        {
+            if (IGSsample.GetComponent<IGSscooperHP>().scoopCurrentHP > 0)
+            {
+                heatUpScooper();
+            }
+
+            if (IGSsample.GetComponent<IGSscooperHP>().scoopCurrentHP < 0)
+            {
+                IGSsample.GetComponent<IGSscooperHP>().scoopCurrentHP = 0;
+            }
+
+            if (IGSsample.GetComponent<IGSscooperHP>().scoopCurrentHP == 0)
+            {
+                IGSsample.GetComponent<Renderer>().material.color = Color.red;
+            }
         }
     }
 
-    //take away HP until HP = 0 then change the color of the sample 
-    void OnTriggerStay(Collider other)
+    //heat up sample method
+    void heatUpSample()
     {
-        print("Sample stayed in the trigger");
-
-        if (other.gameObject.CompareTag("Fire Hitbox"))
-        {
-            if (currentHP > 0)
-            {
-                HeatUp();
-            }
-
-            if (currentHP < 0)
-            {
-                currentHP = 0;
-            }
-
-            if (currentHP == 0)
-            {
-                gameObject.GetComponent<Renderer>().material.color = Color.red;
-            }
-        }
+        //IGSsample.GetComponent<IGSTestSlide>().progress += Time.deltaTime;
     }
 
-    //when out of the fire set isInFire
-    void OnTriggerExit(Collider other)
+    void heatUpScooper()
     {
-        print("Sample exited the trigger");
-        if (other.gameObject.CompareTag("Fire Hitbox"))
-        {
-            isInFire = false;
-        }
-    }
-
-
-    //heat up method
-    void HeatUp()
-    {
-        currentHP -= Time.deltaTime;
-
+        IGSscooper.GetComponent<IGSscooperHP>().scoopCurrentHP -= Time.deltaTime;
     }
 }
