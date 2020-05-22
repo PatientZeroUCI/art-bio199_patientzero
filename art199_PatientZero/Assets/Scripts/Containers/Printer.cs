@@ -11,8 +11,8 @@ public class Printer : MonoBehaviour {
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Z)) {
-            int width = size.x;
-            int height = size.y;
+            int width = size.x < size.y ? 800 : 800 * size.x / size.y;
+            int height = size.x < size.y ? 800 * size.y / size.x : 800;
 
             Camera camera = Camera.main;
             RenderTexture tempRT = new RenderTexture(width, height, 24);
@@ -25,7 +25,7 @@ public class Printer : MonoBehaviour {
             RenderTexture.active = null;
             camera.targetTexture = null;
 
-            PrintImage(Sprite.Create(texture, new Rect(0, 0, width, height), Vector2.one * 0.5f));
+            PrintImage(Sprite.Create(texture, new Rect(0, 0, width, height), Vector2.one * 0.5f, 100));
         }
 
         if (Input.GetKeyDown(KeyCode.X)) {
