@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class IGSTestSlide : MonoBehaviour {
-    public enum State { Start, WaterAdded, SampleLoaded, SampleDried, Heated, DyeAdded, Washed }
+    public enum State { Start, WaterAdded, SampleLoaded, SampleDried, Heated, DyeAdded, Washed, Done }
 
     public State state = State.Start;
     
@@ -31,6 +31,18 @@ public class IGSTestSlide : MonoBehaviour {
                 progressBar.Value = progress / 10f;
                 progressBar.Visible = true;
             }
+        } else if (state == State.Washed) {
+            progress += Time.deltaTime;
+
+            if (progress >= 10f) {
+                state = State.Done;
+                progress = 0;
+                progressBar.Value = 0;
+                progressBar.Visible = false;
+            } else {
+                progressBar.Value = progress / 10f;
+                progressBar.Visible = true;
+            }
         }
     }
 
@@ -44,10 +56,18 @@ public class IGSTestSlide : MonoBehaviour {
                 }
                 break;
             case State.WaterAdded:
-                // add sample
-                break;
-            case State.SampleDried:
-                // heat up
+                IGSscooperHP scooper;
+                if ((scooper = collision.gameObject.GetComponent<IGSscooperHP>()) != null && scooper.scoopCurrentHP == 0) {
+                    if (++progress >= 5) {
+                        state = State.SampleLoaded;
+                        progress = 0;
+                        progressBar.Value = 0;
+                        progressBar.Visible = false;
+                    } else {
+                        progressBar.Value = progress / 5f;
+                        progressBar.Visible = true;
+                    }
+                }
                 break;
             case State.Heated:
                 IGSDye dye;
@@ -78,6 +98,22 @@ public class IGSTestSlide : MonoBehaviour {
                     Destroy(water.gameObject);
                 }
                 break;
+        }
+    }
+
+    void OnTriggerStay(Collider other) {
+        if (state == State.SampleDried && other.tag == "Fire") {
+            progress += Time.fixedDeltaTime;
+
+            if (progress >= 5) {
+                state = State.Heated;
+                progress = 0;
+                progressBar.Value = 0;
+                progressBar.Visible = false;
+            } else {
+                progressBar.Value = progress / 5f;
+                progressBar.Visible = true;
+            }
         }
     }
 }
