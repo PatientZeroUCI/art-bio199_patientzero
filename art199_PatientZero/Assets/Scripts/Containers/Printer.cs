@@ -7,30 +7,16 @@ public class Printer : MonoBehaviour {
     public Vector2Int size = new Vector2Int(100, 100);
     public float printSpeed = 2f;
 
-    public Sprite test;
+    //public Sprite test;
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            int width = size.x < size.y ? 800 : 800 * size.x / size.y;
-            int height = size.x < size.y ? 800 * size.y / size.x : 800;
-
-            Camera camera = Camera.main;
-            RenderTexture tempRT = new RenderTexture(width, height, 24);
-            camera.targetTexture = tempRT;
-            camera.Render();
-            RenderTexture.active = tempRT;
-            Texture2D texture = new Texture2D(width, height, TextureFormat.RGB24, false);
-            texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
-            texture.Apply();
-            RenderTexture.active = null;
-            camera.targetTexture = null;
-
-            PrintImage(Sprite.Create(texture, new Rect(0, 0, width, height), Vector2.one * 0.5f, 100));
+        /*if (Input.GetKeyDown(KeyCode.Z)) {
+            ScreenShot();
         }
 
         if (Input.GetKeyDown(KeyCode.X)) {
             PrintImage(test);
-        }
+        }*/
     }
 
     IEnumerator Print(Rigidbody rb, Vector3 dir, float dist) {
@@ -69,5 +55,23 @@ public class Printer : MonoBehaviour {
         srs[1].sprite = Sprite.Create(blank, new Rect(0, 0, width, height), Vector2.one * 0.5f);
 
         StartCoroutine(Print(ss.GetComponent<Rigidbody>(), transform.rotation * Vector3.down, height / 100f));
+    }
+
+    public void ScreenShot() {
+        int width = size.x < size.y ? 800 : 800 * size.x / size.y;
+        int height = size.x < size.y ? 800 * size.y / size.x : 800;
+
+        Camera camera = Camera.main;
+        RenderTexture tempRT = new RenderTexture(width, height, 24);
+        camera.targetTexture = tempRT;
+        camera.Render();
+        RenderTexture.active = tempRT;
+        Texture2D texture = new Texture2D(width, height, TextureFormat.RGB24, false);
+        texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+        texture.Apply();
+        RenderTexture.active = null;
+        camera.targetTexture = null;
+
+        PrintImage(Sprite.Create(texture, new Rect(0, 0, width, height), Vector2.one * 0.5f, 100));
     }
 }
