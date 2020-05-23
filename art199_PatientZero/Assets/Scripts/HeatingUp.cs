@@ -41,21 +41,21 @@ public class HeatingUp : MonoBehaviour
             }
         }
 
-        if (IGSsample.gameObject.CompareTag("IGSscooper"))
+        if (IGSscooper.gameObject.CompareTag("IGSscooper"))
         {
-            if (IGSsample.GetComponent<IGSscooperHP>().scoopCurrentHP > 0)
+            if (IGSscooper.GetComponent<IGSTestSlide>().progress < 5)
             {
                 heatUpScooper();
             }
 
-            if (IGSsample.GetComponent<IGSscooperHP>().scoopCurrentHP < 0)
+            if (IGSscooper.GetComponent<IGSTestSlide>().progress > 5)
             {
-                IGSsample.GetComponent<IGSscooperHP>().scoopCurrentHP = 0;
+                IGSscooper.GetComponent<IGSTestSlide>().progress = 5;
             }
 
-            if (IGSsample.GetComponent<IGSscooperHP>().scoopCurrentHP == 0)
+            if (IGSscooper.GetComponent<IGSTestSlide>().progress == 5)
             {
-                IGSsample.GetComponent<Renderer>().material.color = Color.red;
+                IGSscooper.GetComponent<Renderer>().material.color = Color.red;
             }
         }
     }
@@ -63,11 +63,11 @@ public class HeatingUp : MonoBehaviour
     //heat up sample method
     void heatUpSample()
     {
-        //IGSsample.GetComponent<IGSTestSlide>().progress += Time.deltaTime;
+        IGSsample.GetComponent<IGSTestSlide>().progress += Time.deltaTime;
     }
 
     void heatUpScooper()
     {
-        IGSscooper.GetComponent<IGSscooperHP>().scoopCurrentHP -= Time.deltaTime;
+        IGSscooper.GetComponent<IGSTestSlide>().progress += Time.deltaTime;
     }
 }
