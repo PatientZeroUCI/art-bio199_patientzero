@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class ChangeStrandBase : MonoBehaviour
 {
+    private MeshRenderer baseRenderer; // renderer component attached to DNA/RNA base 
+    private Material originalMaterial; // original material
+
     [SerializeField]
     private Material selected;
 
-    [SerializeField]
-    private Material deselected;
-
-    
-    private void OnMouseOver()
+    private void Start()
     {
-        MeshRenderer renderer = gameObject.GetComponent<MeshRenderer>();
-        renderer.material = selected; 
+        baseRenderer = gameObject.GetComponent<MeshRenderer>();
+        originalMaterial = baseRenderer.material;
+    }
+
+
+    private void OnMouseOver()
+    { 
+        baseRenderer.material = selected; 
     }
 
     private void OnMouseExit()
     {
-        MeshRenderer renderer = gameObject.GetComponent<MeshRenderer>();
-        renderer.material = deselected;
+        baseRenderer.material = originalMaterial;
     }
-
 
     private void OnMouseDown()
     {
