@@ -11,6 +11,9 @@ public class IGSTestSlide : MonoBehaviour {
     // i.e. for state DyeAdded, tells how much dye has been added so far
     public float progress = 0;
 
+    // whether the sample is gram positive or not
+    public bool positive = false;
+
     ProgressBar progressBar = null;
 
     void Start() {
@@ -56,17 +59,10 @@ public class IGSTestSlide : MonoBehaviour {
                 }
                 break;
             case State.WaterAdded:
-                IGSscooperHP scooper;
-                if ((scooper = collision.gameObject.GetComponent<IGSscooperHP>()) != null && scooper.scoopCurrentHP == 0) {
-                    if (++progress >= 5) {
-                        state = State.SampleLoaded;
-                        progress = 0;
-                        progressBar.Value = 0;
-                        progressBar.Visible = false;
-                    } else {
-                        progressBar.Value = progress / 5f;
-                        progressBar.Visible = true;
-                    }
+                IGSscooperHP scooper = collision.gameObject.GetComponent<IGSscooperHP>();
+                if (scooper != null && scooper.scoopCurrentHP == 0) {
+                    state = State.SampleLoaded;
+                    positive = scooper.positive;
                 }
                 break;
             case State.Heated:
