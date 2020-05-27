@@ -15,6 +15,13 @@ using VRTK;
  * Now have multiple snap zones, which add to dictionary
  * 
  * Items around fall off when center removed
+ * 
+ * 
+ * 
+ * Need a way to control multiple snapzone sections at once
+ *      Was considering the use of parent.getsnapepdobject but doesnt work
+ *      Can easily do this by making multiple scripts of the same thing, but wouldn't that be bad practice?
+ *      Considered making a class of all the below information/code, but would still need access to exactly which snapzone was used
  */
 
 
@@ -22,13 +29,14 @@ using VRTK;
 
 public class LogicBoardController : MonoBehaviour
 {
-
+    
     Dictionary<GameObject, List<GameObject>> objects = new Dictionary<GameObject, List<GameObject>>();
     VRTK_SnapDropZone snapScript;
 
     // These will need to be changed to have multiple snap zones
     GameObject obj;
     GameObject line;
+
 
 
     public GameObject LinePrefab;
