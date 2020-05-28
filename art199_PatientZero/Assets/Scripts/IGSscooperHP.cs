@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class IGSscooperHP : MonoBehaviour
 {
+    // Is the sample loaded?
+    public bool sampleLoaded = false;
+    // Is the sample gram positive?
+    public bool positive = false;
+
+
     private float scoopMaxHP;
 
     public float scoopCurrentHP;
@@ -18,4 +24,11 @@ public class IGSscooperHP : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision collision) {
+        PetriDish petriDish = collision.gameObject.GetComponent<PetriDish>();
+        if (petriDish != null && petriDish.swabComplete && scoopCurrentHP == 0) {
+            sampleLoaded = true;
+            positive = true; // placeholder
+        }
+    }
 }
