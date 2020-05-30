@@ -5071,13 +5071,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pathogen: {fileID: 234354739}
-  P1: {fileID: 0}
-  P2: {fileID: 0}
-  P3: {fileID: 0}
-  P4: {fileID: 0}
-  VCneutral: 0
-  VCeliminated: 0
-  VCfinalChoice: 0
+  VCbutton: {fileID: 1025183995}
+  Cbutton: {fileID: 21346966}
+  ECbutton: {fileID: 2026192660}
+  BCbutton: {fileID: 1618471813}
+  negative_connection: {fileID: 2100000, guid: 421c14b106432c245ade0db22551eafd, type: 2}
+  positive_connection: {fileID: 2100000, guid: a0318e881fe942d43a21ac3dd2ffb33f, type: 2}
+  nutrual_color: {fileID: 2100000, guid: 44568bc1a5819e941aa529ba56fed58e, type: 2}
 --- !u!102 &234354739
 TextMesh:
   serializedVersion: 3
@@ -5086,7 +5086,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234354736}
-  m_Text: Canpylobadter
+  m_Text: Campylobacter
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -5229,11 +5229,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2b81b4328ab985a499557f45140230ad, type: 2}
+      objectReference: {fileID: 2100000, guid: 44568bc1a5819e941aa529ba56fed58e, type: 2}
     - target: {fileID: 7917080644138681953, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: minMaxLimitThreshold
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644138681954, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_Name
+      value: PhysicsPusher3
       objectReference: {fileID: 0}
     - target: {fileID: 7917080644138681955, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
@@ -5300,6 +5305,33 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8d530ffe6c4968843806085897955b9d, type: 2}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_Text
+      value: 'E.
+
+        Coli'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 144.1206
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 7917080645270019179, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5353,13 +5385,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pathogen: {fileID: 303953335}
-  P1: {fileID: 0}
-  P2: {fileID: 0}
-  P3: {fileID: 0}
-  P4: {fileID: 0}
-  VCneutral: 0
-  VCeliminated: 0
-  VCfinalChoice: 0
+  VCbutton: {fileID: 1025183995}
+  Cbutton: {fileID: 21346966}
+  ECbutton: {fileID: 2026192660}
+  BCbutton: {fileID: 1618471813}
+  negative_connection: {fileID: 2100000, guid: 421c14b106432c245ade0db22551eafd, type: 2}
+  positive_connection: {fileID: 2100000, guid: a0318e881fe942d43a21ac3dd2ffb33f, type: 2}
+  nutrual_color: {fileID: 2100000, guid: 44568bc1a5819e941aa529ba56fed58e, type: 2}
 --- !u!102 &303953335
 TextMesh:
   serializedVersion: 3
@@ -6231,8 +6263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee17bc2ff0dbc954f9760cd98a17879b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IGSsample: {fileID: 594954340}
-  IGSscooper: {fileID: 1554582471}
 --- !u!1 &752889391
 GameObject:
   m_ObjectHideFlags: 0
@@ -6609,13 +6639,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pathogen: {fileID: 854718232}
-  P1: {fileID: 0}
-  P2: {fileID: 0}
-  P3: {fileID: 0}
-  P4: {fileID: 0}
-  VCneutral: 0
-  VCeliminated: 0
-  VCfinalChoice: 0
+  VCbutton: {fileID: 1025183995}
+  Cbutton: {fileID: 21346966}
+  ECbutton: {fileID: 2026192660}
+  BCbutton: {fileID: 1618471813}
+  negative_connection: {fileID: 2100000, guid: 421c14b106432c245ade0db22551eafd, type: 2}
+  positive_connection: {fileID: 2100000, guid: a0318e881fe942d43a21ac3dd2ffb33f, type: 2}
+  nutrual_color: {fileID: 2100000, guid: 44568bc1a5819e941aa529ba56fed58e, type: 2}
 --- !u!102 &854718232
 TextMesh:
   serializedVersion: 3
@@ -7083,11 +7113,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2b81b4328ab985a499557f45140230ad, type: 2}
+      objectReference: {fileID: 2100000, guid: 44568bc1a5819e941aa529ba56fed58e, type: 2}
     - target: {fileID: 7917080644138681953, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: minMaxLimitThreshold
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644138681954, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_Name
+      value: PhysicsPusher1
       objectReference: {fileID: 0}
     - target: {fileID: 7917080644138681955, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
@@ -7154,6 +7189,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8d530ffe6c4968843806085897955b9d, type: 2}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_Text
+      value: Vibrio cholerae
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 144.1206
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7917080645270019179, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7252,11 +7317,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2b81b4328ab985a499557f45140230ad, type: 2}
+      objectReference: {fileID: 2100000, guid: 44568bc1a5819e941aa529ba56fed58e, type: 2}
     - target: {fileID: 7917080644138681953, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: minMaxLimitThreshold
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644138681954, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_Name
+      value: PhysicsPusher4
       objectReference: {fileID: 0}
     - target: {fileID: 7917080644138681955, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
@@ -7323,6 +7393,33 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8d530ffe6c4968843806085897955b9d, type: 2}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_Text
+      value: 'B.
+
+        Cerus'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 144.1206
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7917080645270019179, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7835,7 +7932,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358621848}
-  m_Text: Vibrio cholera
+  m_Text: Vibrio cholerae
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -7900,13 +7997,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pathogen: {fileID: 1358621850}
-  P1: {fileID: 0}
-  P2: {fileID: 0}
-  P3: {fileID: 0}
-  P4: {fileID: 0}
-  VCneutral: 0
-  VCeliminated: 0
-  VCfinalChoice: 0
+  VCbutton: {fileID: 1025183995}
+  Cbutton: {fileID: 21346966}
+  ECbutton: {fileID: 2026192660}
+  BCbutton: {fileID: 1618471813}
+  negative_connection: {fileID: 2100000, guid: 421c14b106432c245ade0db22551eafd, type: 2}
+  positive_connection: {fileID: 2100000, guid: a0318e881fe942d43a21ac3dd2ffb33f, type: 2}
+  nutrual_color: {fileID: 2100000, guid: 44568bc1a5819e941aa529ba56fed58e, type: 2}
 --- !u!1 &1370109098
 GameObject:
   m_ObjectHideFlags: 0
@@ -8673,11 +8770,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2b81b4328ab985a499557f45140230ad, type: 2}
+      objectReference: {fileID: 2100000, guid: 44568bc1a5819e941aa529ba56fed58e, type: 2}
     - target: {fileID: 7917080644138681953, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: minMaxLimitThreshold
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644138681954, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_Name
+      value: PhysicsPusher2
       objectReference: {fileID: 0}
     - target: {fileID: 7917080644138681955, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
@@ -8744,6 +8846,71 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8d530ffe6c4968843806085897955b9d, type: 2}
+    - target: {fileID: 7917080644453897398, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897398, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897398, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897398, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897398, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_Text
+      value: Campylobacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644453897399, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 144.1206
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917080644481757725, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 7917080645270019179, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8769,6 +8936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0fa8130495a9d4298a4c8a14dd3164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sampleLoaded: 0
+  positive: 0
   scoopCurrentHP: 0
 --- !u!1001 &1593667355
 PrefabInstance:

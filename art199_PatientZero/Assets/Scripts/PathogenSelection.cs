@@ -5,13 +5,20 @@ using UnityEngine;
 public class PathogenSelection : MonoBehaviour
 {
     public TextMesh Pathogen;
-    public GameObject P1;
-    public GameObject P2;
-    public GameObject P3;
-    public GameObject P4;
-    public bool VCneutral;
-    public bool VCeliminated;
-    public bool VCfinalChoice;
+    private GameObject P1;
+    private GameObject P2;
+    private GameObject P3;
+    private GameObject P4;
+    public GameObject VCbutton;
+    public GameObject Cbutton;
+    public GameObject ECbutton;
+    public GameObject BCbutton;
+    public Material negative_connection;
+    public Material positive_connection;
+    public Material nutrual_color;
+    private bool VCneutral;
+    private bool VCeliminated;
+    private bool VCfinalChoice;
     private bool Cneutral;
     private bool Celiminated;
     private bool CfinalChoice;
@@ -32,7 +39,7 @@ public class PathogenSelection : MonoBehaviour
         P2 = GameObject.Find("Pathogen 2 Text");
         Cneutral = true;
         Celiminated = false;
-        CfinalChoice = true;
+        CfinalChoice = false;
         P3 = GameObject.Find("Pathogen 3 Text");
         ECneutral = true;
         ECeliminated = false;
@@ -59,23 +66,35 @@ public class PathogenSelection : MonoBehaviour
                 VCneutral = false;
                 VCeliminated = true;
                 VCfinalChoice = false;
-                Pathogen.color = red;
+                if (VCeliminated == true)
+                {
+                    Pathogen.color = red;
+                    VCbutton.GetComponent<Renderer>().material = negative_connection;
+                }
             }
-            else if (VCeliminated == true)
+            else if (VCeliminated == true && P2.GetComponent<PathogenSelection>().CfinalChoice == false && P3.GetComponent<PathogenSelection>().ECfinalChoice == false && P4.GetComponent<PathogenSelection>().BCfinalChoice == false)
             {
                 print("Switching to final choice p1");
                 VCneutral = false;
                 VCeliminated = false;
                 VCfinalChoice = true;
-                Pathogen.color = green;
+                if (VCfinalChoice == true)
+                {
+                    Pathogen.color = green;
+                    VCbutton.GetComponent<Renderer>().material = positive_connection;
+                }
             }
-            else if (VCfinalChoice == true)
+            else if (VCfinalChoice == true || (VCeliminated == true && (P2.GetComponent<PathogenSelection>().CfinalChoice == true || P3.GetComponent<PathogenSelection>().ECfinalChoice == true || P4.GetComponent<PathogenSelection>().BCfinalChoice == true)))
             {
                 print("Switching to nutral p1");
                 VCneutral = true;
                 VCeliminated = false;
                 VCfinalChoice = false;
-                Pathogen.color = grey;
+                if (VCneutral == true)
+                {
+                    Pathogen.color = grey;
+                    VCbutton.GetComponent<Renderer>().material = nutrual_color;
+                }
             }
 
         }
@@ -88,21 +107,33 @@ public class PathogenSelection : MonoBehaviour
                 Cneutral = false;
                 Celiminated = true;
                 CfinalChoice = false;
-                Pathogen.color = red;
+                if (Celiminated == true)
+                {
+                    Pathogen.color = red;
+                    Cbutton.GetComponent<Renderer>().material = negative_connection;
+                }
             }
-            else if (Celiminated == true)
+            else if (Celiminated == true && P1.GetComponent<PathogenSelection>().VCfinalChoice == false && P3.GetComponent<PathogenSelection>().ECfinalChoice == false && P4.GetComponent<PathogenSelection>().BCfinalChoice == false)
             {
                 Cneutral = false;
                 Celiminated = false;
                 CfinalChoice = true;
-                Pathogen.color = green;
+                if (CfinalChoice == true)
+                {
+                    Pathogen.color = green;
+                    Cbutton.GetComponent<Renderer>().material = positive_connection;
+                }
             }
-            else if (CfinalChoice == true)
+            else if (CfinalChoice == true || (Celiminated == true && (P1.GetComponent<PathogenSelection>().VCfinalChoice == true || P3.GetComponent<PathogenSelection>().ECfinalChoice == true || P4.GetComponent<PathogenSelection>().BCfinalChoice == true)))
             {
                 Cneutral = true;
                 Celiminated = false;
                 CfinalChoice = false;
-                Pathogen.color = grey;
+                if (Cneutral == true)
+                {
+                    Pathogen.color = grey;
+                    Cbutton.GetComponent<Renderer>().material = nutrual_color;
+                }
             }
         }
 
@@ -114,21 +145,33 @@ public class PathogenSelection : MonoBehaviour
                 ECneutral = false;
                 ECeliminated = true;
                 ECfinalChoice = false;
-                Pathogen.color = red;
+                if (ECeliminated == true)
+                {
+                    Pathogen.color = red;
+                    ECbutton.GetComponent<Renderer>().material = negative_connection;
+                }
             }
-            else if (ECeliminated == true)
+            else if (ECeliminated == true && P1.GetComponent<PathogenSelection>().VCfinalChoice == false && P2.GetComponent<PathogenSelection>().CfinalChoice == false && P4.GetComponent<PathogenSelection>().BCfinalChoice == false)
             {
                 ECneutral = false;
                 ECeliminated = false;
                 ECfinalChoice = true;
-                Pathogen.color = green;
+                if (ECfinalChoice == true)
+                {
+                    Pathogen.color = green;
+                    ECbutton.GetComponent<Renderer>().material = positive_connection;
+                }
             }
-            else if (ECfinalChoice == true)
+            else if (ECfinalChoice == true || (ECeliminated == true && (P1.GetComponent<PathogenSelection>().VCfinalChoice == true || P2.GetComponent<PathogenSelection>().CfinalChoice == true || P4.GetComponent<PathogenSelection>().BCfinalChoice == true)))
             {
                 ECneutral = true;
                 ECeliminated = false;
                 ECfinalChoice = false;
-                Pathogen.color = grey;
+                if (ECneutral == true)
+                {
+                    Pathogen.color = grey;
+                    ECbutton.GetComponent<Renderer>().material = nutrual_color;
+                }
             }
         }
 
@@ -140,21 +183,33 @@ public class PathogenSelection : MonoBehaviour
                 BCneutral = false;
                 BCeliminated = true;
                 BCfinalChoice = false;
-                Pathogen.color = red;
+                if (BCeliminated == true)
+                {
+                    Pathogen.color = red;
+                    BCbutton.GetComponent<Renderer>().material = negative_connection;
+                }
             }
-            else if (BCeliminated == true)
+            else if (BCeliminated == true && P1.GetComponent<PathogenSelection>().VCfinalChoice == false && P2.GetComponent<PathogenSelection>().CfinalChoice == false && P3.GetComponent<PathogenSelection>().ECfinalChoice == false)
             {
                 BCneutral = false;
                 BCeliminated = false;
                 BCfinalChoice = true;
-                Pathogen.color = green;
+                if (BCfinalChoice == true)
+                {
+                    Pathogen.color = green;
+                    BCbutton.GetComponent<Renderer>().material = positive_connection;
+                }
             }
-            else if (BCfinalChoice == true)
+            else if (BCfinalChoice == true || (BCeliminated == true && (P1.GetComponent<PathogenSelection>().VCfinalChoice == true || P2.GetComponent<PathogenSelection>().CfinalChoice == true || P3.GetComponent<PathogenSelection>().ECfinalChoice == true)))
             {
                 BCneutral = true;
                 BCeliminated = false;
                 BCfinalChoice = false;
-                Pathogen.color = grey;
+                if (BCneutral == true)
+                {
+                    Pathogen.color = grey;
+                    BCbutton.GetComponent<Renderer>().material = nutrual_color;
+                }
             }
         }
     }
