@@ -11,8 +11,7 @@ public class SpawnDNA : MonoBehaviour
     [SerializeField]
     private GameObject rightSegmentPrefab;
 
-    [SerializeField]
-    private float offsetScalar;
+    private float offsetScalar = 0.2f;
 
     public System.String startingStrands;
 
