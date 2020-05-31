@@ -16,9 +16,19 @@ public class IGSTestSlide : MonoBehaviour {
 
     ProgressBar progressBar = null;
 
+    GameObject sample;
+
     void Start() {
         progressBar = GetComponentInChildren<ProgressBar>();
         progressBar.Visible = false;
+
+        foreach (Transform child in transform) {
+            if (child.CompareTag("IGSsample")) {
+                sample = child.gameObject;
+                break;
+            }
+        }
+        sample.SetActive(false);
     }
 
     void Update() {
@@ -52,36 +62,36 @@ public class IGSTestSlide : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
         switch (state) {
             case State.Start:
-                WaterDrop water;
-                if ((water = collision.gameObject.GetComponent<WaterDrop>()) != null) {
+                if (collision.gameObject.tag == "Water") {
                     state = State.WaterAdded;
-                    Destroy(water.gameObject);
+                    Destroy(collision.gameObject);
                 }
                 break;
             case State.WaterAdded:
                 IGSscooperHP scooper = collision.gameObject.GetComponent<IGSscooperHP>();
                 if (scooper != null && scooper.scoopCurrentHP == 0) {
+                    sample.SetActive(true);
                     state = State.SampleLoaded;
                     positive = scooper.positive;
                 }
                 break;
             case State.Heated:
-                IGSDye dye;
-                if ((dye = collision.gameObject.GetComponent<IGSDye>()) != null) {
+                if (collision.gameObject.tag == "IGS Dye") {
                     if (++progress >= 50) {
                         state = State.DyeAdded;
                         progress = 0;
                         progressBar.Value = 0;
                         progressBar.Visible = false;
+                        sample.GetComponent<Renderer>().material = collision.gameObject.GetComponent<Renderer>().material;
                     } else {
                         progressBar.Value = progress / 50f;
                         progressBar.Visible = true;
                     }
-                    Destroy(dye.gameObject);
+                    Destroy(collision.gameObject);
                 }
                 break;
             case State.DyeAdded:
-                if ((water = collision.gameObject.GetComponent<WaterDrop>()) != null) {
+                if (collision.gameObject.tag == "Water") {
                     if (++progress >= 50) {
                         state = State.Washed;
                         progress = 0;
@@ -91,7 +101,7 @@ public class IGSTestSlide : MonoBehaviour {
                         progressBar.Value = progress / 50f;
                         progressBar.Visible = true;
                     }
-                    Destroy(water.gameObject);
+                    Destroy(collision.gameObject);
                 }
                 break;
         }
