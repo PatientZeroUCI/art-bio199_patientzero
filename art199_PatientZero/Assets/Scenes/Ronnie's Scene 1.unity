@@ -1992,7 +1992,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 589989950}
-        m_MethodName: SnappedToCenter
+        m_MethodName: snappedToAnyCenter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2006,7 +2006,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 589989950}
-        m_MethodName: RemovedFromCenter
+        m_MethodName: removedFromAnyCenter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2576,8 +2576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f3afbd69e9d6746832a8c74f0aa54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LinePrefab: {fileID: 8444610050296149515, guid: 4600421903467bc47a8a70d4bb6647cc,
-    type: 3}
+  numberofSnapZones: 2
 --- !u!1 &607031347
 GameObject:
   m_ObjectHideFlags: 0
@@ -5148,7 +5147,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 589989950}
-        m_MethodName: SnappedToCenter
+        m_MethodName: snappedToAnyCenter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5162,7 +5161,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 589989950}
-        m_MethodName: RemovedFromCenter
+        m_MethodName: removedFromAnyCenter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

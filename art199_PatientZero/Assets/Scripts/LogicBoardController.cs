@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+using System.Diagnostics;
 
 
 /* NOTES
@@ -28,53 +29,43 @@ using VRTK;
  */
 
 
-
-
-public class LogicBoardController : MonoBehaviour
+class LBSnapZone
 {
-    
     Dictionary<GameObject, List<GameObject>> objects = new Dictionary<GameObject, List<GameObject>>();
-    VRTK_SnapDropZone snapScript;
 
-    // These will need to be changed to have multiple snap zones
-    GameObject obj;
-    GameObject line;
+    public GameObject obj;
+    public GameObject line;
 
 
 
     public GameObject LinePrefab;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        VRTK_SnapDropZone snapScript = this.gameObject.GetComponent<VRTK_SnapDropZone>();
-
-    }
-
-
 
     public void SnappedToCenter(object o, SnapDropZoneEventArgs e)
     {
         obj = e.snappedObject;
         List<GameObject> newList = new List<GameObject>();
         objects.Add(e.snappedObject, newList);
-
+        printdictionary();
     }
 
     public void RemovedFromCenter(object o, SnapDropZoneEventArgs e)
     {
         objects.Remove(e.snappedObject);
-        if (line != null)
-        {
-            Destroy(line);
-        }
+        //if (line != null)
+        //{
+        //    Destroy(line);
+        //}
+        printdictionary();
     }
-
-    public void AddToArea(object o, SnapDropZoneEventArgs e)
+    /*
+    public void AddedToArea(object o, SnapDropZoneEventArgs e)
     {
-        if (objects.ContainsKey(obj)){
+        if (objects.ContainsKey(obj))
+        {
             objects[obj].Add(e.snappedObject);
-            
+
             line = Instantiate(LinePrefab, obj.transform.position, Quaternion.identity);
             LineRenderer lr = line.GetComponent<LineRenderer>();
             Vector3[] points = { obj.transform.position, e.snappedObject.transform.position };
@@ -86,16 +77,17 @@ public class LogicBoardController : MonoBehaviour
 
     }
 
-    public void RemoveFromArea(object o, SnapDropZoneEventArgs e)
+    public void RemovedFromArea(object o, SnapDropZoneEventArgs e)
     {
-        if (objects.ContainsKey(obj)){
+        if (objects.ContainsKey(obj))
+        {
             objects[obj].Remove(e.snappedObject);
             printdictionary();
             Destroy(line);
         }
 
     }
-
+    */
     private void printdictionary()
     {
         string vals = "";
@@ -104,8 +96,95 @@ public class LogicBoardController : MonoBehaviour
             vals += ob.name;
             vals += " ";
         }
-        Debug.Log("Center: " + obj.name);
-        Debug.Log("Area: " + vals);
-        
+        UnityEngine.Debug.Log("Center: " + obj.name);
+        UnityEngine.Debug.Log("Area: " + vals);
+
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+public class LogicBoardController : MonoBehaviour
+{
+    List<LBSnapZone> lbSnapZones;
+
+    public int numberofSnapZones = 2;
+
+
+
+    void Start()
+    {
+        lbSnapZones = new List<LBSnapZone>();
+        for (int i = 0; i < numberofSnapZones; i++)
+            lbSnapZones.Add(new LBSnapZone() { obj = null, line = null });
+    }
+    
+    public void snappedToAnyCenter(object o, SnapDropZoneEventArgs e)
+    {
+        string callingFuncName = new StackFrame(2).GetMethod().Name;
+        UnityEngine.Debug.Log(callingFuncName);
+        LBSnapZone toChange = lbSnapZones[0];
+        int snapNumber = 1;
+        for (int i = 0; i < numberofSnapZones; i++)
+        {
+            if (lbSnapZones[i].obj == null)
+            {
+                toChange = lbSnapZones[i];
+                snapNumber = i+1;
+                break;
+            }
+        }
+
+        e.snappedObject.tag = "Snap" + snapNumber.ToString();
+        toChange.SnappedToCenter(o, e);
+
+    }
+
+    void removedFromAnyCenter(object o, SnapDropZoneEventArgs e)
+    {
+
+        LBSnapZone toChange = lbSnapZones[0];
+        int snapNumber = 1;
+        for (int i = 0; i < numberofSnapZones; i++)
+        {
+            if (lbSnapZones[i].obj.tag == e.snappedObject.tag)
+            {
+                toChange = lbSnapZones[i];
+                snapNumber = i+1;
+                break;
+            }
+        }
+
+        // TO CHANGE TO WHATEVER POLICY LIST IS
+        e.snappedObject.tag = "Tool";
+        toChange.RemovedFromCenter(o, e);
+    }
+    /*
+    void addedToAnyArea(object o, SnapDropZoneEventArgs e)
+    {
+
+        LBSnapZone toChange = lbSnapZones[0];
+        int snapNumber = 1;
+        for (int i = 0; i < numberofSnapZones; i++)
+        {
+            if (lbSnapZones[i].obj == null)
+            {
+                toChange = lbSnapZones[i];
+                snapNumber = i+1;
+                break;
+            }
+        }
+
+        e.snappedObject.tag = "Snap" + snapNumber.ToString();
+        toChange.addedToArea(o, e);
+    }
+    */
 }
