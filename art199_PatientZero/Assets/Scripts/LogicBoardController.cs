@@ -26,6 +26,11 @@ using System.Diagnostics;
  *      
  *      
  *      MAKE THIS A CLASS, HAVE OUTSIDE SCRIPT WITH ADD/REMOVE FUNCTIONS FOR EVERY AREA
+ *      
+ *      
+ *      
+ *      
+ * Try public gameobject to differentiate different snapzones, using the same script
  */
 
 
@@ -114,11 +119,12 @@ class LBSnapZone
 
 public class LogicBoardController : MonoBehaviour
 {
+    public GameObject centerSnap;
+
+
     List<LBSnapZone> lbSnapZones;
 
     public int numberofSnapZones = 2;
-
-
 
     void Start()
     {
@@ -131,6 +137,8 @@ public class LogicBoardController : MonoBehaviour
     {
         string callingFuncName = new StackFrame(2).GetMethod().Name;
         UnityEngine.Debug.Log(callingFuncName);
+
+
         LBSnapZone toChange = lbSnapZones[0];
         int snapNumber = 1;
         for (int i = 0; i < numberofSnapZones; i++)
@@ -170,7 +178,7 @@ public class LogicBoardController : MonoBehaviour
     /*
     void addedToAnyArea(object o, SnapDropZoneEventArgs e)
     {
-
+        
         LBSnapZone toChange = lbSnapZones[0];
         int snapNumber = 1;
         for (int i = 0; i < numberofSnapZones; i++)
