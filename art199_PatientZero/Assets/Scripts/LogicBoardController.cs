@@ -33,166 +33,109 @@ using System.Diagnostics;
  * Try public gameobject to differentiate different snapzones, using the same script
  */
 
-
-class LBSnapZone
+public class LogicBoardController : MonoBehaviour
 {
-    Dictionary<GameObject, List<GameObject>> objects = new Dictionary<GameObject, List<GameObject>>();
 
-    public GameObject obj;
-    public GameObject line;
-
-
-
+    public GameObject centerSnapped;
     public GameObject LinePrefab;
+    public int areaAmount = 2;
 
-    // Start is called before the first frame update
+    List<List<GameObject>> areaObjects = new List<List<GameObject>>();
+
+
+    void Start()
+    {
+        for(int i = 0; i < areaAmount; i++)
+        {
+            List<GameObject> object_and_line = new List<GameObject>();
+            areaObjects.Add(object_and_line);
+        }
+    }
+
 
     public void SnappedToCenter(object o, SnapDropZoneEventArgs e)
     {
-        obj = e.snappedObject;
-        List<GameObject> newList = new List<GameObject>();
-        objects.Add(e.snappedObject, newList);
-        printdictionary();
+        centerSnapped = e.snappedObject;
+        printObjects();
     }
 
     public void RemovedFromCenter(object o, SnapDropZoneEventArgs e)
     {
-        objects.Remove(e.snappedObject);
-        //if (line != null)
-        //{
-        //    Destroy(line);
-        //}
-        printdictionary();
+        centerSnapped = null;
+        foreach (List<GameObject> areaZone in areaObjects)
+        {
+            if (areaZone.Count != 0)
+            {
+                Destroy(areaZone[1]);
+                areaZone.Clear();
+            }
+
+        }
+        printObjects();
     }
-    /*
+    
     public void AddedToArea(object o, SnapDropZoneEventArgs e)
     {
-        if (objects.ContainsKey(obj))
+        foreach (List<GameObject> areaZone in areaObjects)
         {
-            objects[obj].Add(e.snappedObject);
+            if (areaZone.Count == 0)
+            {
+                areaZone.Add(e.snappedObject);
 
-            line = Instantiate(LinePrefab, obj.transform.position, Quaternion.identity);
-            LineRenderer lr = line.GetComponent<LineRenderer>();
-            Vector3[] points = { obj.transform.position, e.snappedObject.transform.position };
-            lr.SetPositions(points);
-            Vector3 v = new Vector3(0f, 0f, 0.15f);
-            line.transform.position = v;
-            printdictionary();
+                GameObject line = Instantiate(LinePrefab, centerSnapped.transform.position, Quaternion.identity);
+                LineRenderer lr = line.GetComponent<LineRenderer>();
+                Vector3[] points = { centerSnapped.transform.position, e.snappedObject.transform.position };
+                lr.SetPositions(points);
+                Vector3 v = new Vector3(0f, 0f, 0.15f);
+                line.transform.position = v;
+
+                areaZone.Add(line);
+
+                break;
+            }
         }
 
+        printObjects();
     }
 
     public void RemovedFromArea(object o, SnapDropZoneEventArgs e)
     {
-        if (objects.ContainsKey(obj))
+        foreach (List<GameObject> areaZone in areaObjects)
         {
-            objects[obj].Remove(e.snappedObject);
-            printdictionary();
-            Destroy(line);
+            if (areaZone.Count != 0 && areaZone[0] == e.snappedObject)
+            {
+                Destroy(areaZone[1]);
+                areaZone.Clear();
+                break;
+            }
         }
 
+        printObjects();
+
     }
-    */
-    private void printdictionary()
+    
+    private void printObjects()
     {
         string vals = "";
-        foreach (GameObject ob in objects[obj])
+        foreach (List<GameObject> areaZone in areaObjects)
         {
-            vals += ob.name;
-            vals += " ";
+            if (areaZone.Count != 0 && areaZone[0] != null)
+            {
+                vals += areaZone[0].name;
+                vals += " ";
+            }
+
         }
-        UnityEngine.Debug.Log("Center: " + obj.name);
+
+        if (centerSnapped != null)
+        {
+            UnityEngine.Debug.Log("Center: " + centerSnapped.name);
+        }
+        else
+        {
+            UnityEngine.Debug.Log("Center: ");
+        }
         UnityEngine.Debug.Log("Area: " + vals);
 
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-public class LogicBoardController : MonoBehaviour
-{
-    public GameObject centerSnap;
-
-
-    List<LBSnapZone> lbSnapZones;
-
-    public int numberofSnapZones = 2;
-
-    void Start()
-    {
-        lbSnapZones = new List<LBSnapZone>();
-        for (int i = 0; i < numberofSnapZones; i++)
-            lbSnapZones.Add(new LBSnapZone() { obj = null, line = null });
-    }
-    
-    public void snappedToAnyCenter(object o, SnapDropZoneEventArgs e)
-    {
-        string callingFuncName = new StackFrame(2).GetMethod().Name;
-        UnityEngine.Debug.Log(callingFuncName);
-
-
-        LBSnapZone toChange = lbSnapZones[0];
-        int snapNumber = 1;
-        for (int i = 0; i < numberofSnapZones; i++)
-        {
-            if (lbSnapZones[i].obj == null)
-            {
-                toChange = lbSnapZones[i];
-                snapNumber = i+1;
-                break;
-            }
-        }
-
-        e.snappedObject.tag = "Snap" + snapNumber.ToString();
-        toChange.SnappedToCenter(o, e);
-
-    }
-
-    void removedFromAnyCenter(object o, SnapDropZoneEventArgs e)
-    {
-
-        LBSnapZone toChange = lbSnapZones[0];
-        int snapNumber = 1;
-        for (int i = 0; i < numberofSnapZones; i++)
-        {
-            if (lbSnapZones[i].obj.tag == e.snappedObject.tag)
-            {
-                toChange = lbSnapZones[i];
-                snapNumber = i+1;
-                break;
-            }
-        }
-
-        // TO CHANGE TO WHATEVER POLICY LIST IS
-        e.snappedObject.tag = "Tool";
-        toChange.RemovedFromCenter(o, e);
-    }
-    /*
-    void addedToAnyArea(object o, SnapDropZoneEventArgs e)
-    {
-        
-        LBSnapZone toChange = lbSnapZones[0];
-        int snapNumber = 1;
-        for (int i = 0; i < numberofSnapZones; i++)
-        {
-            if (lbSnapZones[i].obj == null)
-            {
-                toChange = lbSnapZones[i];
-                snapNumber = i+1;
-                break;
-            }
-        }
-
-        e.snappedObject.tag = "Snap" + snapNumber.ToString();
-        toChange.addedToArea(o, e);
-    }
-    */
 }
