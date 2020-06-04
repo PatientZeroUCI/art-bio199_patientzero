@@ -319,8 +319,8 @@ MonoBehaviour:
   OnObjectSnappedToDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: AddToArea
+      - m_Target: {fileID: 1165077153}
+        m_MethodName: AddedToArea
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -333,8 +333,8 @@ MonoBehaviour:
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: RemoveFromArea
+      - m_Target: {fileID: 1165077153}
+        m_MethodName: RemovedFromArea
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1930,6 +1930,7 @@ GameObject:
   - component: {fileID: 477660656}
   - component: {fileID: 477660655}
   - component: {fileID: 477660654}
+  - component: {fileID: 477660660}
   m_Layer: 0
   m_Name: test1_zone
   m_TagString: Untagged
@@ -1991,8 +1992,8 @@ MonoBehaviour:
   OnObjectSnappedToDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: snappedToAnyCenter
+      - m_Target: {fileID: 477660660}
+        m_MethodName: SnappedToCenter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2005,8 +2006,8 @@ MonoBehaviour:
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: removedFromAnyCenter
+      - m_Target: {fileID: 477660660}
+        m_MethodName: RemovedFromCenter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2121,6 +2122,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477660652}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &477660660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477660652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f3afbd69e9d6746832a8c74f0aa54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centerSnapped: {fileID: 0}
+  LinePrefab: {fileID: 8444610050296149515, guid: 4600421903467bc47a8a70d4bb6647cc,
+    type: 3}
+  areaAmount: 2
 --- !u!1 &523289337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,8 +2402,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f3afbd69e9d6746832a8c74f0aa54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerSnap: {fileID: 0}
-  numberofSnapZones: 2
+  centerSnapped: {fileID: 0}
+  LinePrefab: {fileID: 0}
+  areaAmount: 2
 --- !u!114 &548552393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2408,7 +2426,7 @@ MonoBehaviour:
   OnObjectSnappedToDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
+      - m_Target: {fileID: 0}
         m_MethodName: AddToArea
         m_Mode: 0
         m_Arguments:
@@ -2422,7 +2440,7 @@ MonoBehaviour:
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
+      - m_Target: {fileID: 0}
         m_MethodName: RemoveFromArea
         m_Mode: 0
         m_Arguments:
@@ -2715,7 +2733,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 589989949}
-  - component: {fileID: 589989950}
   m_Layer: 0
   m_Name: Logic Board
   m_TagString: Untagged
@@ -2743,20 +2760,6 @@ Transform:
   m_Father: {fileID: 82519352}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &589989950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589989948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4f3afbd69e9d6746832a8c74f0aa54a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centerSnap: {fileID: 0}
-  numberofSnapZones: 2
 --- !u!1 &607031347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4190,8 +4193,8 @@ MonoBehaviour:
   OnObjectSnappedToDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: AddToArea
+      - m_Target: {fileID: 477660660}
+        m_MethodName: AddedToArea
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4204,8 +4207,8 @@ MonoBehaviour:
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: RemoveFromArea
+      - m_Target: {fileID: 477660660}
+        m_MethodName: RemovedFromArea
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5281,6 +5284,7 @@ GameObject:
   - component: {fileID: 1165077148}
   - component: {fileID: 1165077147}
   - component: {fileID: 1165077152}
+  - component: {fileID: 1165077153}
   m_Layer: 0
   m_Name: test1_zone
   m_TagString: Untagged
@@ -5326,8 +5330,8 @@ MonoBehaviour:
   OnObjectSnappedToDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: snappedToAnyCenter
+      - m_Target: {fileID: 1165077153}
+        m_MethodName: SnappedToCenter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5340,8 +5344,8 @@ MonoBehaviour:
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: removedFromAnyCenter
+      - m_Target: {fileID: 1165077153}
+        m_MethodName: RemovedFromCenter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5472,6 +5476,22 @@ MonoBehaviour:
   checkType: 1
   identifiers:
   - Tool
+--- !u!114 &1165077153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165077145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f3afbd69e9d6746832a8c74f0aa54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centerSnapped: {fileID: 0}
+  LinePrefab: {fileID: 8444610050296149515, guid: 4600421903467bc47a8a70d4bb6647cc,
+    type: 3}
+  areaAmount: 2
 --- !u!1 &1190837627
 GameObject:
   m_ObjectHideFlags: 0
@@ -5606,7 +5626,7 @@ MonoBehaviour:
   OnObjectSnappedToDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
+      - m_Target: {fileID: 0}
         m_MethodName: AddToArea
         m_Mode: 0
         m_Arguments:
@@ -5620,7 +5640,7 @@ MonoBehaviour:
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
+      - m_Target: {fileID: 0}
         m_MethodName: RemoveFromArea
         m_Mode: 0
         m_Arguments:
@@ -7647,8 +7667,8 @@ MonoBehaviour:
   OnObjectSnappedToDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: AddToArea
+      - m_Target: {fileID: 1165077153}
+        m_MethodName: AddedToArea
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7661,8 +7681,8 @@ MonoBehaviour:
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: RemoveFromArea
+      - m_Target: {fileID: 1165077153}
+        m_MethodName: RemovedFromArea
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8028,7 +8048,7 @@ MonoBehaviour:
   OnObjectSnappedToDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
+      - m_Target: {fileID: 0}
         m_MethodName: AddToArea
         m_Mode: 0
         m_Arguments:
@@ -8042,7 +8062,7 @@ MonoBehaviour:
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
+      - m_Target: {fileID: 0}
         m_MethodName: RemoveFromArea
         m_Mode: 0
         m_Arguments:
@@ -9054,8 +9074,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f3afbd69e9d6746832a8c74f0aa54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerSnap: {fileID: 2117819713}
-  numberofSnapZones: 2
+  centerSnapped: {fileID: 0}
+  LinePrefab: {fileID: 0}
+  areaAmount: 2
 --- !u!114 &1876312067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9077,7 +9098,7 @@ MonoBehaviour:
   OnObjectSnappedToDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
+      - m_Target: {fileID: 0}
         m_MethodName: AddToArea
         m_Mode: 0
         m_Arguments:
@@ -9091,7 +9112,7 @@ MonoBehaviour:
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
+      - m_Target: {fileID: 0}
         m_MethodName: RemoveFromArea
         m_Mode: 0
         m_Arguments:
@@ -9726,8 +9747,8 @@ MonoBehaviour:
   OnObjectSnappedToDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: AddToArea
+      - m_Target: {fileID: 477660660}
+        m_MethodName: AddedToArea
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9740,8 +9761,8 @@ MonoBehaviour:
   OnObjectUnsnappedFromDropZone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589989950}
-        m_MethodName: RemoveFromArea
+      - m_Target: {fileID: 477660660}
+        m_MethodName: RemovedFromArea
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10144,12 +10165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customColliderContainer: {fileID: 0}
---- !u!1 &2117819713 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b94761454f9775f4bab1a557c56f02e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2119302048}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2119302048
 PrefabInstance:
   m_ObjectHideFlags: 0
