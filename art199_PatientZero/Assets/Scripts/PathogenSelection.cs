@@ -28,6 +28,7 @@ public class PathogenSelection : MonoBehaviour
     private bool BCneutral;
     private bool BCeliminated;
     private bool BCfinalChoice;
+    public bool isSelected; //If one of the buttons is green this is set to true and will make the submit button work
 
     //Starts off all pathogens in nutral state
     void Start()
@@ -48,6 +49,7 @@ public class PathogenSelection : MonoBehaviour
         BCneutral = true;
         BCeliminated = false;
         BCeliminated = false;
+        isSelected = false;
     }
 
     public void Selection()
@@ -62,7 +64,6 @@ public class PathogenSelection : MonoBehaviour
 
             if (VCneutral == true)
             {
-                print("Switching to eliminate p1");
                 VCneutral = false;
                 VCeliminated = true;
                 VCfinalChoice = false;
@@ -74,7 +75,6 @@ public class PathogenSelection : MonoBehaviour
             }
             else if (VCeliminated == true && P2.GetComponent<PathogenSelection>().CfinalChoice == false && P3.GetComponent<PathogenSelection>().ECfinalChoice == false && P4.GetComponent<PathogenSelection>().BCfinalChoice == false)
             {
-                print("Switching to final choice p1");
                 VCneutral = false;
                 VCeliminated = false;
                 VCfinalChoice = true;
@@ -82,11 +82,11 @@ public class PathogenSelection : MonoBehaviour
                 {
                     Pathogen.color = green;
                     VCbutton.GetComponent<Renderer>().material = positive_connection;
+                    isSelected = true;
                 }
             }
             else if (VCfinalChoice == true || (VCeliminated == true && (P2.GetComponent<PathogenSelection>().CfinalChoice == true || P3.GetComponent<PathogenSelection>().ECfinalChoice == true || P4.GetComponent<PathogenSelection>().BCfinalChoice == true)))
             {
-                print("Switching to nutral p1");
                 VCneutral = true;
                 VCeliminated = false;
                 VCfinalChoice = false;
@@ -94,6 +94,7 @@ public class PathogenSelection : MonoBehaviour
                 {
                     Pathogen.color = grey;
                     VCbutton.GetComponent<Renderer>().material = nutrual_color;
+                    isSelected = false;
                 }
             }
 
@@ -103,7 +104,6 @@ public class PathogenSelection : MonoBehaviour
         {
             if (Cneutral == true)
             {
-                print("Switching to eliminate p2");
                 Cneutral = false;
                 Celiminated = true;
                 CfinalChoice = false;
@@ -122,6 +122,7 @@ public class PathogenSelection : MonoBehaviour
                 {
                     Pathogen.color = green;
                     Cbutton.GetComponent<Renderer>().material = positive_connection;
+                    isSelected = true;
                 }
             }
             else if (CfinalChoice == true || (Celiminated == true && (P1.GetComponent<PathogenSelection>().VCfinalChoice == true || P3.GetComponent<PathogenSelection>().ECfinalChoice == true || P4.GetComponent<PathogenSelection>().BCfinalChoice == true)))
@@ -133,6 +134,7 @@ public class PathogenSelection : MonoBehaviour
                 {
                     Pathogen.color = grey;
                     Cbutton.GetComponent<Renderer>().material = nutrual_color;
+                    isSelected = false;
                 }
             }
         }
@@ -141,7 +143,6 @@ public class PathogenSelection : MonoBehaviour
         {
             if (ECneutral == true)
             {
-                print("Switching to eliminate p3");
                 ECneutral = false;
                 ECeliminated = true;
                 ECfinalChoice = false;
@@ -160,6 +161,7 @@ public class PathogenSelection : MonoBehaviour
                 {
                     Pathogen.color = green;
                     ECbutton.GetComponent<Renderer>().material = positive_connection;
+                    isSelected = true;
                 }
             }
             else if (ECfinalChoice == true || (ECeliminated == true && (P1.GetComponent<PathogenSelection>().VCfinalChoice == true || P2.GetComponent<PathogenSelection>().CfinalChoice == true || P4.GetComponent<PathogenSelection>().BCfinalChoice == true)))
@@ -171,6 +173,7 @@ public class PathogenSelection : MonoBehaviour
                 {
                     Pathogen.color = grey;
                     ECbutton.GetComponent<Renderer>().material = nutrual_color;
+                    isSelected = false;
                 }
             }
         }
@@ -179,7 +182,6 @@ public class PathogenSelection : MonoBehaviour
         {
             if (BCneutral == true)
             {
-                print("Switching to eliminate p4");
                 BCneutral = false;
                 BCeliminated = true;
                 BCfinalChoice = false;
@@ -198,6 +200,7 @@ public class PathogenSelection : MonoBehaviour
                 {
                     Pathogen.color = green;
                     BCbutton.GetComponent<Renderer>().material = positive_connection;
+                    isSelected = true;
                 }
             }
             else if (BCfinalChoice == true || (BCeliminated == true && (P1.GetComponent<PathogenSelection>().VCfinalChoice == true || P2.GetComponent<PathogenSelection>().CfinalChoice == true || P3.GetComponent<PathogenSelection>().ECfinalChoice == true)))
@@ -209,8 +212,23 @@ public class PathogenSelection : MonoBehaviour
                 {
                     Pathogen.color = grey;
                     BCbutton.GetComponent<Renderer>().material = nutrual_color;
+                    isSelected = false;
                 }
             }
+
+        }
+    }
+
+    //Only print to the consol is the submit button will work or not
+    public void FinalSubmit()
+    {
+        if (P1.GetComponent<PathogenSelection>().isSelected == true || P2.GetComponent<PathogenSelection>().isSelected == true || P3.GetComponent<PathogenSelection>().isSelected == true || P4.GetComponent<PathogenSelection>().isSelected == true)
+        {
+            print("submit will work");
+        }
+        else
+        {
+            print("submiy wont work");
         }
     }
 }
