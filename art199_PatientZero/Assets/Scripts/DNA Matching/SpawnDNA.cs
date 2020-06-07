@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SpawnDNA : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class SpawnDNA : MonoBehaviour
     [SerializeField]
     private GameObject rightSegmentPrefab;
 
-    private float offsetScalar = 0.2f;
+    private float offsetScalar = 0.4f;
 
     public System.String startingStrands;
 
@@ -24,8 +25,8 @@ public class SpawnDNA : MonoBehaviour
     GameObject puzzleSegment;
     GameObject playerSegment;
 
-    TextMesh[] puzzleStrands;
-    TextMesh[] playerStrands;
+    TMPro.TextMeshPro[] puzzleStrands;
+    TMPro.TextMeshPro[] playerStrands;
 
     void Start()
     {
@@ -43,12 +44,18 @@ public class SpawnDNA : MonoBehaviour
         {
             CreateCustomStrand(startingStrands);
         }
+
+        
     }
 
     private void Update()
     {
         puzzleSolved();
     }
+
+    
+        
+    
 
     void puzzleSolved()
     {
@@ -115,13 +122,23 @@ public class SpawnDNA : MonoBehaviour
     {
         // Spawns the segment that you have to solve against...
         puzzleSegment = Instantiate(leftSegmentPrefab, gameObject.transform);
-        puzzleStrands = puzzleSegment.GetComponentsInChildren<TextMesh>();
+        puzzleStrands = puzzleSegment.GetComponentsInChildren<TextMeshPro>();
         
         // Spawns the segment that the player has to modify in order to match it... 
         playerSegment = Instantiate(rightSegmentPrefab, gameObject.transform);
-        playerSegment.transform.Translate(offsetScalar * Vector3.right, Space.World);
-      
-        playerStrands = playerSegment.GetComponentsInChildren<TextMesh>();
+        playerSegment.transform.position = gameObject.transform.position + (offsetScalar * Vector3.left);
+
+        // Sets up DNASpawner to allow it to also be able to rotate the segments as one
+        // GameObject placeholder = new GameObject();
+        // placeholder.name = "DNA Hologram";
+        // GameObject DNA = Instantiate(placeholder, 0.5f * (playerSegment.transform.position + puzzleSegment.transform.position), Quaternion.identity);
+        // Destroy(placeholder);
+
+        // puzzleSegment.transform.SetParent(DNA.transform);
+        // playerSegment.transform.SetParent(DNA.transform);
+
+
+        playerStrands = playerSegment.GetComponentsInChildren<TextMeshPro>();
     }
 
     void RandomizeStrands()
@@ -138,7 +155,7 @@ public class SpawnDNA : MonoBehaviour
 
     void CreateCustomStrand(System.String bases)
     {
-        if (bases.Length != playerStrands.Length)
+        if (bases.Length != puzzleStrands.Length)
         {
             Debug.LogError("CreateCustomStrand(): bases has more or less cells than the strands available");
         }
@@ -173,13 +190,13 @@ public class SpawnDNA : MonoBehaviour
 
             for (int i = 0; i < playerStrands.Length; ++i)
             {
-                playerStrands[i].text = bases[i].ToString();
+                puzzleStrands[i].text = bases[i].ToString();
             }
 
             // Makes sure the puzzle segment won't end up being the same as the player strand
             do
             {
-                RandomizeBases(puzzleStrands, isRNA);
+                RandomizeBases(playerStrands, isRNA);
             }
             while (puzzleEqualsPlayer());
         }
@@ -200,7 +217,7 @@ public class SpawnDNA : MonoBehaviour
     }
 
     
-    void RandomizeBases(TextMesh[] segmentStrands, bool isRNA)
+    void RandomizeBases(TextMeshPro[] segmentStrands, bool isRNA)
     {
         for (int i = 0; i < segmentStrands.Length; ++i)
         {

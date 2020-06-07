@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ChangeStrandBase : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class ChangeStrandBase : MonoBehaviour
 
 
     private void OnMouseOver()
-    { 
+    {
+        Debug.Log("hover");
         baseRenderer.material = selected; 
     }
 
@@ -29,7 +31,7 @@ public class ChangeStrandBase : MonoBehaviour
 
     private void OnMouseDown()
     {
-        TextMesh strandBase = gameObject.transform.Find("Strand Base").GetComponent<TextMesh>();
+        TextMeshPro strandBase = gameObject.transform.Find("Strand Base").GetComponent<TextMeshPro>();
 
         if (strandBase.text == "A")
         {
