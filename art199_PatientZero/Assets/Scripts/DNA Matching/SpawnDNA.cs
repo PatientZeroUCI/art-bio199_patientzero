@@ -1,213 +1,110 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 using TMPro;
 
 public class SpawnDNA : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // members that are not visible within inspector.
+    private TextMeshPro[] puzzleStrands;    // this is the "left" DNA
+    private TextMeshPro[] playerStrands;    // this is the "right" DNA
+
+    public OrderedDictionary bases = new OrderedDictionary();
+
+    // the reason these are serialized is because none of these 
+    // should change during runtime... but people need to edit these.
     [SerializeField]
-    private GameObject leftSegmentPrefab;
+    private GameObject DNAPrefab;
+
+    public bool isDNA;
 
     [SerializeField]
-    private GameObject rightSegmentPrefab;
+    private bool isRandomlyGenerated;
 
-    private float offsetScalar = 0.4f;
+    [SerializeField]
+    private string sequence;
 
-    public System.String startingStrands;
 
-    public bool isRandomlyGenerated = true; // leave this public as well
-    public bool isRNA = false;  // leave this public; otherwise, it won't know to be RNA...
-
-    private bool puzzleComplete = false;
-
-    // store the state of each segment in an array when spawned...
-    GameObject puzzleSegment;
-    GameObject playerSegment;
-
-    TMPro.TextMeshPro[] puzzleStrands;
-    TMPro.TextMeshPro[] playerStrands;
-
-    void Start()
+    
+    void OnEnable() // so that way, this doesn't immediately do stuff until needed
     {
-        SpawnDNASegments();
+        // Spawn DNA
+        GameObject gObject = Instantiate(DNAPrefab, gameObject.transform);
+        gObject.name = "DNA";
 
-        // this will randomly generate the strand you have to solve for
-        if (isRandomlyGenerated)
-        {
-            RandomizeStrands();
-        }
-
-        // this will take an array of chars that will be used to 
-        // decide the strand you have to solve
-        else
-        {
-            CreateCustomStrand(startingStrands);
-        }
+        // Get references to TMPro Objects
+        puzzleStrands = gameObject.transform.Find("DNA/Left DNA").GetComponentsInChildren<TextMeshPro>();
+        playerStrands = gameObject.transform.Find("DNA/Right DNA").GetComponentsInChildren<TextMeshPro>();
 
         
+
+
+        // Set up bases for random generation
+        bases.Add("G", "C");
+        bases.Add("C", "G");
+
+        if (isDNA)
+        {
+            bases.Add("A", "T");
+            bases.Add("T", "A");
+        }
+        else
+        {
+            bases.Add("A", "U");
+            bases.Add("U", "A");
+        }
+
+        bases = bases.AsReadOnly();
+
+        // Generate bases
+        LoadSequence();
     }
 
     private void Update()
     {
-        puzzleSolved();
     }
 
-    
-        
-    
-
-    void puzzleSolved()
+    // helper functions
+    private void LoadSequence()
     {
+        // sets up sequence for both puzzle strand and player strand
+        // aka left and right DNA respectively...
 
         for (int i = 0; i < puzzleStrands.Length; ++i)
         {
-            if (puzzleStrands[i].text != OppositeBase(playerStrands[i].text))
+            // puzzle strand first
+            
+            if (isRandomlyGenerated)
             {
-                return;
+                puzzleStrands[i].text = bases[Random.Range(0,4)].ToString();
             }
-        }
-
-        if (puzzleComplete == false)
-        {
-            SnapTogether();
-            puzzleComplete = true;
-        }
-    }
-
-
-
-    string OppositeBase(string strandBase)
-    {
-        if (strandBase == "A")
-        {
-            if (isRNA)
+            else
             {
-                return "U";
+                puzzleStrands[i].text = sequence[i].ToString();
             }
 
-            return "T";
-        }
+            // player strand next
+            string randomBase;
 
-        else if (strandBase == "U")
-        {
-            return "A";
-        }
-
-        else if (strandBase == "T")
-        {
-            return "A";
-        }
-
-        else if (strandBase == "C")
-        {
-            return "G";
-        }
-
-        else if (strandBase == "G")
-        {
-            return "C";
-        }
-
-        return "ERROR";
-    }
-
-    void SnapTogether()
-    {
-        playerSegment.transform.Translate(offsetScalar * Vector3.left, Space.World);
-    }
-
-
-    void SpawnDNASegments()
-    {
-        // Spawns the segment that you have to solve against...
-        puzzleSegment = Instantiate(leftSegmentPrefab, gameObject.transform);
-        puzzleStrands = puzzleSegment.GetComponentsInChildren<TextMeshPro>();
-        
-        // Spawns the segment that the player has to modify in order to match it... 
-        playerSegment = Instantiate(rightSegmentPrefab, gameObject.transform);
-        playerSegment.transform.position = gameObject.transform.position + (offsetScalar * Vector3.left);
-
-        // Sets up DNASpawner to allow it to also be able to rotate the segments as one
-        // GameObject placeholder = new GameObject();
-        // placeholder.name = "DNA Hologram";
-        // GameObject DNA = Instantiate(placeholder, 0.5f * (playerSegment.transform.position + puzzleSegment.transform.position), Quaternion.identity);
-        // Destroy(placeholder);
-
-        // puzzleSegment.transform.SetParent(DNA.transform);
-        // playerSegment.transform.SetParent(DNA.transform);
-
-
-        playerStrands = playerSegment.GetComponentsInChildren<TextMeshPro>();
-    }
-
-    void RandomizeStrands()
-    {
-        RandomizeBases(puzzleStrands, isRNA);
-
-        // Makes sure the player segment won't end up being the same as the puzzle strand
-        do
-        {
-            RandomizeBases(playerStrands, isRNA);
-        }
-        while (puzzleEqualsPlayer());
-    }
-
-    void CreateCustomStrand(System.String bases)
-    {
-        if (bases.Length != puzzleStrands.Length)
-        {
-            Debug.LogError("CreateCustomStrand(): bases has more or less cells than the strands available");
-        }
-
-        else
-        {
-            // check bases to see if the characters used are valide
-            string DNA = "GTAC";
-            string RNA = "GCAU";
-
-          
-            for (int i = 0; i < bases.Length; ++i)
-            {
-                System.String currentBase = bases[i].ToString();
-
-                if (isRNA)
-                {
-                    if (!RNA.Contains(currentBase))
-                    {
-                        Debug.LogError("CreateCustomsStrand(): Invalid bases");
-                    }
-                }
-                else
-                {
-                    if (!DNA.Contains(currentBase))
-                    {
-                        Debug.LogError("CreateCustomsStrand(): Invalid bases");
-                    }
-                }
-
-            }
-
-            for (int i = 0; i < playerStrands.Length; ++i)
-            {
-                puzzleStrands[i].text = bases[i].ToString();
-            }
-
-            // Makes sure the puzzle segment won't end up being the same as the player strand
             do
             {
-                RandomizeBases(playerStrands, isRNA);
+                randomBase = bases[Random.Range(0, 4)].ToString();
             }
-            while (puzzleEqualsPlayer());
+            while (randomBase == bases[puzzleStrands[i].text]);
+
+            playerStrands[i].text = randomBase;
         }
     }
-    
 
-    bool puzzleEqualsPlayer()
+    public bool puzzleSolved()
     {
+
         for (int i = 0; i < puzzleStrands.Length; ++i)
         {
-            if (puzzleStrands[i] != playerStrands[i])
+            string currentBase = puzzleStrands[i].text;         // strand evaluated against
+            string correspondingBase = playerStrands[i].text;   // strand providing answer
+            if (correspondingBase != bases[currentBase].ToString())
             {
                 return false;
             }
@@ -216,39 +113,8 @@ public class SpawnDNA : MonoBehaviour
         return true;
     }
 
-    
-    void RandomizeBases(TextMeshPro[] segmentStrands, bool isRNA)
-    {
-        for (int i = 0; i < segmentStrands.Length; ++i)
-        {
-            int baseCode = Random.Range(0, 4);
-            segmentStrands[i].text = SelectBase(baseCode, isRNA);
-        }
-    }
 
-    string SelectBase(int baseNumber, bool isRNA)
-    {
-        switch (baseNumber)
-        {
-            case 0:
-                return "A";
 
-            case 1:
-                if (isRNA)
-                {
-                    return "U";
-                }
 
-                return "T";
 
-            case 2:
-                return "C";
-
-            case 3:
-                return "G";
-
-            default:
-                return "ERROR";
-        }
-    }
-}
+}   
