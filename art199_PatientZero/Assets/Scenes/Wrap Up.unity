@@ -418,6 +418,11 @@ PrefabInstance:
       propertyPath: displayText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7917080644138681959, guid: 184be514bb644ad4a9bfdfd48d896c68,
+        type: 3}
+      propertyPath: dnaSpawner
+      value: 
+      objectReference: {fileID: 1391529458}
     - target: {fileID: 7917080644182256704, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8026,7 +8031,7 @@ MonoBehaviour:
   OnMaxLimitReached:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 337973427}
+      - m_Target: {fileID: 1391529458}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -8035,7 +8040,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   OnMaxLimitExited:
     m_PersistentCalls:
@@ -13334,6 +13339,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391369518}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1391529458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7478823677756680629, guid: 99529bcd2a9b5814297570ab5933bf02,
+    type: 3}
+  m_PrefabInstance: {fileID: 295928949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1392049116
 GameObject:
   m_ObjectHideFlags: 0
