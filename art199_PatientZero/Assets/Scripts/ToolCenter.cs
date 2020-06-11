@@ -5,8 +5,7 @@ using UnityEngine;
 public class ToolCenter : MonoBehaviour
 {
     public GameObject currSurface;
-    public GameObject surface1;
-    public GameObject surface2;
+    public List<GameObject> surfaces;
     
     public Transform surfacePos;
     public Transform spawnLoc;
@@ -55,7 +54,7 @@ public class ToolCenter : MonoBehaviour
         if (spawningAlready == false)
         {
             rb.isKinematic = false;
-            StartCoroutine(MyCoroutine(surface1));
+            StartCoroutine(MyCoroutine(surfaces[0]));
             spawningAlready = true;
         }
 
@@ -66,7 +65,16 @@ public class ToolCenter : MonoBehaviour
         if (spawningAlready == false)
         {
             rb.isKinematic = false;
-            StartCoroutine(MyCoroutine(surface2));
+            StartCoroutine(MyCoroutine(surfaces[1]));
+            spawningAlready = true;
+        }
+
+    }
+
+    public void dropSurface(int i) {
+        if (spawningAlready == false) {
+            rb.isKinematic = false;
+            StartCoroutine(MyCoroutine(surfaces[i]));
             spawningAlready = true;
         }
 
