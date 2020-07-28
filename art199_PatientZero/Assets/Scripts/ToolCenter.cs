@@ -6,6 +6,8 @@ public class ToolCenter : MonoBehaviour
 {
     public GameObject currSurface;
     public List<GameObject> surfaces;
+    public AIVoice aiVoice;
+    public List<int> aiVoiceClips;
     
     public Transform surfacePos;
     public Transform spawnLoc;
@@ -51,23 +53,13 @@ public class ToolCenter : MonoBehaviour
 
     public void dropSurface1()
     {
-        if (spawningAlready == false)
-        {
-            rb.isKinematic = false;
-            StartCoroutine(MyCoroutine(surfaces[0]));
-            spawningAlready = true;
-        }
+        dropSurface(0);
 
     }
 
     public void dropSurface2()
     {
-        if (spawningAlready == false)
-        {
-            rb.isKinematic = false;
-            StartCoroutine(MyCoroutine(surfaces[1]));
-            spawningAlready = true;
-        }
+        dropSurface(1);
 
     }
 
@@ -76,6 +68,10 @@ public class ToolCenter : MonoBehaviour
             rb.isKinematic = false;
             StartCoroutine(MyCoroutine(surfaces[i]));
             spawningAlready = true;
+
+            if (aiVoiceClips.Count > i) {
+                aiVoice.ReadVoiceClip(aiVoiceClips[i]);
+            }
         }
 
     }
