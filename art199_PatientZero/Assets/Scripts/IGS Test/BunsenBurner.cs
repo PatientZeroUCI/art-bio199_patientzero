@@ -2,21 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BunsenBurner : MonoBehaviour {
+public class BunsenBurner : MonoBehaviour
+{
     ParticleSystem ps;
+
+    AudioSource onSound;        //
+    AudioSource runnningSound;      //
+    AudioSource offSound;       //
     Collider col;
     Light lgt;
 
     public bool turnedOn = false;
 
-    void Start() {
+    void Start()
+    {
         ps = GetComponent<ParticleSystem>();
         col = GetComponentInChildren<Collider>();
         lgt = GetComponentInChildren<Light>();
 
-        if (turnedOn) {
+        if (turnedOn)
+        {
             TurnOn();
-        } else {
+        }
+        else
+        {
             TurnOff();
         }
     }
@@ -27,25 +36,37 @@ public class BunsenBurner : MonoBehaviour {
     //    }
     //}
 
-    public void Toggle() {
-        if (turnedOn) {
+    public void Toggle()
+    {
+        if (turnedOn)
+        {
             TurnOff();
-        } else {
+        }
+        else
+        {
             TurnOn();
+            runnningSound.loop = true;      //
+            runnningSound.Play();       //
         }
     }
 
-    public void TurnOn() {
+    public void TurnOn()
+    {
         turnedOn = true;
         ps.Play();
         col.enabled = true;
         lgt.enabled = true;
+        onSound.Play();         //
     }
 
-    public void TurnOff() {
+    public void TurnOff()
+    {
         turnedOn = false;
         ps.Stop();
         col.enabled = false;
         lgt.enabled = false;
+        runnningSound.loop = false;     //
+        runnningSound.Stop();       //
+        offSound.Play();        //
     }
 }
