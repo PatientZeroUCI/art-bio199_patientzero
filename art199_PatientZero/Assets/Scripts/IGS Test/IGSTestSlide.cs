@@ -18,6 +18,8 @@ public class IGSTestSlide : MonoBehaviour {
 
     GameObject sample;
 
+    private AIVoice aiVoice;
+
     void Start() {
         progressBar = GetComponentInChildren<ProgressBar>();
         progressBar.Visible = false;
@@ -29,6 +31,7 @@ public class IGSTestSlide : MonoBehaviour {
             }
         }
         sample.SetActive(false);
+        aiVoice = FindObjectOfType<AIVoice>();
     }
 
     void Update() {

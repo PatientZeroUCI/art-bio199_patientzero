@@ -42,6 +42,7 @@ public class LogicBoardController : MonoBehaviour
 
     List<List<GameObject>> areaObjects = new List<List<GameObject>>();
 
+    private AIVoice aiVoice;
 
     void Start()
     {
@@ -50,6 +51,7 @@ public class LogicBoardController : MonoBehaviour
             List<GameObject> object_and_line = new List<GameObject>();
             areaObjects.Add(object_and_line);
         }
+        aiVoice = FindObjectOfType<AIVoice>();
     }
 
 
