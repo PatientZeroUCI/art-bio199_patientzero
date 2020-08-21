@@ -5,11 +5,18 @@ using UnityEngine;
 public class appear_distance : MonoBehaviour
 {
     public MeshRenderer text;
+    public double render_distance;
+
     //public Transform headset = VRTK_DeviceFinder.HeadsetTransform();
     // Start is called before the first frame update
-    void Start()
+
+    private void Reset()
     {
-        GameObject go = GameObject.Find("Body");
+        render_distance = 1.0;
+    }
+    void Start()
+    { 
+        GameObject go = GameObject.Find("Neck");
         Vector3 player_pos = go.transform.position;
 
         Vector3 object_pos = gameObject.transform.position;
@@ -31,7 +38,7 @@ public class appear_distance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject go = GameObject.Find("Body");
+        GameObject go = GameObject.Find("Neck");
 
         Vector3 player_pos = go.transform.position;
         Vector3 object_pos = gameObject.transform.position;
@@ -39,7 +46,7 @@ public class appear_distance : MonoBehaviour
         //Debug.Log(player_pos);
         //Debug.Log(object_pos);
         //Debug.Log(Vector3.Distance(player_pos, object_pos));
-        if(Vector3.Distance(player_pos, object_pos) > 1)
+        if(Vector3.Distance(player_pos, object_pos) > render_distance)
         {
             text.enabled = false;
         }
