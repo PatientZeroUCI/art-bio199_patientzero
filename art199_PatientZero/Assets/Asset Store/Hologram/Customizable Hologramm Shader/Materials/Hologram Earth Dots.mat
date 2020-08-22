@@ -45,6 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Alpha: 1
     - _AlphaMaskAffect: 0.956
     - _AlphaMaskFeature: 1
     - _ColorGlitchAffect: 0.5
@@ -79,6 +80,8 @@ Material:
     - _LineGlitchSpeed: -0.2
     - _MaskFalloff: 0
     - _MaskFeature: 0
+    - _MaskInversion: 0
+    - _MaskLocalFeature: 0
     - _NormalAffect: 0
     - _NormalMapFeature: 0
     - _NormalScale: 0
@@ -101,6 +104,9 @@ Material:
     - _SoftIntersectionDistance: 0
     - _SoftIntersectionFeature: 0
     - _SoftIntersectionIntensity: 1
+    - _Voxelization: 100
+    - _VoxelizationAffect: 1
+    - _VoxelizationFeature: 0
     - _ZWrite: 0
     m_Colors:
     - _DissolveScale: {r: 0.1, g: 1.01, b: 5, a: 0}
