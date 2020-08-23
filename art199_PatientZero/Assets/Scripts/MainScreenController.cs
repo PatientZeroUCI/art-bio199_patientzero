@@ -41,7 +41,7 @@ public class MainScreenController : MonoBehaviour
     public void beginGame() {
         //if (use.GetUsingObject().name == "playbutton")
         //{
-            SceneManager.LoadScene("Brendan's Scene");
+            SceneManager.LoadScene("Wrap Up");
         //}
         
     }
