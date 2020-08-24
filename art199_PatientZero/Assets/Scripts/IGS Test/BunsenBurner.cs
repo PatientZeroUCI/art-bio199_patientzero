@@ -6,9 +6,9 @@ public class BunsenBurner : MonoBehaviour
 {
     ParticleSystem ps;
 
-    AudioSource onSound;        //
-    AudioSource runnningSound;      //
-    AudioSource offSound;       //
+    public AudioSource onSound;        //
+    public AudioSource runnningSound;      //
+    public AudioSource offSound;       //
     Collider col;
     Light lgt;
 
@@ -19,10 +19,13 @@ public class BunsenBurner : MonoBehaviour
         ps = GetComponent<ParticleSystem>();
         col = GetComponentInChildren<Collider>();
         lgt = GetComponentInChildren<Light>();
+        //onSound = GameObject.Find("")
 
         if (turnedOn)
         {
             TurnOn();
+            runnningSound.loop = true;      //
+            runnningSound.Play();
         }
         else
         {
@@ -45,8 +48,6 @@ public class BunsenBurner : MonoBehaviour
         else
         {
             TurnOn();
-            runnningSound.loop = true;      //
-            runnningSound.Play();       //
         }
     }
 
@@ -56,7 +57,9 @@ public class BunsenBurner : MonoBehaviour
         ps.Play();
         col.enabled = true;
         lgt.enabled = true;
-        onSound.Play();         //
+        onSound.Play();
+        runnningSound.loop = true;      //
+        runnningSound.Play();       //
     }
 
     public void TurnOff()
