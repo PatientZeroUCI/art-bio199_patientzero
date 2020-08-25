@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Alarm_Light : MonoBehaviour
 {
+    public Light alarm;
+
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        
+        StartCoroutine(Alarm());
     }
 
     // Update is called once per frame
-    void Update()
+    IEnumerator Alarm ()
     {
-        
+        while (true)
+        {
+
+        }
     }
 }

@@ -106,7 +106,7 @@ public class PetriDish : MonoBehaviour
 
             
         }
-        Debug.Log(pixelcount / (float)pixels.Length);
+        //Debug.Log(pixelcount / (float)pixels.Length);
       
 
 

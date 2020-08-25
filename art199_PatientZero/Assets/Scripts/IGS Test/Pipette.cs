@@ -1,15 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class Pipette : MonoBehaviour
 {
     public GameObject contents = null;
+    public VRTK_InteractableObject pipette;
     public AudioSource squirting;
-    public VRTK.VRTK_InteractUse controllerUse;
-    public VRTK.VRTK_InteractableObject pipette;
+
+    private GameObject hand;
+    public VRTK_InteractUse controllerUse;
 
     // Spawns copies of the stored object
+
+    void OnEnable()
+    {
+        hand = GameObject.Find("RightHand/Right");
+
+        controllerUse = hand.GetComponent<VRTK_InteractUse>();
+    }
 
     void Update()
     {

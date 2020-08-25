@@ -19,6 +19,7 @@ public class MicroscopeDisplay : MonoBehaviour
     void Update()
     {
         GameObject snapped_object = microscope_zone.GetCurrentSnappedObject();
+
         if ( snapped_object != null)
         {
             if(snapped_object.tag == "DNA")
