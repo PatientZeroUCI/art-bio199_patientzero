@@ -8,8 +8,10 @@ public class RotatingQueue : MonoBehaviour
     public Material[] possible_materials;
     public VRTK_PhysicsPusher attached_button;
     public GameObject screen_surface;
+    public RotatingQueue[] connected_lists;
 
-    private int curr_material;
+    private bool pressed;
+    public int curr_material;
     private Material current_material;
 
 
@@ -23,8 +25,13 @@ public class RotatingQueue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (attached_button.GetValue() <= -0.025)
+        if (attached_button.GetValue() <= -0.025 & pressed == false)
         {
+            for(int reset = 0; reset < connected_lists.Length; reset++)
+            {
+                connected_lists[reset].curr_material = 0;
+            }
+            pressed = true;
             StartCoroutine(MaterialSwap());
         }
     }
@@ -32,15 +39,18 @@ public class RotatingQueue : MonoBehaviour
     IEnumerator MaterialSwap()
     {
 
-        curr_material += 1;
 
-        if(curr_material >= possible_materials.Length)
+        if (curr_material >= possible_materials.Length)
         {
             curr_material = 0;
         }
 
-        screen_surface.GetComponent<MeshRenderer>().material = possible_materials[curr_material];
 
-        yield return new WaitForSeconds(3);
+        screen_surface.GetComponent<MeshRenderer>().material = possible_materials[curr_material];
+        curr_material += 1;
+
+        yield return new WaitForSeconds(0.5f);
+
+        pressed = false;
     }
 }
