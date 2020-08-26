@@ -38,7 +38,12 @@ public class Pipette : MonoBehaviour
             GameObject liquid = Instantiate(contents);
             liquid.transform.position = transform.position;
             liquid.SetActive(true);
-            squirting.Play();
+            if (squirting.isPlaying)
+            {
+
+            }
+            else
+                squirting.Play();
         }
     }
 }
