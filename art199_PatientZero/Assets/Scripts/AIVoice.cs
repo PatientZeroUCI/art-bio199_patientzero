@@ -8,6 +8,7 @@ public class AIVoice : MonoBehaviour {
 
     private List<(float time, string caption)> captions = new List<(float, string)>();
     private int currentIndex = 0;
+    private float endTime = -1;
 
     public int playOnStart = -1;
     public TextMeshProUGUI textObject;
@@ -41,17 +42,27 @@ public class AIVoice : MonoBehaviour {
 
         audioSource.clip = clip.audioClip;
         currentIndex = 0;
+        audioSource.time = clip.start;
+        endTime = clip.end;
         audioSource.Play();
     }
 
     private void Update() {
         if (audioSource.isPlaying) {
-            if (currentIndex < captions.Count && captions[currentIndex].time < audioSource.time) {
+            while (currentIndex < captions.Count && captions[currentIndex].time < audioSource.time) {
                 textObject.text = captions[currentIndex++].caption;
+            }
+
+            if (audioSource.time > endTime) {
+                audioSource.Stop();
             }
         } else {
             textObject.text = "";
         }
+
+        //if (Input.GetKeyDown(KeyCode.Space)) {
+        //    ReadVoiceClip(++playOnStart);
+        //}
     }
 }
 
@@ -60,5 +71,7 @@ public class VoiceClip {
     public AudioClip audioClip;
     public TextAsset captionsFile;
     public bool repeatable;
+    public float start;
+    public float end;
     [System.NonSerialized] public bool played;
 }
