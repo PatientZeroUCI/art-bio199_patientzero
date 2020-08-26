@@ -47,7 +47,7 @@ namespace VRTK.Controllables.PhysicsBased
         protected ConfigurableJoint controlJoint;
         protected bool createControlJoint;
         protected Vector3 previousLocalPosition;
-        protected bool pressedDown;
+        public bool pressedDown;
         protected float previousPositionTarget;
 
         /// <summary>

@@ -8072,19 +8072,36 @@ MonoBehaviour:
         m_CallState: 2
   OnMaxLimitExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1855420795}
-        m_MethodName: set_material
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: f3315685f757705479943738b05f8a9c,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &792130780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792130777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e4bb47ccff4784d96df050ec769e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possible_materials:
+  - {fileID: 2100000, guid: f3315685f757705479943738b05f8a9c, type: 2}
+  - {fileID: 2100000, guid: 0eb1bfaa079ed294c9801f9d9b1291cb, type: 2}
+  attached_button: {fileID: 792130782}
+  screen_surface: {fileID: 1855420792}
+--- !u!114 &792130782 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7917080644138681953, guid: 184be514bb644ad4a9bfdfd48d896c68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1376089055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792130777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0ebd99abd5f2547ba8276283f08b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &796537903
 PrefabInstance:
   m_ObjectHideFlags: 0
