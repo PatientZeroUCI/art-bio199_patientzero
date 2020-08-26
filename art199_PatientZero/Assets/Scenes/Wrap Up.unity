@@ -2136,6 +2136,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d54060a7c51e27e438c054df846ba45e, type: 3}
+--- !u!4 &191667083 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d54060a7c51e27e438c054df846ba45e,
+    type: 3}
+  m_PrefabInstance: {fileID: 191667082}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &207660258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 315be1c2d3fd7ae43ad9bc83769b626f,
@@ -13084,6 +13090,53 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &1273209249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1273209250}
+  - component: {fileID: 1273209251}
+  m_Layer: 0
+  m_Name: printer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1273209250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273209249}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 191667083}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &1273209251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273209249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd664ce9f76df7d4f9ad3a449a98f176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paperPrefab: {fileID: 6684186392608514651, guid: 59f248f961f66f24c9f8c0c2a8642623,
+    type: 3}
+  size: {x: 100, y: 100}
+  printSpeed: 2
 --- !u!23 &1275273515
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23811,7 +23864,7 @@ Transform:
   - {fileID: 1967246396}
   - {fileID: 1967246388}
   m_Father: {fileID: 6165438110059031991}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3997103493808342
 MeshRenderer:
@@ -38931,7 +38984,7 @@ Transform:
   m_LocalScale: {x: 100.00011, y: 100.000114, z: 25}
   m_Children: []
   m_Father: {fileID: 6165438110059031991}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5421055174844907154
 MeshFilter:
@@ -40774,8 +40827,8 @@ Transform:
   - {fileID: 1026491035}
   - {fileID: 1847467367}
   - {fileID: 5006512736788197433}
-  - {fileID: 2142413148}
   - {fileID: 5404218346727986188}
+  - {fileID: 2142413148}
   - {fileID: 1352162290310833014}
   - {fileID: 8943723100585315001}
   - {fileID: 1664093029}
