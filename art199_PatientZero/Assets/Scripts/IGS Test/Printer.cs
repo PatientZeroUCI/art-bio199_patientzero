@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Printer : MonoBehaviour {
+public class Printer : MonoBehaviour
+{
     [SerializeField] GameObject paperPrefab;
     public Vector2Int size = new Vector2Int(100, 100);
     public float printSpeed = 2f;
 
     //public Sprite test;
 
-    void Update() {
+    void Update()
+    {
         /*if (Input.GetKeyDown(KeyCode.Z)) {
             ScreenShot();
         }
@@ -19,12 +21,14 @@ public class Printer : MonoBehaviour {
         }*/
     }
 
-    IEnumerator Print(Rigidbody rb, Vector3 dir, float dist) {
+    IEnumerator Print(Rigidbody rb, Vector3 dir, float dist)
+    {
         yield return new WaitForFixedUpdate();
 
         float f = Time.fixedDeltaTime * printSpeed;
 
-        while (dist > f) {
+        while (dist > f)
+        {
             dist -= f;
             rb.MovePosition(rb.position + dir * f);
             yield return new WaitForFixedUpdate();
@@ -37,7 +41,8 @@ public class Printer : MonoBehaviour {
         rb.isKinematic = false;
     }
 
-    public void PrintImage(Sprite sprite) {
+    public void PrintImage(Sprite sprite)
+    {
         int width = size.x;
         int height = size.y;
 
@@ -57,7 +62,22 @@ public class Printer : MonoBehaviour {
         StartCoroutine(Print(ss.GetComponent<Rigidbody>(), transform.rotation * Vector3.down, height / 100f));
     }
 
-    public void ScreenShot() {
+    public void PrintIGS()
+    {
+        int height = size.x;
+        int width = size.y;
+        int length = 100;
+
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.rotation = transform.rotation;
+        cube.transform.position = transform.position + transform.rotation * Vector3.up * height / 200f;
+
+        cube.GetComponent<BoxCollider>().size = new Vector3(size.x / 100f, size.y / 100f, length / 100f);
+        StartCoroutine(Print(cube.GetComponent<Rigidbody>(), transform.rotation * Vector3.down, height / 100f));
+    }
+
+    public void ScreenShot()
+    {
         int width = size.x < size.y ? 800 : 800 * size.x / size.y;
         int height = size.x < size.y ? 800 * size.y / size.x : 800;
 
