@@ -71,7 +71,7 @@ public class IGSTestSlide : MonoBehaviour {
                 }
                 break;
             case State.WaterAdded:
-                IGSscooperHP scooper = collision.gameObject.GetComponent<IGSscooperHP>();
+                IGSscooperHP scooper = collision.gameObject.GetComponentInChildren<IGSscooperHP>();
                 if (scooper != null && scooper.scoopCurrentHP == 0) {
                     sample.SetActive(true);
                     state = State.SampleLoaded;
