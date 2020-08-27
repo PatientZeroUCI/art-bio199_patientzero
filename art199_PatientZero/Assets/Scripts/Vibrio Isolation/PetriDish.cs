@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PetriDish : MonoBehaviour
 {
+    public GameObject petri_dish;
     private int textureSize = 64;
     private int textureWidth;
     private int textureHeight;
@@ -94,6 +95,7 @@ public class PetriDish : MonoBehaviour
             if (colorRatio > desiredRatio)
             {
                 swabComplete = true;
+                petri_dish.tag = "DNA";
             }
 
             // Debug.Log(pixels[i].ToString() + "" + petriColor.ToString());
