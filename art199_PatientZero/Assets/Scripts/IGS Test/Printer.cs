@@ -64,15 +64,15 @@ public class Printer : MonoBehaviour
 
     public void PrintIGS()
     {
-        int height = size.x;
-        int width = size.y;
-        int length = 100;
+        int height = 50;
+        int width = 50;
+        int length = 50;
 
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.transform.rotation = transform.rotation;
         cube.transform.position = transform.position + transform.rotation * Vector3.up * height / 200f;
-
-        cube.GetComponent<BoxCollider>().size = new Vector3(size.x / 100f, size.y / 100f, length / 100f);
+        cube.AddComponent<Rigidbody>();
+        cube.GetComponent<BoxCollider>().size = new Vector3(height / 100f, width / 100f, length / 100f);
         StartCoroutine(Print(cube.GetComponent<Rigidbody>(), transform.rotation * Vector3.down, height / 100f));
     }
 
