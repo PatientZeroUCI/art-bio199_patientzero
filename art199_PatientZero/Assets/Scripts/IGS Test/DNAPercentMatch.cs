@@ -16,7 +16,7 @@ public class DNAPercentMatch : MonoBehaviour
     }
 
     private void Update() {
-        if (otherRing != null && Quaternion.Angle(otherRing.transform.rotation, transform.rotation) < 20) {
+        if (otherRing != null) {
             text.text = $"{matchPercent}%";
             text.color = Color.white;
         } else {
