@@ -52,6 +52,7 @@ public class IGSTestSlide : MonoBehaviour {
 
             if (progress >= 10f) {
                 state = State.Done;
+                tag = "GRAM";
                 progress = 0;
                 progressBar.Value = 0;
                 progressBar.Visible = false;
