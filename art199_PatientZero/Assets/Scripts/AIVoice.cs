@@ -35,7 +35,7 @@ public class AIVoice : MonoBehaviour {
         captions.Clear();
         foreach (string line in clip.captionsFile.text.Split('\n')) {
             if (line != "") {
-                string[] split = line.Split(';');
+                string[] split = line.Split(new char[] { ';' }, 2);
                 captions.Add((float.Parse(split[0]), split[1]));
             }
         }
