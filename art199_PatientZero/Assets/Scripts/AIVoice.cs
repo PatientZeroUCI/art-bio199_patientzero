@@ -10,18 +10,19 @@ public class AIVoice : MonoBehaviour {
     private int currentIndex = 0;
     private float endTime = -1;
 
-    public int playOnStart = -1;
+    //public int playOnStart = -1;
     public TextMeshProUGUI textObject;
     public List<VoiceClip> voiceClips = new List<VoiceClip>();
+
+    private List<int> playOnStart;
+    private float delay = 0;
 
     private void Awake() {
         audioSource = GetComponent<AudioSource>();
     }
 
     private void Start() {
-        if (playOnStart > -1) {
-            ReadVoiceClip(playOnStart);
-        }
+        playOnStart = new List<int> { 58, 59, 60, 61, 62, 63, 64 };
     }
 
     public void ReadVoiceClip(int index) {
@@ -44,7 +45,6 @@ public class AIVoice : MonoBehaviour {
         currentIndex = 0;
         audioSource.time = clip.start;
         endTime = clip.end;
-        audioSource.Play();
     }
 
     private void Update() {
@@ -55,9 +55,24 @@ public class AIVoice : MonoBehaviour {
 
             if (audioSource.time > endTime) {
                 audioSource.Stop();
+                audioSource.clip = null;
             }
         } else {
             textObject.text = "";
+
+            if (audioSource.clip != null) {
+                if (delay > 0) {
+                    delay -= Time.deltaTime;
+                } else {
+                    audioSource.Play();
+                }
+            } else {
+                if (playOnStart.Count > 0) {
+                    delay = 0.5f;
+                    ReadVoiceClip(playOnStart[0]);
+                    playOnStart.RemoveAt(0);
+                }
+            }
         }
 
         //if (Input.GetKeyDown(KeyCode.Space)) {
