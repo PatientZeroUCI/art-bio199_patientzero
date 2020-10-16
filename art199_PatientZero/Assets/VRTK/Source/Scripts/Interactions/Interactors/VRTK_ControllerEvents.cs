@@ -1542,6 +1542,8 @@ namespace VRTK
             }
             else if (triggerClicked && currentTriggerAxis.x < triggerClickThreshold)
             {
+                Debug.Log("trigger clicked!");
+
                 OnTriggerUnclicked(SetControllerEvent(ref triggerClicked, false, 0f));
             }
 

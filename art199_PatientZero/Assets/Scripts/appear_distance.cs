@@ -6,6 +6,7 @@ public class appear_distance : MonoBehaviour
 {
     public MeshRenderer text;
     public double render_distance;
+    //Vector3 player_pos;
 
     //public Transform headset = VRTK_DeviceFinder.HeadsetTransform();
     // Start is called before the first frame update
@@ -15,9 +16,17 @@ public class appear_distance : MonoBehaviour
         render_distance = 1.0;
     }
     void Start()
-    { 
+    {
+        Vector3 player_pos;
+
         GameObject go = GameObject.Find("Neck");
-        Vector3 player_pos = go.transform.position;
+        if (go == null) {
+            player_pos = Vector3.zero;
+        }
+        else
+        {
+            player_pos = go.transform.position;
+        }
 
         Vector3 object_pos = gameObject.transform.position;
 
@@ -38,9 +47,17 @@ public class appear_distance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject go = GameObject.Find("Neck");
+        Vector3 player_pos;
 
-        Vector3 player_pos = go.transform.position;
+        GameObject go = GameObject.Find("Neck");
+        if (go == null)
+        {
+            player_pos = Vector3.zero;
+        }
+        else
+        {
+            player_pos = go.transform.position;
+        }
         Vector3 object_pos = gameObject.transform.position;
 
         //Debug.Log(player_pos);
