@@ -51,16 +51,9 @@ public class ToolCenter : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.tag == "Tool")
+        if (collision.gameObject.tag == "Tool" || collision.gameObject.tag == "PetriDish")
         {
             //collision.gameObject.transform.DetachChildren();
-            if (transform.parent == null)
-            {
-                foreach (Transform child in transform)
-                {
-                    child.parent = null;
-                }
-            }
             Destroy(collision.gameObject);
         }
 
@@ -99,7 +92,7 @@ public class ToolCenter : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         currSurface = Instantiate(toSpawn, spawnLoc.transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
-        rb = currSurface.GetComponent<Rigidbody>();
+        rb = currSurface.transform.Find("Surface").gameObject.GetComponent<Rigidbody>();
         spawned = true;
         canPlayAudio = true;
     }
