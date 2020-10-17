@@ -54,6 +54,13 @@ public class ToolCenter : MonoBehaviour
         if (collision.gameObject.tag == "Tool")
         {
             //collision.gameObject.transform.DetachChildren();
+            if (transform.parent == null)
+            {
+                foreach (Transform child in transform)
+                {
+                    child.parent = null;
+                }
+            }
             Destroy(collision.gameObject);
         }
 
