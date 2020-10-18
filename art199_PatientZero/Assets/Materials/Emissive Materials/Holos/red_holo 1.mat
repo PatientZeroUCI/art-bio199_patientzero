@@ -7,12 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: _MA_P_LargeIntestineRectum
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: red_holo 1
+  m_Shader: {fileID: 4800000, guid: 1408e03254b557644b24f0e24b5781de, type: 3}
   m_ShaderKeywords: _COLORGLITCHFEATURE_ON _DISSOLVEFEATURE_ON _FRESNELFEATURE_ON
-    _GRAINFEATURE_ON _LINE1FEATURE_ON _LINE2FEATURE_ON _LINEBOTHFEATURE_ON _METALLICGLOSSMAP
-    _NORMALMAP _NORMALMAPFEATURE_ON _POSITIONFEATURE_Y _POSITIONSPACEFEATURE_WORLD
-    _RANDOMGLITCHFEATURE_ON _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SOFTINTERSECTION1FEATURE_OFF
+    _GRAINFEATURE_ON _LINE1FEATURE_ON _LINE2FEATURE_ON _LINEBOTHFEATURE_ON _NORMALMAPFEATURE_ON
+    _POSITIONFEATURE_Y _POSITIONSPACEFEATURE_WORLD _RANDOMGLITCHFEATURE_ON _SOFTINTERSECTION1FEATURE_OFF
     _SOFTINTERSECTION2FEATURE_OFF _ZWRITE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -28,7 +27,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 36cc224e55697ab41a996fc9e9877b0f, type: 3}
+        m_Texture: {fileID: 2800000, guid: b047d85bbf2e38d458a9506dfa8a1d9c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,6 +39,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Displacement:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -60,11 +63,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 90e3e4e4de408594e99f80df7b5ce56d, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 0bd39d4f05feb67468c622a41649fb87, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -72,7 +75,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 9eccc238712daa840a3bccd8cbe9fbb1, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -93,6 +96,8 @@ Material:
     - _CullMode: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _DisplacementAmount: 0
+    - _DisplacementFeature: 0
     - _DissolveFeature: 1
     - _DissolveHide: -0.267
     - _DstBlend: 0
@@ -101,7 +106,7 @@ Material:
     - _FresnelFeature: 1
     - _FresnelPower: 2
     - _FresnelScale: 1
-    - _GlossMapScale: 0.907
+    - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GrainAffect: 0.069
@@ -127,6 +132,7 @@ Material:
     - _MaskFalloff: 0
     - _MaskFeature: 0
     - _MaskInversion: 0
+    - _MaskInvesion: 0
     - _MaskLocalFeature: 0
     - _Metallic: 0
     - _Mode: 0
@@ -143,7 +149,7 @@ Material:
     - _RandomGlitchFeature: 1
     - _RandomGlitchTiling: 2.83
     - _RandomOffset: 0
-    - _SmoothnessTextureChannel: 1
+    - _SmoothnessTextureChannel: 0
     - _SoftIntersection1Affect: 1
     - _SoftIntersection1Distance: 0
     - _SoftIntersection1Feature: 0
