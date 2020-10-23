@@ -6,18 +6,15 @@ using VRTK.Controllables;
 
 public class MasterVolumeSlider : MonoBehaviour
 {   
-    public VRTK_BaseControllable controllable;
     public TextMesh volumeText;
+    private Slider slider;
 
-    protected virtual void OnEnable() {
-        controllable = controllable == null ? GetComponent<VRTK_BaseControllable>() : controllable;
-        controllable.ValueChanged += ValueChanged;
-        Debug.Log("On runtime - Volume = " + AudioListener.volume + "; Value before change = " + controllable.GetValue());
+    void Start() {
+        slider = GetComponent<Slider>();
+        slider.onValueChanged.AddListener(delegate { VolumeChange(); });
     }
 
-    protected virtual void ValueChanged(object sender, ControllableEventArgs e) {
-        AudioListener.volume = controllable.GetNormalizedValue();
-        volumeText.text = ((int)(AudioListener.volume * 100)) + "%";
-        PlayerPrefs.SetFloat("volume", AudioListener.volume);
+    public void VolumeChange() {
+        Debug.Log(slider.value);
     }
 }
