@@ -1,26 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class ToolCenter : MonoBehaviour
 {
+    public PositionResetter PR;
+
     public GameObject currSurface;
     public List<GameObject> surfaces;
-    public AIVoice aiVoice;
-    public List<int> aiVoiceClips;
     
     public Transform surfacePos;
     public Transform spawnLoc;
 
     bool spawned = false;
     bool spawningAlready = false;
-    bool canPlayAudio = true;
+
     public float speed;
-
     public float delay;
-
     Rigidbody rb;
 
+    bool canPlayAudio = true;
+    public AIVoice aiVoice;
+    public List<int> aiVoiceClips;
     AudioSource tableRisingSound;
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,15 @@ public class ToolCenter : MonoBehaviour
                 spawned = false;
                 spawningAlready = false;
                 tableRisingSound.Stop();
+                foreach (Transform child in currSurface.transform)
+                {
+                    GameObject obj = child.gameObject;
+                    if (obj.tag == "Tool" || obj.gameObject.tag == "PetriDish")
+                    {
+                        PR.setSpawn(obj);
+                    }
+
+                }
             }
         }
     }
@@ -76,6 +87,17 @@ public class ToolCenter : MonoBehaviour
         if (spawningAlready == false)
         {
             rb.isKinematic = false;
+
+            foreach (Transform child in currSurface.transform)
+            {
+                GameObject obj = child.gameObject;
+                if (obj.tag == "Tool" || obj.gameObject.tag == "PetriDish")
+                {
+                    PR.removeSpawn(obj);
+                }
+
+            }
+            
             StartCoroutine(MyCoroutine(surfaces[i]));
             spawningAlready = true;
 

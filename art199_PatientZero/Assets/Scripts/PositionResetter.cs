@@ -7,28 +7,44 @@ using UnityEngine;
 
 public class PositionResetter : MonoBehaviour
 {
-    public List<GameObject> objects;
-    public List<Transform> spawns;
+    public static List<GameObject> objects = new List<GameObject>();
+    public static List<Vector3> vSpawns = new List<Vector3>();
 
 
     // Start is called before the first frame update
     void Start()
     {
+        foreach (GameObject obj in objects)
+        {
+            vSpawns.Add(obj.transform.position);
+        }
     }
 
     //// Update is called once per frame
     //void Update()
     //{
-
+    //
     //}
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        UnityEngine.Debug.Log("Entered");
         if (collision.gameObject.tag == "Tool" || collision.gameObject.tag == "PetriDish")
         {
-            collision.gameObject.transform.position = spawns[objects.IndexOf(collision.gameObject)].transform.position;
+            //collision.gameObject.transform.position = spawns[objects.IndexOf(collision.gameObject)].position;
+            collision.gameObject.transform.position = vSpawns[objects.IndexOf(collision.gameObject)];
         }
 
+    }
+
+    public void setSpawn(GameObject obj)
+    {
+        objects.Add(obj);
+        vSpawns.Add(obj.transform.position);
+    }
+
+    public void removeSpawn(GameObject obj)
+    {
+        objects.Remove(obj);
+        vSpawns.Remove(obj.transform.position);
     }
 }

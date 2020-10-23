@@ -41,24 +41,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8069504396139106718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492205327024967795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  precisionGrab: 0
-  rightSnapHandle: {fileID: 1309785657777751430}
-  leftSnapHandle: {fileID: 1309785657777751430}
-  throwVelocityWithAttachDistance: 0
-  throwMultiplier: 1
-  onGrabCollisionDelay: 0
 --- !u!114 &3227685324043458325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +78,24 @@ MonoBehaviour:
   swabTipSize: 1
   tipHeight: 0.05
   swabColor: {r: 1, g: 0.05490196, b: 0.05490196, a: 0}
+--- !u!114 &8069504396139106718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492205327024967795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  precisionGrab: 0
+  rightSnapHandle: {fileID: 1309785657777751430}
+  leftSnapHandle: {fileID: 1309785657777751430}
+  throwVelocityWithAttachDistance: 0
+  throwMultiplier: 1
+  onGrabCollisionDelay: 0
 --- !u!1 &694311848087225804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,6 +2090,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: _M_Qtip
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 70e177542e036b944ac15a35d40d5f43,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tool
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70e177542e036b944ac15a35d40d5f43, type: 3}
