@@ -9,6 +9,8 @@ public class ToolCenter : MonoBehaviour
 
     public GameObject currSurface;
     public List<GameObject> surfaces;
+    private GameObject outsideSurface;
+    private int surfacenum;
     
     public Transform surfacePos;
     public Transform spawnLoc;
@@ -47,6 +49,7 @@ public class ToolCenter : MonoBehaviour
                 spawned = false;
                 spawningAlready = false;
                 tableRisingSound.Stop();
+                outsideSurface = surfaces[surfacenum];
                 foreach (Transform child in currSurface.transform)
                 {
                     GameObject obj = child.gameObject;
@@ -72,34 +75,33 @@ public class ToolCenter : MonoBehaviour
 
     public void dropSurface1()
     {
-        dropSurface(0);
-
+		dropSurface(0);
     }
 
     public void dropSurface2()
     {
-        dropSurface(1);
-
+		dropSurface(1);
     }
 
     public void dropSurface(int i)
     {
-        if (spawningAlready == false)
+        if (spawningAlready == false && surfaces[i] != outsideSurface)
         {
+        	surfacenum = i;
             rb.isKinematic = false;
 
-            foreach (Transform child in currSurface.transform)
-            {
-                GameObject obj = child.gameObject;
-                if (obj.tag == "Tool" || obj.gameObject.tag == "PetriDish")
-                {
-                    PR.removeSpawn(obj);
-                }
+            // foreach (Transform child in currSurface.transform)
+            // {
+            //     GameObject obj = child.gameObject;
+            //     if (obj.tag == "Tool" || obj.gameObject.tag == "PetriDish")
+            //     {
+            //         PR.removeSpawn(obj);
+            //     }
 
-            }
-            
-            StartCoroutine(MyCoroutine(surfaces[i]));
-            spawningAlready = true;
+            // }
+         	StartCoroutine(MyCoroutine(surfaces[i]));
+        	spawningAlready = true;           	
+
 
             if (aiVoiceClips.Count > i) {
                 aiVoice.ReadVoiceClip(aiVoiceClips[i]);
@@ -117,6 +119,7 @@ public class ToolCenter : MonoBehaviour
         rb = currSurface.transform.Find("Surface").gameObject.GetComponent<Rigidbody>();
         spawned = true;
         canPlayAudio = true;
+
     }
 
 
