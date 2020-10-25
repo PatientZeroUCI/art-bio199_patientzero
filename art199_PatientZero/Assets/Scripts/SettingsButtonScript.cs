@@ -6,6 +6,7 @@ public class SettingsButtonScript : MonoBehaviour
 {
     public GameObject settingsMenu;
     private Vector3 initialMenuPos;
+    public List<GameObject> otherMenus;
 
     private void Start() {
         initialMenuPos = settingsMenu.transform.position;
@@ -17,6 +18,12 @@ public class SettingsButtonScript : MonoBehaviour
         if(settingsMenu.transform.position == initialMenuPos) {
             settingsMenu.transform.position += new Vector3(0, -10, 0);
         } else {
+
+            foreach (GameObject menu in otherMenus)
+            {
+                menu.SetActive(false);
+            }
+
             settingsMenu.transform.position = initialMenuPos;
         }
     }
