@@ -1540,11 +1540,12 @@ namespace VRTK
             //Trigger Clicked
             if (!triggerClicked && currentTriggerAxis.x >= triggerClickThreshold)
             {
+                Debug.Log("trigger clicked!");
+
                 OnTriggerClicked(SetControllerEvent(ref triggerClicked, true, currentTriggerAxis.x));
             }
             else if (triggerClicked && currentTriggerAxis.x < triggerClickThreshold)
             {
-                Debug.Log("trigger clicked!");
 
                 OnTriggerUnclicked(SetControllerEvent(ref triggerClicked, false, 0f));
             }
@@ -1612,6 +1613,8 @@ namespace VRTK
             //Grip Pressed
             if (VRTK_SDK_Bridge.GetControllerButtonState(SDK_BaseController.ButtonTypes.Grip, SDK_BaseController.ButtonPressTypes.PressDown, controllerReference))
             {
+                Debug.Log("Grip pressed!");
+
                 OnGripPressed(SetControllerEvent(ref gripPressed, true, currentGripAxis.x));
             }
 
