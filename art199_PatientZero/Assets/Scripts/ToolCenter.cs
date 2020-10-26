@@ -50,14 +50,17 @@ public class ToolCenter : MonoBehaviour
                 spawningAlready = false;
                 tableRisingSound.Stop();
                 outsideSurface = surfaces[surfacenum];
-                foreach (Transform child in currSurface.transform)
+                if (PR != null)
                 {
-                    GameObject obj = child.gameObject;
-                    if (obj.tag == "Tool" || obj.gameObject.tag == "PetriDish")
+                    foreach (Transform child in currSurface.transform)
                     {
-                        PR.setSpawn(obj);
-                    }
+                        GameObject obj = child.gameObject;
+                        if (obj.tag == "Tool" || obj.gameObject.tag == "PetriDish")
+                        {
+                            PR.setSpawn(obj);
+                        }
 
+                    }
                 }
             }
         }
@@ -89,16 +92,19 @@ public class ToolCenter : MonoBehaviour
         {
         	surfacenum = i;
             rb.isKinematic = false;
+            if (PR != null)
+            {
+                foreach (Transform child in currSurface.transform)
+                {
+                    GameObject obj = child.gameObject;
+                    if (obj.tag == "Tool" || obj.gameObject.tag == "PetriDish")
+                    {
+                        PR.removeSpawn(obj);
+                    }
 
-            // foreach (Transform child in currSurface.transform)
-            // {
-            //     GameObject obj = child.gameObject;
-            //     if (obj.tag == "Tool" || obj.gameObject.tag == "PetriDish")
-            //     {
-            //         PR.removeSpawn(obj);
-            //     }
-
-            // }
+                }
+            }
+ 
          	StartCoroutine(MyCoroutine(surfaces[i]));
         	spawningAlready = true;           	
 
