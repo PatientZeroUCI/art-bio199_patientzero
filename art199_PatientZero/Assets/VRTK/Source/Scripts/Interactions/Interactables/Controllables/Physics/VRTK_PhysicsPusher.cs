@@ -153,7 +153,14 @@ namespace VRTK.Controllables.PhysicsBased
 #else
             SetRigidbodyCollisionDetectionMode(CollisionDetectionMode.ContinuousDynamic);
 #endif
-            SetRigidbodyConstraints(RigidbodyConstraints.FreezeRotation);
+            
+	        Rigidbody rb = GetComponent<Rigidbody>();
+	        if (rb)     // forcibly update the rigid body
+	        {
+	            rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+	        }
+	        SetRigidbodyConstraints(rb.constraints);
+
         }
 
         protected override void EmitEvents()
