@@ -11,6 +11,8 @@ public class CameraTooltipScanner : MonoBehaviour
     private GameObject[] targets;
     private Dictionary<GameObject, Transform> activeTooltips;
 
+    public float delay = 15f;
+
     void Start()
     {
         playerCam = GetComponent<Camera>();
@@ -38,6 +40,11 @@ public class CameraTooltipScanner : MonoBehaviour
                 Transform tooltip = Instantiate(tooltipPrefab, tooltipPos, Quaternion.identity); // Setting parent will distort the text
                 tooltip.GetComponent<TooltipScript>().initTooltip(targets[i].name, targets[i].transform);
                 activeTooltips.Add(targets[i], tooltip);
+
+                /// Ronnie's Code
+
+                StartCoroutine(DelayDeleter(targets[i]));
+
             }
             else if (!IsWithinRange(targetDistance) && activeTooltips.ContainsKey(targets[i])) {
                 RemoveTooltip(targets[i]);
@@ -70,5 +77,13 @@ public class CameraTooltipScanner : MonoBehaviour
 
     private bool IsWithinRange(Vector3 pos) {
         return ((pos.x >= 0 && pos.x <= 1) && (pos.y >= 0 && pos.y <= 1) && (pos.z >= 0 && pos.z <= 6)) ? true : false;
+    }
+
+    IEnumerator DelayDeleter(GameObject toDelete)
+    {
+
+        yield return new WaitForSeconds(delay);
+        RemoveTooltip(toDelete);
+
     }
 }
