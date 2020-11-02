@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using VRTK;
 
 public class AIVoice : MonoBehaviour {
     private AudioSource audioSource;
@@ -16,6 +17,8 @@ public class AIVoice : MonoBehaviour {
 
     private List<int> playOnStart;
     private float delay = 0;
+
+    public VRTK_ControllerEvents right_hand;
 
     private void Awake() {
         audioSource = GetComponent<AudioSource>();
@@ -53,7 +56,7 @@ public class AIVoice : MonoBehaviour {
                 textObject.text = captions[currentIndex++].caption;
             }
 
-            if (audioSource.time > endTime) {
+            if ((audioSource.time > endTime) || right_hand.buttonOnePressed) {
                 audioSource.Stop();
                 audioSource.clip = null;
             }
