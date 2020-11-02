@@ -11,12 +11,14 @@ public class CameraTooltipScanner : MonoBehaviour
     private GameObject[] targets;
     private Dictionary<GameObject, Transform> activeTooltips;
 
-    public float delay = 15f;
+    private float delay = 10f;
+    private List<GameObject> addedAlready;
 
     void Start()
     {
         playerCam = GetComponent<Camera>();
         activeTooltips = new Dictionary<GameObject, Transform>();
+        addedAlready = new List<GameObject>();
     }
 
     void Update()
@@ -35,16 +37,17 @@ public class CameraTooltipScanner : MonoBehaviour
         targets = GameObject.FindGameObjectsWithTag("Tool");
         for (int i = 0; i < targets.Length; i++) {
             Vector3 targetDistance = playerCam.WorldToViewportPoint(targets[i].transform.position);
-            if (IsWithinRange(targetDistance) && !activeTooltips.ContainsKey(targets[i])) {
+            if (IsWithinRange(targetDistance) && !activeTooltips.ContainsKey(targets[i]) && !addedAlready.Contains(targets[i])) {
                 Vector3 tooltipPos = targets[i].transform.position + new Vector3(0, 0.5f, 0);
                 Transform tooltip = Instantiate(tooltipPrefab, tooltipPos, Quaternion.identity); // Setting parent will distort the text
                 tooltip.GetComponent<TooltipScript>().initTooltip(targets[i].name, targets[i].transform);
                 activeTooltips.Add(targets[i], tooltip);
 
                 /// Ronnie's Code
+                /// Begins a couroutine that will automatically remove tooltip after specific delay, if tooltip has not already been removed
 
                 StartCoroutine(DelayDeleter(targets[i]));
-
+                addedAlready.Add(targets[i]);
             }
             else if (!IsWithinRange(targetDistance) && activeTooltips.ContainsKey(targets[i])) {
                 RemoveTooltip(targets[i]);
@@ -81,9 +84,11 @@ public class CameraTooltipScanner : MonoBehaviour
 
     IEnumerator DelayDeleter(GameObject toDelete)
     {
-
         yield return new WaitForSeconds(delay);
-        RemoveTooltip(toDelete);
-
+        if (activeTooltips.ContainsKey(toDelete))
+        {
+            RemoveTooltip(toDelete);
+        }
+        
     }
 }
