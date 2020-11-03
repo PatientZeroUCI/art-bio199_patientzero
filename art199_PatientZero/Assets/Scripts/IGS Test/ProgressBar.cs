@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using VRTK;
 
 public class ProgressBar : MonoBehaviour {
     public Image image;
+    private Camera camera_main;
 
     public float Value {
         get {
@@ -28,9 +30,12 @@ public class ProgressBar : MonoBehaviour {
 
     void Start() {
         Value = 0;
+        camera_main = Camera.main;
     }
 
     void Update() {
-        transform.rotation = Camera.main.transform.rotation;
+        transform.LookAt(camera_main.transform);
+
+        transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
     }
 }
