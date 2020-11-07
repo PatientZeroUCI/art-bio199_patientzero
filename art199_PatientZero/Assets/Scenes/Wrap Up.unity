@@ -3209,6 +3209,64 @@ Transform:
   m_Father: {fileID: 1522524451}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &270489021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270489022}
+  - component: {fileID: 270489024}
+  - component: {fileID: 270489023}
+  m_Layer: 0
+  m_Name: Nose
+  m_TagString: PetriDish
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &270489022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270489021}
+  m_LocalRotation: {x: -1.6653345e-15, y: -0.000000022351742, z: -0.000000018626451,
+    w: 1}
+  m_LocalPosition: {x: 0.0010000453, y: 1.6240001, z: 0.078000136}
+  m_LocalScale: {x: 1.9934976, y: 1.3892981, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436995820}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270489023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270489021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd2eb0f87bdb7c49bce7919db4f6ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &270489024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270489021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.05, z: 0.05}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &279007485
 GameObject:
   m_ObjectHideFlags: 0
@@ -12459,7 +12517,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 4780855833181305571, guid: a156d6f0ad7112a4dad1666ecfbf09a9,
     type: 3}
-  delay: 15
 --- !u!114 &872009994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12474,7 +12531,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 4780855833181305571, guid: a156d6f0ad7112a4dad1666ecfbf09a9,
     type: 3}
-  delay: 15
 --- !u!114 &872009995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12489,7 +12545,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 4780855833181305571, guid: a156d6f0ad7112a4dad1666ecfbf09a9,
     type: 3}
-  delay: 15
 --- !u!114 &872009996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12504,7 +12559,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 4780855833181305571, guid: a156d6f0ad7112a4dad1666ecfbf09a9,
     type: 3}
-  delay: 15
 --- !u!1 &891804128
 GameObject:
   m_ObjectHideFlags: 0
@@ -17543,7 +17597,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 4780855833181305571, guid: a156d6f0ad7112a4dad1666ecfbf09a9,
     type: 3}
-  delay: 15
 --- !u!114 &1271978715
 MonoBehaviour:
   m_ObjectHideFlags: 0
