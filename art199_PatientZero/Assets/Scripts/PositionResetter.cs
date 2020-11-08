@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class PositionResetter : MonoBehaviour
     {
         foreach (GameObject obj in objects)
         {
-            vSpawns.Add(new Vector3(obj.transform.position.x, obj.transform.position.y + 0.1f, obj.transform.position.z));
+            vSpawns.Add(new Vector3(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z));
             rotations.Add(new Vector3(obj.transform.rotation.eulerAngles.x, obj.transform.rotation.eulerAngles.y, obj.transform.rotation.eulerAngles.z));
         }
     }
@@ -30,11 +31,13 @@ public class PositionResetter : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        UnityEngine.Debug.Log("to delete");
         if (collision.gameObject.tag == "Tool" || collision.gameObject.tag == "PetriDish")
         {
             int index = objects.IndexOf(collision.gameObject);
 
             collision.gameObject.transform.position = vSpawns[index];
+            collision.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             collision.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             collision.gameObject.transform.eulerAngles = rotations[index];
             
