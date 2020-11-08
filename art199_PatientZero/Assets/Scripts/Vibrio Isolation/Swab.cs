@@ -12,6 +12,7 @@ public class Swab : VRTK_InteractableObject
     private RaycastHit swabTouching;
     public int swabTipSize = 5;
     public float tipHeight = 1.0f;
+    public GameObject virus;
 
 
     public Color swabColor = Color.green;
@@ -19,6 +20,9 @@ public class Swab : VRTK_InteractableObject
 
     private bool lastTouch;
     private Quaternion lastAngle;
+
+	private AudioSource audio;
+
 
     // Start is called before the first frame update
     void Start()
@@ -76,4 +80,17 @@ public class Swab : VRTK_InteractableObject
             transform.rotation = lastAngle;
         }
     }
+
+
+	void OnTriggerEnter(Collider col)
+	{
+	    if(col.gameObject.name == "Nose")
+	    {
+
+	    	audio = GetComponent<AudioSource>();
+	    	virus.SetActive(true);
+	     	Debug.Log(col.gameObject.name);
+	     	audio.Play();
+	    }
+	 }
 }
