@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class PositionResetter : MonoBehaviour
 {
-    public static List<GameObject> objects = new List<GameObject>();
+    public List<GameObject> objects = new List<GameObject>();
     public static List<Vector3> vSpawns = new List<Vector3>();
     public static List<Vector3> rotations = new List<Vector3>();
 
@@ -32,7 +32,7 @@ public class PositionResetter : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         UnityEngine.Debug.Log("to delete");
-        if (collision.gameObject.tag == "Tool" || collision.gameObject.tag == "PetriDish")
+        if (collision.gameObject.tag == "Tool" || collision.gameObject.tag == "PetriDish" || collision.gameObject.tag == "Book")
         {
             int index = objects.IndexOf(collision.gameObject);
 
