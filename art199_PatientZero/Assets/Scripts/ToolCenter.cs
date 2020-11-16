@@ -68,7 +68,7 @@ public class ToolCenter : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.tag == "Tool" || collision.gameObject.tag == "PetriDish")
+        if (collision.gameObject.tag == "Tool" || collision.gameObject.tag == "PetriDish" || collision.gameObject.tag == "Evidence")
         {
             //collision.gameObject.transform.DetachChildren();
             Destroy(collision.gameObject);
