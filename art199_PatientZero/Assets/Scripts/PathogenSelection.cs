@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PathogenSelection : MonoBehaviour
 {
@@ -219,16 +220,26 @@ public class PathogenSelection : MonoBehaviour
         }
     }
 
-    //Only print to the consol is the submit button will work or not
+    //Used for pathogen submit button. If correct pathogen is selected, player continues to main game. Otherwise, demo is restarted.
     public void FinalSubmit()
     {
         if (P1.GetComponent<PathogenSelection>().isSelected == true || P2.GetComponent<PathogenSelection>().isSelected == true || P3.GetComponent<PathogenSelection>().isSelected == true || P4.GetComponent<PathogenSelection>().isSelected == true)
         {
-            print("submit will work");
+            print("PathogenSelection.cs: Valid submission, checking answer");
+            if (P1.GetComponent<PathogenSelection>().isSelected == true)
+            {
+                print("PathogenSelection.cs: Correct answer! Returning to title screen."); // Should be changed to move forward once next phase of game is ready.
+                SceneManager.LoadScene("Title Scene");
+            }
+            else
+            {
+                print("PathogenSelection.cs: Incorrect answer. Restarting demo.");
+                SceneManager.LoadScene("Wrap Up");
+            }
         }
         else
         {
-            print("submiy wont work");
+            print("PathogenSelection.cs: No pathogen selected");
         }
     }
 }
