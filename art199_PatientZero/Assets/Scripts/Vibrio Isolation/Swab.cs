@@ -84,13 +84,30 @@ public class Swab : VRTK_InteractableObject
 
 	void OnTriggerEnter(Collider col)
 	{
-	    if(col.gameObject.name == "Nose")
-	    {
+		// If the virus is not on the swab yet (not active)
+		if(virus.activeSelf == false)
+		{
+		    if(col.gameObject.name == "Nose")
+		    {
+		    	audio = GetComponent<AudioSource>();
+		    	virus.SetActive(true);
+		     	Debug.Log(col.gameObject.name);
+		     	audio.Play();
+		    }
 
-	    	audio = GetComponent<AudioSource>();
-	    	virus.SetActive(true);
-	     	Debug.Log(col.gameObject.name);
-	     	audio.Play();
-	    }
+		    if(col.gameObject.name == "Placeholder_Virus")
+		    {
+		    	col.gameObject.SetActive(false);
+		    	virus.SetActive(true);
+		    }
+		}
+		else
+		{
+			if(col.gameObject.name == "Nose")
+			{
+				virus.SetActive(false);
+				col.transform.GetChild(0).gameObject.SetActive(true);
+			}
+		}
 	 }
 }
