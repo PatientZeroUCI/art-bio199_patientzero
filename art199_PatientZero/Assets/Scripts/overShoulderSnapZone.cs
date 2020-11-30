@@ -22,7 +22,12 @@ public class overShoulderSnapZone : MonoBehaviour
         transform.position = VRTK_DeviceFinder.HeadsetTransform().position + offset;
         if (snapZoneObject.GetCurrentSnappedObject() == snappedObject)
         {
-            snappedObject.transform.position = transform.position;
+            snappedObject.GetComponent<Renderer>().enabled = false;
+            snappedObject.transform.position = transform.position; 
+        }
+        else 
+        {
+            snappedObject.GetComponent<Renderer>().enabled = true;
         }
     }
 }
