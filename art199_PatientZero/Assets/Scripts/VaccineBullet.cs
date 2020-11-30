@@ -16,7 +16,7 @@ public class VaccineBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tracer = transform.FindChild("Tracer");
+        tracer = transform.Find("Tracer");
         rigidbody = GetComponent<Rigidbody>();
         startPosition = transform.position;
         endPosition = transform.position;
