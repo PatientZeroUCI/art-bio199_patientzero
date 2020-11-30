@@ -50,6 +50,7 @@ public class Printer : MonoBehaviour
         Texture2D blank = new Texture2D(width, height, TextureFormat.RGB24, false);
 
         GameObject ss = Instantiate(paperPrefab);
+        ss.tag = "Screenshot";
         ss.transform.rotation = transform.rotation;
         ss.transform.position = transform.position + transform.rotation * Vector3.up * height / 200f;
 
