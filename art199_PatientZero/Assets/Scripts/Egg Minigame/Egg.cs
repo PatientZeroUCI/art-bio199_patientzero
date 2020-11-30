@@ -19,6 +19,9 @@ public class Egg : MonoBehaviour
 		if(collision.gameObject.tag == "Flashlight"){
 			this.gameObject.GetComponent<Renderer>().material= inFlashlight;
 		}
+		if(collision.gameObject.activeSelf == false){
+			this.gameObject.GetComponent<Renderer>().material = outFlashlight;
+		}
 	}
 
 	void OnCollisionExit (Collision collision){
