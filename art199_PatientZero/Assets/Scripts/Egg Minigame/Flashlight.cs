@@ -6,25 +6,31 @@ using VRTK;
 public class Flashlight : MonoBehaviour
 {
     public GameObject light;
-    public double timeStamp;
 
-    public VRTK_InteractableObject flashlight;
+    public VRTK_InteractableObject linkedObject;
     public VRTK_InteractUse controllerUse;
+    
+    protected virtual void OnEnable()
+    {
+        linkedObject = (linkedObject == null ? GetComponent<VRTK_InteractableObject>() : linkedObject);
 
-    void Start() {
-    	timeStamp = Time.time + 2.5;
-        controllerUse = GameObject.Find("RightHand/Right").GetComponent<VRTK_InteractUse>();
+        if (linkedObject != null)
+        {
+            linkedObject.InteractableObjectUsed += InteractableObjectUsed;
+        }
     }
 
-    void Update()
+    protected virtual void OnDisable()
     {
-    	if (timeStamp <= Time.time){
-	        if (flashlight.IsGrabbed() && controllerUse.IsUseButtonPressed())
-	        {
-	            UseFlashlight();
-	            timeStamp = Time.time + 1;
-	        }
-    	}
+        if (linkedObject != null)
+        {
+            linkedObject.InteractableObjectUsed -= InteractableObjectUsed;
+        }
+    }
+
+    protected virtual void InteractableObjectUsed(object sender, InteractableObjectEventArgs e)
+    {
+        UseFlashlight();
     }
 
     public void UseFlashlight()
@@ -33,8 +39,10 @@ public class Flashlight : MonoBehaviour
 		{
 			light.SetActive(true);
 		}
-		else{
+		else if(light.activeSelf == true)
+		{
 			light.SetActive(false);
 		}
+
     }
 }
