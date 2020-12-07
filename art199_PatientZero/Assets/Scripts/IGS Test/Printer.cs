@@ -8,17 +8,18 @@ public class Printer : MonoBehaviour
     public Vector2Int size = new Vector2Int(100, 100);
     public float printSpeed = 2f;
 
-    //public Sprite test;
+    public GameObject IGSEvidence;
 
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Z)) {
+        if (Input.GetKeyDown(KeyCode.Z)) {
             ScreenShot();
         }
 
         if (Input.GetKeyDown(KeyCode.X)) {
-            PrintImage(test);
-        }*/
+            Debug.Log("Printing IGS Evidence");
+            PrintIGS();
+        }
     }
 
     IEnumerator Print(Rigidbody rb, Vector3 dir, float dist)
@@ -49,6 +50,7 @@ public class Printer : MonoBehaviour
         Texture2D blank = new Texture2D(width, height, TextureFormat.RGB24, false);
 
         GameObject ss = Instantiate(paperPrefab);
+        ss.tag = "Screenshot";
         ss.transform.rotation = transform.rotation;
         ss.transform.position = transform.position + transform.rotation * Vector3.up * height / 200f;
 
@@ -64,16 +66,8 @@ public class Printer : MonoBehaviour
 
     public void PrintIGS()
     {
-        int height = 50;
-        int width = 50;
-        int length = 50;
-
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.rotation = transform.rotation;
-        cube.transform.position = transform.position + transform.rotation * Vector3.up * height / 200f;
-        cube.AddComponent<Rigidbody>();
-        cube.GetComponent<BoxCollider>().size = new Vector3(height / 100f, width / 100f, length / 100f);
-        StartCoroutine(Print(cube.GetComponent<Rigidbody>(), transform.rotation * Vector3.down, height / 100f));
+        GameObject evidence = Instantiate(IGSEvidence, transform.position, transform.rotation * Quaternion.Euler(0,90f,0));
+        StartCoroutine(Print(evidence.GetComponent<Rigidbody>(), evidence.transform.rotation * Vector3.down, 1f));
     }
 
     public void ScreenShot()

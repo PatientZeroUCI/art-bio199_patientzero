@@ -1,24 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK.Controllables.PhysicsBased;
+using VRTK.UnityEventHelper;
 
 public class PhaseDisplay : MonoBehaviour
 {
     public LogicBoardPhases LogicBoard;
     public Canvas textDisplay;
     public int phaseToDisplay;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public VRTK_BaseControllable_UnityEvents ButtonEvents;
 
     // Update is called once per frame
     void Update()
     {
         if(LogicBoard.currentPhase == phaseToDisplay)
         {
+            ButtonEvents.enabled = true;
             textDisplay.enabled = true;
         }
     }

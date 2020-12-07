@@ -55,7 +55,7 @@ public class ToolCenter : MonoBehaviour
                     foreach (Transform child in currSurface.transform)
                     {
                         GameObject obj = child.gameObject;
-                        if (obj.tag == "Tool" || obj.gameObject.tag == "PetriDish")
+                        if (PR.checkTag(obj.tag))
                         {
                             PR.setSpawn(obj);
                         }
@@ -68,7 +68,7 @@ public class ToolCenter : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.tag == "Tool" || collision.gameObject.tag == "PetriDish" || collision.gameObject.tag == "Evidence")
+        if (PR.checkTag(collision.gameObject.tag))
         {
             //collision.gameObject.transform.DetachChildren();
             Destroy(collision.gameObject);
@@ -97,7 +97,7 @@ public class ToolCenter : MonoBehaviour
                 foreach (Transform child in currSurface.transform)
                 {
                     GameObject obj = child.gameObject;
-                    if (obj.tag == "Tool" || obj.gameObject.tag == "PetriDish")
+                    if (PR.checkTag(obj.tag))
                     {
                         PR.removeSpawn(obj);
                     }

@@ -481,7 +481,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerObject
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6795014383443806881, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6, type: 3}
+    - {fileID: 6795014383443806878, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6, type: 3}
+    - {fileID: 6795014384280216024, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6, type: 3}
+    - {fileID: 6795014384280216027, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6, type: 3}
 --- !u!1 &505460999 stripped
 GameObject:
@@ -1876,6 +1880,8 @@ MonoBehaviour:
   throwMultiplier: 1
   onGrabCollisionDelay: 0
   parent: {fileID: 1413146494}
+  basePosition: {x: 0, y: 0, z: 0}
+  collider: {fileID: 0}
 --- !u!1 &1085260578
 GameObject:
   m_ObjectHideFlags: 0
@@ -3717,6 +3723,90 @@ Transform:
   m_Father: {fileID: 5006512736761444072}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1586323455668326357
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1587142492080281176, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_Name
+      value: VaccineGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.785
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.752
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.381
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588919420052630380, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1699756083576878808, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: sdkOverrides.Array.data[0].loadedSDKSetup
+      value: 
+      objectReference: {fileID: 2095499981}
+    - target: {fileID: 3745914056242642599, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5304850125567514147, guid: aaf084af809b4b94291e8b387799701e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aaf084af809b4b94291e8b387799701e, type: 3}
 --- !u!4 &1777955132314651423
 Transform:
   m_ObjectHideFlags: 0
