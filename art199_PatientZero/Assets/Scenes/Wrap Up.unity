@@ -10188,6 +10188,7 @@ GameObject:
   - component: {fileID: 651530017}
   - component: {fileID: 651530016}
   - component: {fileID: 651530015}
+  - component: {fileID: 651530021}
   m_Layer: 0
   m_Name: snap_zone (1)
   m_TagString: Untagged
@@ -10294,6 +10295,17 @@ MonoBehaviour:
       - m_Target: {fileID: 6323333752855027531}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 651530021}
+        m_MethodName: sendToHologramRoom
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10443,6 +10455,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651530013}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &651530021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651530013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa06df33f0cda4240bfba4c2f1fdcc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapZone: {fileID: 651530017}
+  teleportScript: {fileID: 290424423}
 --- !u!1 &660066229
 GameObject:
   m_ObjectHideFlags: 0
