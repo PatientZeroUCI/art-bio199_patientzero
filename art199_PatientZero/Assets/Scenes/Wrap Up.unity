@@ -121,6 +121,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &4732670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4732671}
+  - component: {fileID: 4732672}
+  m_Layer: 0
+  m_Name: Grab Snap Location
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4732671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732670}
+  m_LocalRotation: {x: -0, y: 1, z: 0.000000014901161, w: 0.00000008940697}
+  m_LocalPosition: {x: 0.097, y: -0.086, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1456992506}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &4732672
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732670}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &12459313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4144,7 +4191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252222565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.001, y: 0, z: 0}
+  m_LocalPosition: {x: 0.044, y: 0, z: -0.051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1052516341}
@@ -15816,6 +15863,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988597718}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &991550727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6799657133146272226, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1052516331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1005004010
 GameObject:
   m_ObjectHideFlags: 0
@@ -16513,6 +16566,11 @@ PrefabInstance:
       propertyPath: cursorVisibility
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6795014383344397714, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6,
+        type: 3}
+      propertyPath: controllerAttachPoint
+      value: 
+      objectReference: {fileID: 1080476890}
     - target: {fileID: 6795014383443806877, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6,
         type: 3}
       propertyPath: m_IsActive
@@ -16528,6 +16586,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6795014383466057603, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6,
+        type: 3}
+      propertyPath: controllerAttachPoint
+      value: 
+      objectReference: {fileID: 4732672}
     - target: {fileID: 6795014384280216023, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6,
         type: 3}
       propertyPath: m_IsActive
@@ -17214,6 +17277,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079237322}
   m_Mesh: {fileID: 4029899406377155429, guid: bf058a281ff0cc246bbb4bdcf0d4c279, type: 3}
+--- !u!1 &1080476888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080476889}
+  - component: {fileID: 1080476890}
+  m_Layer: 0
+  m_Name: Grab Snap Location
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1080476889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080476888}
+  m_LocalRotation: {x: -0.000000014901161, y: -0.000000014901161, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0955, y: 0.06800001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 991550727}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1080476890
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080476888}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1081020585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1106750855221038233, guid: 9ea0b0f5a788bba4abbf136c6ce5b5bf,
@@ -23710,6 +23820,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456108849}
   m_Mesh: {fileID: -6374078243178576715, guid: bf058a281ff0cc246bbb4bdcf0d4c279, type: 3}
+--- !u!4 &1456992506 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6799400972128243657, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1052516331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1460844995
 GameObject:
   m_ObjectHideFlags: 0
