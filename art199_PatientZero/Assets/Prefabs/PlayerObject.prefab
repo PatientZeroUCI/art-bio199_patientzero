@@ -4504,7 +4504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6799511745885803606}
-  - component: {fileID: 1535121597252570815}
+  - component: {fileID: 322113866513781649}
   m_Layer: 0
   m_Name: b_l_middle1
   m_TagString: Untagged
@@ -4529,7 +4529,7 @@ Transform:
   m_Father: {fileID: 6799459819980390520}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1535121597252570815
+--- !u!54 &322113866513781649
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4541,7 +4541,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -4957,7 +4957,7 @@ MonoBehaviour:
   grabPrecognition: 0
   throwMultiplier: 1
   createRigidBodyWhenNotTouching: 0
-  controllerAttachPoint: {fileID: 1535121597252570815}
+  controllerAttachPoint: {fileID: 322113866513781649}
   controllerEvents: {fileID: 0}
   interactTouch: {fileID: 0}
 --- !u!114 &6795014383344397715
@@ -5259,7 +5259,7 @@ MonoBehaviour:
   grabPrecognition: 0
   throwMultiplier: 1
   createRigidBodyWhenNotTouching: 0
-  controllerAttachPoint: {fileID: 6795014384948026460}
+  controllerAttachPoint: {fileID: 6115476717408836352}
   controllerEvents: {fileID: 6795014383466057605}
   interactTouch: {fileID: 6795014383466057604}
 --- !u!114 &6795014383466057600
@@ -5555,7 +5555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6799619913206862623}
-  - component: {fileID: 1476998202100967918}
+  - component: {fileID: 6115476717408836352}
   m_Layer: 0
   m_Name: b_r_middle1
   m_TagString: Untagged
@@ -5580,7 +5580,7 @@ Transform:
   m_Father: {fileID: 6799387562446375853}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1476998202100967918
+--- !u!54 &6115476717408836352
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5592,7 +5592,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

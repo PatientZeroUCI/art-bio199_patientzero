@@ -9,7 +9,8 @@ namespace VRTK.GrabAttachMechanics
         public VRTK_InteractableObject parent;
         bool rippedFromParent = false;
 
-        public Vector3 basePosition;
+        private Vector3 basePosition;
+        private Vector3 grabPoint;
         public Collider collider;
 
         protected override void Initialise()
@@ -19,14 +20,11 @@ namespace VRTK.GrabAttachMechanics
             basePosition = this.transform.localPosition;
         }
 
-        //public override bool StartGrab(GameObject grabbingObject, GameObject givenGrabbedObject, Rigidbody givenControllerAttachPoint)
-        //{
-        //    if (parent.IsGrabbed() || rippedFromParent)
-        //    {
-        //        return base.StartGrab(grabbingObject, givenGrabbedObject, givenControllerAttachPoint);
-        //    }
-        //    return false;
-        //}
+        protected override void SnapObjectToGrabToController(GameObject obj)
+        {
+            base.SnapObjectToGrabToController(obj);
+            grabPoint = obj.transform.localPosition;
+        }
 
 
         public void FixedUpdate()
@@ -47,11 +45,12 @@ namespace VRTK.GrabAttachMechanics
             {
                 if (!rippedFromParent)
                 {
-                    transform.position = (transform.parent.position + parent.transform.TransformPoint(basePosition)) / 2;
+                    // average between the hand's position and the original position
+                    transform.position = (transform.parent.TransformPoint(grabPoint) + parent.transform.TransformPoint(basePosition)) / 2;
                 }
                 else
                 {
-                    transform.localPosition = transform.localPosition * 0.8f;
+                    transform.localPosition = transform.localPosition * 0.8f + grabPoint * 0.2f;
                 }
             }
         }
@@ -60,7 +59,7 @@ namespace VRTK.GrabAttachMechanics
         {
             if (!rippedFromParent)
             {
-                if (Vector3.Distance(grabbedObject.transform.position, parent.transform.position) > 0.5)
+                if (Vector3.Distance(grabbedObject.transform.position, parent.transform.position) > 0.2)
                 {
                     Debug.Log("rip");
                     rippedFromParent = true;
