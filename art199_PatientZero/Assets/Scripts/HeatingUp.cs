@@ -5,7 +5,8 @@ using UnityEngine;
 public class HeatingUp : MonoBehaviour
 {
     //IGSsample gameobject
-    //public GameObject IGSsample;
+    public Material igs_heated;
+    public Material igs_unheated;
 
     //public GameObject IGSscooper;
 
@@ -54,7 +55,7 @@ public class HeatingUp : MonoBehaviour
             }
 
             if (scooper.scoopCurrentHP == 0) {
-                scooper.GetComponent<Renderer>().material.color = Color.red;
+                scooper.GetComponent<Renderer>().material = igs_heated;
             }
         }
     }
