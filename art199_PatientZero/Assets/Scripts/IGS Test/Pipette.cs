@@ -17,7 +17,10 @@ public class Pipette : MonoBehaviour
     void OnEnable()
     {
         hand = GameObject.Find("RightHand/Right");
-
+        if (hand == null)
+        {
+            hand = GameObject.Find("Controller (right)/Right");
+        }
         controllerUse = hand.GetComponent<VRTK_InteractUse>();
     }
 

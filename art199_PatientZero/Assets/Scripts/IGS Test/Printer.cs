@@ -9,6 +9,7 @@ public class Printer : MonoBehaviour
     public float printSpeed = 2f;
 
     public GameObject IGSEvidence;
+    public GameObject DNAEvidence;
 
     void Update()
     {
@@ -66,7 +67,12 @@ public class Printer : MonoBehaviour
 
     public void PrintIGS()
     {
-        GameObject evidence = Instantiate(IGSEvidence, transform.position, transform.rotation * Quaternion.Euler(0,90f,0));
+        GameObject evidence = Instantiate(IGSEvidence, transform.position, transform.rotation * Quaternion.Euler(0, 90f, 0));
+        StartCoroutine(Print(evidence.GetComponent<Rigidbody>(), evidence.transform.rotation * Vector3.down, 1f));
+    }
+    public void PrintDNA()
+    {
+        GameObject evidence = Instantiate(DNAEvidence, transform.position, transform.rotation * Quaternion.Euler(0, 90f, 0));
         StartCoroutine(Print(evidence.GetComponent<Rigidbody>(), evidence.transform.rotation * Vector3.down, 1f));
     }
 

@@ -81,9 +81,9 @@ public class PathogenSelection : MonoBehaviour
                 VCfinalChoice = true;
                 if (VCfinalChoice == true)
                 {
+                    isSelected = true;
                     Pathogen.color = green;
                     VCbutton.GetComponent<Renderer>().material = positive_connection;
-                    isSelected = true;
                 }
             }
             else if (VCfinalChoice == true || (VCeliminated == true && (P2.GetComponent<PathogenSelection>().CfinalChoice == true || P3.GetComponent<PathogenSelection>().ECfinalChoice == true || P4.GetComponent<PathogenSelection>().BCfinalChoice == true)))

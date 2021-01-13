@@ -12,7 +12,12 @@ public class SquirtBottle : MonoBehaviour
     public VRTK_InteractUse controllerUse;
 
     void Start() {
-        controllerUse = GameObject.Find("RightHand/Right").GetComponent<VRTK_InteractUse>();
+        GameObject hand = GameObject.Find("RightHand/Right");
+        if (hand == null)
+        {
+            hand = GameObject.Find("Controller (right)/Right");
+        }
+        controllerUse = hand.GetComponent<VRTK_InteractUse>();
     }
 
     float squirting = 0;

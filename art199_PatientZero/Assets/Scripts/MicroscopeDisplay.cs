@@ -9,7 +9,7 @@ public class MicroscopeDisplay : MonoBehaviour
     public GameObject bacteria;
     public GameObject gram_result;
     public Printer evidencePrinter;
-
+    private bool printed;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class MicroscopeDisplay : MonoBehaviour
             else if(snapped_object.tag == "GRAM")
             {
                 gram_result.SetActive(true);
-                evidencePrinter.PrintIGS();
+                //evidencePrinter.PrintIGS();
             }
         }
         else

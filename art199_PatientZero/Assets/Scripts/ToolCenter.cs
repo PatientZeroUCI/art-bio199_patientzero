@@ -83,7 +83,12 @@ public class ToolCenter : MonoBehaviour
 
     public void dropSurface2()
     {
-		dropSurface(1);
+        dropSurface(1);
+    }
+
+    public void dropSurface3()
+    {
+        dropSurface(2);
     }
 
     public void dropSurface(int i)
