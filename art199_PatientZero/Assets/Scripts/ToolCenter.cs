@@ -57,6 +57,13 @@ public class ToolCenter : MonoBehaviour
                         GameObject obj = child.gameObject;
                         if (PR.checkTag(obj.tag))
                         {
+                           // VRTK.VRTK_InteractableObject object_interact = obj.GetComponent<VRTK.VRTK_InteractableObject>();
+                            Rigidbody object_collider = obj.GetComponent<Rigidbody>();
+                            if (object_collider != null)
+                            {
+                                UnityEngine.Debug.Log("object enabled");
+                                object_collider.detectCollisions = true;
+                            }
                             PR.setSpawn(obj);
                         }
 
@@ -104,6 +111,13 @@ public class ToolCenter : MonoBehaviour
                     GameObject obj = child.gameObject;
                     if (PR.checkTag(obj.tag))
                     {
+                        Rigidbody object_collider = obj.GetComponent<Rigidbody>();
+                        if (object_collider != null)
+                        {
+                            UnityEngine.Debug.Log("object disabled");
+
+                            object_collider.detectCollisions = false;
+                        }
                         PR.removeSpawn(obj);
                     }
 
