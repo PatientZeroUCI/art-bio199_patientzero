@@ -64,7 +64,7 @@ public class ToolCenter : MonoBehaviour
                                 UnityEngine.Debug.Log("object enabled");
                                 object_collider.detectCollisions = true;
                             }
-                            PR.setSpawn(obj);
+                            //PR.setSpawn(obj);
                         }
 
                     }
@@ -141,6 +141,15 @@ public class ToolCenter : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         currSurface = Instantiate(toSpawn, spawnLoc.transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+        foreach (Transform child in currSurface.transform)
+        {
+            GameObject obj = child.gameObject;
+            if (PR.checkTag(obj.tag))
+            {
+                PR.setSpawn(obj);
+            }
+        }
+
         rb = currSurface.transform.Find("Surface").gameObject.GetComponent<Rigidbody>();
         spawned = true;
         canPlayAudio = true;

@@ -56,8 +56,11 @@ public class PositionResetter : MonoBehaviour
     {
         UnityEngine.Debug.Log("added");
         objects.Add(obj);
-        vSpawns.Add(new Vector3(obj.transform.position.x, obj.transform.position.y + 0.15f, obj.transform.position.z));
         rotations.Add(new Vector3(obj.transform.rotation.eulerAngles.x, obj.transform.rotation.eulerAngles.y, obj.transform.rotation.eulerAngles.z));
+        vSpawns.Add(new Vector3(obj.transform.position.x, obj.transform.position.y + 0.586f, obj.transform.position.z));
+        //vSpawns.Add(new Vector3(obj.transform.position.x, obj.transform.position.y + 0.15f, obj.transform.position.z));
+        
+
     }
 
     public void removeSpawn(GameObject obj)
