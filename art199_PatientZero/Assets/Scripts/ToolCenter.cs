@@ -100,7 +100,7 @@ public class ToolCenter : MonoBehaviour
 
     public void dropSurface(int i)
     {
-        if (spawningAlready == false && surfaces[i] != outsideSurface)
+        if (aiVoice.ReadAllOpeningLines() && spawningAlready == false && surfaces[i] != outsideSurface)
         {
         	surfacenum = i;
             rb.isKinematic = false;
