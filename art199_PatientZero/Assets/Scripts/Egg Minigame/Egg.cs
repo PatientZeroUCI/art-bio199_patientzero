@@ -14,7 +14,7 @@ public class Egg : MonoBehaviour
     	// back to normal
         outFlashlight = this.gameObject.GetComponent<Renderer>().material;
     }
-
+	/*
 	void OnCollisionEnter (Collision collision) {
 		if(collision.gameObject.tag == "Flashlight"){
 			this.gameObject.GetComponent<Renderer>().material= inFlashlight;
@@ -23,8 +23,10 @@ public class Egg : MonoBehaviour
 			this.gameObject.GetComponent<Renderer>().material = outFlashlight;
 		}
 	}
+	
 
 	void OnCollisionExit (Collision collision){
 		this.gameObject.GetComponent<Renderer>().material = outFlashlight;
 	}
+	*/
 }
