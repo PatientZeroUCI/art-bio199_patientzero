@@ -83,21 +83,6 @@ public class ToolCenter : MonoBehaviour
 
     }
 
-    public void dropSurface1()
-    {
-		dropSurface(0);
-    }
-
-    public void dropSurface2()
-    {
-        dropSurface(1);
-    }
-
-    public void dropSurface3()
-    {
-        dropSurface(2);
-    }
-
     public void dropSurface(int i)
     {
         if (aiVoice.ReadAllOpeningLines() && spawningAlready == false && surfaces[i] != outsideSurface)
@@ -124,7 +109,7 @@ public class ToolCenter : MonoBehaviour
                 }
             }
  
-         	StartCoroutine(MyCoroutine(surfaces[i]));
+         	StartCoroutine(spawnNewToolset(surfaces[i]));
         	spawningAlready = true;           	
 
 
@@ -135,7 +120,7 @@ public class ToolCenter : MonoBehaviour
 
     }
 
-    IEnumerator MyCoroutine(GameObject toSpawn)
+    IEnumerator spawnNewToolset(GameObject toSpawn)
     {
 
         yield return new WaitForSeconds(delay);
