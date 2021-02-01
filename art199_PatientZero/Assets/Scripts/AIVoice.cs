@@ -82,6 +82,14 @@ public class AIVoice : MonoBehaviour {
         //    ReadVoiceClip(++playOnStart);
         //}
     }
+    
+    // Returns true if the AI has finished reading all of the opening lines
+    // This should be called by ToolCenter to make sure VIRA finishes reading lines
+    // before the player can use the ToolCenter
+    public bool ReadAllOpeningLines()
+    {
+        return playOnStart.Count == 0; // When a line gets played, it get removed from playOnStart, so the count should eventually reach zero
+    }
 }
 
 [System.Serializable]

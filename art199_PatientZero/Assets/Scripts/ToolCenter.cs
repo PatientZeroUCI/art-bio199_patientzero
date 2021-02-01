@@ -64,7 +64,7 @@ public class ToolCenter : MonoBehaviour
                                 UnityEngine.Debug.Log("object enabled");
                                 object_collider.detectCollisions = true;
                             }
-                            PR.setSpawn(obj);
+                            //PR.setSpawn(obj);
                         }
 
                     }
@@ -83,24 +83,9 @@ public class ToolCenter : MonoBehaviour
 
     }
 
-    public void dropSurface1()
-    {
-		dropSurface(0);
-    }
-
-    public void dropSurface2()
-    {
-        dropSurface(1);
-    }
-
-    public void dropSurface3()
-    {
-        dropSurface(2);
-    }
-
     public void dropSurface(int i)
     {
-        if (spawningAlready == false && surfaces[i] != outsideSurface)
+        if (aiVoice.ReadAllOpeningLines() && spawningAlready == false && surfaces[i] != outsideSurface)
         {
         	surfacenum = i;
             rb.isKinematic = false;
@@ -124,7 +109,7 @@ public class ToolCenter : MonoBehaviour
                 }
             }
  
-         	StartCoroutine(MyCoroutine(surfaces[i]));
+         	StartCoroutine(spawnNewToolset(surfaces[i]));
         	spawningAlready = true;           	
 
 
@@ -135,12 +120,21 @@ public class ToolCenter : MonoBehaviour
 
     }
 
-    IEnumerator MyCoroutine(GameObject toSpawn)
+    IEnumerator spawnNewToolset(GameObject toSpawn)
     {
 
         yield return new WaitForSeconds(delay);
 
         currSurface = Instantiate(toSpawn, spawnLoc.transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+        foreach (Transform child in currSurface.transform)
+        {
+            GameObject obj = child.gameObject;
+            if (PR.checkTag(obj.tag))
+            {
+                PR.setSpawn(obj);
+            }
+        }
+
         rb = currSurface.transform.Find("Surface").gameObject.GetComponent<Rigidbody>();
         spawned = true;
         canPlayAudio = true;
