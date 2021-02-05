@@ -5,12 +5,20 @@ using VRTK;
 
 public class ObservatoryDisplay : MonoBehaviour
 {
-
     public GameObject observatory_hologram;
+    public GameObject tutorialDiagram;
+    public AudioSource voiceOverInstructions;
 
     public void WaitDisplay()
     {
+        StartTutorial();
         StartCoroutine(SleepDisplay());
+    }
+
+    private void StartTutorial()
+    {
+        tutorialDiagram.SetActive(true);
+        voiceOverInstructions.gameObject.SetActive(true);
     }
 
     IEnumerator SleepDisplay()
