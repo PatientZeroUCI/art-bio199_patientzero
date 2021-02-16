@@ -39,6 +39,7 @@ public class LogicBoardController : MonoBehaviour
     public GameObject centerSnapped;
     public GameObject LinePrefab;
     public int areaAmount = 2;
+    private VRTK_PolicyList validObjects = null; // Policy list used to see if the object attached to the SnapZone is valid or not
 
     List<List<GameObject>> areaObjects = new List<List<GameObject>>();
 
@@ -52,12 +53,21 @@ public class LogicBoardController : MonoBehaviour
             areaObjects.Add(object_and_line);
         }
         aiVoice = FindObjectOfType<AIVoice>();
+        validObjects = this.GetComponent<VRTK_PolicyList>();
     }
 
 
     public void SnappedToCenter(object o, SnapDropZoneEventArgs e)
     {
         centerSnapped = e.snappedObject;
+        if (validObjects.Find(e.snappedObject))
+        {
+            aiVoice.ReadVoiceClip(3); // Incorrect placement on the logic board
+        }
+        else
+        {
+            aiVoice.ReadVoiceClip(2); // Correct placement on the logic board
+        }
         printObjects();
     }
 
@@ -92,12 +102,18 @@ public class LogicBoardController : MonoBehaviour
                 line.transform.position = v;
 
                 areaZone.Add(line);
-
                 break;
             }
         }
-
-        printObjects();
+        if (!validObjects.Find(e.snappedObject))
+        {
+            aiVoice.ReadVoiceClip(2); // Correct placement on the logic board
+        }
+        else
+        {
+            aiVoice.ReadVoiceClip(3); // Incorrect placement on the logic board
+        }
+        CheckObjects(centerSnapped, e.snappedObject);
     }
 
     public void RemovedFromArea(object o, SnapDropZoneEventArgs e)
@@ -114,6 +130,21 @@ public class LogicBoardController : MonoBehaviour
 
         printObjects();
 
+    }
+    
+    // Check the objects added to the snapzones for any contradictions
+    private void CheckObjects(GameObject obj1, GameObject obj2)
+    {
+        ContradictionRecorder contradictionList1 = obj1.GetComponent<ContradictionRecorder>();
+        ContradictionRecorder contradictionList2 = obj2.GetComponent<ContradictionRecorder>();
+        
+        if (contradictionList1 == null && contradictionList2 == null) return;
+   
+        if ((contradictionList1 != null && contradictionList1.DoesContradictionExist(obj2)) || (contradictionList2 != null && contradictionList2.DoesContradictionExist(obj1)))
+        {
+            aiVoice.ReadVoiceClip(1);// Contradictory evidence -- will not trigger if one of the pieces of evidence is not in the center
+            // (ex. if A is connected to B, and B is connected to C, even if A and C contradicteach other, this line will not fire.)
+        }
     }
     
     private void printObjects()

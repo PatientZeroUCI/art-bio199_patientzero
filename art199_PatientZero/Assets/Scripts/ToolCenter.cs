@@ -26,6 +26,9 @@ public class ToolCenter : MonoBehaviour
     public AIVoice aiVoice;
     public List<int> aiVoiceClips;
     AudioSource tableRisingSound;
+    
+    private int lastPhase = -1;
+    public LogicBoardPhases logicBoardPhases; 
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +74,11 @@ public class ToolCenter : MonoBehaviour
                 }
             }
         }
+        if (aiVoice.ReadAllOpeningLines() && lastPhase != logicBoardPhases.currentPhase)
+        {
+            aiVoice.ReadVoiceClip(0);
+            lastPhase += 1;
+        }
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -108,7 +116,7 @@ public class ToolCenter : MonoBehaviour
 
                 }
             }
- 
+            
          	StartCoroutine(spawnNewToolset(surfaces[i]));
         	spawningAlready = true;           	
 
@@ -117,12 +125,10 @@ public class ToolCenter : MonoBehaviour
                 aiVoice.ReadVoiceClip(aiVoiceClips[i]);
             }
         }
-
     }
 
     IEnumerator spawnNewToolset(GameObject toSpawn)
     {
-
         yield return new WaitForSeconds(delay);
 
         currSurface = Instantiate(toSpawn, spawnLoc.transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;

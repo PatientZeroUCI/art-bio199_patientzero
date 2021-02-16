@@ -10006,8 +10006,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1770161435}
-        m_MethodName: dropSurface2
-        m_Mode: 1
+        m_MethodName: dropSurface
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12341,6 +12341,7 @@ MonoBehaviour:
   delay: 2.5
   aiVoice: {fileID: 0}
   aiVoiceClips: 
+  logicBoardPhases: {fileID: 0}
 --- !u!65 &677537293
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13756,6 +13757,7 @@ MonoBehaviour:
   microscope_zone: {fileID: 776790573}
   bacteria: {fileID: 8296172667743781418}
   gram_result: {fileID: 1664093030}
+  cellProjections: {fileID: 0}
   evidencePrinter: {fileID: 0}
 --- !u!1 &779505410
 GameObject:
@@ -23480,8 +23482,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1770161435}
-        m_MethodName: dropSurface1
-        m_Mode: 1
+        m_MethodName: dropSurface
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -27754,6 +27756,7 @@ MonoBehaviour:
   microscope_zone: {fileID: 1618503250}
   bacteria: {fileID: 8296172667743781418}
   gram_result: {fileID: 1664093030}
+  cellProjections: {fileID: 0}
   evidencePrinter: {fileID: 1273209251}
 --- !u!114 &1618503249
 MonoBehaviour:
@@ -30174,8 +30177,9 @@ MonoBehaviour:
   spawnLoc: {fileID: 1245718935}
   speed: 0.25
   delay: 2.5
-  aiVoice: {fileID: 0}
+  aiVoice: {fileID: 2056709681}
   aiVoiceClips: 
+  logicBoardPhases: {fileID: 182905318}
 --- !u!65 &1770161436
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34896,6 +34900,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053735318}
   m_Mesh: {fileID: -6592957211005202357, guid: bf058a281ff0cc246bbb4bdcf0d4c279, type: 3}
+--- !u!114 &2056709681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
+    type: 3}
+  m_PrefabInstance: {fileID: 369576199}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e05513c933df4c4594c3cbedf197183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2058203732
 GameObject:
   m_ObjectHideFlags: 0
