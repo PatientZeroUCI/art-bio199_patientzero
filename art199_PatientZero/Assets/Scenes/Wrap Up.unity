@@ -2457,6 +2457,11 @@ PrefabInstance:
       propertyPath: OnMaxLimitReached.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1843713123050184865, guid: 78317b3d0c4b21b4fbdd7d191371b973,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1843713123440623913, guid: 78317b3d0c4b21b4fbdd7d191371b973,
         type: 3}
       propertyPath: OnMaxLimitReached.m_PersistentCalls.m_Calls.Array.size
@@ -2486,6 +2491,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnMaxLimitReached.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843713123524770151, guid: 78317b3d0c4b21b4fbdd7d191371b973,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1843713123599975591, guid: 78317b3d0c4b21b4fbdd7d191371b973,
         type: 3}
@@ -2532,6 +2542,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1843713123815476106, guid: 78317b3d0c4b21b4fbdd7d191371b973,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1843713124048903290, guid: 78317b3d0c4b21b4fbdd7d191371b973,
         type: 3}
       propertyPath: m_IsActive
@@ -2551,6 +2566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843713124345268521, guid: 78317b3d0c4b21b4fbdd7d191371b973,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1843713124360128422, guid: 78317b3d0c4b21b4fbdd7d191371b973,
         type: 3}
@@ -2701,6 +2721,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pathogen selction board
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379283245532658783, guid: 78317b3d0c4b21b4fbdd7d191371b973,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78317b3d0c4b21b4fbdd7d191371b973, type: 3}
@@ -6026,7 +6051,7 @@ PrefabInstance:
     - target: {fileID: 7917080643508889562, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7917080643508889562, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
@@ -6582,6 +6607,98 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16eda0ce8aea58c4a89382026d8651e6, type: 3}
+--- !u!1 &410059090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 410059091}
+  - component: {fileID: 410059094}
+  - component: {fileID: 410059093}
+  - component: {fileID: 410059092}
+  m_Layer: 0
+  m_Name: Table
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410059091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410059090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.21, y: 0.52, z: 1.8}
+  m_LocalScale: {x: 1, y: 2.7192833, z: 4.3125}
+  m_Children: []
+  m_Father: {fileID: 8457898076864702757}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &410059092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410059090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &410059093
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410059090}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &410059094
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410059090}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &411009614
 GameObject:
   m_ObjectHideFlags: 0
@@ -10432,6 +10549,7 @@ MonoBehaviour:
   microscope_zone: {fileID: 651530017}
   bacteria: {fileID: 8296172667743781418}
   gram_result: {fileID: 1664093030}
+  cellProjections: {fileID: 0}
   evidencePrinter: {fileID: 0}
 --- !u!114 &651530016
 MonoBehaviour:
@@ -12842,6 +12960,7 @@ MonoBehaviour:
   microscope_zone: {fileID: 776790573}
   bacteria: {fileID: 8296172667743781418}
   gram_result: {fileID: 1664093030}
+  cellProjections: {fileID: 0}
   evidencePrinter: {fileID: 0}
 --- !u!1 &785302936
 GameObject:
@@ -16744,6 +16863,90 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038870978}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1045022801
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8457898076864702757}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.0121
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.414
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.6818
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20.101477
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20.10147
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20.10147
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2a3cb43346d755d4b90f5685b71e163b,
+        type: 3}
+      propertyPath: m_Name
+      value: ErlenmyerFlask
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a3cb43346d755d4b90f5685b71e163b, type: 3}
 --- !u!1 &1048593625
 GameObject:
   m_ObjectHideFlags: 0
@@ -20284,6 +20487,163 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217949775}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1221603830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 2a3cb43346d755d4b90f5685b71e163b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1045022801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1221603831 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 2a3cb43346d755d4b90f5685b71e163b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1045022801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1221603832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221603830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc4b5dd2be1cea4aaea2850b910d3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearTouchHighlight: {r: 0, g: 0, b: 0, a: 0}
+  touchHighlight: {r: 0.33490568, g: 1, b: 0.65628594, a: 0}
+  grabHighlight: {r: 0, g: 0, b: 0, a: 0}
+  useHighlight: {r: 0, g: 0, b: 0, a: 0}
+  objectToMonitor: {fileID: 0}
+  objectToHighlight: {fileID: 0}
+  objectHighlighter: {fileID: 0}
+  objectToAffect: {fileID: 0}
+--- !u!114 &1221603833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221603830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
+  clipOnTouch: {fileID: 0}
+  strengthOnTouch: 0
+  durationOnTouch: 0
+  intervalOnTouch: 0.05
+  cancelOnUntouch: 1
+  clipOnGrab: {fileID: 0}
+  strengthOnGrab: 0
+  durationOnGrab: 0
+  intervalOnGrab: 0.05
+  cancelOnUngrab: 1
+  clipOnUse: {fileID: 0}
+  strengthOnUse: 0
+  durationOnUse: 0
+  intervalOnUse: 0.05
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
+--- !u!54 &1221603834
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221603830}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1221603835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221603830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1221603836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221603830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  precisionGrab: 0
+  rightSnapHandle: {fileID: 0}
+  leftSnapHandle: {fileID: 0}
+  throwVelocityWithAttachDistance: 0
+  throwMultiplier: 1
+  onGrabCollisionDelay: 0
+--- !u!114 &1221603837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221603830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableWhenIdle: 1
+  allowedNearTouchControllers: 0
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 1
+  holdButtonToGrab: 0
+  stayGrabbedOnTeleport: 1
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 1221603836}
+  secondaryGrabActionScript: {fileID: 1221603835}
+  isUsable: 0
+  holdButtonToUse: 1
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 0
+  allowedUseControllers: 0
+  objectHighlighter: {fileID: 0}
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  usingState: 0
+--- !u!65 &1221603838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221603830}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.021896021, y: 0.02189602, z: 0.037348352}
+  m_Center: {x: -0.00061056204, y: -0.000000015832484, z: -0.008116599}
 --- !u!1001 &1240600333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20540,6 +20900,65 @@ Transform:
   m_Father: {fileID: 82519352}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1244110831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244110832}
+  - component: {fileID: 1244110834}
+  - component: {fileID: 1244110833}
+  m_Layer: 0
+  m_Name: CollectionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244110832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244110831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0106}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1221603831}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1244110833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244110831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147f23923e01f59439b0beccaf585e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellCount: 0
+--- !u!136 &1244110834
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244110831}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.0033962342
+  m_Height: 0.0073486627
+  m_Direction: 1
+  m_Center: {x: -0.0007762802, y: 0.00008112903, z: -0.0018097536}
 --- !u!1 &1244979435
 GameObject:
   m_ObjectHideFlags: 0
@@ -26403,7 +26822,7 @@ PrefabInstance:
     - target: {fileID: 7917080643508889562, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7917080643508889562, guid: 184be514bb644ad4a9bfdfd48d896c68,
         type: 3}
@@ -34666,7 +35085,7 @@ PrefabInstance:
     - target: {fileID: 7123566277792532575, guid: 4daa1b898def1d1469ab9e4e5c339097,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7123566277792532575, guid: 4daa1b898def1d1469ab9e4e5c339097,
         type: 3}
@@ -38921,9 +39340,10 @@ GameObject:
   - component: {fileID: 600022146282211717}
   - component: {fileID: 600022146282211716}
   - component: {fileID: 600022146282211715}
+  - component: {fileID: 600022146282211721}
   m_Layer: 0
   m_Name: Sphere.013
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39053,6 +39473,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &600022146282211721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600022146282211714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!23 &612915145943992711
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41059,9 +41492,10 @@ GameObject:
   - component: {fileID: 1262770856783096559}
   - component: {fileID: 1262770856783096558}
   - component: {fileID: 1262770856783096557}
+  - component: {fileID: 1262770856783096563}
   m_Layer: 0
   m_Name: Sphere.007
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41191,6 +41625,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &1262770856783096563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262770856783096556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &1266740573718428063
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41485,9 +41932,10 @@ GameObject:
   - component: {fileID: 1423987724110401413}
   - component: {fileID: 1423987724110401412}
   - component: {fileID: 1423987724110401411}
+  - component: {fileID: 1423987724110401417}
   m_Layer: 0
   m_Name: Sphere.011
-  m_TagString: Untagged
+  m_TagString: Infected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41617,6 +42065,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &1423987724110401417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423987724110401410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &1469157448352604924
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42300,9 +42761,10 @@ GameObject:
   - component: {fileID: 1806451986514805898}
   - component: {fileID: 1806451986514805897}
   - component: {fileID: 1806451986514805896}
+  - component: {fileID: 1806451986514805902}
   m_Layer: 0
   m_Name: Sphere.004
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42432,6 +42894,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &1806451986514805902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806451986514805895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &1810555170562571866
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -43100,9 +43575,10 @@ GameObject:
   - component: {fileID: 2030207950521695536}
   - component: {fileID: 2030207950521695535}
   - component: {fileID: 2030207950521695534}
+  - component: {fileID: 2030207950521695540}
   m_Layer: 0
   m_Name: Sphere.012
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43232,6 +43708,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &2030207950521695540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030207950521695533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!23 &2036702147968987815
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -44989,9 +45478,10 @@ GameObject:
   - component: {fileID: 2505936324647286172}
   - component: {fileID: 2505936324647286171}
   - component: {fileID: 2505936324647286170}
+  - component: {fileID: 2505936324647286176}
   m_Layer: 0
   m_Name: Sphere.008
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45121,6 +45611,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &2505936324647286176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2505936324647286169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!23 &2515119123435864470
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46145,9 +46648,10 @@ GameObject:
   - component: {fileID: 2788359547358763897}
   - component: {fileID: 2788359547358763896}
   - component: {fileID: 2788359547358763895}
+  - component: {fileID: 2788359547358763901}
   m_Layer: 0
   m_Name: Sphere.026
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46277,6 +46781,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &2788359547358763901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788359547358763894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &2795516318048696943
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -48395,9 +48912,10 @@ GameObject:
   - component: {fileID: 3645470126177054375}
   - component: {fileID: 3645470126177054374}
   - component: {fileID: 3645470126177054373}
+  - component: {fileID: 3645470126177054379}
   m_Layer: 0
   m_Name: Sphere.022
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48527,6 +49045,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &3645470126177054379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645470126177054372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!4 &3688665305487371901
 Transform:
   m_ObjectHideFlags: 0
@@ -48607,9 +49138,10 @@ GameObject:
   - component: {fileID: 3694233372548484647}
   - component: {fileID: 3694233372548484646}
   - component: {fileID: 3694233372548484645}
+  - component: {fileID: 3694233372548484651}
   m_Layer: 0
   m_Name: Sphere.015
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48739,6 +49271,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &3694233372548484651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3694233372548484644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &3698586178990608568
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -50113,9 +50658,10 @@ GameObject:
   - component: {fileID: 4224576599465830484}
   - component: {fileID: 4224576599465830483}
   - component: {fileID: 4224576599465830482}
+  - component: {fileID: 4224576599465830488}
   m_Layer: 0
   m_Name: Sphere.023
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50245,6 +50791,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &4224576599465830488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224576599465830481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!4 &4229449395303690278
 Transform:
   m_ObjectHideFlags: 0
@@ -51948,9 +52507,10 @@ GameObject:
   - component: {fileID: 4728754076293409103}
   - component: {fileID: 4728754076293409102}
   - component: {fileID: 4728754076293409101}
+  - component: {fileID: 4728754076293409107}
   m_Layer: 0
   m_Name: Sphere.006
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52080,6 +52640,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &4728754076293409107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4728754076293409100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &4735076290135067835
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -52221,7 +52794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &4847091115170983303
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -54289,9 +54862,10 @@ GameObject:
   - component: {fileID: 5390084703522453514}
   - component: {fileID: 5390084703522453513}
   - component: {fileID: 5390084703522453512}
+  - component: {fileID: 5390084703522453518}
   m_Layer: 0
   m_Name: Sphere.028
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54421,6 +54995,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &5390084703522453518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5390084703522453511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!23 &5391680765843692428
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -54710,9 +55297,10 @@ GameObject:
   - component: {fileID: 5475632113726670317}
   - component: {fileID: 5475632113726670316}
   - component: {fileID: 5475632113726670315}
+  - component: {fileID: 5475632113726670321}
   m_Layer: 0
   m_Name: Sphere.018
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54842,6 +55430,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &5475632113726670321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475632113726670314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!23 &5477346624194880484
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -55060,9 +55661,10 @@ GameObject:
   - component: {fileID: 5529267715190593059}
   - component: {fileID: 5529267715190593058}
   - component: {fileID: 5529267715190593057}
+  - component: {fileID: 5529267715190593063}
   m_Layer: 0
   m_Name: Sphere.019
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55192,6 +55794,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &5529267715190593063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5529267715190593056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!1 &5534786983869101746
 GameObject:
   m_ObjectHideFlags: 0
@@ -55864,9 +56479,10 @@ GameObject:
   - component: {fileID: 5791392599476257854}
   - component: {fileID: 5791392599476257853}
   - component: {fileID: 5791392599476257852}
+  - component: {fileID: 5791392599476257858}
   m_Layer: 0
   m_Name: Sphere.010
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55996,6 +56612,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &5791392599476257858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5791392599476257851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!1 &5814642251859602752
 GameObject:
   m_ObjectHideFlags: 0
@@ -56191,9 +56820,10 @@ GameObject:
   - component: {fileID: 5882606104021384732}
   - component: {fileID: 5882606104021384731}
   - component: {fileID: 5882606104021384730}
+  - component: {fileID: 5882606104021384736}
   m_Layer: 0
   m_Name: Sphere.021
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56323,6 +56953,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &5882606104021384736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5882606104021384729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!1 &5885293503923120068
 GameObject:
   m_ObjectHideFlags: 0
@@ -57070,9 +57713,10 @@ GameObject:
   - component: {fileID: 6108827038195528992}
   - component: {fileID: 6108827038195528991}
   - component: {fileID: 6108827038195528990}
+  - component: {fileID: 6108827038195528996}
   m_Layer: 0
   m_Name: Sphere.029
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57202,6 +57846,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &6108827038195528996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6108827038195528989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!1 &6123520125217446510
 GameObject:
   m_ObjectHideFlags: 0
@@ -57219,9 +57876,10 @@ GameObject:
   - component: {fileID: 6123520125217446513}
   - component: {fileID: 6123520125217446512}
   - component: {fileID: 6123520125217446511}
+  - component: {fileID: 6123520125217446517}
   m_Layer: 0
   m_Name: Sphere.027
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57351,6 +58009,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &6123520125217446517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123520125217446510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!1 &6130005263775804547
 GameObject:
   m_ObjectHideFlags: 0
@@ -58624,9 +59295,10 @@ GameObject:
   - component: {fileID: 6305343044708280696}
   - component: {fileID: 6305343044708280695}
   - component: {fileID: 6305343044708280694}
+  - component: {fileID: 6305343044708280700}
   m_Layer: 0
   m_Name: Sphere.017
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58756,6 +59428,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &6305343044708280700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305343044708280693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!1 &6323333752855027531
 GameObject:
   m_ObjectHideFlags: 0
@@ -59038,9 +59723,10 @@ GameObject:
   - component: {fileID: 6438349481332882496}
   - component: {fileID: 6438349481332882495}
   - component: {fileID: 6438349481332882494}
+  - component: {fileID: 6438349481332882500}
   m_Layer: 0
   m_Name: Sphere.005
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59170,6 +59856,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &6438349481332882500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6438349481332882493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &6440257876589042405
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -60108,9 +60807,10 @@ GameObject:
   - component: {fileID: 6821864894094650790}
   - component: {fileID: 6821864894094650789}
   - component: {fileID: 6821864894094650788}
+  - component: {fileID: 6821864894094650794}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60240,6 +60940,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &6821864894094650794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6821864894094650787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &6829225886328040013
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -60417,9 +61130,10 @@ GameObject:
   - component: {fileID: 6902098023616027918}
   - component: {fileID: 6902098023616027917}
   - component: {fileID: 6902098023616027916}
+  - component: {fileID: 6902098023616027922}
   m_Layer: 0
   m_Name: Sphere.009
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60549,6 +61263,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &6902098023616027922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6902098023616027915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!1 &6917260495053623595
 GameObject:
   m_ObjectHideFlags: 0
@@ -60694,9 +61421,10 @@ GameObject:
   - component: {fileID: 6959634124781713793}
   - component: {fileID: 6959634124781713792}
   - component: {fileID: 6959634124781713791}
+  - component: {fileID: 6959634124781713797}
   m_Layer: 0
   m_Name: Sphere.014
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60826,6 +61554,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &6959634124781713797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959634124781713790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &6960876710015574543
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -61781,9 +62522,10 @@ GameObject:
   - component: {fileID: 7167148226006284943}
   - component: {fileID: 7167148226006284942}
   - component: {fileID: 7167148226006284941}
+  - component: {fileID: 7167148226006284947}
   m_Layer: 0
   m_Name: Sphere.003
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61913,6 +62655,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &7167148226006284947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7167148226006284940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &7184335648294640200
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -63838,9 +64593,10 @@ GameObject:
   - component: {fileID: 7842208241700747355}
   - component: {fileID: 7842208241700747354}
   - component: {fileID: 7842208241700747353}
+  - component: {fileID: 7842208241700747359}
   m_Layer: 0
   m_Name: Sphere.002
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63970,6 +64726,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &7842208241700747359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842208241700747352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!23 &7850604933975790501
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64875,9 +65644,10 @@ GameObject:
   - component: {fileID: 8088914561309003676}
   - component: {fileID: 8088914561309003675}
   - component: {fileID: 8088914561309003674}
+  - component: {fileID: 8088914561309003680}
   m_Layer: 0
   m_Name: Sphere.020
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65007,6 +65777,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &8088914561309003680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088914561309003673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &8089412636366124541
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -65248,7 +66031,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423987724110401410}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 4.1662154, y: 5.9705014, z: 1.5944104}
+  m_LocalPosition: {x: 1.75, y: 1.31, z: 1.5944104}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 8457898076864702757}
@@ -66242,6 +67025,8 @@ Transform:
   - {fileID: 3885596230636345335}
   - {fileID: 70055845612194585}
   - {fileID: 8492459116392978990}
+  - {fileID: 410059091}
+  - {fileID: 1221603831}
   m_Father: {fileID: 1050958012}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -66262,9 +67047,10 @@ GameObject:
   - component: {fileID: 8467056525381982419}
   - component: {fileID: 8467056525381982418}
   - component: {fileID: 8467056525381982417}
+  - component: {fileID: 8467056525381982423}
   m_Layer: 0
   m_Name: Sphere.024
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66394,6 +67180,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &8467056525381982423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467056525381982416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 3391499587488440566}
 --- !u!4 &8471630698148184555
 Transform:
   m_ObjectHideFlags: 0
@@ -66461,9 +67260,10 @@ GameObject:
   - component: {fileID: 8503254935546281583}
   - component: {fileID: 8503254935546281582}
   - component: {fileID: 8503254935546281581}
+  - component: {fileID: 8503254935546281587}
   m_Layer: 0
   m_Name: Sphere.001
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66593,6 +67393,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &8503254935546281587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503254935546281580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!1 &8525313848804390226
 GameObject:
   m_ObjectHideFlags: 0
@@ -67605,9 +68418,10 @@ GameObject:
   - component: {fileID: 8908151343970606992}
   - component: {fileID: 8908151343970606991}
   - component: {fileID: 8908151343970606990}
+  - component: {fileID: 8908151343970606996}
   m_Layer: 0
   m_Name: Sphere.016
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67737,6 +68551,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &8908151343970606996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8908151343970606989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!1 &8922786400383257030
 GameObject:
   m_ObjectHideFlags: 0
@@ -68107,9 +68934,10 @@ GameObject:
   - component: {fileID: 9051299789898990978}
   - component: {fileID: 9051299789898990977}
   - component: {fileID: 9051299789898990976}
+  - component: {fileID: 9051299789898990982}
   m_Layer: 0
   m_Name: Sphere.025
-  m_TagString: Untagged
+  m_TagString: Healthy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68239,6 +69067,19 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &9051299789898990982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051299789898990975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40842595a02ee7942990ba76a96a34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {fileID: 0}
 --- !u!33 &9055150668552078645
 MeshFilter:
   m_ObjectHideFlags: 0
