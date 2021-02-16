@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5622966833738828063}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5622966833778902452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,8 @@ GameObject:
   - component: {fileID: 5622966834131033259}
   - component: {fileID: 5622966834131033258}
   - component: {fileID: 5622966834131033261}
-  m_Layer: 0
+  - component: {fileID: 1768651796216943568}
+  m_Layer: 8
   m_Name: Newspaper Article 1
   m_TagString: Phase1Doc
   m_Icon: {fileID: 0}
@@ -328,6 +329,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1768651796216943568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622966834131033263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4239336795b8bde4c9a46e647ae0a2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collideWhileNotGrabbed: 0
+  collideWhileGrabbed: 0
+  obj: {fileID: 5622966834131033256}
 --- !u!1 &5622966834299484927
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +360,8 @@ GameObject:
   - component: {fileID: 5622966834299484923}
   - component: {fileID: 5622966834299484922}
   - component: {fileID: 5622966834299484925}
-  m_Layer: 0
+  - component: {fileID: 1474051368113613927}
+  m_Layer: 8
   m_Name: Symptom List
   m_TagString: Phase1Doc
   m_Icon: {fileID: 0}
@@ -504,6 +521,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1474051368113613927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622966834299484927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4239336795b8bde4c9a46e647ae0a2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collideWhileNotGrabbed: 0
+  collideWhileGrabbed: 0
+  obj: {fileID: 5622966834299484920}
 --- !u!1 &5622966834751253489
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5622966834751253390}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +633,8 @@ GameObject:
   - component: {fileID: 5622966835154390927}
   - component: {fileID: 5622966835154390926}
   - component: {fileID: 5622966835154391025}
-  m_Layer: 0
+  - component: {fileID: 6214300978712274867}
+  m_Layer: 8
   m_Name: Gov Report
   m_TagString: Phase1Doc
   m_Icon: {fileID: 0}
@@ -761,6 +794,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6214300978712274867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622966835154391027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4239336795b8bde4c9a46e647ae0a2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collideWhileNotGrabbed: 0
+  collideWhileGrabbed: 0
+  obj: {fileID: 5622966835154390924}
 --- !u!1 &5622966835263360694
 GameObject:
   m_ObjectHideFlags: 0
