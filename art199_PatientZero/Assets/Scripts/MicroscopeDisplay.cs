@@ -8,6 +8,7 @@ public class MicroscopeDisplay : MonoBehaviour
     public VRTK.VRTK_SnapDropZone microscope_zone;
     public GameObject bacteria;
     public GameObject gram_result;
+    public GameObject cellProjections;
     public Printer evidencePrinter;
     private bool printed;
     // Start is called before the first frame update
@@ -23,14 +24,18 @@ public class MicroscopeDisplay : MonoBehaviour
 
         if ( snapped_object != null)
         {
-            if(snapped_object.tag == "DNA")
+            if (snapped_object.tag == "DNA")
             {
                 bacteria.SetActive(true);
             }
-            else if(snapped_object.tag == "GRAM")
+            else if (snapped_object.tag == "GRAM")
             {
                 gram_result.SetActive(true);
                 //evidencePrinter.PrintIGS();
+            }
+            else if (snapped_object.GetComponent<PCRTestSlide>() != null && snapped_object.GetComponent<PCRTestSlide>().virusLoaded)
+            {
+                cellProjections.SetActive(true);   
             }
         }
         else

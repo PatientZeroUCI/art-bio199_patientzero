@@ -12,6 +12,7 @@ public class Swab : VRTK_InteractableObject
     private RaycastHit swabTouching;
     public int swabTipSize = 5;
     public float tipHeight = 1.0f;
+    public GameObject hologram;
     public GameObject virus;
 
 
@@ -94,8 +95,8 @@ public class Swab : VRTK_InteractableObject
 		     	Debug.Log(col.gameObject.name);
 		     	audio.Play();
 		    }
-
-		    if(col.gameObject.name == "Placeholder_Virus")
+            // For PCR minigame
+            if(col.gameObject.name == hologram.name)
 		    {
 		    	col.gameObject.SetActive(false);
 		    	virus.SetActive(true);
