@@ -8,12 +8,24 @@ public class Egg : MonoBehaviour
 	public Material inFlashlight;
 	public Material outFlashlight;
 
+	private bool injectReady = false;
+
     void Start()
     {
     	// getting the original mesh of the egg so that when the egg exits the light it reverts 
     	// back to normal
         outFlashlight = this.gameObject.GetComponent<Renderer>().material;
     }
+
+	public void setEggState(bool state)
+	{
+		injectReady = state;
+	}
+
+	public bool getEggState()
+	{
+		return injectReady;
+	}
 	/*
 	void OnCollisionEnter (Collision collision) {
 		if(collision.gameObject.tag == "Flashlight"){

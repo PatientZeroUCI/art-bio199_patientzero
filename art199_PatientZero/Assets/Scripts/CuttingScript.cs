@@ -11,9 +11,12 @@ public class CuttingScript : MonoBehaviour
 
     private bool[] ColliderTriggers = new bool[8];
     private bool CutSuccessful = false;
+    private Egg eggScript;
     // Update is called once per frame
     void Start()
     {
+        eggScript = egg.GetComponent<Egg>();
+
         ColliderTriggers[0] = false;
         ColliderTriggers[1] = false;
         ColliderTriggers[2] = false;
@@ -55,6 +58,7 @@ public class CuttingScript : MonoBehaviour
         {
             MeshFilter egg_mesh = egg.gameObject.GetComponent<MeshFilter>();
             egg_mesh.mesh = cut_eggMesh;
+            eggScript.setEggState(true);
         }
         return null;
     }

@@ -15,7 +15,7 @@ public class CutCollision : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Scalpel")
+        if(other.name == "ScalpelBlade")
         {
             Debug.Log("InteriorCollider Hit!");
             cuttingHitbox.HitCollider(CollisionNumber);
