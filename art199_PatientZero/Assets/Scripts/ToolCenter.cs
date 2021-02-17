@@ -93,9 +93,16 @@ public class ToolCenter : MonoBehaviour
 
     public void dropSurface(int i)
     {
-        if (aiVoice.ReadAllOpeningLines() && spawningAlready == false && surfaces[i] != outsideSurface)
-        {
-        	surfacenum = i;
+        if (spawningAlready == false && surfaces[i] != outsideSurface)
+            //if (aiVoice.ReadAllOpeningLines() && spawningAlready == false && surfaces[i] != outsideSurface)
+            {
+            // Play AI logic board.wav when evidecne is hit for the first time
+            if (i == 0)
+            {
+                aiVoice.GetComponent<AIVoice>().ReadVoiceClip(65);
+            }
+
+            surfacenum = i;
             rb.isKinematic = false;
             if (PR != null)
             {
