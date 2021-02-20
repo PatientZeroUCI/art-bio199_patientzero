@@ -69,6 +69,9 @@ public class IGSTestSlide : MonoBehaviour {
                 if (collision.gameObject.tag == "Water") {
                     state = State.WaterAdded;
                     Destroy(collision.gameObject);
+
+                    // Call aivoice voice line
+                    aiVoice.ReadVoiceClip(67);
                 }
                 break;
             case State.WaterAdded:

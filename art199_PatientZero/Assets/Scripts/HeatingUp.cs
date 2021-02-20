@@ -13,10 +13,13 @@ public class HeatingUp : MonoBehaviour
     //not sure if I need this just precation
     private Rigidbody rb;
 
+    private AIVoice aiVoice;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        aiVoice = FindObjectOfType<AIVoice>();
     }
 
     //subtract 1 HP every second until HP = 0
@@ -70,4 +73,11 @@ public class HeatingUp : MonoBehaviour
     //{
     //    IGSscooper.GetComponent<IGSTestSlide>().progress += Time.deltaTime;
     //}
+
+    // Used to call aiVoice
+    void OnTriggerEnter(Collider IGSsample)
+    {
+        aiVoice.ReadVoiceClip(68);
+    }
+
 }
