@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.203
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -53,9 +53,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -88,7 +88,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -140,7 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e05513c933df4c4594c3cbedf197183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnStart: -1
   textObject: {fileID: 0}
   voiceClips:
   - audioClip: {fileID: 8300000, guid: 2ee76d6e6a01dcd439055ab83908e32e, type: 3}
@@ -468,3 +467,54 @@ MonoBehaviour:
     repeatable: 1
     start: 210.8
     end: 219.8
+  - audioClip: {fileID: 8300000, guid: 1e5dbfc68e9bf054f8f617e26b513e9a, type: 3}
+    captionsFile: {fileID: 4900000, guid: 6b8b1a9d9a592cd4690e834fefb510d0, type: 3}
+    repeatable: 1
+    start: 0
+    end: 70
+  - audioClip: {fileID: 8300000, guid: 882960b0f79f2f74094782aaf3877d5d, type: 3}
+    captionsFile: {fileID: 4900000, guid: 10f6f07e67f73534ab1340e138ba35b9, type: 3}
+    repeatable: 1
+    start: 0
+    end: 49
+  - audioClip: {fileID: 8300000, guid: 882960b0f79f2f74094782aaf3877d5d, type: 3}
+    captionsFile: {fileID: 4900000, guid: 10f6f07e67f73534ab1340e138ba35b9, type: 3}
+    repeatable: 1
+    start: 50
+    end: 63
+  - audioClip: {fileID: 8300000, guid: 882960b0f79f2f74094782aaf3877d5d, type: 3}
+    captionsFile: {fileID: 4900000, guid: 10f6f07e67f73534ab1340e138ba35b9, type: 3}
+    repeatable: 1
+    start: 63
+    end: 74
+  - audioClip: {fileID: 8300000, guid: 882960b0f79f2f74094782aaf3877d5d, type: 3}
+    captionsFile: {fileID: 4900000, guid: 10f6f07e67f73534ab1340e138ba35b9, type: 3}
+    repeatable: 1
+    start: 74
+    end: 87
+  - audioClip: {fileID: 8300000, guid: 882960b0f79f2f74094782aaf3877d5d, type: 3}
+    captionsFile: {fileID: 4900000, guid: 10f6f07e67f73534ab1340e138ba35b9, type: 3}
+    repeatable: 1
+    start: 87
+    end: 97
+  - audioClip: {fileID: 8300000, guid: 882960b0f79f2f74094782aaf3877d5d, type: 3}
+    captionsFile: {fileID: 4900000, guid: 10f6f07e67f73534ab1340e138ba35b9, type: 3}
+    repeatable: 1
+    start: 97
+    end: 104
+  - audioClip: {fileID: 8300000, guid: 882960b0f79f2f74094782aaf3877d5d, type: 3}
+    captionsFile: {fileID: 4900000, guid: 10f6f07e67f73534ab1340e138ba35b9, type: 3}
+    repeatable: 1
+    start: 104
+    end: 118
+  - audioClip: {fileID: 8300000, guid: 926a02dca90a45649b2106a20ec8c43b, type: 3}
+    captionsFile: {fileID: 4900000, guid: 040f90b147cc96c4cb85c793b94d5e45, type: 3}
+    repeatable: 1
+    start: 0
+    end: 35
+  - audioClip: {fileID: 8300000, guid: e1c2c12ee2b82d44aa004acc803aa6c8, type: 3}
+    captionsFile: {fileID: 4900000, guid: f6e9f619ab95b674ea9703339c3a897e, type: 3}
+    repeatable: 1
+    start: 0
+    end: 29
+  right_hand: {fileID: 0}

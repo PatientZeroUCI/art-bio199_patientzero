@@ -2495,7 +2495,7 @@ PrefabInstance:
     - target: {fileID: 1843713123524770151, guid: 78317b3d0c4b21b4fbdd7d191371b973,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1843713123599975591, guid: 78317b3d0c4b21b4fbdd7d191371b973,
         type: 3}
@@ -2725,7 +2725,7 @@ PrefabInstance:
     - target: {fileID: 8379283245532658783, guid: 78317b3d0c4b21b4fbdd7d191371b973,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78317b3d0c4b21b4fbdd7d191371b973, type: 3}
@@ -5510,6 +5510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
         type: 3}
+      propertyPath: voiceClips.Array.size
+      value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
+        type: 3}
       propertyPath: textObject
       value: 
       objectReference: {fileID: 2022423554}
@@ -5523,6 +5528,31 @@ PrefabInstance:
       propertyPath: right_hand
       value: 
       objectReference: {fileID: 1052516339}
+    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
+        type: 3}
+      propertyPath: voiceClips.Array.data[65].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e5dbfc68e9bf054f8f617e26b513e9a, type: 3}
+    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
+        type: 3}
+      propertyPath: voiceClips.Array.data[65].captionsFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 6b8b1a9d9a592cd4690e834fefb510d0, type: 3}
+    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
+        type: 3}
+      propertyPath: voiceClips.Array.data[65].repeatable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
+        type: 3}
+      propertyPath: voiceClips.Array.data[65].start
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
+        type: 3}
+      propertyPath: voiceClips.Array.data[65].end
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee8fddd198f467b49b766ab7e709e189, type: 3}
 --- !u!1 &371668247
@@ -11326,6 +11356,7 @@ MonoBehaviour:
   delay: 2.5
   aiVoice: {fileID: 1696027128}
   aiVoiceClips: 
+  logicBoardPhases: {fileID: 0}
 --- !u!65 &677537293
 BoxCollider:
   m_ObjectHideFlags: 0

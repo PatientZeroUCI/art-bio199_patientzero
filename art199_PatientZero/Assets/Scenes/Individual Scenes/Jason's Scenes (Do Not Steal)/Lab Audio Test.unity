@@ -1321,6 +1321,7 @@ MonoBehaviour:
   microscope_zone: {fileID: 75475352}
   bacteria: {fileID: 669069009}
   gram_result: {fileID: 1487665031}
+  cellProjections: {fileID: 0}
   evidencePrinter: {fileID: 0}
 --- !u!114 &75475351
 MonoBehaviour:
@@ -3469,6 +3470,7 @@ MonoBehaviour:
   microscope_zone: {fileID: 158084343}
   bacteria: {fileID: 669069009}
   gram_result: {fileID: 1487665031}
+  cellProjections: {fileID: 0}
   evidencePrinter: {fileID: 0}
 --- !u!114 &158084342
 MonoBehaviour:
@@ -54678,6 +54680,7 @@ MonoBehaviour:
   delay: 2.5
   aiVoice: {fileID: 2071177943}
   aiVoiceClips: 
+  logicBoardPhases: {fileID: 0}
 --- !u!65 &1772400137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64870,145 +64873,6 @@ Transform:
   m_Father: {fileID: 646166856}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2046225924
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5625791347519257984, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257984, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.203
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257984, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257984, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257984, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.6531293
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.0531468
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.4225993
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257986, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_Name
-      value: AI Audio Source (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: voiceClips.Array.size
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: textObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: playOnStart
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: right_hand
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: voiceClips.Array.data[65].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1e5dbfc68e9bf054f8f617e26b513e9a, type: 3}
-    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: voiceClips.Array.data[65].captionsFile
-      value: 
-      objectReference: {fileID: 4900000, guid: 6b8b1a9d9a592cd4690e834fefb510d0, type: 3}
-    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: voiceClips.Array.data[65].repeatable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: voiceClips.Array.data[65].start
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: voiceClips.Array.data[65].end
-      value: 70
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ee8fddd198f467b49b766ab7e709e189, type: 3}
 --- !u!1 &2051650587
 GameObject:
   m_ObjectHideFlags: 0
