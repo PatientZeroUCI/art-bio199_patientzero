@@ -20,6 +20,8 @@ public class AIVoice : MonoBehaviour {
 
     public VRTK_ControllerEvents right_hand;
 
+    private List<int> playedClips = new List<int>();  // List of clip numbers that have been played so that they aren't repeated
+
     private void Awake() {
         audioSource = GetComponent<AudioSource>();
     }
@@ -29,25 +31,36 @@ public class AIVoice : MonoBehaviour {
     }
 
     public void ReadVoiceClip(int index) {
-        VoiceClip clip = voiceClips[index];
 
-        if (!clip.repeatable && clip.played) {
-            return;
-        }
-        clip.played = true;
+        // If the audiio clip index isn't in the playedClips list
+        if (!playedClips.Contains(index))
+        {
+            // add the clip indedx to the playedClips list so it isn't repeated
+            playedClips.Add(index);
 
-        captions.Clear();
-        foreach (string line in clip.captionsFile.text.Split('\n')) {
-            if (line != "") {
-                string[] split = line.Split(new char[] { ';' }, 2);
-                captions.Add((float.Parse(split[0]), split[1]));
+            VoiceClip clip = voiceClips[index];
+
+            if (!clip.repeatable && clip.played)
+            {
+                return;
             }
-        }
+            clip.played = true;
 
-        audioSource.clip = clip.audioClip;
-        currentIndex = 0;
-        audioSource.time = clip.start;
-        endTime = clip.end;
+            captions.Clear();
+            foreach (string line in clip.captionsFile.text.Split('\n'))
+            {
+                if (line != "")
+                {
+                    string[] split = line.Split(new char[] { ';' }, 2);
+                    captions.Add((float.Parse(split[0]), split[1]));
+                }
+            }
+
+            audioSource.clip = clip.audioClip;
+            currentIndex = 0;
+            audioSource.time = clip.start;
+            endTime = clip.end;
+        }
     }
 
     private void Update() {

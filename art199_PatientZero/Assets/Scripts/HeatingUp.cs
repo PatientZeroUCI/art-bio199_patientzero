@@ -77,7 +77,10 @@ public class HeatingUp : MonoBehaviour
     // Used to call aiVoice
     void OnTriggerEnter(Collider IGSsample)
     {
-        aiVoice.ReadVoiceClip(68);
+        if (IGSsample.gameObject.CompareTag("IGSscooper"))
+        {
+            aiVoice.ReadVoiceClip(68);
+        }
     }
 
 }

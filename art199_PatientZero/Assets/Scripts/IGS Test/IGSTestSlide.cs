@@ -80,6 +80,9 @@ public class IGSTestSlide : MonoBehaviour {
                     sample.SetActive(true);
                     state = State.SampleLoaded;
                     positive = scooper.positive;
+
+                    // Call aivoice voice line
+                    aiVoice.ReadVoiceClip(69);
                 }
                 break;
             case State.Heated:
@@ -90,6 +93,9 @@ public class IGSTestSlide : MonoBehaviour {
                         progressBar.Value = 0;
                         progressBar.Visible = false;
                         sample.GetComponent<Renderer>().material = collision.gameObject.GetComponent<Renderer>().material;
+
+                        // Call aivoice voice line
+                        aiVoice.ReadVoiceClip(71);
                     } else {
                         progressBar.Value = progress / 50f;
                         progressBar.Visible = true;
@@ -104,6 +110,9 @@ public class IGSTestSlide : MonoBehaviour {
                         progress = 0;
                         progressBar.Value = 0;
                         progressBar.Visible = false;
+
+                        // Call aivoice voice line
+                        aiVoice.ReadVoiceClip(72);
                     } else {
                         progressBar.Value = progress / 50f;
                         progressBar.Visible = true;
@@ -123,6 +132,9 @@ public class IGSTestSlide : MonoBehaviour {
                 progress = 0;
                 progressBar.Value = 0;
                 progressBar.Visible = false;
+
+                // Call aivoice voice line
+                aiVoice.ReadVoiceClip(70);
             } else {
                 progressBar.Value = progress / 5f;
                 progressBar.Visible = true;
