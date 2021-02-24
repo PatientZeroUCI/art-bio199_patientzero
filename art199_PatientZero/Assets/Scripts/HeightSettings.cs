@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using VRTK;
 
 public class HeightSettings: MonoBehaviour
@@ -99,7 +100,34 @@ public class HeightSettings: MonoBehaviour
         currentHead.position += new Vector3(0, sign * inch, 0);
         currentLeftHand.position += new Vector3(0, sign * inch, 0);
         currentRightHand.position += new Vector3(0, sign * inch, 0);
+        EditorPrefs.SetInt("feet", GetFeet());
+        EditorPrefs.SetInt("inches", GetInches());
+        EditorPrefs.SetBool("modificationFromMenu", true);
         setHeightText();
+    }
+    
+    public void adjustHeight(float inches)
+    {
+        detectSetup();
+        float inch = 0.0254f * currentSDK.localScale.y; // Note: 0.0254 meters == 1 inch
+        currentHead.position = new Vector3(currentHead.position.x, inches * inch - (20 * 0.0254f), currentHead.position.z);
+        currentLeftHand.position = new Vector3(currentLeftHand.position.x, inches * inch - (20 * 0.0254f), currentLeftHand.position.z);
+        currentRightHand.position = new Vector3(currentRightHand.position.x, inches * inch - (20 * 0.0254f), currentRightHand.position.z);
+        setHeightText();
+    }
+    
+    public int GetFeet()
+    {
+        float playerHeight = currentHead.transform.localPosition.y;
+        float inch = 0.0254f * currentSDK.localScale.y;
+        return (int) Mathf.Floor(playerHeight / (inch * 12));
+    }
+    
+    public int GetInches()
+    {
+        float playerHeight = currentHead.transform.localPosition.y;
+        float inch = 0.0254f * currentSDK.localScale.y;
+        return (int) Mathf.Floor((playerHeight % (inch * 12)) / inch);
     }
 
     public void resetHeight()
@@ -124,7 +152,6 @@ public class HeightSettings: MonoBehaviour
         int heightFoot = (int) Mathf.Floor(playerHeight / (inch * 12));
         int heightInch = (int) Mathf.Floor((playerHeight % (inch * 12)) / inch);
         heightText.text = heightFoot + "\"" + heightInch;
-        
     }
 
 }
