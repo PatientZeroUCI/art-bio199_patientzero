@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using TMPro;
 using VRTK;
 
 public class HeightSettings: MonoBehaviour
@@ -11,8 +12,8 @@ public class HeightSettings: MonoBehaviour
     public List<GameObject> playerHeads;
     public List<GameObject> leftHands;
     public List<GameObject> rightHands;
-    public TextMesh heightText;
-    public TextMesh scaleText;
+    public TextMeshProUGUI heightText;
+    public TextMeshProUGUI scaleText;
     public float scaleRatio = 0.025f;
 
     private Transform playArea;
