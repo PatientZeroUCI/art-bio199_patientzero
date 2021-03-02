@@ -20,11 +20,10 @@ public class LogicBoardPhases : MonoBehaviour
             phases[i].Add(phaseZoneParent); // add parent to count for phases (base fill counts)
 
             int phaseZones = phaseZoneParent.transform.childCount; //assigns the number of snap zones (children) for this phase
-            Debug.Log("Phase " + i + " has " + phaseZones + " children." );
+            //Debug.Log("Phase " + i + " has " + phaseZones + " children." ); //check number of zones
             for (int j = 0; j < phaseZones; j++)
             {
                 GameObject childZone = phaseZoneParent.transform.GetChild(j).gameObject;
-                Debug.Log(childZone.name);
                 if (childZone.tag == "SnapZone") //loop through each child object of the snapzone parent, exclude VRTK highlighter for zone
                 {
                     phases[i].Add(childZone.gameObject);
@@ -44,12 +43,10 @@ public class LogicBoardPhases : MonoBehaviour
             VRTK_SnapDropZone phaseSnapZone = phases[currentPhase][i].GetComponent<VRTK_SnapDropZone>(); //select the current snap zone from the phase we are in.
             if (phaseSnapZone.GetCurrentSnappedObject() == null)
             {
-                //Debug.Log("Phase Snap Zone #" + i);
                 break;
             }
             if(i == phases[currentPhase].Count-1)
             {
-                Debug.Log("Advancing Phase");
                 phase_finished = true;
                 currentPhase += 1;
             }
