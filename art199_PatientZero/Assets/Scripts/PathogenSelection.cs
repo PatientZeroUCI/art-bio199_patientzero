@@ -31,6 +31,8 @@ public class PathogenSelection : MonoBehaviour
     private bool BCfinalChoice;
     public bool isSelected; //If one of the buttons is green this is set to true and will make the submit button work
 
+    private AIVoice aiVoice;
+
     //Starts off all pathogens in nutral state
     void Start()
     {
@@ -51,6 +53,8 @@ public class PathogenSelection : MonoBehaviour
         BCeliminated = false;
         BCeliminated = false;
         isSelected = false;
+
+        aiVoice = FindObjectOfType<AIVoice>();
     }
 
     public void Selection()
@@ -228,11 +232,13 @@ public class PathogenSelection : MonoBehaviour
             print("PathogenSelection.cs: Valid submission, checking answer");
             if (P1.GetComponent<PathogenSelection>().isSelected == true)
             {
+                aiVoice.ReadVoiceClip(74);
                 print("PathogenSelection.cs: Correct answer! Returning to title screen."); // Should be changed to move forward once next phase of game is ready.
                 SceneManager.LoadScene("Title Scene");
             }
             else
             {
+                aiVoice.ReadVoiceClip(73);
                 print("PathogenSelection.cs: Incorrect answer. Restarting demo.");
                 SceneManager.LoadScene("Wrap Up");
             }

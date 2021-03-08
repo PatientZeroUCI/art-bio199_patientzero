@@ -20,6 +20,8 @@ public class AIVoice : MonoBehaviour {
 
     public VRTK_ControllerEvents right_hand;
 
+    [SerializeField]
+    private List<int> clipsToNotRepeat;  // List of clip numbers that should only play once per scene
     private List<int> playedClips = new List<int>();  // List of clip numbers that have been played so that they aren't repeated
 
     private void Awake() {
@@ -32,8 +34,8 @@ public class AIVoice : MonoBehaviour {
 
     public void ReadVoiceClip(int index) {
 
-        // If the audiio clip index isn't in the playedClips list
-        if (!playedClips.Contains(index))
+        // If the audiio clip index hasn't been played or isn't an index in the clipsToNotRepeat list
+        if (!clipsToNotRepeat.Contains(index)  || !playedClips.Contains(index))
         {
             // add the clip indedx to the playedClips list so it isn't repeated
             playedClips.Add(index);
