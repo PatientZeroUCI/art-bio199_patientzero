@@ -1942,6 +1942,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1602682940388680615, guid: 0dbe8d49e74818245aef4556ee9cd64e,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4285788644589183595, guid: 0dbe8d49e74818245aef4556ee9cd64e,
         type: 3}
       propertyPath: m_Camera
@@ -5438,7 +5443,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1850547748}
-        m_MethodName: activateTimer
+        m_MethodName: activateBar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33589,8 +33594,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05ea6b9c18a6f446b388a2e53f58a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barType: 1
   canvas: {fileID: 1850547747}
-  activated: 0
   cap: 0.3
   timeToHit: 10
   offsetPercent: 10

@@ -1268,8 +1268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05ea6b9c18a6f446b388a2e53f58a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barType: 1
   canvas: {fileID: 0}
-  activated: 0
   cap: 0.3
   timeToHit: 12
   offsetPercent: 10
@@ -2421,7 +2421,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 438183932}
-        m_MethodName: activateTimer
+        m_MethodName: activateBar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3366,10 +3366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05ea6b9c18a6f446b388a2e53f58a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barType: 2
   canvas: {fileID: 438183931}
-  activated: 0
   cap: 0.3
-  timeToHit: 10
+  timeToHit: 3
   offsetPercent: 10
 --- !u!1 &443005282 stripped
 GameObject:
@@ -9989,6 +9989,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1602682940388680615, guid: 0dbe8d49e74818245aef4556ee9cd64e,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4285788644589183595, guid: 0dbe8d49e74818245aef4556ee9cd64e,
         type: 3}
       propertyPath: m_Camera
@@ -9997,7 +10002,7 @@ PrefabInstance:
     - target: {fileID: 4285788644589183595, guid: 0dbe8d49e74818245aef4556ee9cd64e,
         type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4516697031749695813, guid: 0dbe8d49e74818245aef4556ee9cd64e,
         type: 3}
