@@ -25,6 +25,9 @@ public class PetriDish : MonoBehaviour
 
     private GameObject glow;
 
+    private AIVoice aiVoice;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,7 @@ public class PetriDish : MonoBehaviour
         renderer.material.mainTexture = texture;
 
         glow = gameObject.transform.Find("LightSource").gameObject;
+        aiVoice = FindObjectOfType<AIVoice>();
     }
 
     // Update is called once per frame
@@ -94,8 +98,11 @@ public class PetriDish : MonoBehaviour
             
             if (colorRatio > desiredRatio)
             {
+
                 swabComplete = true;
                 petri_dish.tag = "DNA";
+
+                aiVoice.ReadVoiceClip(75);
             }
 
             // Debug.Log(pixels[i].ToString() + "" + petriColor.ToString());

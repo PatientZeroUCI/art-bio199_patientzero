@@ -11,10 +11,14 @@ public class MicroscopeDisplay : MonoBehaviour
     public GameObject cellProjections;
     public Printer evidencePrinter;
     private bool printed;
+
+    private AIVoice aiVoice;
+
+
     // Start is called before the first frame update
     void Start()
     {
-     
+        aiVoice = FindObjectOfType<AIVoice>();
     }
 
     // Update is called once per frame
@@ -27,6 +31,8 @@ public class MicroscopeDisplay : MonoBehaviour
             if (snapped_object.tag == "DNA")
             {
                 bacteria.SetActive(true);
+
+                aiVoice.ReadVoiceClip(76);
             }
             else if (snapped_object.tag == "GRAM")
             {

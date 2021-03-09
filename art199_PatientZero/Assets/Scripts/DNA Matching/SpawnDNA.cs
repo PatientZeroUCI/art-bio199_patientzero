@@ -25,8 +25,15 @@ public class SpawnDNA : MonoBehaviour
     [SerializeField]
     private string sequence;
 
+    private AIVoice aiVoice;
 
-    
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        aiVoice = FindObjectOfType<AIVoice>();
+    }
+
     void OnEnable() // so that way, this doesn't immediately do stuff until needed
     {
         // Spawn DNA
@@ -37,7 +44,7 @@ public class SpawnDNA : MonoBehaviour
         puzzleStrands = gameObject.transform.Find("DNA/Left DNA").GetComponentsInChildren<TextMeshPro>();
         playerStrands = gameObject.transform.Find("DNA/Right DNA").GetComponentsInChildren<TextMeshPro>();
 
-        
+        aiVoice.ReadVoiceClip(78);
 
 
         // Set up bases for random generation
