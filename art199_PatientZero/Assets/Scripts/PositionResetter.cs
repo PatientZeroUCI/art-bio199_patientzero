@@ -13,6 +13,8 @@ public class PositionResetter : MonoBehaviour
     public static List<Vector3> rotations = new List<Vector3>();
     public static List<String> tags = new List<String>();
 
+    public float objRespawnHeightOffset = 0f;  //When a tool falls and respawns, will change the height by this amount, -.23 seems to work for the scaled lab
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +44,7 @@ public class PositionResetter : MonoBehaviour
             int index = objects.IndexOf(collision.gameObject);
             UnityEngine.Debug.Log(objects.Count);
             UnityEngine.Debug.Log(index);
-            collision.gameObject.transform.position = vSpawns[index];
+            collision.gameObject.transform.position = vSpawns[index] + new Vector3(0, objRespawnHeightOffset, 0);
             collision.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             collision.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             collision.gameObject.transform.eulerAngles = rotations[index];
