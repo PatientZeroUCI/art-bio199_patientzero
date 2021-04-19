@@ -43,8 +43,8 @@ public class PetriDish : MonoBehaviour
     void Update()
     {
         
-        int x = (int)(posX * textureSize - (swabSize / 2));
-        int y = (int)(posY * textureSize - (swabSize / 2));
+        int x = (int)(posX * (textureSize - (swabSize / 2)));
+        int y = (int)(posY * (textureSize - (swabSize / 2)));
 
 
         checkIfSwabComplete(0.5f); // half-covered seems decent
@@ -54,11 +54,14 @@ public class PetriDish : MonoBehaviour
         {
             // Debug.Log(x + " " + y + " " + gameObject.name);
             texture.SetPixels(x, y, swabSize, swabSize, color);
+            //UnityEngine.Debug.Log(x.ToString() + " | " + y.ToString());
 
             for (float t = 0.01f; t < 1.0f; t += 0.01f)
             {
+               
                 int lerpX = (int)Mathf.Lerp(lastX, (float)x, t);
                 int lerpY = (int)Mathf.Lerp(lastY, (float)y, t);
+                //UnityEngine.Debug.Log(lerpX.ToString() + " | " + lerpY.ToString());
                 texture.SetPixels(lerpX, lerpY, swabSize, swabSize, color);
                 texture.Apply();
             }
@@ -132,6 +135,7 @@ public class PetriDish : MonoBehaviour
 
     public void SetTouchPosition(float x, float y)
     {
+        UnityEngine.Debug.Log(x.ToString() + " | " + y.ToString());
         this.posX = x;
         this.posY = y;
 

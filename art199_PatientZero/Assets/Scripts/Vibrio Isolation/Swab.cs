@@ -39,9 +39,9 @@ public class Swab : VRTK_InteractableObject
     {
   
         // float tipHeight = transform.Find("Tip").transform.localScale.y;
-        Vector3 tip = transform.Find("Tip").transform.position;
+        Vector3 tip = transform.Find("Tipper").transform.position;
         // tipHeight should be last parameter...
-        if (Physics.Raycast(tip, transform.up, out swabTouching, tipHeight)) 
+        if (Physics.Raycast(tip, transform.TransformDirection(Vector3.down), out swabTouching, tipHeight)) 
         {
             if (!swabTouching.collider.gameObject.CompareTag("PetriDish"))
             {
@@ -50,8 +50,10 @@ public class Swab : VRTK_InteractableObject
             }
 
             // VRTK_ControllerHaptics.TriggerHapticPulse(controller, 0.1f); // haptic feedback
-            
-            
+
+            //UnityEngine.Debug.Log("Pass Raycast");
+            UnityEngine.Debug.Log(swabTouching.textureCoord.x.ToString() + " | " + swabTouching.textureCoord.y.ToString());
+
             petriDish = swabTouching.collider.gameObject.GetComponent<PetriDish>();
             petriDish.setSwabSize(swabTipSize);
             petriDish.SetColor(swabColor);
@@ -67,6 +69,8 @@ public class Swab : VRTK_InteractableObject
 
         else
         {
+            UnityEngine.Debug.Log(swabTouching.collider.gameObject.name);
+            UnityEngine.Debug.Log("not passing");
             if (petriDish != null)
             {
                 petriDish.ToggleSwab(false);
