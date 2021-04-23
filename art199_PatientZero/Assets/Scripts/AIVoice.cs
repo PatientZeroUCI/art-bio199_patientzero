@@ -105,6 +105,15 @@ public class AIVoice : MonoBehaviour {
     {
         return playOnStart.Count == 0; // When a line gets played, it get removed from playOnStart, so the count should eventually reach zero
     }
+
+
+    // Adds vocie clip to the Start queue that play when the AIvoice finishes it's current clip
+    // Good when multiple clips ahve to be called at once, since calling ReadVoiceClip while one is running overides the current clip
+    // Use this function for all but the first one to have them play when the first clip finishes
+    public void AddClipToQueue(int index)
+    {
+        playOnStart.Add(index);
+    }
 }
 
 [System.Serializable]

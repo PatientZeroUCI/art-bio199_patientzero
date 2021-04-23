@@ -5033,6 +5033,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252222565}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &255967849 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1811301389735321315, guid: 29df3d10498e2c04b8307a70eaef73bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 406352819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d34823a6a668d54d9014f390a27653d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &270489021
 GameObject:
   m_ObjectHideFlags: 0
@@ -7325,6 +7337,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Logic Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811301389735321315, guid: 29df3d10498e2c04b8307a70eaef73bc,
+        type: 3}
+      propertyPath: maxTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811301389735321315, guid: 29df3d10498e2c04b8307a70eaef73bc,
+        type: 3}
+      propertyPath: secondForVoiceClip
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1811301389936063256, guid: 29df3d10498e2c04b8307a70eaef73bc,
         type: 3}
@@ -12056,7 +12078,7 @@ MonoBehaviour:
   delay: 2.5
   aiVoice: {fileID: 1696027128}
   aiVoiceClips: 
-  logicBoardPhases: {fileID: 0}
+  logicBoardPhases: {fileID: 255967849}
 --- !u!65 &677537293
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -20,4 +20,6 @@ public class PhaseDisplay : MonoBehaviour
             textDisplay.enabled = true;
         }
     }
+
+    // For voice clips when button is locked, use the LockedButton script
 }

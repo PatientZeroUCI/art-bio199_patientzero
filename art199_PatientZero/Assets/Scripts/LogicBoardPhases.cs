@@ -11,6 +11,11 @@ public class LogicBoardPhases : MonoBehaviour
     private List<List<GameObject>> phases = new List<List<GameObject>>();
     public int currentPhase;
 
+    // Used to keep track of how long the player spends on a phase, used for the AI line when you spend too long on a certain phase
+    private float timer = 0;
+    public float secondForVoiceClip = 600;  // Number of seconds until voice clip plays
+    private AIVoice aiVoice;
+
     private void Start()
     {
         for(int i = 0; i < board_zones.transform.childCount; i++) //need to populate Phases list of lists
@@ -32,6 +37,11 @@ public class LogicBoardPhases : MonoBehaviour
         }
         //test = phases[1];
         currentPhase = 0;
+
+
+        // Set the timer so that it equals the nubmer of seconds times the amount of fixed frames in a second so that incrementing it in fixedUpdate works
+        aiVoice = FindObjectOfType<AIVoice>();
+        secondForVoiceClip = secondForVoiceClip / Time.fixedDeltaTime;
     }
 
     // Update is called once per frame
@@ -49,7 +59,24 @@ public class LogicBoardPhases : MonoBehaviour
             {
                 phase_finished = true;
                 currentPhase += 1;
+
+                // Reset timer for the Ai telling the player that they've been on a pahse for too long, since this is when they finisha  phase
+                timer = 0;
             }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        timer += 1;
+
+        if (secondForVoiceClip <= timer)
+        {
+            // Call aivoice voice line telling player they're taking a while
+            aiVoice.ReadVoiceClip(81);
+            timer = 0;
+
+            //Debug.Log("test");
         }
     }
 }

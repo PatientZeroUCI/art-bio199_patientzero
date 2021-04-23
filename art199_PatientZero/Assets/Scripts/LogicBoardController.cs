@@ -66,7 +66,9 @@ public class LogicBoardController : MonoBehaviour
         }
         else
         {
-            aiVoice.ReadVoiceClip(2); // Correct placement on the logic board
+            //aiVoice.ReadVoiceClip(2); // Correct placement on the logic board
+            aiVoice.AddClipToQueue(2);
+            aiVoice.AddClipToQueue(66); // Add voice to queue
         }
         printObjects();
     }
@@ -107,7 +109,9 @@ public class LogicBoardController : MonoBehaviour
         }
         if (!validObjects.Find(e.snappedObject))
         {
-            aiVoice.ReadVoiceClip(2); // Correct placement on the logic board
+            //aiVoice.ReadVoiceClip(2); // Correct placement on the logic board
+            aiVoice.AddClipToQueue(2);
+            aiVoice.AddClipToQueue(66);  // Add voice to queue 
         }
         else
         {
