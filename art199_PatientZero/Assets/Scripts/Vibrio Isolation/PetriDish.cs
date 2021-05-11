@@ -11,10 +11,12 @@ public class PetriDish : MonoBehaviour
     private int textureHeight;
     private int swabSize;
 
-    private Texture2D texture;
+    private Texture2D texture2d;
+    public RenderTexture texture;
     private Color[] color;
 
     public Color petriColor; // for allowing us to change swabcolors
+    private Color originalColor;
     public bool swabComplete = false; // we'll need to know if the swab is complete for a later test
     private float pixelcount = 0f; // for checking how much has been swabbed
 
@@ -22,34 +24,54 @@ public class PetriDish : MonoBehaviour
     private bool touching, touchingLast;
     private float posX, posY;
     private float lastX, lastY;
+    private bool swabAlreadyCompleted;
 
     private GameObject glow;
 
     private AIVoice aiVoice;
 
+    private int testingPixel;
+ 
+
 
     // Start is called before the first frame update
     void Start()
     {
+        originalColor = new Color(0.000f, 0.000f, 0.000f, 1.000f);
+
         Renderer renderer = GetComponent<Renderer>();
-        texture = new Texture2D(textureSize, textureSize);
         renderer.material.mainTexture = texture;
+        
 
         glow = gameObject.transform.Find("LightSource").gameObject;
         aiVoice = FindObjectOfType<AIVoice>();
+        swabAlreadyCompleted = false;
+
+        /**
+        texture2d = toTexture2D(texture);
+        Color[] pixels = texture2d.GetPixels();
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            UnityEngine.Debug.Log(pixels[i].ToString());
+        }
+        **/
+        testingPixel = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         int x = (int)(posX * (textureSize - (swabSize / 2)));
         int y = (int)(posY * (textureSize - (swabSize / 2)));
 
-
-        checkIfSwabComplete(0.5f); // half-covered seems decent
-       
+        if (!swabComplete)
+        {
+            checkIfSwabComplete(0.5f); // half-covered seems decent
+        }
         
+       
+        /***
         if (touchingLast && !swabComplete && currentSwabColor.Equals(petriColor)) // we want to check if the swab is "correct" (we'll use color to check) //add glow...
         {
             // Debug.Log(x + " " + y + " " + gameObject.name);
@@ -69,11 +91,12 @@ public class PetriDish : MonoBehaviour
             
         }
         
-        
-        if (swabComplete)
+        */
+        if (swabComplete && !swabAlreadyCompleted)
         {
             glow.GetComponent<Light>().color = petriColor;
             glow.SetActive(true);
+            swabAlreadyCompleted = true;
         }
 
         lastX = (float)x;
@@ -82,6 +105,28 @@ public class PetriDish : MonoBehaviour
         touchingLast = touching;
         
     }
+    
+    Texture2D toTexture2D(RenderTexture rTex)
+    {
+        Texture2D tex = new Texture2D(rTex.width, rTex.height, TextureFormat.RGBA32, false);
+        // ReadPixels looks at the active RenderTexture.
+        RenderTexture.active = rTex;
+        tex.ReadPixels(new Rect(0, 0, rTex.width, rTex.height), 0, 0);
+        tex.Apply();
+        RenderTexture.active = null;
+        return tex;
+    }
+    
+
+    /**
+    public Texture2D toTexture2D(RenderTexture rTex)
+    {
+        Texture2D dest = new Texture2D(rTex.width, rTex.height, TextureFormat.RGBA32, false);
+        dest.Apply(false);
+        Graphics.CopyTexture(rTex, dest);
+        return dest;
+    }
+    **/
 
     public void setSwabSize(int swabTipSize)
     {
@@ -93,8 +138,9 @@ public class PetriDish : MonoBehaviour
         // this updates the swabComplete bool above
         // by iterating through all the pixels and checking
         // if it is above a certain ratio
-        Color[] pixels = texture.GetPixels();
-        
+        texture2d = toTexture2D(texture);
+        Color[] pixels = texture2d.GetPixels();
+        //UnityEngine.Debug.Log("Pixel " + testingPixel.ToString() + " value: " + pixels[testingPixel].ToString());
         for (int i = 0; i < pixels.Length; ++i)
         {
             float colorRatio = pixelcount / (float)pixels.Length;
@@ -110,19 +156,24 @@ public class PetriDish : MonoBehaviour
 
             // Debug.Log(pixels[i].ToString() + "" + petriColor.ToString());
 
-            if (pixels[i].Equals(petriColor))
+            Color currentPixel = pixels[i];
+            //  && currentPixel.g < 1.000f && currentPixel.b < 1.000f
+            if (currentPixel.r > 0.010f)
             {
-                
+                //UnityEngine.Debug.Log("Pixel passed"); MAY BE THE CAUSE FOR THE CRASH
                 pixelcount += 1.0f;
             }
 
             
         }
-        //Debug.Log(pixelcount / (float)pixels.Length);
-      
 
-
-
+        /*
+        testingPixel++;
+        if (testingPixel >= pixels.Length)
+        {
+            testingPixel = 0;
+        }
+        */
         pixelcount = 0.0f;
         
     }

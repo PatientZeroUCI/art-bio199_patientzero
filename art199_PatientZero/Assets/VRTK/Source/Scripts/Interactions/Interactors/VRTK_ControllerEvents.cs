@@ -1532,8 +1532,6 @@ namespace VRTK
             //Trigger Pressed
             if (VRTK_SDK_Bridge.GetControllerButtonState(SDK_BaseController.ButtonTypes.Trigger, SDK_BaseController.ButtonPressTypes.PressDown, controllerReference))
             {
-                Debug.Log("trigger pressed!");
-
                 OnTriggerPressed(SetControllerEvent(ref triggerPressed, true, currentTriggerAxis.x));
             }
 
@@ -1613,8 +1611,6 @@ namespace VRTK
             //Grip Pressed
             if (VRTK_SDK_Bridge.GetControllerButtonState(SDK_BaseController.ButtonTypes.Grip, SDK_BaseController.ButtonPressTypes.PressDown, controllerReference))
             {
-                Debug.Log("Grip pressed!");
-
                 OnGripPressed(SetControllerEvent(ref gripPressed, true, currentGripAxis.x));
             }
 
