@@ -2866,6 +2866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   board_zones: {fileID: 1375480010}
   currentPhase: 0
+  secondForVoiceClip: 600
 --- !u!1001 &183824476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5326,31 +5327,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5625791347519257984, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257984, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.203
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257984, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257984, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625791347519257984, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5625791347519257985, guid: ee8fddd198f467b49b766ab7e709e189,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5416,11 +5392,6 @@ PrefabInstance:
       propertyPath: textObject
       value: 
       objectReference: {fileID: 2022423554}
-    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
-        type: 3}
-      propertyPath: playOnStart
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
         type: 3}
       propertyPath: right_hand
@@ -10011,7 +9982,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10048,7 +10019,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585422916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7df62384d4fa4c24eafa82f3eae10b41, type: 3}
   m_Name: 
@@ -10057,6 +10028,23 @@ MonoBehaviour:
   textDisplay: {fileID: 585422913}
   phaseToDisplay: 2
   ButtonEvents: {fileID: 585422917}
+--- !u!114 &585422928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585422916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b40e7561dd51a48b5190f8aa3021d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogicBoard: {fileID: 182905318}
+  textDisplay: {fileID: 585422913}
+  phaseToDisplay: 2
+  ButtonEvents: {fileID: 585422917}
+  toolStation: {fileID: 1770161432}
 --- !u!1 &593518203
 GameObject:
   m_ObjectHideFlags: 0
@@ -29823,7 +29811,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 279007487}
         m_MethodName: Play
         m_Mode: 1
@@ -29831,6 +29819,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1750786725}
+        m_MethodName: ChangeToolStation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -29856,7 +29855,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750786717}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7df62384d4fa4c24eafa82f3eae10b41, type: 3}
   m_Name: 
@@ -29865,6 +29864,23 @@ MonoBehaviour:
   textDisplay: {fileID: 1750786715}
   phaseToDisplay: 1
   ButtonEvents: {fileID: 1750786718}
+--- !u!114 &1750786725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750786717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b40e7561dd51a48b5190f8aa3021d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogicBoard: {fileID: 182905318}
+  textDisplay: {fileID: 1750786715}
+  phaseToDisplay: 1
+  ButtonEvents: {fileID: 1750786718}
+  toolStation: {fileID: 1770161432}
 --- !u!1 &1753202127
 GameObject:
   m_ObjectHideFlags: 0
