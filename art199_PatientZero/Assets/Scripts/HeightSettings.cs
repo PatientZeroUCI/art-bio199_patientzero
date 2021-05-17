@@ -12,8 +12,10 @@ public class HeightSettings: MonoBehaviour
     public List<GameObject> playerHeads;
     public List<GameObject> leftHands;
     public List<GameObject> rightHands;
-    public TextMeshProUGUI heightText;
-    public TextMeshProUGUI scaleText;
+    // public TextMeshProUGUI heightText;
+    // public TextMeshProUGUI scaleText;
+    public TextMesh heightText;
+    public TextMesh scaleText;
     public float scaleRatio = 0.025f;
 
     private Transform playArea;
@@ -109,11 +111,16 @@ public class HeightSettings: MonoBehaviour
     
     public void adjustHeight(float inches)
     {
-        detectSetup();
+        if (!currentSDK) detectSetup();
         float inch = 0.0254f * currentSDK.localScale.y; // Note: 0.0254 meters == 1 inch
-        currentHead.position = new Vector3(currentHead.position.x, inches * inch - (20 * 0.0254f), currentHead.position.z);
-        currentLeftHand.position = new Vector3(currentLeftHand.position.x, inches * inch - (20 * 0.0254f), currentLeftHand.position.z);
-        currentRightHand.position = new Vector3(currentRightHand.position.x, inches * inch - (20 * 0.0254f), currentRightHand.position.z);
+        /*currentHead.position = new Vector3(currentHead.position.x, inches * inch, currentHead.position.z);
+        currentLeftHand.position = new Vector3(currentLeftHand.position.x, inches * inch, currentLeftHand.position.z);
+        currentRightHand.position = new Vector3(currentRightHand.position.x, inches * inch, currentRightHand.position.z);
+        */
+        currentHead.localPosition = new Vector3(currentHead.localPosition.x, inches * inch, currentHead.localPosition.z);
+        currentLeftHand.localPosition = new Vector3(currentLeftHand.localPosition.x, inches * inch, currentLeftHand.localPosition.z);
+        currentRightHand.localPosition = new Vector3(currentRightHand.localPosition.x, inches * inch, currentRightHand.localPosition.z);
+        Debug.Log("Neck: " + currentHead.localPosition);
         setHeightText();
     }
     
