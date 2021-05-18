@@ -36,7 +36,7 @@ public class PositionResetter : MonoBehaviour
     //
     //}
 
-    void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         UnityEngine.Debug.Log("to delete");
         if (tags.Contains(collision.gameObject.tag))
