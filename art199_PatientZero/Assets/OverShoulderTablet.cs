@@ -12,7 +12,7 @@ public class OverShoulderTablet : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pages = new List<GameObject>();
         foreach (Transform child in subpages.transform)
