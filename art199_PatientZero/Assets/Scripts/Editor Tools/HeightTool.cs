@@ -37,13 +37,13 @@ public class HeightTool : EditorWindow
         inches = EditorGUILayout.DelayedIntField("Inches:", inches);
         if (inches < 0) inches = 0;
         EditorGUILayout.LabelField("Centimeters:", ((feet * 30.48) + (inches * 2.54)).ToString());
+        
         if (currentHeightSetting == null && Application.isPlaying) ResetHeightSettings();
         if (currentHeightSetting != null) 
         {
             currentHeightSetting.adjustHeight((feet * 12) + inches);
-            Debug.Log("Height Updated");
         }
-        else Debug.Log("No Change Recorded");
+        // else Debug.Log("No Change Recorded");
     }
     
     private void ResetHeightSettings()

@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class OverShoulderTablet : MonoBehaviour
 {
+    public GameObject subpages;
+
+
     private List<GameObject> pages;
     private int currentPageIndex = 0;
 
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pages = new List<GameObject>();
-        foreach (Transform child in transform.Find("Pages"))
+        foreach (Transform child in subpages.transform)
         {
             pages.Add(child.gameObject);
         }
@@ -31,6 +35,11 @@ public class OverShoulderTablet : MonoBehaviour
             currentPageIndex -= currentPageIndex > 0 ? 1 : -(pages.Count - 1);
         }
         pages[currentPageIndex].SetActive(true);
+    }
+
+    public void swapPages(bool next)
+    {
+
     }
 
 }

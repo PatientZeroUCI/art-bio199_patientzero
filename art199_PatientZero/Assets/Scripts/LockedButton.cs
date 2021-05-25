@@ -35,6 +35,7 @@ public class LockedButton : MonoBehaviour
     // Should be called by the On Max Limit Reached on the VRTK_BaseControllable_UnityEvents component on the physics pusher child of the button
     public void ChangeToolStation(int index)
     {
+
         if (LogicBoard.currentPhase >= phaseToDisplay)
         {
             toolStation.GetComponent<ToolCenter>().dropSurface(index);
