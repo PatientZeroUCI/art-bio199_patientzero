@@ -6,6 +6,7 @@ using UnityEngine;
 public class ToolCenter : MonoBehaviour
 {
     public PositionResetter PR;
+    public GameObject stationPR;
 
     public GameObject currSurface;
     public List<GameObject> surfaces;
@@ -55,6 +56,7 @@ public class ToolCenter : MonoBehaviour
                 outsideSurface = surfaces[surfacenum];
                 if (PR != null)
                 {
+                    stationPR.SetActive(true);
                     foreach (Transform child in currSurface.transform)
                     {
                         GameObject obj = child.gameObject;
@@ -82,7 +84,8 @@ public class ToolCenter : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-
+        UnityEngine.Debug.Log("Detected item to delete");
+        UnityEngine.Debug.Log("The tag detected is: " + collision.gameObject.tag + " and the object detected is " + collision.gameObject.name);
         if (PR.checkTag(collision.gameObject.tag))
         {
             //collision.gameObject.transform.DetachChildren();
@@ -103,7 +106,7 @@ public class ToolCenter : MonoBehaviour
             }
 
             surfacenum = i;
-            rb.isKinematic = false;
+
             if (PR != null)
             {
                 foreach (Transform child in currSurface.transform)
@@ -116,15 +119,16 @@ public class ToolCenter : MonoBehaviour
                         {
                             UnityEngine.Debug.Log("object disabled");
 
-                            object_collider.detectCollisions = false;
+                            //object_collider.detectCollisions = false;
                         }
                         PR.removeSpawn(obj);
                     }
 
                 }
+                stationPR.SetActive(false);
             }
-            
-         	StartCoroutine(spawnNewToolset(surfaces[i]));
+            rb.isKinematic = false;
+            StartCoroutine(spawnNewToolset(surfaces[i]));
         	spawningAlready = true;           	
 
 

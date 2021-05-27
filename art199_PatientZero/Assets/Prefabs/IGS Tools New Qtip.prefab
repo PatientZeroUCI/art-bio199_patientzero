@@ -4249,8 +4249,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.9937036, z: 1}
-  m_Center: {x: 0, y: -0.99685585, z: -9.183706e-11}
+  m_Size: {x: 0.999999, y: 1.0210137, z: 1}
+  m_Center: {x: -2.5290897e-13, y: -0.010511837, z: -2.1878105e-12}
 --- !u!54 &8064960271521121336
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4266,7 +4266,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!1 &8092585962934476946
 GameObject:
   m_ObjectHideFlags: 0
@@ -4450,7 +4450,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!1 &8333762043098924109
 GameObject:
   m_ObjectHideFlags: 0
@@ -4471,11 +4471,11 @@ GameObject:
   - component: {fileID: 8333762043098924091}
   m_Layer: 0
   m_Name: Slide
-  m_TagString: Untagged
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8333762043098924108
 Transform:
   m_ObjectHideFlags: 0
@@ -5034,7 +5034,7 @@ GameObject:
   - component: {fileID: 8333762044951187909}
   m_Layer: 0
   m_Name: Fire
-  m_TagString: Untagged
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10919,6 +10919,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BunsenBurner
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 691691ee776a2384b8e7bf6553aa40ff,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tool
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 691691ee776a2384b8e7bf6553aa40ff, type: 3}

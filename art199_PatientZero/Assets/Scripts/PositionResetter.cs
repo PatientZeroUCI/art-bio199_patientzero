@@ -76,6 +76,11 @@ public class PositionResetter : MonoBehaviour
 
     public Boolean checkTag(String tag)
     {
+        /*
+        for (int i = 0; i < tags.Count; i++)
+        {
+            UnityEngine.Debug.Log(tags[i]);
+        } */
         if (tags.Contains(tag))
         {
             return true;
