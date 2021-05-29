@@ -68,7 +68,8 @@ public class LogicBoardController : MonoBehaviour
         {
             //aiVoice.ReadVoiceClip(2); // Correct placement on the logic board
             aiVoice.AddClipToQueue(2);
-            aiVoice.AddClipToQueue(66); // Add voice to queue
+            //aiVoice.AddClipToQueue(66); // Add voice to queue
+            //UnityEngine.Debug.Log("test2");
         }
         printObjects();
     }
@@ -111,7 +112,8 @@ public class LogicBoardController : MonoBehaviour
         {
             //aiVoice.ReadVoiceClip(2); // Correct placement on the logic board
             aiVoice.AddClipToQueue(2);
-            aiVoice.AddClipToQueue(66);  // Add voice to queue 
+            //aiVoice.AddClipToQueue(66);  // Add voice to queue 
+            //UnityEngine.Debug.Log("test");
         }
         else
         {

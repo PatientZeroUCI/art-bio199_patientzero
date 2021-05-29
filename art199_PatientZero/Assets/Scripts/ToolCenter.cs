@@ -78,7 +78,8 @@ public class ToolCenter : MonoBehaviour
         }
         if (aiVoice.ReadAllOpeningLines() && lastPhase != logicBoardPhases.currentPhase)
         {
-            aiVoice.ReadVoiceClip(0);
+            //aiVoice.ReadVoiceClip(0);
+            aiVoice.AddClipToQueue(0);
             lastPhase += 1;
         }
     }

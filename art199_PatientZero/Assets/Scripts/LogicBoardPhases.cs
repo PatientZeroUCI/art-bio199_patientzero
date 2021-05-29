@@ -60,6 +60,9 @@ public class LogicBoardPhases : MonoBehaviour
                 phase_finished = true;
                 currentPhase += 1;
 
+                // Describe first step of IGS test
+                aiVoice.AddClipToQueue(66);  // Add voice to queue 
+
                 // Reset timer for the Ai telling the player that they've been on a pahse for too long, since this is when they finisha  phase
                 timer = 0;
             }
