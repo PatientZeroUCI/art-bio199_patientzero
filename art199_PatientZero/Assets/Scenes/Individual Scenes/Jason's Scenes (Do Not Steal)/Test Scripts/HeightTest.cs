@@ -25,7 +25,7 @@ public class HeightTest : MonoBehaviour
 
         if (camRig != null)
         {
-            Debug.Log(camRig.centerEyeAnchor.transform.position.y + " " + camRig.rightEyeAnchor.transform.position.y + " " + camRig.trackingSpace.transform.position.y);
+            Debug.Log(camRig.rightEyeCamera.transform.position.y + " " + camRig.rightEyeAnchor.transform.position.y);
             //Debug.Log(camRig.centerEyeAnchor.transform.position.y);
             //Debug.Log(camRig.rightEyeAnchor.transform.position.y);
             //Debug.Log(camRig.trackingSpace.transform.position.y);
