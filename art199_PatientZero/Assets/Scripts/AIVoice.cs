@@ -20,6 +20,8 @@ public class AIVoice : MonoBehaviour {
 
     public VRTK_ControllerEvents right_hand;
 
+    public bool skipIntroVoicelines = false; // Set to true to skip intro voice lines (remember to eventually set back to false)
+
     [SerializeField]
     private List<int> clipsToNotRepeat;  // List of clip numbers that should only play once per scene
     private List<int> playedClips = new List<int>();  // List of clip numbers that have been played so that they aren't repeated
@@ -33,9 +35,8 @@ public class AIVoice : MonoBehaviour {
     }
 
     public void ReadVoiceClip(int index) {
-
         // If the audiio clip index hasn't been played or isn't an index in the clipsToNotRepeat list
-        if (!clipsToNotRepeat.Contains(index)  || !playedClips.Contains(index))
+        if (!clipsToNotRepeat.Contains(index) || !playedClips.Contains(index))
         {
             // add the clip indedx to the playedClips list so it isn't repeated
             playedClips.Add(index);
@@ -85,7 +86,7 @@ public class AIVoice : MonoBehaviour {
                     audioSource.Play();
                 }
             } else {
-                if (playOnStart.Count > 0) {
+                if (playOnStart.Count > 0 & !skipIntroVoicelines) {
                     delay = 0.5f;
                     ReadVoiceClip(playOnStart[0]);
                     playOnStart.RemoveAt(0);
@@ -103,6 +104,10 @@ public class AIVoice : MonoBehaviour {
     // before the player can use the ToolCenter
     public bool ReadAllOpeningLines()
     {
+        if (skipIntroVoicelines)
+        {
+            return true;
+        }
         return playOnStart.Count == 0; // When a line gets played, it get removed from playOnStart, so the count should eventually reach zero
     }
 
