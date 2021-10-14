@@ -63,6 +63,10 @@ public class AIVoice : MonoBehaviour {
             currentIndex = 0;
             audioSource.time = clip.start;
             endTime = clip.end;
+            if (index == 65)
+            {
+                endTime = endTime - 0.2f;
+            }
         }
     }
 
@@ -71,7 +75,6 @@ public class AIVoice : MonoBehaviour {
             while (currentIndex < captions.Count && captions[currentIndex].time < audioSource.time) {
                 textObject.text = captions[currentIndex++].caption;
             }
-
             if ((audioSource.time > endTime) || right_hand.buttonOnePressed) {
                 audioSource.Stop();
                 audioSource.clip = null;
