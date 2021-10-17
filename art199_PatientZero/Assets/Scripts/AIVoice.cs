@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using VRTK;
+using UnityEngine.UI;
 
 public class AIVoice : MonoBehaviour {
     private AudioSource audioSource;
@@ -22,6 +23,10 @@ public class AIVoice : MonoBehaviour {
 
     public bool skipIntroVoicelines = false; // Set to true to skip intro voice lines (remember to eventually set back to false)
 
+    public static bool turnOffCaptions = false; // Set to true to turn off captioning for the voice lines
+
+    public GameObject captionOnOffText;
+
     [SerializeField]
     private List<int> clipsToNotRepeat;  // List of clip numbers that should only play once per scene
     private List<int> playedClips = new List<int>();  // List of clip numbers that have been played so that they aren't repeated
@@ -38,6 +43,7 @@ public class AIVoice : MonoBehaviour {
         // If the audiio clip index hasn't been played or isn't an index in the clipsToNotRepeat list
         if (!clipsToNotRepeat.Contains(index) || !playedClips.Contains(index))
         {
+            Debug.Log(turnOffCaptions);
             // add the clip indedx to the playedClips list so it isn't repeated
             playedClips.Add(index);
 
@@ -48,17 +54,20 @@ public class AIVoice : MonoBehaviour {
                 return;
             }
             clip.played = true;
-
-            captions.Clear();
-            foreach (string line in clip.captionsFile.text.Split('\n'))
+            
+            if (!turnOffCaptions)
             {
-                if (line != "")
+                captions.Clear();
+                foreach (string line in clip.captionsFile.text.Split('\n'))
                 {
-                    string[] split = line.Split(new char[] { ';' }, 2);
-                    captions.Add((float.Parse(split[0]), split[1]));
+                    if (line != "")
+                    {
+                        string[] split = line.Split(new char[] { ';' }, 2);
+                        captions.Add((float.Parse(split[0]), split[1]));
+                    }
                 }
-            }
-
+            }     
+            
             audioSource.clip = clip.audioClip;
             currentIndex = 0;
             audioSource.time = clip.start;
@@ -121,6 +130,23 @@ public class AIVoice : MonoBehaviour {
     public void AddClipToQueue(int index)
     {
         playOnStart.Add(index);
+    }
+
+    public void switchCaptioning()
+    {
+        if (turnOffCaptions)
+        {
+            turnOffCaptions = false;
+            captionOnOffText = GameObject.FindWithTag("CaptionText");
+            captionOnOffText.GetComponent<TextMesh>().text = "On";
+        }
+        else
+        {
+            turnOffCaptions = true;
+            captionOnOffText = GameObject.FindWithTag("CaptionText");
+            captionOnOffText.GetComponent<TextMesh>().text = "Off";
+        }
+        Debug.Log(turnOffCaptions);
     }
 }
 
