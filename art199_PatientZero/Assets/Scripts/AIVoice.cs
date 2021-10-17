@@ -43,7 +43,6 @@ public class AIVoice : MonoBehaviour {
         // If the audiio clip index hasn't been played or isn't an index in the clipsToNotRepeat list
         if (!clipsToNotRepeat.Contains(index) || !playedClips.Contains(index))
         {
-            Debug.Log(turnOffCaptions);
             // add the clip indedx to the playedClips list so it isn't repeated
             playedClips.Add(index);
 
@@ -55,7 +54,7 @@ public class AIVoice : MonoBehaviour {
             }
             clip.played = true;
             
-            if (!turnOffCaptions)
+            if (!turnOffCaptions) //Check if player wants voicelines to be read with or without captions
             {
                 captions.Clear();
                 foreach (string line in clip.captionsFile.text.Split('\n'))
@@ -132,6 +131,7 @@ public class AIVoice : MonoBehaviour {
         playOnStart.Add(index);
     }
 
+    // Switches from either having captions on or having captions off for the voicelines
     public void switchCaptioning()
     {
         if (turnOffCaptions)
@@ -146,7 +146,6 @@ public class AIVoice : MonoBehaviour {
             captionOnOffText = GameObject.FindWithTag("CaptionText");
             captionOnOffText.GetComponent<TextMesh>().text = "Off";
         }
-        Debug.Log(turnOffCaptions);
     }
 }
 
