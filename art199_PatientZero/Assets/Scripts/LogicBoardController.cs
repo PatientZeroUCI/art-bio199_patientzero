@@ -96,6 +96,14 @@ public class LogicBoardController : MonoBehaviour
             if (areaZone.Count == 0)
             {
                 areaZone.Add(e.snappedObject);
+                
+                // Orients the Gov Report and Symptom List in the horizontal direction
+                if(e.snappedObject.name == "Symptom List" || e.snappedObject.name == "Gov Report")
+                e.snappedObject.transform.eulerAngles = new Vector3(
+                    e.snappedObject.transform.eulerAngles.x + 90,
+                    e.snappedObject.transform.eulerAngles.y,
+                    e.snappedObject.transform.eulerAngles.z
+                );
 
                 GameObject line = Instantiate(LinePrefab, centerSnapped.transform.position, Quaternion.identity);
                 LineRenderer lr = line.GetComponent<LineRenderer>();
