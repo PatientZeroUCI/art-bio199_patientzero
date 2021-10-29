@@ -180,7 +180,7 @@ namespace VRTK
         public VRTK_BaseGrabAction secondaryGrabActionScript;
 
         [Header("Use Settings")]
-
+        public string Hint = "";
         [Tooltip("Determines if the Interactable Object can be used.")]
         public bool isUsable = false;
         [Tooltip("If this is checked then the use button on the controller needs to be continually held down to keep using. If this is unchecked the the use button toggles the use action with one button press to start using and another to stop using.")]
@@ -363,6 +363,7 @@ namespace VRTK
             if (InteractableObjectGrabbed != null)
             {
                 InteractableObjectGrabbed(this, e);
+                Debug.Log("Object has been grabbed!"); //Hung testing this rn.
             }
         }
 
