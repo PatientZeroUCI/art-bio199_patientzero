@@ -38,6 +38,8 @@ public class LogicBoardController : MonoBehaviour
 
     public GameObject centerSnapped;
     public GameObject LinePrefab;
+    public GameObject section1_left; // Top left of section 1 on the Logic Board
+    public GameObject section1_right; // Top right of section 1 on the Logic Board
     public int areaAmount = 2;
     private VRTK_PolicyList validObjects = null; // Policy list used to see if the object attached to the SnapZone is valid or not
 
@@ -54,12 +56,20 @@ public class LogicBoardController : MonoBehaviour
         }
         aiVoice = FindObjectOfType<AIVoice>();
         validObjects = this.GetComponent<VRTK_PolicyList>();
+        section1_left.SetActive(false);
+        section1_right.SetActive(false);
     }
 
 
     public void SnappedToCenter(object o, SnapDropZoneEventArgs e)
     {
         centerSnapped = e.snappedObject;
+        // Activate the top left section of the board after the center document has been snapped
+        // Enforces order to get rid of buggy behavior and docs not being able to go on the board
+        if (gameObject.name == "test1_zone") 
+        {
+            section1_left.SetActive(true);
+        }
         if (validObjects.Find(e.snappedObject))
         {
             aiVoice.ReadVoiceClip(3); // Incorrect placement on the logic board
@@ -97,13 +107,20 @@ public class LogicBoardController : MonoBehaviour
             {
                 areaZone.Add(e.snappedObject);
                 
-                // Orients the Gov Report and Symptom List in the horizontal direction
-                if(e.snappedObject.name == "Symptom List" || e.snappedObject.name == "Gov Report")
+                // Orients the docs in section 1 in the horizontal direction
+                if(e.snappedObject.name == "Symptom List" || e.snappedObject.name == "Gov Report" ||
+                    e.snappedObject.name == "Newspaper Article 1")
                 e.snappedObject.transform.eulerAngles = new Vector3(
                     e.snappedObject.transform.eulerAngles.x + 90,
                     e.snappedObject.transform.eulerAngles.y,
                     e.snappedObject.transform.eulerAngles.z
                 );
+                // Activate the top right section of the board after the center document has been snapped
+                // Enforces order to get rid of buggy behavior and docs not being able to go on the board
+                if (gameObject.name == "test1_zone") 
+                {
+                    section1_right.SetActive(true);
+                }      
 
                 GameObject line = Instantiate(LinePrefab, centerSnapped.transform.position, Quaternion.identity);
                 LineRenderer lr = line.GetComponent<LineRenderer>();

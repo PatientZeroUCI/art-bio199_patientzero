@@ -2653,6 +2653,8 @@ MonoBehaviour:
   centerSnapped: {fileID: 0}
   LinePrefab: {fileID: 8444610050296149515, guid: 4600421903467bc47a8a70d4bb6647cc,
     type: 3}
+  section1_left: {fileID: 0}
+  section1_right: {fileID: 0}
   areaAmount: 2
 --- !u!114 &132797519
 MonoBehaviour:
@@ -7344,6 +7346,8 @@ MonoBehaviour:
   centerSnapped: {fileID: 0}
   LinePrefab: {fileID: 8444610050296149515, guid: 4600421903467bc47a8a70d4bb6647cc,
     type: 3}
+  section1_left: {fileID: 0}
+  section1_right: {fileID: 0}
   areaAmount: 2
 --- !u!114 &403633202
 MonoBehaviour:
@@ -7713,6 +7717,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1811301389318497578, guid: 29df3d10498e2c04b8307a70eaef73bc,
+        type: 3}
+      propertyPath: section1_left
+      value: 
+      objectReference: {fileID: 2101514149}
+    - target: {fileID: 1811301389318497578, guid: 29df3d10498e2c04b8307a70eaef73bc,
+        type: 3}
+      propertyPath: section1_right
+      value: 
+      objectReference: {fileID: 544528041}
     - target: {fileID: 1811301389318497591, guid: 29df3d10498e2c04b8307a70eaef73bc,
         type: 3}
       propertyPath: highlightObjectPrefab
@@ -10413,6 +10427,12 @@ Transform:
   m_Father: {fileID: 1290404073}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &544528041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1811301388693972809, guid: 29df3d10498e2c04b8307a70eaef73bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 406352819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &547546834
 GameObject:
   m_ObjectHideFlags: 0
@@ -35645,6 +35665,8 @@ MonoBehaviour:
   centerSnapped: {fileID: 0}
   LinePrefab: {fileID: 8444610050296149515, guid: 4600421903467bc47a8a70d4bb6647cc,
     type: 3}
+  section1_left: {fileID: 0}
+  section1_right: {fileID: 0}
   areaAmount: 2
 --- !u!114 &1910563686
 MonoBehaviour:
@@ -39698,6 +39720,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!1 &2101514149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1811301389473554320, guid: 29df3d10498e2c04b8307a70eaef73bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 406352819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2101574839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7917080643508889562, guid: 184be514bb644ad4a9bfdfd48d896c68,
