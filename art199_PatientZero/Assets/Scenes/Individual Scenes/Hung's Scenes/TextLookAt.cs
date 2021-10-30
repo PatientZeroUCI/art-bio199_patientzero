@@ -6,16 +6,20 @@ public class TextLookAt : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform text;
+    public Transform parent;
     public Transform focus;
-    void Start()
+    public Vector3 offset;
+    void Awake()
     {
-        text = this.transform;
+
+        parent = this.transform.parent.transform;
         focus = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(2 * text.position - focus.position);
+        transform.position = parent.position + offset;
+        transform.LookAt(2 * transform.position - focus.position);
     }
 }
