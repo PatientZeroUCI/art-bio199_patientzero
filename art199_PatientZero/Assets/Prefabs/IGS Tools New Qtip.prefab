@@ -225,7 +225,6 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 6539619202323423679}
   secondaryGrabActionScript: {fileID: 6539619202323423676}
-  Hint: 
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -288,6 +287,21 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
+--- !u!114 &5524911772173968621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113994519909213892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f6e71010636094db14bbdd280d8d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintInfo: This is a dye bottle
+  text: {fileID: 0}
+  isGrabbed: 0
 --- !u!1 &428866281472334035
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +889,6 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 6539619202323423679}
   secondaryGrabActionScript: {fileID: 6539619202323423676}
-  Hint: 
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -1345,7 +1358,6 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 6539619202323423679}
   secondaryGrabActionScript: {fileID: 6539619202323423676}
-  Hint: 
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -1995,7 +2007,6 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 6539619202323423679}
   secondaryGrabActionScript: {fileID: 6539619202323423676}
-  Hint: 
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -2061,7 +2072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6997947174828070685
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2260,10 +2271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f6e71010636094db14bbdd280d8d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hintInfo: Temporary string
   text: {fileID: 0}
-  parent: {fileID: 0}
-  focus: {fileID: 4021614075033244887}
-  offset: {x: 0, y: 0.5, z: 0}
+  isGrabbed: 0
 --- !u!1 &4159224476261860829
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,6 +2577,21 @@ MonoBehaviour:
   objectToHighlight: {fileID: 0}
   objectHighlighter: {fileID: 0}
   objectToAffect: {fileID: 0}
+--- !u!114 &4315476176691573202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4474473735109263337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f6e71010636094db14bbdd280d8d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintInfo: This is a waterbottle
+  text: {fileID: 0}
+  isGrabbed: 0
 --- !u!114 &4329526449112431448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2606,7 +2631,6 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 6539619202323423679}
   secondaryGrabActionScript: {fileID: 6539619202323423676}
-  Hint: 
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -3301,7 +3325,6 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 2430267039420693933}
   secondaryGrabActionScript: {fileID: 6966395915100473502}
-  Hint: 
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -3700,7 +3723,6 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 6539619202323423679}
   secondaryGrabActionScript: {fileID: 6539619202323423676}
-  Hint: 
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -4866,7 +4888,6 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 8333762043098924099}
   secondaryGrabActionScript: {fileID: 0}
-  Hint: 
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -10207,7 +10228,6 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 6539619202323423679}
   secondaryGrabActionScript: {fileID: 6539619202323423676}
-  Hint: 
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -10472,18 +10492,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669, type: 3}
---- !u!114 &3337907558852496389 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2983104138992817804, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
-    type: 3}
-  m_PrefabInstance: {fileID: 519246933111642761}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3337907558852496395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3337907558852496395 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2983104138992817794, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
@@ -10496,6 +10504,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 519246933111642761}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3337907558852496389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2983104138992817804, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
+    type: 3}
+  m_PrefabInstance: {fileID: 519246933111642761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337907558852496395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &832239749056840388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10696,15 +10716,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 257e17845137d47478303321bdbee81e, type: 3}
---- !u!4 &595565862817517050 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 257e17845137d47478303321bdbee81e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5564596675677251296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4474473735109263337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 257e17845137d47478303321bdbee81e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5564596675677251296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &595565862817517050 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 257e17845137d47478303321bdbee81e,
     type: 3}
   m_PrefabInstance: {fileID: 5564596675677251296}
   m_PrefabAsset: {fileID: 0}
