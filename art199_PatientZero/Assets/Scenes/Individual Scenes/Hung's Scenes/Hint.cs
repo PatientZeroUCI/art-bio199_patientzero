@@ -13,7 +13,7 @@ public class Hint : MonoBehaviour
     private MeshRenderer textDisplay;
     private Transform parent;
     private Transform focus;
-    private Vector3 offset =new Vector3(0, 0.4f, 0);
+    private Vector3 offset =new Vector3(0, 0.45f, 0);
     private VRTK_InteractableObject vrtkObject;
     private bool isDisplayed = false; //bool is used to know when to change text/visibility
     void Awake()
@@ -50,12 +50,14 @@ public class Hint : MonoBehaviour
         isDisplayed = true;
         text.text = message;
         textDisplay.enabled = true;
+        text.transform.GetComponentInChildren<SpriteRenderer>().enabled = true; //may change later
     }
     private void HideHint()
     {
         //Makes text invisible
         isDisplayed = false;
         textDisplay.enabled = false;
+        text.transform.GetComponentInChildren<SpriteRenderer>().enabled = false;
     }
     private void HintPosition()
     {
