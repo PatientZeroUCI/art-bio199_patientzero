@@ -25,6 +25,10 @@ public class AIVoice : MonoBehaviour {
 
     public static bool turnOffCaptions = false; // Set to true to turn off captioning for the voice lines
 
+    public static bool ThreeDCaptions = false; //Set to true to use 3D Captions
+
+    private Captions ThreeDCaps; //Script that handles the 3D Captions
+
     public GameObject captionOnOffText;
 
     [SerializeField]
@@ -33,6 +37,7 @@ public class AIVoice : MonoBehaviour {
 
     private void Awake() {
         audioSource = GetComponent<AudioSource>();
+        ThreeDCaps = GameObject.FindGameObjectWithTag("Captions").GetComponent<Captions>();
     }
 
     private void Start() {
@@ -79,15 +84,29 @@ public class AIVoice : MonoBehaviour {
     }
 
     private void Update() {
-        if (audioSource.isPlaying) {
-            while (currentIndex < captions.Count && captions[currentIndex].time < audioSource.time) {
-                textObject.text = captions[currentIndex++].caption;
+        if (audioSource.isPlaying) 
+        {
+            while (currentIndex < captions.Count && captions[currentIndex].time < audioSource.time) 
+            {
+                if (ThreeDCaptions) //Check if player wants 3D captions
+                {
+                    ThreeDCaps.addCaptions(captions[currentIndex++].caption);
+                    if (turnOffCaptions) ThreeDCaps.addCaptions("");
+                }
+                else
+                {
+                    textObject.text = captions[currentIndex++].caption;
+                    if (turnOffCaptions) textObject.text = "";
+                }
             }
             if ((audioSource.time > endTime) || right_hand.buttonOnePressed) {
                 audioSource.Stop();
+                ThreeDCaps.addCaptions("");
                 audioSource.clip = null;
             }
-        } else {
+        } 
+        else 
+        {
             textObject.text = "";
 
             if (audioSource.clip != null) {
@@ -137,15 +156,39 @@ public class AIVoice : MonoBehaviour {
         if (turnOffCaptions)
         {
             turnOffCaptions = false;
-            captionOnOffText = GameObject.FindWithTag("CaptionText");
-            captionOnOffText.GetComponent<TextMesh>().text = "On";
+            GameObject.FindGameObjectWithTag("CaptionText").GetComponent<TextMeshPro>().text = "On";
         }
         else
         {
             turnOffCaptions = true;
-            captionOnOffText = GameObject.FindWithTag("CaptionText");
-            captionOnOffText.GetComponent<TextMesh>().text = "Off";
+            GameObject.FindGameObjectWithTag("CaptionText").GetComponent<TextMeshPro>().text = "Off";
         }
+    }
+
+    public void switchThreeDCaps()
+    {
+        if (ThreeDCaptions)
+        {
+            ThreeDCaptions = false;
+            GameObject.FindGameObjectWithTag("Caption2D").GetComponent<TextMeshPro>().text = "2D";
+        }
+        else
+        {
+            ThreeDCaptions = true;
+            GameObject.FindGameObjectWithTag("Caption2D").GetComponent<TextMeshPro>().text = "3D";
+        }
+    }
+
+    public void pauseAudio()
+    {
+        audioSource.Pause();
+        Debug.Log("paused");
+    }
+
+    public void playAudio()
+    {
+        audioSource.Pause();
+        Debug.Log("played");
     }
 }
 
