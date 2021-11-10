@@ -5,7 +5,6 @@ using System.Collections;
 
 public class CloseGame : MonoBehaviour
 {
-    [SerializeField] int time = 3;
     private GameObject camera;
     public bool isPaused = false;   
 
@@ -44,14 +43,6 @@ public class CloseGame : MonoBehaviour
     {
         isPaused = false;
         GameObject.FindWithTag("SettingMenu").transform.position = new Vector3(0.145f, -16.64f, -6.06f);
-    }
-
-    IEnumerator Action()
-    {
-        Debug.Log("Quit Started");
-        yield return new WaitForSeconds(time);
-        Application.Quit(); 
-        Debug.Log("Game Closed");
     }
 
     public void closeGame()

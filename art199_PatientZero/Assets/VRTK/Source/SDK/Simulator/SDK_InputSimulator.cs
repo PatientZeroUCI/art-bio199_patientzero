@@ -122,7 +122,10 @@
         [Tooltip("Key used to switch between hair touch mode.")]
         public KeyCode hairTouchModifier = KeyCode.H;
 
+        public bool gamePaused = false;
+
         #endregion
+        GameObject settingsMenu;
         #region Protected fields
 
         protected bool isHand = false;
@@ -166,6 +169,7 @@
         protected virtual void Awake()
         {
             VRTK_SDKManager.AttemptAddBehaviourToToggleOnLoadedSetupChange(this);
+            settingsMenu = GameObject.FindWithTag("GameController");
         }
 
         protected virtual void OnEnable()
@@ -433,19 +437,19 @@
         protected virtual void UpdatePosition()
         {
             float moveMod = Time.deltaTime * playerMoveMultiplier * sprintMultiplier;
-            if (Input.GetKey(moveForward))
+            if ((Input.GetKey(moveForward)) && (!settingsMenu.GetComponent<CloseGame>().isPaused))
             {
                 transform.Translate(transform.forward * moveMod, Space.World);
             }
-            else if (Input.GetKey(moveBackward))
+            else if ((Input.GetKey(moveBackward)) && (!settingsMenu.GetComponent<CloseGame>().isPaused))
             {
                 transform.Translate(-transform.forward * moveMod, Space.World);
             }
-            if (Input.GetKey(moveLeft))
+            if ((Input.GetKey(moveLeft)) && (!settingsMenu.GetComponent<CloseGame>().isPaused))
             {
                 transform.Translate(-transform.right * moveMod, Space.World);
             }
-            else if (Input.GetKey(moveRight))
+            else if ((Input.GetKey(moveRight)) && (!settingsMenu.GetComponent<CloseGame>().isPaused))
             {
                 transform.Translate(transform.right * moveMod, Space.World);
             }

@@ -11,6 +11,7 @@ public class AIVoice : MonoBehaviour {
     private List<(float time, string caption)> captions = new List<(float, string)>();
     private int currentIndex = 0;
     private float endTime = -1;
+    private int indexPlaying;
 
     //public int playOnStart = -1;
     public TextMeshProUGUI textObject;
@@ -26,6 +27,8 @@ public class AIVoice : MonoBehaviour {
     public static bool turnOffCaptions = false; // Set to true to turn off captioning for the voice lines
 
     public static bool ThreeDCaptions = false; //Set to true to use 3D Captions
+
+    bool gamePaused = false;
 
     private Captions ThreeDCaps; //Script that handles the 3D Captions
 
@@ -50,6 +53,8 @@ public class AIVoice : MonoBehaviour {
         {
             // add the clip indedx to the playedClips list so it isn't repeated
             playedClips.Add(index);
+
+            indexPlaying = index;
 
             VoiceClip clip = voiceClips[index];
 
@@ -84,7 +89,8 @@ public class AIVoice : MonoBehaviour {
     }
 
     private void Update() {
-        if (audioSource.isPlaying) 
+        if (Input.GetKeyDown(KeyCode.R)) { pauseAudio(); }
+        if ((audioSource.isPlaying) && (!gamePaused)) 
         {
             while (currentIndex < captions.Count && captions[currentIndex].time < audioSource.time) 
             {
@@ -179,16 +185,21 @@ public class AIVoice : MonoBehaviour {
         }
     }
 
-    public void pauseAudio()
+    private void pauseAudio()
     {
-        audioSource.Pause();
-        Debug.Log("paused");
-    }
-
-    public void playAudio()
-    {
-        audioSource.Pause();
-        Debug.Log("played");
+        if (gamePaused)
+        {
+            audioSource.Play();
+            gamePaused = false;
+        }
+        else
+        {
+            audioSource.Stop();
+            playOnStart.Insert(0, indexPlaying);
+            ThreeDCaps.addCaptions("");
+            audioSource.clip = null;
+            gamePaused = true;
+        }
     }
 }
 
