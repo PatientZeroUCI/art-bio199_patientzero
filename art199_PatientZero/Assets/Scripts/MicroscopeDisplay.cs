@@ -34,9 +34,12 @@ public class MicroscopeDisplay : MonoBehaviour
 
                 aiVoice.ReadVoiceClip(76);
             }
-            else if (snapped_object.tag == "GRAM")
+            else if (snapped_object.tag == "Tool")
             {
                 gram_result.SetActive(true);
+                // Fixes the orientation of the tweezers and slide
+                snapped_object.transform.rotation = Quaternion.Euler(-90.0f, 0.0f, -176.537f);
+                snapped_object.transform.position = new Vector3(-3.1f, 1.75f, 1.4f);
                 //evidencePrinter.PrintIGS();
             }
             else if (snapped_object.GetComponent<PCRTestSlide>() != null && snapped_object.GetComponent<PCRTestSlide>().virusLoaded)

@@ -23,7 +23,6 @@ public class IGSTestSlide : MonoBehaviour {
     void Start() {
         progressBar = GetComponentInChildren<ProgressBar>();
         progressBar.Visible = false;
-
         foreach (Transform child in transform) {
             if (child.CompareTag("IGSsample")) {
                 sample = child.gameObject;
@@ -63,10 +62,11 @@ public class IGSTestSlide : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter(Collision collision) {
+    void OnTriggerEnter(Collider collision) {
         switch (state) {
             case State.Start:
                 if (collision.gameObject.tag == "Water") {
+                    UnityEngine.Debug.Log(":dsfiosadjf");
                     state = State.WaterAdded;
                     Destroy(collision.gameObject);
 
