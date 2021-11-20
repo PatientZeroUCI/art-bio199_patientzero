@@ -5,9 +5,13 @@ using UnityEngine;
 public class PCR_Cell : MonoBehaviour
 {
     // Whether the path extends in a direction
+    [HideInInspector]
     public bool upOpen = false;
+    [HideInInspector]
     public bool downOpen = false;
+    [HideInInspector]
     public bool leftOpen = false;
+    [HideInInspector]
     public bool rightOpen = false;
 
     // The actual path gameobjects on the hexagon
@@ -16,9 +20,13 @@ public class PCR_Cell : MonoBehaviour
     public GameObject leftPath;
     public GameObject rightPath;
 
-    // Coordinates on the PCR grid it is bottome left
-    public int row = 0;
-    public int column = 0;
+    private Quaternion newRotation;  //Rotation to rotate towards
+    [SerializeField]
+    private float rotationSpeed;
+
+    // Coordinates on the PCR grid, [0,0] is the bottom left
+    public int x = 0;
+    public int y = 0;
 
     public VRTK.VRTK_InteractableObject linkedObject;
 
@@ -32,8 +40,21 @@ public class PCR_Cell : MonoBehaviour
             linkedObject.InteractableObjectUsed += InteractableObjectUsed;
         }
 
-        UpdatePaths();
+        upOpen = upPath.activeSelf;
+        downOpen = downPath.activeSelf;
+        leftOpen = leftPath.activeSelf;
+        rightOpen = rightPath.activeSelf;
+        //UpdatePaths();
     }
+
+
+
+    private void FixedUpdate()
+    {
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, rotationSpeed);
+    }
+
+
 
     // Rotates 90 degrees clockwise
     public void Rotate()
@@ -44,10 +65,15 @@ public class PCR_Cell : MonoBehaviour
         downOpen = rightOpen;
         rightOpen = temp;
 
-        UpdatePaths();
+        //UpdatePaths();
+
+        newRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + 90, transform.rotation.eulerAngles.z);
+
+        // Check to see if the path is correct
+        transform.parent.GetComponent<PCR_Grid>().CheckSequence();
     }
 
-    // Makes the physical paths appear or dissapear whether they are on or not
+    // Makes the physical paths appear or dissapear whether they are on or not, not needed niow since the cell just rotates
     public void UpdatePaths()
     {
         upPath.SetActive(upOpen);
@@ -66,7 +92,8 @@ public class PCR_Cell : MonoBehaviour
 
     protected virtual void InteractableObjectUsed(object sender, VRTK.InteractableObjectEventArgs e)
     {
-        Debug.Log("used");
         Rotate();
     }
 }
+
+
