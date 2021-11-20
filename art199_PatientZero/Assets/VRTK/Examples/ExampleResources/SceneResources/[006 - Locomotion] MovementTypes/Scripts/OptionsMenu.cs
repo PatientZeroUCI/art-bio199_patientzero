@@ -12,7 +12,7 @@
 
         protected virtual void OnEnable()
         {
-            state = false;
+            //state = false;
             RegisterEvents(leftController);
             RegisterEvents(rightController);
             SetObjectVisibility();
@@ -28,7 +28,7 @@
 
         protected virtual void ButtonTwoPressed(object sender, ControllerInteractionEventArgs e)
         {
-            state = !state;
+            //state = !state;
             Move();
             SetObjectVisibility();
         }

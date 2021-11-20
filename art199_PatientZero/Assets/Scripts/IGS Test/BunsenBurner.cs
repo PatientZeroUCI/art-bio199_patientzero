@@ -21,6 +21,8 @@ public class BunsenBurner : MonoBehaviour
         lgt = GetComponentInChildren<Light>();
         //onSound = GameObject.Find("")
 
+        turnedOn = !turnedOn;
+
         if (turnedOn)
         {
             TurnOn();
