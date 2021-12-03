@@ -10,10 +10,9 @@ public class MicroscopeDisplay : MonoBehaviour
     public GameObject gram_result;
     public GameObject cellProjections;
     public Printer evidencePrinter;
+
     private bool printed;
-
     private AIVoice aiVoice;
-
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +35,17 @@ public class MicroscopeDisplay : MonoBehaviour
             }
             else if (snapped_object.tag == "Tool")
             {
-                gram_result.SetActive(true);
                 // Fixes the orientation of the tweezers and slide
                 snapped_object.transform.rotation = Quaternion.Euler(-90.0f, 0.0f, -176.537f);
                 snapped_object.transform.position = new Vector3(-3.1f, 1.75f, 1.4f);
+
+                // Checks to ensure that the IGS test has been completed before displaying results                
+                Transform slide = snapped_object.transform.Find("Slide");
+                IGSTestSlide slideScript = slide.GetComponent<IGSTestSlide>();
+                if (slideScript.state == IGSTestSlide.State.Done)
+                {
+                    gram_result.SetActive(true);
+                } 
                 //evidencePrinter.PrintIGS();
             }
             else if (snapped_object.GetComponent<PCRTestSlide>() != null && snapped_object.GetComponent<PCRTestSlide>().virusLoaded)

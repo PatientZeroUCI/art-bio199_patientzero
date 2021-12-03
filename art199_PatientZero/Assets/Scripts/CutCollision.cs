@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CutCollision : MonoBehaviour
 {
-    public int CollisionNumber = 0;
+    public int CollisionNumber;
     public CuttingScript cuttingHitbox;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class CutCollision : MonoBehaviour
     {
         if(other.name == "ScalpelBlade")
         {
-            Debug.Log("InteriorCollider Hit!");
+            //Debug.Log("InteriorCollider Hit!");
             cuttingHitbox.HitCollider(CollisionNumber);
             this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }

@@ -64,6 +64,9 @@ public class LogicBoardController : MonoBehaviour
     public void SnappedToCenter(object o, SnapDropZoneEventArgs e)
     {
         centerSnapped = e.snappedObject;
+        // Orients the Newspaper Article 1 in the correct direction
+        e.snappedObject.transform.eulerAngles = new Vector3(90.0f, 0.0f, -270.0f);
+        e.snappedObject.transform.localScale = new Vector3(0.4f, 0.001053715f, 0.5f);
         // Activate the top left section of the board after the center document has been snapped
         // Enforces order to get rid of buggy behavior and docs not being able to go on the board
         if (gameObject.name == "test1_zone") 
@@ -107,14 +110,15 @@ public class LogicBoardController : MonoBehaviour
             {
                 areaZone.Add(e.snappedObject);
                 
-                // Orients the docs in section 1 in the horizontal direction
-                if(e.snappedObject.name == "Symptom List" || e.snappedObject.name == "Gov Report" ||
-                    e.snappedObject.name == "Newspaper Article 1")
-                e.snappedObject.transform.eulerAngles = new Vector3(
-                    e.snappedObject.transform.eulerAngles.x + 90,
-                    e.snappedObject.transform.eulerAngles.y,
-                    e.snappedObject.transform.eulerAngles.z
-                );
+                // Orients the docs in section 1 in the correct direction
+                if(e.snappedObject.name == "Symptom List")
+                {
+                    e.snappedObject.transform.eulerAngles = new Vector3(90.0f, 0.0f, -270.0f);
+                }
+                else if (e.snappedObject.name == "Gov Report")
+                {
+                    e.snappedObject.transform.eulerAngles = new Vector3(-90.0f, 0.0f, -90.0f);
+                }
                 // Activate the top right section of the board after the center document has been snapped
                 // Enforces order to get rid of buggy behavior and docs not being able to go on the board
                 if (gameObject.name == "test1_zone") 

@@ -7,6 +7,8 @@ public class Egg : MonoBehaviour
 	//code for when the egg enters the flashlight light and changes meshes
 	public Material inFlashlight;
 	public Material outFlashlight;
+	// public GameObject uncutEgg;
+	// public GameObject cutEgg;
 
 	private bool injectReady = false;
 
@@ -26,6 +28,14 @@ public class Egg : MonoBehaviour
 	{
 		return injectReady;
 	}
+
+	// void OnCollisionEnter (Collision collision) 
+	// {
+	// 	if (collision.gameObject.tag == "Scalpel")
+	// 	{
+	// 		UnityEngine.Debug.Log(this.GetComponent<MeshFilter>().name);
+	// 	}
+	// }
 	/*
 	void OnCollisionEnter (Collision collision) {
 		if(collision.gameObject.tag == "Flashlight"){

@@ -9,7 +9,7 @@ public class CuttingScript : MonoBehaviour
     public GameObject egg;
     public Mesh cut_eggMesh;
 
-    private bool[] ColliderTriggers = new bool[8];
+    public bool[] ColliderTriggers = new bool[2];
     private bool CutSuccessful = false;
     private Egg eggScript;
     // Update is called once per frame
@@ -19,60 +19,102 @@ public class CuttingScript : MonoBehaviour
 
         ColliderTriggers[0] = false;
         ColliderTriggers[1] = false;
-        ColliderTriggers[2] = false;
-        ColliderTriggers[3] = false;
-        ColliderTriggers[4] = false;
-        ColliderTriggers[5] = false;
-        ColliderTriggers[6] = false;
-        ColliderTriggers[7] = false;
+        // ColliderTriggers[2] = false;
+        // ColliderTriggers[3] = false;
+
     }
+
+    // void Update()
+    // {
+    //     for (int i = 0; i < 4; i++)
+    //         {
+    //             UnityEngine.Debug.Log(i + " " + ColliderTriggers[i]);
+    //         }
+    //         if (checkCut())
+    //         {
+    //             MeshFilter egg_mesh = egg.gameObject.GetComponent<MeshFilter>();
+    //             egg_mesh.mesh = cut_eggMesh;
+    //             eggScript.setEggState(true);
+    //         }
+    // }
+    
     public void HitCollider(int collider_num)
     {
         ColliderTriggers[collider_num] = true;
     }
+
     private void OnTriggerEnter(Collider other)
     {
+        UnityEngine.Debug.Log(other.name);
         if (other.name == "ScalpelBlade")
         {
-            StartCoroutine(CutCheck());
+            // for (int i = 0; i < 2; i++)
+            // {
+            //     UnityEngine.Debug.Log(i + " " + ColliderTriggers[i]);
+            // }
+            // if (checkCut())
+            // {
+            //     MeshFilter egg_mesh = egg.gameObject.GetComponent<MeshFilter>();
+            //     egg_mesh.mesh = cut_eggMesh;
+            //     eggScript.setEggState(true);
+            // }
+            //StartCoroutine(CutCheck());
         }
     }
     
-    IEnumerator CutCheck()
+    private bool checkCut()
     {
-        //Debug.Log("Still in Outer Collider...");
-
-        for (int i = 0; i < ColliderTriggers.Length; i++)
+        for (int i = 0; i < 2; i++)
         {
-            if (!ColliderTriggers[i])
+            if (ColliderTriggers[i] == false)
             {
-                break;
-            }
-            if (i == ColliderTriggers.Length - 1)
-            {
-                Debug.Log("Cut all hitboxes!");
-                CutSuccessful = true;
+                return false;
             }
         }
-        if (CutSuccessful)
-        {
-            MeshFilter egg_mesh = egg.gameObject.GetComponent<MeshFilter>();
-            egg_mesh.mesh = cut_eggMesh;
-            eggScript.setEggState(true);
-        }
-        return null;
+        return true;
     }
 
-    /*
+    // IEnumerator CutCheck()
+    // {
+    //     //Debug.Log("Still in Outer Collider...");
+
+    //     for (int i = 0; i < ColliderTriggers.Length; i++)
+    //     {
+    //         if (!ColliderTriggers[i])
+    //         {
+    //             break;
+    //         }
+    //         UnityEngine.Debug.Log(i + " " + ColliderTriggers[i]);
+    //         if (i == ColliderTriggers.Length - 1)
+    //         {
+    //             Debug.Log("Cut all hitboxes!");
+    //             CutSuccessful = true;
+    //         }
+    //     }
+    //     if (CutSuccessful)
+    //     {
+    //         MeshFilter egg_mesh = egg.gameObject.GetComponent<MeshFilter>();
+    //         egg_mesh.mesh = cut_eggMesh;
+    //         eggScript.setEggState(true);
+    //     }
+    //     return null;
+    // }
+
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.name == "ScalpelBlade")
         {
-            Debug.Log("Left the cutting zone...!");
-            for (int i = 0; i < ColliderTriggers.Length; i++)
+            for (int i = 0; i < 2; i++)
             {
-                ColliderTriggers[i] = false;
+                UnityEngine.Debug.Log(i + " " + ColliderTriggers[i]);
+            }
+            if (checkCut())
+            {
+                MeshFilter egg_mesh = egg.gameObject.GetComponent<MeshFilter>();
+                egg_mesh.mesh = cut_eggMesh;
+                eggScript.setEggState(true);
             }
         }
-    }*/
+    }
 }
