@@ -6,7 +6,7 @@ using TMPro;
 public class Captions : MonoBehaviour
 {
     private TextMeshPro text;
-    public GameObject camera;
+    private GameObject camera;
     // Start is called before the first frame update
     void Start()
     {

@@ -22,11 +22,11 @@ public class AIVoice : MonoBehaviour {
 
     public VRTK_ControllerEvents right_hand;
 
-    public bool skipIntroVoicelines = false; // Set to true to skip intro voice lines (remember to eventually set back to false)
+    private bool skipIntroVoicelines = false; // Set to true to skip intro voice lines (remember to eventually set back to false)
 
-    public static bool turnOffCaptions = false; // Set to true to turn off captioning for the voice lines
+    private static bool turnOffCaptions = false; // Set to true to turn off captioning for the voice lines
 
-    public static bool ThreeDCaptions = false; //Set to true to use 3D Captions
+    private static bool ThreeDCaptions = false; //Set to true to use 3D Captions
 
     bool gamePaused = false;
 
