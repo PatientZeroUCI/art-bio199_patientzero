@@ -150,7 +150,7 @@ public class PetriDish : MonoBehaviour
 
                 swabComplete = true;
                 petri_dish.tag = "DNA";
-
+                Level1Events.current.PetriSwabbed();
                 aiVoice.ReadVoiceClip(75);
             }
 

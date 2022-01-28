@@ -38,7 +38,7 @@ public class IGSTestSlide : MonoBehaviour {
             progress += Time.deltaTime;
 
             if (progress >= 10f) {
-                state = State.SampleDried;
+                state = State.Heated;
                 Level1Events.current.SlideDried();
                 progress = 0;
                 progressBar.Value = 0;

@@ -44,7 +44,8 @@ public class SpawnDNA : MonoBehaviour
         puzzleStrands = gameObject.transform.Find("DNA/Left DNA").GetComponentsInChildren<TextMeshPro>();
         playerStrands = gameObject.transform.Find("DNA/Right DNA").GetComponentsInChildren<TextMeshPro>();
 
-        aiVoice.ReadVoiceClip(78);
+
+        //aiVoice.ReadVoiceClip(78);
 
 
         // Set up bases for random generation

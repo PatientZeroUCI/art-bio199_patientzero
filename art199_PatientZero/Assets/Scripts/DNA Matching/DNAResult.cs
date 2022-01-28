@@ -16,13 +16,18 @@ public class DNAResult : MonoBehaviour
         aiVoice = FindObjectOfType<AIVoice>();
     }
 
+    private void Awake()
+    {
+        Level1Events.current.BacteriaInserted();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (puzzle.puzzleSolved())
         {
             test_result.SetActive(true);
-
+            Level1Events.current.DNAMatched();
             aiVoice.ReadVoiceClip(79);
         }
     }

@@ -63,18 +63,25 @@ public class LogicBoardPhases : MonoBehaviour
                 // IGS phase start
                 if (currentPhase == 1)
                 {
-                    // Describe first step of IGS test
+                    // Evidence done, describe first step of IGS test
                     aiVoice.AddClipToQueue(66);  // Add voice to queue 
                     Level1Events.current.EvidenceDone();
                 }
                 // DNA start
                 else if (currentPhase == 2)
                 {
-                    // Describe first step of IGS test
-                    Debug.Log("DNA START");
+                    // IGS done, describe first step of DNA test
+                    Level1Events.current.IGSDone();
+                }
+                else if (currentPhase == 3)
+                {
+                    // DNA done, describe last step
+                    Debug.Log("PAIN");
+                    Level1Events.current.DNADone();
                 }
                 else
                 {
+                    Debug.Log("PAIN");
                     Debug.Log(currentPhase);
                 }
                 

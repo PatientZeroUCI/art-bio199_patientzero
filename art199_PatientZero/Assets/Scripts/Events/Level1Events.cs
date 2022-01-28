@@ -36,6 +36,11 @@ public class Level1Events : MonoBehaviour
     }
 
 
+
+    //
+    // IGS events
+    // 
+
     //  When water is added to slide
     public event Action onSlideWet;
     public void SlideWet()
@@ -122,6 +127,62 @@ public class Level1Events : MonoBehaviour
         if (onIGSDone != null)
         {
             onIGSDone();
+        }
+    }
+
+
+
+    //
+    // DNA events
+    // 
+
+    public event Action onPetriSwabbed;
+    public void PetriSwabbed()
+    {
+        Debug.Log("Petri Swabbed");
+        if (onPetriSwabbed != null)
+        {
+            onPetriSwabbed();
+        }
+    }
+
+    public event Action onPetriInsertedInMicroscope;
+    public void PetriInsertedInMicroscope()
+    {
+        Debug.Log("Petri Inserted In Microscope");
+        if (onPetriInsertedInMicroscope != null)
+        {
+            onPetriInsertedInMicroscope();
+        }
+    }
+
+    public event Action onBacteriaInserted;
+    public void BacteriaInserted()
+    {
+        Debug.Log("Bacteria Inserted");
+        if (onBacteriaInserted != null)
+        {
+            onBacteriaInserted();
+        }
+    }
+
+    public event Action onDNAMatched;
+    public void DNAMatched()
+    {
+        Debug.Log("DNA Matched");
+        if (onDNAMatched != null)
+        {
+            onDNAMatched();
+        }
+    }
+
+    public event Action onDNADone;
+    public void DNADone()
+    {
+        Debug.Log("DNA Done");
+        if (onDNADone != null)
+        {
+            onDNADone();
         }
     }
 }
