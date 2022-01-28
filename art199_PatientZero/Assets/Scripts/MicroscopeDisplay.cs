@@ -45,6 +45,7 @@ public class MicroscopeDisplay : MonoBehaviour
                 if (slideScript.state == IGSTestSlide.State.Done)
                 {
                     gram_result.SetActive(true);
+                    Level1Events.current.SlideInsertedInMicroscope();
                 } 
                 //evidencePrinter.PrintIGS();
             }
