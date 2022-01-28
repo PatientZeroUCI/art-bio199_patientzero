@@ -30,7 +30,7 @@ public class MicroscopeDisplay : MonoBehaviour
             if (snapped_object.tag == "DNA")
             {
                 bacteria.SetActive(true);
-
+                Level1Events.current.PetriInsertedInMicroscope();
                 aiVoice.ReadVoiceClip(76);
             }
             else if (snapped_object.tag == "Tool")
@@ -45,6 +45,7 @@ public class MicroscopeDisplay : MonoBehaviour
                 if (slideScript.state == IGSTestSlide.State.Done)
                 {
                     gram_result.SetActive(true);
+                    Level1Events.current.SlideInsertedInMicroscope();
                 } 
                 //evidencePrinter.PrintIGS();
             }

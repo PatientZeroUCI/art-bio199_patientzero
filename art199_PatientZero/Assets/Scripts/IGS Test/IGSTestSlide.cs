@@ -38,7 +38,8 @@ public class IGSTestSlide : MonoBehaviour {
             progress += Time.deltaTime;
 
             if (progress >= 10f) {
-                state = State.SampleDried;
+                state = State.Heated;
+                Level1Events.current.SlideDried();
                 progress = 0;
                 progressBar.Value = 0;
                 progressBar.Visible = false;
@@ -66,8 +67,9 @@ public class IGSTestSlide : MonoBehaviour {
         switch (state) {
             case State.Start:
                 if (collision.gameObject.tag == "Water") {
-                    UnityEngine.Debug.Log(":dsfiosadjf");
+                    //UnityEngine.Debug.Log(":dsfiosadjf");
                     state = State.WaterAdded;
+                    Level1Events.current.SlideWet();
                     Destroy(collision.gameObject);
 
                     // Call aivoice voice line
@@ -79,6 +81,7 @@ public class IGSTestSlide : MonoBehaviour {
                 if (scooper != null && scooper.scoopCurrentHP == 0) {
                     sample.SetActive(true);
                     state = State.SampleLoaded;
+                    Level1Events.current.SampleOnSlide();
                     positive = scooper.positive;
 
                     // Call aivoice voice line
@@ -89,6 +92,7 @@ public class IGSTestSlide : MonoBehaviour {
                 if (collision.gameObject.tag == "IGS Dye") {
                     if (++progress >= 50) {
                         state = State.DyeAdded;
+                        Level1Events.current.SlideDyed();
                         progress = 0;
                         progressBar.Value = 0;
                         progressBar.Visible = false;
@@ -107,6 +111,7 @@ public class IGSTestSlide : MonoBehaviour {
                 if (collision.gameObject.tag == "Water") {
                     if (++progress >= 50) {
                         state = State.Washed;
+                        Level1Events.current.SlideWashed();
                         progress = 0;
                         progressBar.Value = 0;
                         progressBar.Visible = false;
@@ -129,6 +134,7 @@ public class IGSTestSlide : MonoBehaviour {
 
             if (progress >= 5) {
                 state = State.Heated;
+                Level1Events.current.SlideDried();
                 progress = 0;
                 progressBar.Value = 0;
                 progressBar.Visible = false;

@@ -59,6 +59,7 @@ public class HeatingUp : MonoBehaviour
 
             if (scooper.scoopCurrentHP == 0) {
                 scooper.GetComponent<Renderer>().material = igs_heated;
+                Level1Events.current.LoopHeated();
             }
         }
     }
