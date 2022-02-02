@@ -13,6 +13,7 @@ public class SubmitBoardController : MonoBehaviour
     public GameObject submitButton;
     // Stores the red and green shaders that the buttons switch between
     public Material[] shaders;
+    private bool canSubmit = false;
 
     // Puts the buttons into the dictionary by finding them by name
     void Start()
@@ -22,6 +23,9 @@ public class SubmitBoardController : MonoBehaviour
         buttons.Add(GameObject.Find("Cube.002"), false);
         buttons.Add(GameObject.Find("Cube.003"), false);
         buttons.Add(GameObject.Find("Cube.004"), false);
+
+        // Sunscrive to event
+        Level1Events.current.onEvidenceDone += AllowSubmissions;
     }
 
     // Toggles the button between active and not active when a player presses it
@@ -56,6 +60,11 @@ public class SubmitBoardController : MonoBehaviour
     // Returns true if only one button is active
     bool isSubmittable()
     {
+        if (canSubmit == false)
+        {
+            return false;
+        }
+
         int selectedCount = 0;
 
         foreach (GameObject button in buttons.Keys)
@@ -65,6 +74,18 @@ public class SubmitBoardController : MonoBehaviour
                 selectedCount += 1;
             }
         }
+
+        if (selectedCount == 1)
+        {
+            Debug.Log("finish");
+        }
         return selectedCount == 1;
+    }
+
+    // When called, allows the submit button to be pressed
+    void AllowSubmissions()
+    {
+        Debug.Log("dsaijahcdsunauhvecfdnijvefsanijuecfdra");
+        canSubmit = true;
     }
 }
