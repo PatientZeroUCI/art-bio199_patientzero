@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Controller for the submission board
 // Includes functions that control each button and the board as a whole
@@ -13,7 +14,10 @@ public class SubmitBoardController : MonoBehaviour
     public GameObject submitButton;
     // Stores the red and green shaders that the buttons switch between
     public Material[] shaders;
+    // Stores a boolean if the board is able to be used, changed by EventSystem
     private bool canSubmit = false;
+     
+    private AIVoice aiVoice;
 
     // Puts the buttons into the dictionary by finding them by name
     void Start()
@@ -24,8 +28,10 @@ public class SubmitBoardController : MonoBehaviour
         buttons.Add(GameObject.Find("Cube.003"), false);
         buttons.Add(GameObject.Find("Cube.004"), false);
 
-        // Sunscrive to event
-        Level1Events.current.onEvidenceDone += AllowSubmissions;
+        // Sunscribe to event
+        Level1Events.current.onDNADone += AllowSubmissions;
+    
+        aiVoice = FindObjectOfType<AIVoice>();
     }
 
     // Toggles the button between active and not active when a player presses it
@@ -34,31 +40,34 @@ public class SubmitBoardController : MonoBehaviour
     // Called by Interactable_Object_Unity_Events On Use
     public void toggleButton(GameObject button)
     {
-        if (buttons[button] == true)
+        if (canSubmit)
         {
-            buttons[button] = false;
-            button.GetComponent<Renderer>().material = shaders[0];
-        }
-        else
-        {
-            buttons[button] = true;
-            button.GetComponent<Renderer>().material = shaders[1];
-        }
+            if (buttons[button] == true)
+            {
+                buttons[button] = false;
+                button.GetComponent<Renderer>().material = shaders[0];
+            }
+            else
+            {
+                buttons[button] = true;
+                button.GetComponent<Renderer>().material = shaders[1];
+            }
 
-        if (isSubmittable())
-        {
-            submitButton.GetComponent<Renderer>().material = shaders[1];
-        }
-        else
-        {
-            submitButton.GetComponent<Renderer>().material = shaders[0];
+            if (isSubmittable())
+            {
+                submitButton.GetComponent<Renderer>().material = shaders[1];
+            }
+            else
+            {
+                submitButton.GetComponent<Renderer>().material = shaders[0];
+            }
         }
     }
 
     // Checks if the final submit button should be enabled by looking at the
     // boolean values for every button
     // Returns true if only one button is active
-    bool isSubmittable()
+    private bool isSubmittable()
     {
         if (canSubmit == false)
         {
@@ -75,17 +84,43 @@ public class SubmitBoardController : MonoBehaviour
             }
         }
 
-        if (selectedCount == 1)
-        {
-            Debug.Log("finish");
-        }
         return selectedCount == 1;
     }
 
     // When called, allows the submit button to be pressed
-    void AllowSubmissions()
+    public void AllowSubmissions()
     {
-        Debug.Log("dsaijahcdsunauhvecfdnijvefsanijuecfdra");
+        Debug.Log("Submissions now allowed");
         canSubmit = true;
+        submitButton.GetComponent<Renderer>().material = shaders[0];
+    }
+
+    // Checks that the correct answer is submitted
+    // Returns to the title screen if the correct answer was chose
+    public void submit()
+    {
+        if (canSubmit && isSubmittable())
+        {
+            if (buttons[GameObject.Find("Cube.001")] == true)
+            {
+                //aiVoice.ReadVoiceClip(74);
+                Debug.Log("Correct answer! Returning to title screen.");
+                StartCoroutine(loadTitleScene());
+            }
+            else
+            {
+                //aiVoice.ReadVoiceClip(73);
+                Debug.Log("Incorrect answer");
+                //SceneManager.LoadScene("Wrap Up");
+            }
+        }
+    }
+
+    // Waits for 5 seconds before returning to the title screen
+    IEnumerator loadTitleScene()
+    {
+        // Wait for 5 seconds and then load the title scene
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("Title Scene");
     }
 }
