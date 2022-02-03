@@ -40,8 +40,6 @@ public class SubmitBoardController : MonoBehaviour
     // Called by Interactable_Object_Unity_Events On Use
     public void toggleButton(GameObject button)
     {
-        if (canSubmit)
-        {
             if (buttons[button] == true)
             {
                 buttons[button] = false;
@@ -53,6 +51,8 @@ public class SubmitBoardController : MonoBehaviour
                 button.GetComponent<Renderer>().material = shaders[1];
             }
 
+        if (canSubmit)
+        {
             if (isSubmittable())
             {
                 submitButton.GetComponent<Renderer>().material = shaders[1];
@@ -92,7 +92,16 @@ public class SubmitBoardController : MonoBehaviour
     {
         Debug.Log("Submissions now allowed");
         canSubmit = true;
-        submitButton.GetComponent<Renderer>().material = shaders[0];
+        //submitButton.GetComponent<Renderer>().material = shaders[0];
+
+        if (isSubmittable())
+        {
+            submitButton.GetComponent<Renderer>().material = shaders[1];
+        }
+        else
+        {
+            submitButton.GetComponent<Renderer>().material = shaders[0];
+        }
     }
 
     // Checks that the correct answer is submitted
