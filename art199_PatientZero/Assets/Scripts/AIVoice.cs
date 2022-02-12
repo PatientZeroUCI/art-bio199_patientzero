@@ -78,6 +78,7 @@ public class AIVoice : MonoBehaviour {
             }     
             
             audioSource.clip = clip.audioClip;
+            Debug.Log(audioSource.clip);
             currentIndex = 0;
             audioSource.time = clip.start;
             endTime = clip.end;
