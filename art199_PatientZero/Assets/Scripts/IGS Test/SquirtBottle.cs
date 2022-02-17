@@ -7,6 +7,7 @@ public class SquirtBottle : MonoBehaviour
 {
     [SerializeField] GameObject contents = null;
     public AudioSource squirtSound;
+    public AudioClip [] bottleClip;
 
     public VRTK_InteractableObject bottle;
     public VRTK_InteractUse controllerUse;
@@ -22,16 +23,41 @@ public class SquirtBottle : MonoBehaviour
 
     float squirting = 0;
 
+    bool yoink = true;
+
     private void Update()
     {
+        if (bottle.IsGrabbed() && yoink) {
+            int clipNum = Random.Range(1,4); //picks a random number between 1 and 3
+            squirtSound.clip = bottleClip[clipNum];
+            squirtSound.pitch = 1.3f;
+            squirtSound.volume = 0.75f;
+            squirtSound.Play();
+            yoink = false;
+        }
+        else if (!bottle.IsGrabbed() && !yoink) {
+            yoink = true;
+        }
         if (bottle.IsGrabbed() && controllerUse.IsUseButtonPressed()) {
-            if (squirting <= 0) {
+            if (squirtSound.clip != bottleClip[0]) {
+                if (squirtSound.isPlaying) {
+                    squirtSound.Stop();
+                }
+            }
+            if (squirting <= 0 ) {
                 squirting = 1;
-                squirtSound.Play();
+                if (!squirtSound.isPlaying) {
+                    squirtSound.clip = bottleClip[0];
+                    squirtSound.pitch = 1.8f;
+                    squirtSound.volume = 0.6f;
+                    squirtSound.Play();
+                }
             }
         } else if (squirting > 0.2f) {
             squirting = 0.2f;
-            squirtSound.Stop();
+            if (squirtSound.isPlaying) {
+                squirtSound.Stop();
+            }
         }
 
         if (squirting > 0.2f)
