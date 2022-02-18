@@ -65,8 +65,11 @@ public class LogicBoardController : MonoBehaviour
     {
         centerSnapped = e.snappedObject;
         // Orients the Newspaper Article 1 in the correct direction
-        e.snappedObject.transform.eulerAngles = new Vector3(90.0f, 0.0f, -270.0f);
-        e.snappedObject.transform.localScale = new Vector3(0.4f, 0.001053715f, 0.5f);
+        if (centerSnapped.name == "Newspaper Article 1")
+        {
+            e.snappedObject.transform.eulerAngles = new Vector3(90.0f, 0.0f, -270.0f);
+            e.snappedObject.transform.localScale = new Vector3(0.4f, 0.001053715f, 0.5f);
+        }
         // Activate the top left section of the board after the center document has been snapped
         // Enforces order to get rid of buggy behavior and docs not being able to go on the board
         if (gameObject.name == "test1_zone") 
