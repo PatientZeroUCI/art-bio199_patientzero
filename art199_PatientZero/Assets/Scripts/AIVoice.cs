@@ -22,7 +22,7 @@ public class AIVoice : MonoBehaviour {
 
     public VRTK_ControllerEvents right_hand;
 
-    public bool skipIntroVoicelines = false; // Set to true to skip intro voice lines (remember to eventually set back to false)
+    private bool skipIntroVoicelines = false; // Set to true to skip intro voice lines (remember to eventually set back to false)
 
     private static bool turnOffCaptions = false; // Set to true to turn off captioning for the voice lines
 
@@ -78,7 +78,6 @@ public class AIVoice : MonoBehaviour {
             }     
             
             audioSource.clip = clip.audioClip;
-            Debug.Log(audioSource.clip);
             currentIndex = 0;
             audioSource.time = clip.start;
             endTime = clip.end;
@@ -123,7 +122,7 @@ public class AIVoice : MonoBehaviour {
                     audioSource.Play();
                 }
             } else {
-                if (playOnStart.Count > 0 & !skipIntroVoicelines) {
+                if (playOnStart.Count > 0 && !skipIntroVoicelines) {
                     delay = 0.5f;
                     ReadVoiceClip(playOnStart[0]);
                     playOnStart.RemoveAt(0);
