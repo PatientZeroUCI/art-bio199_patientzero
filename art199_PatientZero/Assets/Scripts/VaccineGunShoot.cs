@@ -30,6 +30,11 @@ public class VaccineGunShoot : VRTK.Examples.GunShoot
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("help");
+            NextVaccine();
+        }
     }
 
 
