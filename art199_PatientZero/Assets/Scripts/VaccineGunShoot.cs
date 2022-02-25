@@ -14,7 +14,7 @@ public class VaccineGunShoot : VRTK.Examples.GunShoot
     public GameObject reloadPort;
 
     public float timer = 0f;  // how long the gun ahs been charging
-    public float chargeTime = 5f;  // How long the gun has to charge to reload
+    public float chargeTime = 1f;  // How long the gun has to charge to reload
     private bool charging = false;
 
 
@@ -28,10 +28,19 @@ public class VaccineGunShoot : VRTK.Examples.GunShoot
         chargeTime = chargeTime / Time.fixedDeltaTime;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("help");
+            NextVaccine();
+        }
+    }
+
 
     private void FixedUpdate()
     {
-        Debug.Log(timer);
+        //Debug.Log(timer);
         if (charging)
         {
             // If charging, starting increasing timer
@@ -68,8 +77,10 @@ public class VaccineGunShoot : VRTK.Examples.GunShoot
 
     protected override void FireProjectile()
     {
+        Debug.Log(ammo);
         if (projectile != null && projectileSpawnPoint != null && (ammo > 0))
         {
+            Debug.Log("123");
             // Reduce ammo by one
             ammo -= 1;
 
@@ -99,6 +110,7 @@ public class VaccineGunShoot : VRTK.Examples.GunShoot
     public void Reload()
     {
         ammo = reloadAmount;
+        timer = 0;
     }
 
     private void OnTriggerEnter(Collider other)

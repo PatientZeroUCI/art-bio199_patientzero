@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using VRTK;
 
 public class PetriDish : MonoBehaviour
 {
@@ -31,7 +32,9 @@ public class PetriDish : MonoBehaviour
     private AIVoice aiVoice;
 
     private int testingPixel;
- 
+
+
+
 
 
     // Start is called before the first frame update
@@ -152,6 +155,7 @@ public class PetriDish : MonoBehaviour
                 petri_dish.tag = "DNA";
                 Level1Events.current.PetriSwabbed();
                 aiVoice.ReadVoiceClip(75);
+                MakeMovable();
             }
 
             // Debug.Log(pixels[i].ToString() + "" + petriColor.ToString());
@@ -196,5 +200,17 @@ public class PetriDish : MonoBehaviour
     {
         currentSwabColor = swabColor;
         color = Enumerable.Repeat<Color>(swabColor, swabSize * swabSize).ToArray<Color>();
+    }
+
+
+    // Due to bugs related to moving the dish while trying to swab it, it is locked in place until it is completed
+    // To lock it in place, it was amde kinematic and gravity was turened off
+    private void MakeMovable()
+    {
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        VRTK_InteractableObject obj = gameObject.GetComponent<VRTK_InteractableObject>();
+        obj.isGrabbable = true;
     }
 }
