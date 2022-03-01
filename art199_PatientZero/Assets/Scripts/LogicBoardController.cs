@@ -67,8 +67,8 @@ public class LogicBoardController : MonoBehaviour
         // Orients the Newspaper Article 1 in the correct direction
         if (centerSnapped.name == "Newspaper Article 1")
         {
-            e.snappedObject.transform.eulerAngles = new Vector3(90.0f, 0.0f, -270.0f);
-            e.snappedObject.transform.localScale = new Vector3(0.4f, 0.001053715f, 0.5f);
+            e.snappedObject.transform.eulerAngles = new Vector3(89.0f, 11.0f, -143.734f);
+            //e.snappedObject.transform.localScale = new Vector3(0.4f, 0.001053715f, 0.5f);
         }
         // Activate the top left section of the board after the center document has been snapped
         // Enforces order to get rid of buggy behavior and docs not being able to go on the board
@@ -116,11 +116,11 @@ public class LogicBoardController : MonoBehaviour
                 // Orients the docs in section 1 in the correct direction
                 if(e.snappedObject.name == "Symptom List")
                 {
-                    e.snappedObject.transform.eulerAngles = new Vector3(90.0f, 0.0f, -270.0f);
+                    e.snappedObject.transform.eulerAngles = new Vector3(91.048f, -109.554f, -264.039f);
                 }
                 else if (e.snappedObject.name == "Gov Report")
                 {
-                    e.snappedObject.transform.eulerAngles = new Vector3(-90.0f, 0.0f, -90.0f);
+                    e.snappedObject.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 154.5f);
                 }
                 // Activate the top right section of the board after the center document has been snapped
                 // Enforces order to get rid of buggy behavior and docs not being able to go on the board
