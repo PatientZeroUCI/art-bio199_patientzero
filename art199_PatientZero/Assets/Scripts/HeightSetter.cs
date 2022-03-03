@@ -18,10 +18,12 @@ public class HeightSetter : MonoBehaviour
     private float rotateDegree = 15;
 
 
-    public VRTK_ControllerEvents controllerEventsRight;
-    public VRTK_ControllerEvents.ButtonAlias rightRotateButton = VRTK_ControllerEvents.ButtonAlias.ButtonTwoPress;
-    public VRTK_ControllerEvents controllerEventsLeft;
-    public VRTK_ControllerEvents.ButtonAlias leftRotateButton = VRTK_ControllerEvents.ButtonAlias.ButtonTwoPress;
+    [SerializeField]
+    private VRTK_ControllerEvents controllerEventsRight;
+    //public VRTK_ControllerEvents.ButtonAlias rightRotateButton = VRTK_ControllerEvents.ButtonAlias.ButtonTwoPress;
+    [SerializeField]
+    private VRTK_ControllerEvents controllerEventsLeft;
+    //public VRTK_ControllerEvents.ButtonAlias leftRotateButton = VRTK_ControllerEvents.ButtonAlias.ButtonTwoPress;
 
 
 
@@ -29,14 +31,18 @@ public class HeightSetter : MonoBehaviour
     void Start()
     {
         ScaleHeight();
+
+
+        controllerEventsRight.TouchpadPressed += RotateRightVR;
+        controllerEventsLeft.TouchpadPressed += RotateLeftVR;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            ChangeHeight(1.0f);
-        }
+        //if (Input.GetKeyDown("space"))
+        //{
+        //    ChangeHeight(1.0f);
+        //}
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -68,16 +74,40 @@ public class HeightSetter : MonoBehaviour
         ScaleHeight();
     }
 
-    void RotateRight()
+
+    // These 2 are called from update
+    public void RotateRight()
     {
+        Debug.Log("test");
         for (int i = 0; i < outerTransform.Length; i++)
         {
             outerTransform[i].transform.rotation *= Quaternion.Euler(0, rotateDegree, 0);
         }
     }
 
-    void RotateLeft()
+    public void RotateLeft()
     {
+        Debug.Log("test");
+        for (int i = 0; i < outerTransform.Length; i++)
+        {
+            outerTransform[i].transform.rotation *= Quaternion.Euler(0, -rotateDegree, 0);
+        }
+    }
+
+
+    // These 2 are called from the vrtk_crontroller_events component on the hands
+    public void RotateRightVR(object sender, ControllerInteractionEventArgs e)
+    {
+        Debug.Log("test");
+        for (int i = 0; i < outerTransform.Length; i++)
+        {
+            outerTransform[i].transform.rotation *= Quaternion.Euler(0, rotateDegree, 0);
+        }
+    }
+
+    public void RotateLeftVR(object sender, ControllerInteractionEventArgs e)
+    {
+        Debug.Log("test");
         for (int i = 0; i < outerTransform.Length; i++)
         {
             outerTransform[i].transform.rotation *= Quaternion.Euler(0, -rotateDegree, 0);
