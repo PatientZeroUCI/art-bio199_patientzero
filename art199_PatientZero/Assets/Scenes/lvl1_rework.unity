@@ -33009,6 +33009,12 @@ Transform:
   m_Father: {fileID: 1639937896}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
+--- !u!1 &878787080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1791101067106182, guid: eb6748575a8fce346b19dff6cb1471ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 465255113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &880196178
 GameObject:
   m_ObjectHideFlags: 0
@@ -47155,6 +47161,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1052516350, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083971421045015577, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8568936555016592245, guid: 0dc8ff5da1cc3a94b9ed7c8b81015fe6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -47684,6 +47699,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277517170}
   m_Mesh: {fileID: -3408761300395177865, guid: 215cbb4c8b7ee4542bf3ff5cd2fdf050, type: 3}
+--- !u!1 &1286461176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1754906022701200, guid: eb6748575a8fce346b19dff6cb1471ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 465255113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1287014824
 GameObject:
   m_ObjectHideFlags: 0
@@ -57313,6 +57334,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6182667722775754707, guid: bd115317bc96a9e41b38821cce320d1e,
         type: 3}
+      propertyPath: playerObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182667722775754707, guid: bd115317bc96a9e41b38821cce320d1e,
+        type: 3}
       propertyPath: defaultHeight
       value: 1.8
       objectReference: {fileID: 0}
@@ -57346,6 +57372,16 @@ PrefabInstance:
       propertyPath: controllerEventsLeft
       value: 
       objectReference: {fileID: 1265059834}
+    - target: {fileID: 6182667722775754707, guid: bd115317bc96a9e41b38821cce320d1e,
+        type: 3}
+      propertyPath: playerObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1286461176}
+    - target: {fileID: 6182667722775754707, guid: bd115317bc96a9e41b38821cce320d1e,
+        type: 3}
+      propertyPath: playerObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 878787080}
     - target: {fileID: 6182667722775754710, guid: bd115317bc96a9e41b38821cce320d1e,
         type: 3}
       propertyPath: m_LocalPosition.x

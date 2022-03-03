@@ -50,7 +50,7 @@ public class HeightSetter : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            RotateLeft();
+            RotateRight();
         }
     }
 
@@ -78,39 +78,90 @@ public class HeightSetter : MonoBehaviour
     // These 2 are called from update
     public void RotateRight()
     {
-        Debug.Log("test");
-        for (int i = 0; i < outerTransform.Length; i++)
-        {
-            outerTransform[i].transform.rotation *= Quaternion.Euler(0, rotateDegree, 0);
-        }
+        VRTK_SDKSetup setup = VRTK_SDKManager.GetLoadedSDKSetup();
+        GameObject setupObject = setup.gameObject;
+        GameObject headsetObject = setup.actualHeadset;
+
+
+        // Rotate the setup, then move the whole setup so the head stays in the same place.
+        Vector3 offset = headsetObject.transform.position;
+
+        setupObject.transform.rotation *= Quaternion.Euler(0, rotateDegree, 0);
+
+
+        offset -= headsetObject.transform.position;
+        setup.transform.position += offset;
     }
 
     public void RotateLeft()
     {
-        Debug.Log("test");
-        for (int i = 0; i < outerTransform.Length; i++)
-        {
-            outerTransform[i].transform.rotation *= Quaternion.Euler(0, -rotateDegree, 0);
-        }
+        VRTK_SDKSetup setup = VRTK_SDKManager.GetLoadedSDKSetup();
+        GameObject setupObject = setup.gameObject;
+        GameObject headsetObject = setup.actualHeadset;
+
+        // Rotate the setup, then move the whole setup so the head stays in the same place.
+        Vector3 offset = headsetObject.transform.position;
+
+        setupObject.transform.rotation *= Quaternion.Euler(0, -rotateDegree, 0);
+
+
+        offset -= headsetObject.transform.position;
+        setup.transform.position += offset;
     }
 
 
     // These 2 are called from the vrtk_crontroller_events component on the hands
     public void RotateRightVR(object sender, ControllerInteractionEventArgs e)
     {
-        Debug.Log("test");
-        for (int i = 0; i < outerTransform.Length; i++)
-        {
-            outerTransform[i].transform.rotation *= Quaternion.Euler(0, rotateDegree, 0);
-        }
+        //Debug.Log("test");
+        //for (int i = 0; i < outerTransform.Length; i++)
+        //{
+        //    outerTransform[i].transform.rotation *= Quaternion.Euler(0, rotateDegree, 0);
+        //}
+
+        VRTK_SDKSetup setup = VRTK_SDKManager.GetLoadedSDKSetup();
+        GameObject setupObject = setup.gameObject;
+        GameObject headsetObject = setup.actualHeadset;
+
+        //Debug.Log(setupObject.name);
+        //Debug.Log(headsetObject.name);
+        //Debug.Log("Touchpad Axis: " + e.touchpadAngle);
+
+        // Rotate the setup, then move the whole setup so the head stays in the same place.
+        Vector3 offset = headsetObject.transform.position;
+
+        //setupObject.transform.rotation *= Quaternion.Euler(0, rotateDegree * (e.touchpadAxis.x < 0 ? -1 : 1), 0);
+        setupObject.transform.rotation *= Quaternion.Euler(0, rotateDegree, 0);
+
+
+        offset -= headsetObject.transform.position;
+        setup.transform.position += offset;
     }
 
     public void RotateLeftVR(object sender, ControllerInteractionEventArgs e)
     {
-        Debug.Log("test");
-        for (int i = 0; i < outerTransform.Length; i++)
-        {
-            outerTransform[i].transform.rotation *= Quaternion.Euler(0, -rotateDegree, 0);
-        }
+        //Debug.Log("test");
+        //for (int i = 0; i < outerTransform.Length; i++)
+        //{
+        //    outerTransform[i].transform.rotation *= Quaternion.Euler(0, -rotateDegree, 0);
+        //}
+
+        VRTK_SDKSetup setup = VRTK_SDKManager.GetLoadedSDKSetup();
+        GameObject setupObject = setup.gameObject;
+        GameObject headsetObject = setup.actualHeadset;
+
+        //Debug.Log(setupObject.name);
+        //Debug.Log(headsetObject.name);
+        //Debug.Log("Touchpad Axis: " + e.touchpadAngle);
+
+        // Rotate the setup, then move the whole setup so the head stays in the same place.
+        Vector3 offset = headsetObject.transform.position;
+
+        //setupObject.transform.rotation *= Quaternion.Euler(0, -rotateDegree * (e.touchpadAxis.x < 0 ? -1 : 1), 0);
+        setupObject.transform.rotation *= Quaternion.Euler(0, -rotateDegree, 0);
+
+
+        offset -= headsetObject.transform.position;
+        setup.transform.position += offset;
     }
 }
