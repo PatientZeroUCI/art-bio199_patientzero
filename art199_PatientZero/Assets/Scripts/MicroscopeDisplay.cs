@@ -36,8 +36,8 @@ public class MicroscopeDisplay : MonoBehaviour
             else if (snapped_object.tag == "Tool")
             {
                 // Fixes the orientation of the tweezers and slide
-                snapped_object.transform.rotation = Quaternion.Euler(-90.0f, 0.0f, -176.537f);
-                snapped_object.transform.position = new Vector3(-3.1f, 1.75f, 1.4f);
+                snapped_object.transform.rotation = Quaternion.Euler(-90.0f, 0.0f, -6.0f);
+                snapped_object.transform.position = new Vector3(8.18f, 1.73f, -0.3f);
 
                 // Checks to ensure that the IGS test has been completed before displaying results                
                 Transform slide = snapped_object.transform.Find("Slide");
