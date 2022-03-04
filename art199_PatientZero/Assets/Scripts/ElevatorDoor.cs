@@ -4,28 +4,24 @@ using UnityEngine;
 
 public class ElevatorDoor : MonoBehaviour
 {
-    public bool isLeftDoor;
+    private bool DoorsOpen = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (isLeftDoor)
+        if (!DoorsOpen)
         {
-            transform.position = transform.position - new Vector3(0.6f, 0, 0);
-        }
-        else
-        {
-            transform.position = transform.position + new Vector3(0.6f, 0, 0);
+            DoorsOpen = true;
+            GameObject.FindGameObjectWithTag("LeftDoor").transform.position = GameObject.FindGameObjectWithTag("LeftDoor").transform.position - new Vector3(2, 0, 0);
+            GameObject.FindGameObjectWithTag("RightDoor").transform.position = GameObject.FindGameObjectWithTag("RightDoor").transform.position + new Vector3(2, 0, 0);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit(Collider collision)
     {
-        if (isLeftDoor)
+        if (DoorsOpen)
         {
-            transform.position = transform.position + new Vector3(0.6f, 0, 0);
-        }
-        else
-        {
-            transform.position = transform.position - new Vector3(0.6f, 0, 0);
+            DoorsOpen = false;
+            GameObject.FindGameObjectWithTag("LeftDoor").transform.position = GameObject.FindGameObjectWithTag("LeftDoor").transform.position + new Vector3(2, 0, 0);
+            GameObject.FindGameObjectWithTag("RightDoor").transform.position = GameObject.FindGameObjectWithTag("RightDoor").transform.position - new Vector3(2, 0, 0);
         }
     }
 }
