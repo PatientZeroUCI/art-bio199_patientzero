@@ -6,6 +6,8 @@ using UnityEngine;
 public class Level1Events : MonoBehaviour
 {
     public static Level1Events current;
+    public AudioSource inocLoopAudio;
+    private bool inocLoopPlayed = false;
 
     void Awake()
     {
@@ -56,6 +58,11 @@ public class Level1Events : MonoBehaviour
     public event Action onLoopHeated;
     public void LoopHeated()
     {
+        if (!inocLoopPlayed) {
+            inocLoopAudio = GameObject.FindGameObjectWithTag("IGSscooper").GetComponent<AudioSource>();
+            inocLoopAudio.Play();
+            inocLoopPlayed = true;
+        }
         Debug.Log("Loop Heated");
         if (onLoopHeated != null)
         {

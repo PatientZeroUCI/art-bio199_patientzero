@@ -9,7 +9,6 @@ public class IGSscooperHP : MonoBehaviour
     // Is the sample gram positive?
     public bool positive = false;
 
-
     private float scoopMaxHP;
 
     public float scoopCurrentHP;
