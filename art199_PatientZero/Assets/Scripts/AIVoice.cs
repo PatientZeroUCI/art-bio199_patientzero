@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using VRTK;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AIVoice : MonoBehaviour {
     private AudioSource audioSource;
@@ -44,7 +45,11 @@ public class AIVoice : MonoBehaviour {
     }
 
     private void Start() {
-        playOnStart = new List<int> { 58, 59, 60, 61, 62, 63, 64 };
+        if (SceneManager.GetActiveScene().name == "ElevatorScene")
+        {
+            playOnStart = new List<int> { 58, 59, 60, 61, 62, 63, 64 };
+        }
+        else {playOnStart = new List<int>();}
     }
 
     public void ReadVoiceClip(int index) {
@@ -109,6 +114,10 @@ public class AIVoice : MonoBehaviour {
                 audioSource.Stop();
                 ThreeDCaps.addCaptions("");
                 audioSource.clip = null;
+                if (playedClips.Contains(64) && SceneManager.GetActiveScene().name == "ElevatorScene")
+                {
+                    SceneManager.LoadScene("Wrap Up");
+                }
             }
         } 
         else 
