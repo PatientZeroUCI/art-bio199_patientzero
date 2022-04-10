@@ -10,8 +10,10 @@ public class ElevatorDoor : MonoBehaviour
         if (!DoorsOpen)
         {
             DoorsOpen = true;
-            GameObject.FindGameObjectWithTag("LeftDoor").transform.position = GameObject.FindGameObjectWithTag("LeftDoor").transform.position - new Vector3(2, 0, 0);
-            GameObject.FindGameObjectWithTag("RightDoor").transform.position = GameObject.FindGameObjectWithTag("RightDoor").transform.position + new Vector3(2, 0, 0);
+            GameObject.FindGameObjectWithTag("LeftDoor").GetComponent<MeshRenderer>().enabled = false;
+            GameObject.FindGameObjectWithTag("RightDoor").GetComponent<MeshRenderer>().enabled = false;
+            //GameObject.FindGameObjectWithTag("LeftDoor").transform.position = GameObject.FindGameObjectWithTag("LeftDoor").transform.position - new Vector3(2, 0, 0);
+            //GameObject.FindGameObjectWithTag("RightDoor").transform.position = GameObject.FindGameObjectWithTag("RightDoor").transform.position + new Vector3(2, 0, 0);
         }
     }
 
@@ -20,8 +22,10 @@ public class ElevatorDoor : MonoBehaviour
         if (DoorsOpen)
         {
             DoorsOpen = false;
-            GameObject.FindGameObjectWithTag("LeftDoor").transform.position = GameObject.FindGameObjectWithTag("LeftDoor").transform.position + new Vector3(2, 0, 0);
-            GameObject.FindGameObjectWithTag("RightDoor").transform.position = GameObject.FindGameObjectWithTag("RightDoor").transform.position - new Vector3(2, 0, 0);
+            GameObject.FindGameObjectWithTag("LeftDoor").GetComponent<MeshRenderer>().enabled = true;
+            GameObject.FindGameObjectWithTag("RightDoor").GetComponent<MeshRenderer>().enabled = true;
+            //GameObject.FindGameObjectWithTag("LeftDoor").transform.position = GameObject.FindGameObjectWithTag("LeftDoor").transform.position + new Vector3(2, 0, 0);
+            //GameObject.FindGameObjectWithTag("RightDoor").transform.position = GameObject.FindGameObjectWithTag("RightDoor").transform.position - new Vector3(2, 0, 0);
         }
     }
 }

@@ -7,6 +7,6 @@ public class LoungeElevator : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("Wrap Up");
+        SceneManager.LoadScene("ElevatorScene");
     }
 }
