@@ -282,6 +282,8 @@ MonoBehaviour:
   collideWhileNotGrabbed: 0
   collideWhileGrabbed: 0
   obj: {fileID: 2991454445402936865}
+  pickUpSound: {fileID: 0}
+  pickUpClips: []
 --- !u!114 &7358198428252301451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,9 +718,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5469990d1dfd00c4381b0e1cb675bc37, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2122,6 +2124,8 @@ MonoBehaviour:
   collideWhileNotGrabbed: 0
   collideWhileGrabbed: 0
   obj: {fileID: 3337907558852496389}
+  pickUpSound: {fileID: 0}
+  pickUpClips: []
 --- !u!1 &3545014584296688795
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,6 +3019,8 @@ MonoBehaviour:
   collideWhileNotGrabbed: 0
   collideWhileGrabbed: 0
   obj: {fileID: 4727858021325874633}
+  pickUpSound: {fileID: 0}
+  pickUpClips: []
 --- !u!114 &4727858021325874633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4083,6 +4089,14 @@ MonoBehaviour:
   collideWhileNotGrabbed: 0
   collideWhileGrabbed: 0
   obj: {fileID: 4567582289533042117}
+  pickUpSound: {fileID: 7498464086155344793}
+  pickUpClips:
+  - {fileID: 8300000, guid: 2ff2eac5efa3263499d3225a26e8121c, type: 3}
+  - {fileID: 8300000, guid: caba02c06dd04ba438dbb75c4f2702b5, type: 3}
+  - {fileID: 8300000, guid: caac9188a08a1e74388f153512abaa80, type: 3}
+  - {fileID: 8300000, guid: e37c97024c841494fb8cc1343fc97b18, type: 3}
+  - {fileID: 8300000, guid: c61b333467563704cb995f9463d36b27, type: 3}
+  - {fileID: 8300000, guid: 8fcaf4a0c265ca24b8ffe6b4e8e022f7, type: 3}
 --- !u!1 &6415950755990359958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4899,6 +4913,8 @@ MonoBehaviour:
   collideWhileNotGrabbed: 0
   collideWhileGrabbed: 0
   obj: {fileID: 7964737838745813143}
+  pickUpSound: {fileID: 0}
+  pickUpClips: []
 --- !u!114 &7964737838745813143
 MonoBehaviour:
   m_ObjectHideFlags: 0
