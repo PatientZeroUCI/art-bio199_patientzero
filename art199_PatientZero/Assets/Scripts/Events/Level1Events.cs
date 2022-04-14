@@ -7,6 +7,7 @@ public class Level1Events : MonoBehaviour
 {
     public static Level1Events current;
     public AudioSource inocLoopAudio;
+    public AudioClip [] inocLoopAudioClips;
     private bool inocLoopPlayed = false;
 
     void Awake()
@@ -60,6 +61,7 @@ public class Level1Events : MonoBehaviour
     {
         if (!inocLoopPlayed) {
             inocLoopAudio = GameObject.FindGameObjectWithTag("IGSscooper").GetComponent<AudioSource>();
+            inocLoopAudio.clip = inocLoopAudioClips[UnityEngine.Random.Range(0,6)];
             inocLoopAudio.Play();
             inocLoopPlayed = true;
         }
