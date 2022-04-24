@@ -9,6 +9,9 @@ public class Level1Events : MonoBehaviour
     public AudioSource inocLoopAudio;
     public AudioClip [] inocLoopAudioClips;
     private bool inocLoopPlayed = false;
+    
+    public GameObject helpScreen;
+    public List<Material> helpScreenMaterials = new List<Material>();
 
     void Awake()
     {
@@ -20,6 +23,9 @@ public class Level1Events : MonoBehaviour
     public event Action onIntroDone;
     public void IntroDone()
     {
+        Debug.Log("Intro Done");
+        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[0];
+
         if (onIntroDone != null)
         {
             onIntroDone();
@@ -32,6 +38,8 @@ public class Level1Events : MonoBehaviour
     public void EvidenceDone()
     {
         Debug.Log("Evidence Done");
+        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[1];
+
         if (onEvidenceDone != null)
         {
             onEvidenceDone();
@@ -49,6 +57,7 @@ public class Level1Events : MonoBehaviour
     public void SlideWet()
     {
         Debug.Log("Slide Wet");
+        
         if (onSlideWet != null)
         {
             onSlideWet();
@@ -66,6 +75,8 @@ public class Level1Events : MonoBehaviour
             inocLoopPlayed = true;
         }
         Debug.Log("Loop Heated");
+        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[2];
+
         if (onLoopHeated != null)
         {
             onLoopHeated();
@@ -77,6 +88,8 @@ public class Level1Events : MonoBehaviour
     public void SampleOnSlide()
     {
         Debug.Log("Sample On Slide");
+        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[3];
+
         if (onSampleOnSlide != null)
         {
             onSampleOnSlide();
@@ -88,6 +101,8 @@ public class Level1Events : MonoBehaviour
     public void SlideDried()
     {
         Debug.Log("Slide Dried");
+        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[4];
+
         if (onSlideDried != null)
         {
             onSlideDried();
@@ -133,6 +148,8 @@ public class Level1Events : MonoBehaviour
     public void IGSDone()
     {
         Debug.Log("IGS Done");
+        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[5];
+
         if (onIGSDone != null)
         {
             onIGSDone();
@@ -159,6 +176,8 @@ public class Level1Events : MonoBehaviour
     public void PetriInsertedInMicroscope()
     {
         Debug.Log("Petri Inserted In Microscope");
+        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[6];
+
         if (onPetriInsertedInMicroscope != null)
         {
             onPetriInsertedInMicroscope();
@@ -169,6 +188,8 @@ public class Level1Events : MonoBehaviour
     public void BacteriaInserted()
     {
         Debug.Log("Bacteria Inserted");
+        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[7];
+
         if (onBacteriaInserted != null)
         {
             onBacteriaInserted();
@@ -179,6 +200,8 @@ public class Level1Events : MonoBehaviour
     public void DNAMatched()
     {
         Debug.Log("DNA Matched");
+        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[7];
+        
         if (onDNAMatched != null)
         {
             onDNAMatched();

@@ -60,6 +60,10 @@ public class LogicBoardPhases : MonoBehaviour
                 phase_finished = true;
                 currentPhase += 1;
 
+                //if (currentPhase == 0)
+                //{
+                //    aiVoice.AddClipToQueue(65);
+                //}
                 // IGS phase start
                 if (currentPhase == 1)
                 {

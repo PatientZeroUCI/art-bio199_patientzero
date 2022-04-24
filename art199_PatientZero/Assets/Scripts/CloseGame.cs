@@ -21,11 +21,11 @@ public class CloseGame : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.R)) && (!isPaused))
+        if ((Input.GetKeyDown(KeyCode.Escape)) && (!isPaused))
         {
             PauseGame();
         }
-        else if ((Input.GetKeyDown(KeyCode.R)) && (isPaused))
+        else if ((Input.GetKeyDown(KeyCode.Escape)) && (isPaused))
         {
             UnpauseGame();
         }
