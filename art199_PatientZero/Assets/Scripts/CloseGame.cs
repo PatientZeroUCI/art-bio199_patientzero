@@ -37,6 +37,7 @@ public class CloseGame : MonoBehaviour
         isPaused = true;
         GameObject.FindWithTag("SettingMenu").transform.position = camera.transform.position + (camera.transform.forward * 2);
         GameObject.FindWithTag("SettingMenu").transform.rotation = camera.transform.rotation;
+        GameObject.FindWithTag("SettingMenu").GetComponentInChildren<HeightSettings>().detectSetup();
     }
 
     void UnpauseGame()

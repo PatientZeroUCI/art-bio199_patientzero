@@ -14,8 +14,10 @@ public class HeightSettings: MonoBehaviour
     public List<GameObject> rightHands;
     // public TextMeshProUGUI heightText;
     // public TextMeshProUGUI scaleText;
-    public TextMesh heightText;
-    public TextMesh scaleText;
+    //public TextMesh heightText;
+    //public TextMesh scaleText;
+    public TextMeshPro heightText;
+    public TextMeshPro scaleText;
     public float scaleRatio = 0.025f;
 
     private Transform playArea;
@@ -27,6 +29,14 @@ public class HeightSettings: MonoBehaviour
     private float initialHandHeight;
     private Vector3 initialPlayerScale;
 
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            detectSetup();
+        }
+    }
     public void detectSetup()
     {
         // Activated through events. For now, Settings Menu button press event
@@ -159,6 +169,7 @@ public class HeightSettings: MonoBehaviour
         float inch = 0.0254f * currentSDK.localScale.y;
         int heightFoot = (int) Mathf.Floor(playerHeight / (inch * 12));
         int heightInch = (int) Mathf.Floor((playerHeight % (inch * 12)) / inch);
+        //heightText.text = heightFoot + "\"" + heightInch;
         heightText.text = heightFoot + "\"" + heightInch;
     }
 
