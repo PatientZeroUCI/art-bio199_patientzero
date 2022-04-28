@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f6e71010636094db14bbdd280d8d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintInfo: This is a dye bottle
+  hintInfo: Drip dye onto slide
 --- !u!114 &6525607631207739968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2109,6 +2109,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4296039342299472228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337907558852496395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f6e71010636094db14bbdd280d8d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintInfo: Drip water onto slide
 --- !u!114 &8406746649783265666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3003,7 +3016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f6e71010636094db14bbdd280d8d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintInfo: This is a waterbottle
+  hintInfo: Drip water onto slide
 --- !u!114 &4329526449112431448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3866,6 +3879,7 @@ GameObject:
   - component: {fileID: 8534617022128924732}
   - component: {fileID: 7625452182211906358}
   - component: {fileID: 4329825691308041386}
+  - component: {fileID: 334957741838522994}
   m_Layer: 0
   m_Name: Inoculating loop
   m_TagString: Tool
@@ -4097,6 +4111,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e37c97024c841494fb8cc1343fc97b18, type: 3}
   - {fileID: 8300000, guid: c61b333467563704cb995f9463d36b27, type: 3}
   - {fileID: 8300000, guid: 8fcaf4a0c265ca24b8ffe6b4e8e022f7, type: 3}
+--- !u!114 &334957741838522994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406325543991696692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f6e71010636094db14bbdd280d8d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintInfo: Heat, swipe on petri, then glass slide
 --- !u!1 &6415950755990359958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4847,6 +4874,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.4280424, y: 0.57701004, z: 0.39585006}
   m_Center: {x: -0.0000017881393, y: -0.00000011920929, z: -0.000015258789}
+--- !u!114 &1921190931108963252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7427767303780052610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f6e71010636094db14bbdd280d8d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintInfo: Grasp slide with tweezers
 --- !u!114 &2140381644591883800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11480,6 +11520,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669, type: 3}
+--- !u!1 &3337907558852496395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2983104138992817794, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
+    type: 3}
+  m_PrefabInstance: {fileID: 519246933111642761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1732189196512689688 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2251030912185459857, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
+    type: 3}
+  m_PrefabInstance: {fileID: 519246933111642761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3337907558852496389 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2983104138992817804, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
@@ -11492,18 +11544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1732189196512689688 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2251030912185459857, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
-    type: 3}
-  m_PrefabInstance: {fileID: 519246933111642761}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3337907558852496395 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2983104138992817794, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
-    type: 3}
-  m_PrefabInstance: {fileID: 519246933111642761}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &832239749056840388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11593,15 +11633,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d5796a2af4d17e44a9ea62ba4b4a802, type: 3}
---- !u!4 &5689736738099423710 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 4d5796a2af4d17e44a9ea62ba4b4a802,
-    type: 3}
-  m_PrefabInstance: {fileID: 832239749056840388}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8695703977526893517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 4d5796a2af4d17e44a9ea62ba4b4a802,
+    type: 3}
+  m_PrefabInstance: {fileID: 832239749056840388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5689736738099423710 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 4d5796a2af4d17e44a9ea62ba4b4a802,
     type: 3}
   m_PrefabInstance: {fileID: 832239749056840388}
   m_PrefabAsset: {fileID: 0}
@@ -11815,15 +11855,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 257e17845137d47478303321bdbee81e, type: 3}
---- !u!1 &4474473735109263337 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 257e17845137d47478303321bdbee81e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5564596675677251296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &595565862817517050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 257e17845137d47478303321bdbee81e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5564596675677251296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4474473735109263337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 257e17845137d47478303321bdbee81e,
     type: 3}
   m_PrefabInstance: {fileID: 5564596675677251296}
   m_PrefabAsset: {fileID: 0}
