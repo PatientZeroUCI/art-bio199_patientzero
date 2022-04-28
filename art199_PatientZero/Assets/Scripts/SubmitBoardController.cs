@@ -23,14 +23,14 @@ public class SubmitBoardController : MonoBehaviour
     void Start()
     {
         buttons = new Dictionary<GameObject, bool>();
-        buttons.Add(GameObject.Find("Cube.001"), false);
-        buttons.Add(GameObject.Find("Cube.002"), false);
-        buttons.Add(GameObject.Find("Cube.003"), false);
-        buttons.Add(GameObject.Find("Cube.004"), false);
+        buttons.Add(GameObject.Find("Slot 1"), false);
+        buttons.Add(GameObject.Find("Slot 2"), false);
+        buttons.Add(GameObject.Find("Slot 3"), false);
+        buttons.Add(GameObject.Find("Slot 4"), false);
 
         // Sunscribe to event
         Level1Events.current.onDNADone += AllowSubmissions;
-    
+
         aiVoice = FindObjectOfType<AIVoice>();
     }
 
@@ -40,16 +40,18 @@ public class SubmitBoardController : MonoBehaviour
     // Called by Interactable_Object_Unity_Events On Use
     public void toggleButton(GameObject button)
     {
-            if (buttons[button] == true)
-            {
-                buttons[button] = false;
-                button.GetComponent<Renderer>().material = shaders[0];
-            }
-            else
-            {
-                buttons[button] = true;
-                button.GetComponent<Renderer>().material = shaders[1];
-            }
+        Debug.Log("help");
+        Debug.Log(buttons[button]);
+        if (buttons[button] == true)
+        {
+            buttons[button] = false;
+            button.GetComponent<Renderer>().material = shaders[0];
+        }
+        else
+        {
+            buttons[button] = true;
+            button.GetComponent<Renderer>().material = shaders[1];
+        }
 
         if (canSubmit)
         {

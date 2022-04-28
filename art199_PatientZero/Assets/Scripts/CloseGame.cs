@@ -6,7 +6,8 @@ using System.Collections;
 public class CloseGame : MonoBehaviour
 {
     private GameObject camera;
-    public bool isPaused = false;   
+    public bool isPaused = false;
+    public bool isStartScreen = false;  // Stops esc from opening the menu if in the start screen
 
     void Start()
     {
@@ -21,11 +22,12 @@ public class CloseGame : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Escape)) && (!isPaused))
+        Debug.Log(gameObject.name);
+        if ((Input.GetKeyDown(KeyCode.Escape)) && (!isPaused) && (!isStartScreen))
         {
             PauseGame();
         }
-        else if ((Input.GetKeyDown(KeyCode.Escape)) && (isPaused))
+        else if ((Input.GetKeyDown(KeyCode.Escape)) && (isPaused) && (!isStartScreen))
         {
             UnpauseGame();
         }
