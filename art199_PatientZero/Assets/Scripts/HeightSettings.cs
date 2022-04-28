@@ -29,6 +29,8 @@ public class HeightSettings: MonoBehaviour
     private float initialHandHeight;
     private Vector3 initialPlayerScale;
 
+    private bool checkedPlayerSettings = false;  //Keeps track if the player height settings from a previous scene has been checked
+
 
     private void Update()
     {
@@ -36,7 +38,19 @@ public class HeightSettings: MonoBehaviour
         {
             detectSetup();
         }
+
+        //  Contineus trying to detect the setup until checkedPlayerSetup is true
+        // Is turned to true when a setup is found
+        // Done so that previous height and scale setting are appleid at the start of the scene
+
+        if (!checkedPlayerSettings)
+        {
+            detectSetup();
+        }
     }
+
+
+
     public void detectSetup()
     {
         // Activated through events. For now, Settings Menu button press event
@@ -68,6 +82,24 @@ public class HeightSettings: MonoBehaviour
 
         if (currentHead != null)
         {
+            checkedPlayerSettings = true;
+            // Check to see if there are player settings from a previous scene
+            if (RememberPlayerSettings.Instance != null)
+            {
+                // Check to see if the headHeight variable is set to -777, which is the defualt variable
+                // If it does, dont set the heights
+                if (RememberPlayerSettings.Instance.headHeight != -777f)
+                {
+                    // Set the heightsigths and scale
+                    currentHead.localPosition = new Vector3(currentHead.localPosition.x, RememberPlayerSettings.Instance.headHeight, currentHead.localPosition.z);
+                    currentLeftHand.localPosition = new Vector3(currentLeftHand.localPosition.x, RememberPlayerSettings.Instance.leftHeight, currentLeftHand.localPosition.z);
+                    currentRightHand.localPosition = new Vector3(currentRightHand.localPosition.x, RememberPlayerSettings.Instance.rightHeight, currentRightHand.localPosition.z);
+                    currentSDK.localScale = new Vector3(RememberPlayerSettings.Instance.scale, RememberPlayerSettings.Instance.scale, RememberPlayerSettings.Instance.scale);
+                    //Debug.Log(currentSDK.localScale);
+                    //Debug.Log(new Vector3(RememberPlayerSettings.Instance.scale, RememberPlayerSettings.Instance.scale, RememberPlayerSettings.Instance.scale));
+                }
+            }
+
             setHeightText();
             setScaleText();
             initialPlayerHeight = currentHead.transform.position.y;
@@ -102,6 +134,9 @@ public class HeightSettings: MonoBehaviour
     {
         int scale = Mathf.FloorToInt(currentSDK.localScale.x * 100);
         scaleText.text = scale + "%";
+
+        // Store the scale to be saved between scenes
+        RememberPlayerSettings.Instance.scale = currentSDK.localScale.x;
     }
 
     /****************************** HEIGHT METHODS ******************************/
@@ -171,6 +206,11 @@ public class HeightSettings: MonoBehaviour
         int heightInch = (int) Mathf.Floor((playerHeight % (inch * 12)) / inch);
         //heightText.text = heightFoot + "\"" + heightInch;
         heightText.text = heightFoot + "\"" + heightInch;
+
+        // Store the height to be saved between scenes
+        RememberPlayerSettings.Instance.headHeight = playerHeight;
+        RememberPlayerSettings.Instance.leftHeight = currentLeftHand.transform.localPosition.y;
+        RememberPlayerSettings.Instance.rightHeight = currentRightHand.transform.localPosition.y;
     }
 
 }

@@ -22,7 +22,6 @@ public class CloseGame : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(gameObject.name);
         if ((Input.GetKeyDown(KeyCode.Escape)) && (!isPaused) && (!isStartScreen))
         {
             PauseGame();
