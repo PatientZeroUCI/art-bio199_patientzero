@@ -67,7 +67,7 @@ public class MainScreenController : MonoBehaviour
         //if (use.GetUsingObject().name == "playbutton")
         //{
         //SceneManager.LoadScene("Wrap Up");
-        SceneManager.LoadScene("LoungeRoom");
+        SceneManager.LoadScene("LoungeRoom"); 
         //}
 
     }
