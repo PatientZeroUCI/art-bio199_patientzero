@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239336795b8bde4c9a46e647ae0a2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collideWhileNotGrabbed: 0
+  collideWhileNotGrabbed: 1
   collideWhileGrabbed: 0
   obj: {fileID: 2991454445402936865}
   pickUpSound: {fileID: 0}
@@ -3029,7 +3029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239336795b8bde4c9a46e647ae0a2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collideWhileNotGrabbed: 0
+  collideWhileNotGrabbed: 1
   collideWhileGrabbed: 0
   obj: {fileID: 4727858021325874633}
   pickUpSound: {fileID: 0}
@@ -3056,8 +3056,8 @@ MonoBehaviour:
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 6539619202323423679}
-  secondaryGrabActionScript: {fileID: 6539619202323423676}
+  grabAttachMechanicScript: {fileID: 8541962508034126038}
+  secondaryGrabActionScript: {fileID: 7424560439054273339}
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -4100,7 +4100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239336795b8bde4c9a46e647ae0a2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collideWhileNotGrabbed: 0
+  collideWhileNotGrabbed: 1
   collideWhileGrabbed: 0
   obj: {fileID: 4567582289533042117}
   pickUpSound: {fileID: 7498464086155344793}
@@ -4950,7 +4950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239336795b8bde4c9a46e647ae0a2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collideWhileNotGrabbed: 0
+  collideWhileNotGrabbed: 1
   collideWhileGrabbed: 0
   obj: {fileID: 7964737838745813143}
   pickUpSound: {fileID: 0}
@@ -11503,9 +11503,39 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2983104138992817803, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.99999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983104138992817803, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 4.009383
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983104138992817803, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 2.9966812e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983104138992817803, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.7892184
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983104138992817803, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.000000038123638
+      objectReference: {fileID: 0}
     - target: {fileID: 4529728590075147343, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
         type: 3}
       propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090348820290105025, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7673411176078233031, guid: 8f77c1f50c1f79a4c9cbd85f26eb2669,
