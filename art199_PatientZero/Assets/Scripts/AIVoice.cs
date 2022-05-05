@@ -116,7 +116,7 @@ public class AIVoice : MonoBehaviour {
                 audioSource.clip = null;
                 if (playedClips.Contains(64) && SceneManager.GetActiveScene().name == "ElevatorScene")
                 {
-                    SceneManager.LoadScene("Wrap Up");
+                    SceneManager.LoadScene("lvl1_rework");
                 }
             }
         } 
