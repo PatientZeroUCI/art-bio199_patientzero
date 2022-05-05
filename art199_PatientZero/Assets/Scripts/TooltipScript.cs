@@ -16,7 +16,7 @@ public class TooltipScript : MonoBehaviour
     }
 
     private void Update() {
-        /* TEMPORARY FIX
+        /* TEMPORARY FIX. Currently has empty text.
         transform.rotation = Camera.main.transform.rotation;
         if(parentTransform != null) {
             transform.position = parentTransform.position + new Vector3(0, 0.5f, 0);
