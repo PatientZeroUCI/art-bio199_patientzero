@@ -16,15 +16,18 @@ public class TooltipScript : MonoBehaviour
     }
 
     private void Update() {
+        /* TEMPORARY FIX
         transform.rotation = Camera.main.transform.rotation;
         if(parentTransform != null) {
             transform.position = parentTransform.position + new Vector3(0, 0.5f, 0);
         }
+        */
     }
 
     public void initTooltip(string newText, Transform parentTransform) {
         this.parentTransform = parentTransform;
-        tooltipText.text = newText;
+        tooltipText.text = "";
+        //tooltipText.text = newText;
         Vector2 backgroundSize = new Vector2(tooltipText.preferredWidth + textPadding, tooltipText.preferredHeight + textPadding * 2f);
         rectTransform.sizeDelta = backgroundSize;
     }

@@ -152,7 +152,7 @@ public class ToolCenter : MonoBehaviour
                 PR.setSpawn(obj);
             }
         }
-
+        
         rb = currSurface.transform.Find("Surface").gameObject.GetComponent<Rigidbody>();
         spawned = true;
         canPlayAudio = true;
