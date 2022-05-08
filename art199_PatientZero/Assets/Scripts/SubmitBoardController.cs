@@ -23,10 +23,10 @@ public class SubmitBoardController : MonoBehaviour
     void Start()
     {
         buttons = new Dictionary<GameObject, bool>();
-        buttons.Add(GameObject.Find("Slot 1"), false);
-        buttons.Add(GameObject.Find("Slot 2"), false);
-        buttons.Add(GameObject.Find("Slot 3"), false);
-        buttons.Add(GameObject.Find("Slot 4"), false);
+        buttons.Add(GameObject.Find("Slot 1"), true);
+        buttons.Add(GameObject.Find("Slot 2"), true);
+        buttons.Add(GameObject.Find("Slot 3"), true);
+        buttons.Add(GameObject.Find("Slot 4"), true);
 
         // Sunscribe to event
         Level1Events.current.onDNADone += AllowSubmissions;
