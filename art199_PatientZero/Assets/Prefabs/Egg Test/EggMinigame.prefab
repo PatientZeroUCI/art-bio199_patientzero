@@ -322,12 +322,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddee59c383a9090409ec943fdcc28837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioScript: {fileID: 1145697438649517445}
   light: {fileID: 6903306699401090098}
   egg: {fileID: 0}
   inFlashlight: {fileID: 0}
   outFlashlight: {fileID: 0}
   linkedObject: {fileID: 0}
   controllerUse: {fileID: 0}
+--- !u!114 &7688541919052937613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2781619632535306337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f6e71010636094db14bbdd280d8d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintInfo: Point flashlight at egg
 --- !u!114 &8302950538418295997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,19 +375,6 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
---- !u!114 &7688541919052937613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2781619632535306337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9f6e71010636094db14bbdd280d8d10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hintInfo: Point flashlight at egg
 --- !u!135 &3460588317190347533
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -727,6 +728,7 @@ MonoBehaviour:
   flashlightClips:
   - {fileID: 8300000, guid: e837cf518427a6241b7cc74fed573f6f, type: 3}
   - {fileID: 8300000, guid: 535c6afb6e975ea4dae652908e6f3aaf, type: 3}
+  toggleSFX: {fileID: 8300000, guid: 7e22a36e3abae1748a9dc8517c881581, type: 3}
   flashlight: {fileID: 8302950538418295997}
 --- !u!114 &3914693342645519880
 MonoBehaviour:
@@ -906,6 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddee59c383a9090409ec943fdcc28837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioScript: {fileID: 0}
   light: {fileID: 6903306699401090098}
   egg: {fileID: 0}
   inFlashlight: {fileID: 0}
@@ -991,6 +994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddee59c383a9090409ec943fdcc28837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioScript: {fileID: 0}
   light: {fileID: 6903306699401090098}
   egg: {fileID: 0}
   inFlashlight: {fileID: 0}
