@@ -41,7 +41,7 @@ public class LogicBoardController : MonoBehaviour
     public GameObject section1_left; // Top left of section 1 on the Logic Board
     public GameObject section1_right; // Top right of section 1 on the Logic Board
     public int areaAmount = 2;
-    private VRTK_PolicyList validObjects = null; // Policy list used to see if the object attached to the SnapZone is valid or not
+    private VRTK_PolicyList validObjects;// = null; // Policy list used to see if the object attached to the SnapZone is valid or not
 
     List<List<GameObject>> areaObjects = new List<List<GameObject>>();
 
@@ -56,26 +56,26 @@ public class LogicBoardController : MonoBehaviour
         }
         aiVoice = FindObjectOfType<AIVoice>();
         validObjects = this.GetComponent<VRTK_PolicyList>();
-        section1_left.SetActive(false);
-        section1_right.SetActive(false);
+        // section1_left.SetActive(false);
+        // section1_right.SetActive(false);
     }
 
 
     public void SnappedToCenter(object o, SnapDropZoneEventArgs e)
     {
-        centerSnapped = e.snappedObject;
-        // Orients the Newspaper Article 1 in the correct direction
-        if (centerSnapped.name == "Newspaper Article 1")
-        {
-            e.snappedObject.transform.eulerAngles = new Vector3(89.0f, 11.0f, -143.734f);
-            //e.snappedObject.transform.localScale = new Vector3(0.4f, 0.001053715f, 0.5f);
-        }
-        // Activate the top left section of the board after the center document has been snapped
-        // Enforces order to get rid of buggy behavior and docs not being able to go on the board
-        if (gameObject.name == "test1_zone") 
-        {
-            section1_left.SetActive(true);
-        }
+        // centerSnapped = e.snappedObject;
+        // // Orients the Newspaper Article 1 in the correct direction
+        // if (centerSnapped.name == "Newspaper Article 1")
+        // {
+        //     e.snappedObject.transform.eulerAngles = new Vector3(89.0f, 11.0f, -143.734f);
+        //     //e.snappedObject.transform.localScale = new Vector3(0.4f, 0.001053715f, 0.5f);
+        // }
+        // // Activate the top left section of the board after the center document has been snapped
+        // // Enforces order to get rid of buggy behavior and docs not being able to go on the board
+        // if (gameObject.name == "test1_zone") 
+        // {
+        //     section1_left.SetActive(true);
+        // }
         if (validObjects.Find(e.snappedObject))
         {
             aiVoice.ReadVoiceClip(3); // Incorrect placement on the logic board
@@ -107,39 +107,39 @@ public class LogicBoardController : MonoBehaviour
     
     public void AddedToArea(object o, SnapDropZoneEventArgs e)
     {
-        foreach (List<GameObject> areaZone in areaObjects)
-        {
-            if (areaZone.Count == 0)
-            {
-                areaZone.Add(e.snappedObject);
+        // foreach (List<GameObject> areaZone in areaObjects)
+        // {
+        //     if (areaZone.Count == 0)
+        //     {
+        //         areaZone.Add(e.snappedObject);
                 
-                // Orients the docs in section 1 in the correct direction
-                if(e.snappedObject.name == "Symptom List")
-                {
-                    e.snappedObject.transform.eulerAngles = new Vector3(90.23199f, -101.181f, -255.157f);
-                }
-                else if (e.snappedObject.name == "Gov Report")
-                {
-                    e.snappedObject.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 153.961f);
-                }
-                // Activate the top right section of the board after the center document has been snapped
-                // Enforces order to get rid of buggy behavior and docs not being able to go on the board
-                if (gameObject.name == "test1_zone") 
-                {
-                    section1_right.SetActive(true);
-                }      
+        //         // Orients the docs in section 1 in the correct direction
+        //         if(e.snappedObject.name == "Symptom List")
+        //         {
+        //             e.snappedObject.transform.eulerAngles = new Vector3(90.23199f, -101.181f, -255.157f);
+        //         }
+        //         else if (e.snappedObject.name == "Gov Report")
+        //         {
+        //             e.snappedObject.transform.eulerAngles = new Vector3(-90.0f, 0.0f, 153.961f);
+        //         }
+        //         // Activate the top right section of the board after the center document has been snapped
+        //         // Enforces order to get rid of buggy behavior and docs not being able to go on the board
+        //         if (gameObject.name == "test1_zone") 
+        //         {
+        //             section1_right.SetActive(true);
+        //         }      
 
-                GameObject line = Instantiate(LinePrefab, centerSnapped.transform.position, Quaternion.identity);
-                LineRenderer lr = line.GetComponent<LineRenderer>();
-                Vector3[] points = { centerSnapped.transform.position, e.snappedObject.transform.position };
-                lr.SetPositions(points);
-                Vector3 v = new Vector3(0f, 0f, 0.15f);
-                line.transform.position = v;
+        //         GameObject line = Instantiate(LinePrefab, centerSnapped.transform.position, Quaternion.identity);
+        //         LineRenderer lr = line.GetComponent<LineRenderer>();
+        //         Vector3[] points = { centerSnapped.transform.position, e.snappedObject.transform.position };
+        //         lr.SetPositions(points);
+        //         Vector3 v = new Vector3(0f, 0f, 0.15f);
+        //         line.transform.position = v;
 
-                areaZone.Add(line);
-                break;
-            }
-        }
+        //         areaZone.Add(line);
+        //         break;
+        //     }
+        // }
         if (!validObjects.Find(e.snappedObject))
         {
             //aiVoice.ReadVoiceClip(2); // Correct placement on the logic board
