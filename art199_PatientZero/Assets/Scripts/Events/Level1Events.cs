@@ -13,6 +13,8 @@ public class Level1Events : MonoBehaviour
     public GameObject helpScreen;
     public List<Material> helpScreenMaterials = new List<Material>();
 
+    public GameObject printer;
+
     void Awake()
     {
         current = this;
@@ -148,6 +150,7 @@ public class Level1Events : MonoBehaviour
     public void IGSDone()
     {
         Debug.Log("IGS Done");
+        printer.GetComponent<Printer>().PrintIGS();
         helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[5];
 
         if (onIGSDone != null)

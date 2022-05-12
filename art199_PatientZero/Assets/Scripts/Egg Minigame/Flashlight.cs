@@ -5,6 +5,8 @@ using VRTK;
 
 public class Flashlight : MonoBehaviour
 {
+    public flashlightAudio audioScript;
+
     public GameObject light;
     public GameObject egg; //need to do collision detection in trigger to change material of egg. 
 
@@ -39,6 +41,8 @@ public class Flashlight : MonoBehaviour
 
     public void UseFlashlight()
     {
+        audioScript.flashlightToggleSFX();
+
     	if(light.activeSelf == false)
 		{
 			light.SetActive(true);

@@ -7,6 +7,7 @@ public class flashlightAudio : MonoBehaviour
 {
     public AudioSource flashlightSound;
     public AudioClip [] flashlightClips;
+    public AudioClip toggleSFX;
 
     public VRTK_InteractableObject flashlight;
 
@@ -30,5 +31,10 @@ public class flashlightAudio : MonoBehaviour
         else if (!flashlight.IsGrabbed() && !yoink) {
             yoink = true;
         }
+    }
+
+    public void flashlightToggleSFX() {
+        flashlightSound.clip = toggleSFX;
+        flashlightSound.Play();
     }
 }
