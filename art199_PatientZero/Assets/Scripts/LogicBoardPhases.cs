@@ -25,7 +25,7 @@ public class LogicBoardPhases : MonoBehaviour
             phases[i].Add(phaseZoneParent); // add parent to count for phases (base fill counts)
 
             int phaseZones = phaseZoneParent.transform.childCount; //assigns the number of snap zones (children) for this phase
-            //Debug.Log("Phase " + i + " has " + phaseZones + " children." ); //check number of zones
+            Debug.Log("Phase " + i + " has " + phaseZones + " children." ); //check number of zones
             for (int j = 0; j < phaseZones; j++)
             {
                 GameObject childZone = phaseZoneParent.transform.GetChild(j).gameObject;
@@ -36,7 +36,7 @@ public class LogicBoardPhases : MonoBehaviour
             }
         }
         //test = phases[1];
-        currentPhase = 0;
+        currentPhase = 1;
 
 
         // Set the timer so that it equals the nubmer of seconds times the amount of fixed frames in a second so that incrementing it in fixedUpdate works
@@ -45,54 +45,58 @@ public class LogicBoardPhases : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void checkPhaseFinished()
     {
         bool phase_finished = false;
+        // Debug.Log(phases[currentPhase].Count);
+        // Count the amount of snapped objects within the current evidence section
+        int snappedCount = 0;
         for(int i = 0; i < phases[currentPhase].Count; i++)
         {
             VRTK_SnapDropZone phaseSnapZone = phases[currentPhase][i].GetComponent<VRTK_SnapDropZone>(); //select the current snap zone from the phase we are in.
-            if (phaseSnapZone.GetCurrentSnappedObject() == null)
+            if (phaseSnapZone.GetCurrentSnappedObject() != null)
             {
-                break;
+                snappedCount += 1;
+                Debug.Log(snappedCount);
             }
-            if(i == phases[currentPhase].Count-1)
+        }
+        if(snappedCount == phases[currentPhase].Count - 1)
+        {
+            phase_finished = true;
+            currentPhase += 1;
+
+            //if (currentPhase == 0)
+            //{
+            //    aiVoice.AddClipToQueue(65);
+            //}
+            // IGS phase start
+            if (currentPhase == 1)
             {
-                phase_finished = true;
-                currentPhase += 1;
-
-                //if (currentPhase == 0)
-                //{
-                //    aiVoice.AddClipToQueue(65);
-                //}
-                // IGS phase start
-                if (currentPhase == 1)
-                {
-                    // Evidence done, describe first step of IGS test
-                    aiVoice.AddClipToQueue(66);  // Add voice to queue 
-                    Level1Events.current.EvidenceDone();
-                }
-                // DNA start
-                else if (currentPhase == 2)
-                {
-                    // IGS done, describe first step of DNA test
-                    Level1Events.current.IGSDone();
-                }
-                else if (currentPhase == 3)
-                {
-                    // DNA done, describe last step
-                    Debug.Log("PAIN");
-                    Level1Events.current.DNADone();
-                }
-                else
-                {
-                    Debug.Log("PAIN");
-                    Debug.Log(currentPhase);
-                }
-                
-
-                // Reset timer for the Ai telling the player that they've been on a pahse for too long, since this is when they finisha  phase
-                timer = 0;
+                // Evidence done, describe first step of IGS test
+                aiVoice.AddClipToQueue(66);  // Add voice to queue 
+                Level1Events.current.EvidenceDone();
             }
+            // DNA start
+            else if (currentPhase == 2)
+            {
+                // IGS done, describe first step of DNA test
+                Level1Events.current.IGSDone();
+            }
+            else if (currentPhase == 3)
+            {
+                // DNA done, describe last step
+                // Debug.Log("PAIN");
+                Level1Events.current.DNADone();
+            }
+            else
+            {
+                Debug.Log("PAIN");
+                Debug.Log(currentPhase);
+            }
+            
+
+            // Reset timer for the Ai telling the player that they've been on a pahse for too long, since this is when they finisha  phase
+            timer = 0;
         }
     }
 
@@ -108,5 +112,9 @@ public class LogicBoardPhases : MonoBehaviour
 
             //Debug.Log("test");
         }
+    }
+
+    public void fixGramStainPosition(GameObject gramStain) {
+        gramStain.transform.position = new Vector3(-3.858f, 1.411825f, 1.93f);
     }
 }

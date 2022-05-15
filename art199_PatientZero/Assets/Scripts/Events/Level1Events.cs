@@ -14,6 +14,9 @@ public class Level1Events : MonoBehaviour
     public List<Material> helpScreenMaterials = new List<Material>();
 
     public GameObject printer;
+    private bool igsDocsPrinted = false;
+    private bool dnaDocPrinted = false;
+
 
     void Awake()
     {
@@ -138,6 +141,11 @@ public class Level1Events : MonoBehaviour
     public void SlideInsertedInMicroscope()
     {
         Debug.Log("Slide Inserted In Microscope");
+        if (! igsDocsPrinted) {
+            printer.GetComponent<Printer>().PrintFlaggelationDoc();
+            printer.GetComponent<Printer>().PrintGramStainDoc();
+            igsDocsPrinted = true;
+        }
         if (onSlideWashed != null)
         {
             onSlideInsertedInMicroscope();
@@ -150,7 +158,6 @@ public class Level1Events : MonoBehaviour
     public void IGSDone()
     {
         Debug.Log("IGS Done");
-        printer.GetComponent<Printer>().PrintIGS();
         helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[5];
 
         if (onIGSDone != null)
@@ -192,7 +199,11 @@ public class Level1Events : MonoBehaviour
     {
         Debug.Log("Bacteria Inserted");
         helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[7];
-
+        
+        if (! dnaDocPrinted) {
+            printer.GetComponent<Printer>().PrintDNA();
+            dnaDocPrinted = true;
+        }
         if (onBacteriaInserted != null)
         {
             onBacteriaInserted();

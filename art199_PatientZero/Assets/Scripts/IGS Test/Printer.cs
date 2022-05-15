@@ -11,8 +11,8 @@ public class Printer : MonoBehaviour
     public GameObject IGSEvidence;
     public GameObject DNAEvidence;
     public GameObject DoctorsNote;
-    public GameObject WitnessReport1;
-    public GameObject WitnessReport2;
+    public GameObject FlaggelationDoc;
+    public GameObject GramStainDoc;
 
     void Update()
     {
@@ -22,7 +22,7 @@ public class Printer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X)) {
             Debug.Log("Printing IGS Evidence");
-            PrintWitnessReport2();
+            PrintIGS();
         }
     }
 
@@ -83,14 +83,14 @@ public class Printer : MonoBehaviour
         GameObject evidence = Instantiate(DoctorsNote, transform.position, transform.rotation * Quaternion.Euler(0, 90f, 0));
         StartCoroutine(Print(evidence.GetComponent<Rigidbody>(), evidence.transform.rotation * Vector3.down, 1f));
     }
-    public void PrintWitnessReport1()
+    public void PrintFlaggelationDoc()
     {
-        GameObject evidence = Instantiate(WitnessReport1, transform.position, transform.rotation * Quaternion.Euler(0, 90f, 0));
+        GameObject evidence = Instantiate(FlaggelationDoc, transform.position, transform.rotation * Quaternion.Euler(0, 90f, 0));
         StartCoroutine(Print(evidence.GetComponent<Rigidbody>(), evidence.transform.rotation * Vector3.down, 1f));
     }
-    public void PrintWitnessReport2()
+    public void PrintGramStainDoc()
     {
-        GameObject evidence = Instantiate(WitnessReport2, transform.position, transform.rotation * Quaternion.Euler(0, 90f, 0));
+        GameObject evidence = Instantiate(GramStainDoc, transform.position, transform.rotation * Quaternion.Euler(0, 90f, 0));
         StartCoroutine(Print(evidence.GetComponent<Rigidbody>(), evidence.transform.rotation * Vector3.down, 1f));
     }
 
