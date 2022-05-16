@@ -15,7 +15,7 @@ public class Level1Events : MonoBehaviour
 
     public GameObject printer;
     private bool igsDocsPrinted = false;
-    private bool dnaDocPrinted = false;
+    private bool dnaDocsPrinted = false;
 
 
     void Awake()
@@ -200,9 +200,11 @@ public class Level1Events : MonoBehaviour
         Debug.Log("Bacteria Inserted");
         helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[7];
         
-        if (! dnaDocPrinted) {
-            printer.GetComponent<Printer>().PrintDNA();
-            dnaDocPrinted = true;
+        if (! dnaDocsPrinted) {
+            printer.GetComponent<Printer>().PrintWitnessReport1();
+            printer.GetComponent<Printer>().PrintWitnessReport2();
+            printer.GetComponent<Printer>().PrintDoctorsNote();
+            dnaDocsPrinted = true;
         }
         if (onBacteriaInserted != null)
         {

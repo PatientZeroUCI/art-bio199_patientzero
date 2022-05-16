@@ -36,7 +36,7 @@ public class LogicBoardPhases : MonoBehaviour
             }
         }
         //test = phases[1];
-        currentPhase = 1;
+        currentPhase = 0;
 
 
         // Set the timer so that it equals the nubmer of seconds times the amount of fixed frames in a second so that incrementing it in fixedUpdate works
