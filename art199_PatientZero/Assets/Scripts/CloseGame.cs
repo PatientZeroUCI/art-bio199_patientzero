@@ -53,4 +53,16 @@ public class CloseGame : MonoBehaviour
         Debug.Log("Game Closed");
     }
 
+    public void ChangePause()
+    {
+        if ((!isPaused) && (!isStartScreen))
+        {
+            PauseGame();
+        }
+        else if ((isPaused) && (!isStartScreen))
+        {
+            UnpauseGame();
+        }
+    }
+
 }
