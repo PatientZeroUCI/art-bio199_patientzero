@@ -27,7 +27,7 @@ public class AIVoice : MonoBehaviour {
 
     private static bool turnOffCaptions = false; // Set to true to turn off captioning for the voice lines
 
-    private static bool ThreeDCaptions = false; //Set to true to use 3D Captions
+    private static bool ThreeDCaptions = true; //Set to true to use 3D Captions
 
     bool gamePaused = false;
 
