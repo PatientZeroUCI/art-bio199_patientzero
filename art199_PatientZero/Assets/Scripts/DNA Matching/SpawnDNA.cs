@@ -38,6 +38,8 @@ public class SpawnDNA : MonoBehaviour
     {
         // Spawn DNA
         GameObject gObject = Instantiate(DNAPrefab, gameObject.transform);
+        //GameObject gObject = Instantiate(DNAPrefab, gameObject.transform.position, Quaternion.Euler(90, 0, 180));
+        gObject.transform.rotation = Quaternion.Euler(270, 0, 0);
         gObject.name = "DNA";
 
         // Get references to TMPro Objects
