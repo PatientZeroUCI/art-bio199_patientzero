@@ -15,7 +15,7 @@ public class AIVoice : MonoBehaviour {
     private int indexPlaying;
 
     //public int playOnStart = -1;
-    public TextMeshProUGUI textObject;
+    public List<TextMeshProUGUI> textObjects;
     public List<VoiceClip> voiceClips = new List<VoiceClip>();
 
     private List<int> playOnStart;
@@ -106,8 +106,11 @@ public class AIVoice : MonoBehaviour {
                 }
                 else
                 {
-                    textObject.text = captions[currentIndex++].caption;
-                    if (turnOffCaptions) textObject.text = "";
+                    foreach(TextMeshProUGUI textObject in textObjects)
+                    {
+                        textObject.text = captions[currentIndex++].caption;
+                        if (turnOffCaptions) textObject.text = "";
+                    }
                 }
             }
             if ((audioSource.time > endTime) || right_hand.buttonOnePressed) {
@@ -122,7 +125,10 @@ public class AIVoice : MonoBehaviour {
         } 
         else 
         {
-            textObject.text = "";
+            foreach(TextMeshProUGUI textObject in textObjects)
+            {
+                textObject.text = "";
+            }
 
             if (audioSource.clip != null) {
                 if (delay > 0) {

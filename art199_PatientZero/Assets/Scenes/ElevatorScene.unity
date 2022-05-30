@@ -875,6 +875,16 @@ PrefabInstance:
       propertyPath: right_hand
       value: 
       objectReference: {fileID: 1052516339}
+    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
+        type: 3}
+      propertyPath: textObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 872009997}
+    - target: {fileID: 5625791347519257998, guid: ee8fddd198f467b49b766ab7e709e189,
+        type: 3}
+      propertyPath: textObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 872009998}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee8fddd198f467b49b766ab7e709e189, type: 3}
 --- !u!1 &371668247
@@ -2088,6 +2098,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 4780855833181305571, guid: a156d6f0ad7112a4dad1666ecfbf09a9,
     type: 3}
+--- !u!114 &872009997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 85572291, guid: eb6748575a8fce346b19dff6cb1471ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 872009988}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &872009998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1714966863, guid: eb6748575a8fce346b19dff6cb1471ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 872009988}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &872010003 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20066930844247714, guid: eb6748575a8fce346b19dff6cb1471ec,
@@ -2267,8 +2301,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inocLoopAudio: {fileID: 0}
   inocLoopAudioClips: []
-  helpScreen: {fileID: 0}
+  helpScreens: []
   helpScreenMaterials: []
+  sectionPointers: []
+  sectionPointerShaders: []
   printer: {fileID: 0}
 --- !u!4 &963836278
 Transform:
