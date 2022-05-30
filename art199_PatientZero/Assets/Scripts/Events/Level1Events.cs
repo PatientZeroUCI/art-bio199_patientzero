@@ -10,8 +10,11 @@ public class Level1Events : MonoBehaviour
     public AudioClip [] inocLoopAudioClips;
     private bool inocLoopPlayed = false;
     
-    public GameObject helpScreen;
+    public List<GameObject> helpScreens;
     public List<Material> helpScreenMaterials = new List<Material>();
+
+    public List<GameObject> sectionPointers;
+    public Material[] sectionPointerShaders;
 
     public GameObject printer;
     private bool igsDocsPrinted = false;
@@ -29,8 +32,9 @@ public class Level1Events : MonoBehaviour
     public void IntroDone()
     {
         Debug.Log("Intro Done");
-        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[0];
-
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[0];
+        }
         if (onIntroDone != null)
         {
             onIntroDone();
@@ -43,8 +47,11 @@ public class Level1Events : MonoBehaviour
     public void EvidenceDone()
     {
         Debug.Log("Evidence Done");
-        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[1];
-
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[1];
+        }
+        // Set IGS section pointer active
+        sectionPointers[0].GetComponent<Renderer>().material = sectionPointerShaders[1];
         if (onEvidenceDone != null)
         {
             onEvidenceDone();
@@ -62,7 +69,6 @@ public class Level1Events : MonoBehaviour
     public void SlideWet()
     {
         Debug.Log("Slide Wet");
-        
         if (onSlideWet != null)
         {
             onSlideWet();
@@ -80,8 +86,9 @@ public class Level1Events : MonoBehaviour
             inocLoopPlayed = true;
         }
         Debug.Log("Loop Heated");
-        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[2];
-
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[2];
+        }
         if (onLoopHeated != null)
         {
             onLoopHeated();
@@ -93,7 +100,9 @@ public class Level1Events : MonoBehaviour
     public void SampleOnSlide()
     {
         Debug.Log("Sample On Slide");
-        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[3];
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[3];
+        }
 
         if (onSampleOnSlide != null)
         {
@@ -106,7 +115,9 @@ public class Level1Events : MonoBehaviour
     public void SlideDried()
     {
         Debug.Log("Slide Dried");
-        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[4];
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[4];
+        }
 
         if (onSlideDried != null)
         {
@@ -130,6 +141,10 @@ public class Level1Events : MonoBehaviour
     public void SlideWashed()
     {
         Debug.Log("Slide Washed");
+        // Set IGS section pointer inactive
+        sectionPointers[0].GetComponent<Renderer>().material = sectionPointerShaders[0];
+        // Set microscope section pointer active
+        sectionPointers[2].GetComponent<Renderer>().material = sectionPointerShaders[1];
         if (onSlideWashed != null)
         {
             onSlideWashed();
@@ -141,6 +156,9 @@ public class Level1Events : MonoBehaviour
     public void SlideInsertedInMicroscope()
     {
         Debug.Log("Slide Inserted In Microscope");
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[5];
+        }
         if (! igsDocsPrinted) {
             printer.GetComponent<Printer>().PrintFlaggelationDoc();
             printer.GetComponent<Printer>().PrintGramStainDoc();
@@ -158,8 +176,13 @@ public class Level1Events : MonoBehaviour
     public void IGSDone()
     {
         Debug.Log("IGS Done");
-        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[5];
-
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[6];
+        }
+        // Set microscope section pointer inactive
+        sectionPointers[2].GetComponent<Renderer>().material = sectionPointerShaders[0];
+        // Set DNA section pointer active
+        sectionPointers[1].GetComponent<Renderer>().material = sectionPointerShaders[1];
         if (onIGSDone != null)
         {
             onIGSDone();
@@ -176,6 +199,10 @@ public class Level1Events : MonoBehaviour
     public void PetriSwabbed()
     {
         Debug.Log("Petri Swabbed");
+        // Set DNA section pointer inactive
+        sectionPointers[1].GetComponent<Renderer>().material = sectionPointerShaders[0];
+        // Set microscope section pointer active
+        sectionPointers[2].GetComponent<Renderer>().material = sectionPointerShaders[1];
         if (onPetriSwabbed != null)
         {
             onPetriSwabbed();
@@ -186,7 +213,13 @@ public class Level1Events : MonoBehaviour
     public void PetriInsertedInMicroscope()
     {
         Debug.Log("Petri Inserted In Microscope");
-        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[6];
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[7];
+        }
+        // Set microscope section pointer inactive
+        sectionPointers[2].GetComponent<Renderer>().material = sectionPointerShaders[0];
+        // Set DNA section pointer active
+        sectionPointers[1].GetComponent<Renderer>().material = sectionPointerShaders[1];
 
         if (onPetriInsertedInMicroscope != null)
         {
@@ -198,7 +231,9 @@ public class Level1Events : MonoBehaviour
     public void BacteriaInserted()
     {
         Debug.Log("Bacteria Inserted");
-        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[7];
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[8];
+        }
         
         if (! dnaDocsPrinted) {
             printer.GetComponent<Printer>().PrintWitnessReport1();
@@ -216,7 +251,9 @@ public class Level1Events : MonoBehaviour
     public void DNAMatched()
     {
         Debug.Log("DNA Matched");
-        helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[7];
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[9];
+        }
         
         if (onDNAMatched != null)
         {
@@ -228,6 +265,8 @@ public class Level1Events : MonoBehaviour
     public void DNADone()
     {
         Debug.Log("DNA Done");
+        // Set DNA section pointer inactive
+        sectionPointers[1].GetComponent<Renderer>().material = sectionPointerShaders[0];
         if (onDNADone != null)
         {
             onDNADone();
