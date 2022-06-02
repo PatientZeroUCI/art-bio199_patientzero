@@ -265,6 +265,9 @@ public class Level1Events : MonoBehaviour
     public void DNADone()
     {
         Debug.Log("DNA Done");
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[10];
+        }
         // Set DNA section pointer inactive
         sectionPointers[1].GetComponent<Renderer>().material = sectionPointerShaders[0];
         if (onDNADone != null)
