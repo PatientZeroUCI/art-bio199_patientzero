@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ElevatorDoor : MonoBehaviour
 {
+    public AudioSource src;
     private bool DoorsOpen = false;
     private void OnTriggerEnter(Collider other)
     {
         if (!DoorsOpen)
         {
+            src.Play();
             DoorsOpen = true;
             GameObject.FindGameObjectWithTag("LeftDoor").GetComponent<MeshRenderer>().enabled = false;
             GameObject.FindGameObjectWithTag("RightDoor").GetComponent<MeshRenderer>().enabled = false;
