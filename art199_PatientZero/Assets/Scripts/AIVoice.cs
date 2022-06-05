@@ -101,11 +101,9 @@ public class AIVoice : MonoBehaviour {
             
             while (currentIndex < captions.Count && captions[currentIndex].time < audioSource.time) 
             {
-                Debug.Log("Help1");
                 //if (ThreeDCaptions) //Check if player wants 3D captions
                 if (false)
                 {
-                    Debug.Log("Help2");
                     ThreeDCaps.addCaptions(captions[currentIndex++].caption);
                     if (turnOffCaptions) ThreeDCaps.addCaptions("");
                 }
@@ -113,11 +111,9 @@ public class AIVoice : MonoBehaviour {
                 {
                     foreach (TextMeshProUGUI textObject in textObjects)
                     {
-                        Debug.Log(textObjects.Count);
                         textObject.text = captions[currentIndex].caption;
                         if (turnOffCaptions)
-                        {
-                            Debug.Log("Help4");
+                        {;
                             textObject.text = "";
                         }
                     }
@@ -127,7 +123,7 @@ public class AIVoice : MonoBehaviour {
             }
             if ((audioSource.time > endTime) || right_hand.buttonOnePressed) {
                 audioSource.Stop();
-                ThreeDCaps.addCaptions("");
+                //ThreeDCaps.addCaptions("");
                 audioSource.clip = null;
                 if (playedClips.Contains(64) && SceneManager.GetActiveScene().name == "ElevatorScene")
                 {
