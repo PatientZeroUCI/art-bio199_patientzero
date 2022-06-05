@@ -41,7 +41,8 @@ public class AIVoice : MonoBehaviour {
 
     private void Awake() {
         audioSource = GetComponent<AudioSource>();
-        ThreeDCaps = GameObject.FindGameObjectWithTag("Captions").GetComponent<Captions>();
+        //Remvoe becuase prevents the actual captions from rendering
+        //ThreeDCaps = GameObject.FindGameObjectWithTag("Captions").GetComponent<Captions>();
     }
 
     private void Start() {
@@ -94,23 +95,34 @@ public class AIVoice : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.R)) { pauseAudio(); }
+        if (Input.GetKeyDown(KeyCode.R)) { pauseAudio(); }  // Might not worka fter pause button changed
         if ((audioSource.isPlaying) && (!gamePaused)) 
         {
+            
             while (currentIndex < captions.Count && captions[currentIndex].time < audioSource.time) 
             {
-                if (ThreeDCaptions) //Check if player wants 3D captions
+                Debug.Log("Help1");
+                //if (ThreeDCaptions) //Check if player wants 3D captions
+                if (false)
                 {
+                    Debug.Log("Help2");
                     ThreeDCaps.addCaptions(captions[currentIndex++].caption);
                     if (turnOffCaptions) ThreeDCaps.addCaptions("");
                 }
                 else
                 {
-                    foreach(TextMeshProUGUI textObject in textObjects)
+                    foreach (TextMeshProUGUI textObject in textObjects)
                     {
-                        textObject.text = captions[currentIndex++].caption;
-                        if (turnOffCaptions) textObject.text = "";
+                        Debug.Log(textObjects.Count);
+                        textObject.text = captions[currentIndex].caption;
+                        if (turnOffCaptions)
+                        {
+                            Debug.Log("Help4");
+                            textObject.text = "";
+                        }
                     }
+
+                    currentIndex++;
                 }
             }
             if ((audioSource.time > endTime) || right_hand.buttonOnePressed) {
