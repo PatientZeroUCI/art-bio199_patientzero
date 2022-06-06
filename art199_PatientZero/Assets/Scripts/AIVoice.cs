@@ -46,15 +46,21 @@ public class AIVoice : MonoBehaviour {
     }
 
     private void Start() {
-        if (SceneManager.GetActiveScene().name == "ElevatorScene")
+        if (SceneManager.GetActiveScene().name == "lvl1_rework") 
         {
             playOnStart = new List<int> { 58, 59, 60, 61, 62, 63, 64 };
+        }
+
+        else if (SceneManager.GetActiveScene().name == "ElevatorScene")
+        {
+            playOnStart = new List<int> { 82 };
         }
         else {playOnStart = new List<int>();}
     }
 
     public void ReadVoiceClip(int index) {
         // If the audiio clip index hasn't been played or isn't an index in the clipsToNotRepeat list
+        Debug.Log("Reading a voice clip with index " + index);
         if (!clipsToNotRepeat.Contains(index) || !playedClips.Contains(index))
         {
             // add the clip indedx to the playedClips list so it isn't repeated
@@ -96,9 +102,17 @@ public class AIVoice : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.R)) { pauseAudio(); }  // Might not worka fter pause button changed
+
+        if (audioSource.isPlaying) {
+            Debug.Log("AI Voice Debugging: Audio source is playing.");
+        }
+
+        if (!gamePaused) {
+            Debug.Log("AI Voice Debugging: Game is not paused");
+        }
+
         if ((audioSource.isPlaying) && (!gamePaused)) 
         {
-            
             while (currentIndex < captions.Count && captions[currentIndex].time < audioSource.time) 
             {
                 //if (ThreeDCaptions) //Check if player wants 3D captions
@@ -125,7 +139,7 @@ public class AIVoice : MonoBehaviour {
                 audioSource.Stop();
                 //ThreeDCaps.addCaptions("");
                 audioSource.clip = null;
-                if (playedClips.Contains(64) && SceneManager.GetActiveScene().name == "ElevatorScene")
+                if (playedClips.Contains(82) && SceneManager.GetActiveScene().name == "ElevatorScene")
                 {
                     SceneManager.LoadScene("lvl1_rework");
                 }
@@ -133,18 +147,20 @@ public class AIVoice : MonoBehaviour {
         } 
         else 
         {
+            Debug.Log("AI Voice Debugging: Did you get here?");
             foreach(TextMeshProUGUI textObject in textObjects)
             {
                 textObject.text = "";
             }
-
             if (audioSource.clip != null) {
+                Debug.Log("AI Voice Debugging: Audio Source clip is not null.");
                 if (delay > 0) {
                     delay -= Time.deltaTime;
                 } else {
                     audioSource.Play();
                 }
             } else {
+                Debug.Log("AI Voice Debugging: Audio Source clip is null.");
                 if (playOnStart.Count > 0 && !skipIntroVoicelines) {
                     delay = 0.5f;
                     ReadVoiceClip(playOnStart[0]);

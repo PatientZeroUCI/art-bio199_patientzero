@@ -6,6 +6,7 @@ using UnityEngine;
 public class Level1Events : MonoBehaviour
 {
     public static Level1Events current;
+    public AudioSource MicroscopSlideSrc;
     public AudioSource inocLoopAudio;
     public AudioClip [] inocLoopAudioClips;
     private bool inocLoopPlayed = false;
@@ -156,6 +157,7 @@ public class Level1Events : MonoBehaviour
     public void SlideInsertedInMicroscope()
     {
         Debug.Log("Slide Inserted In Microscope");
+        MicroscopSlideSrc.Play();
         foreach (GameObject helpScreen in helpScreens) {
             helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[5];
         }
