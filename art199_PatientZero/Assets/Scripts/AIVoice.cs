@@ -42,7 +42,7 @@ public class AIVoice : MonoBehaviour {
     private void Awake() {
         audioSource = GetComponent<AudioSource>();
         //Remvoe becuase prevents the actual captions from rendering
-        //ThreeDCaps = GameObject.FindGameObjectWithTag("Captions").GetComponent<Captions>();
+        ThreeDCaps = GameObject.FindGameObjectWithTag("Captions").GetComponent<Captions>();
     }
 
     private void Start() {
@@ -115,8 +115,8 @@ public class AIVoice : MonoBehaviour {
         {
             while (currentIndex < captions.Count && captions[currentIndex].time < audioSource.time) 
             {
-                //if (ThreeDCaptions) //Check if player wants 3D captions
-                if (false)
+                if (ThreeDCaptions) //Check if player wants 3D captions
+                    //if (false)
                 {
                     ThreeDCaps.addCaptions(captions[currentIndex++].caption);
                     if (turnOffCaptions) ThreeDCaps.addCaptions("");
