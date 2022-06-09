@@ -25,6 +25,10 @@ public class Level1Events : MonoBehaviour
     void Awake()
     {
         current = this;
+        
+        foreach (GameObject helpScreen in helpScreens) {
+            helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[0];
+        }
     }
 
 
