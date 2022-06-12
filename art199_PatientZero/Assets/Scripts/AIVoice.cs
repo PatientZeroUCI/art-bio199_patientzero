@@ -148,7 +148,8 @@ public class AIVoice : MonoBehaviour {
         else 
         {
             Debug.Log("AI Voice Debugging: Did you get here?");
-            foreach(TextMeshProUGUI textObject in textObjects)
+            ThreeDCaps.addCaptions("");
+            foreach (TextMeshProUGUI textObject in textObjects)
             {
                 textObject.text = "";
             }
