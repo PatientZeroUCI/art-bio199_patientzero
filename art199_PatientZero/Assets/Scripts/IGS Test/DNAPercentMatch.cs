@@ -17,7 +17,7 @@ public class DNAPercentMatch : MonoBehaviour
 
     private void Update() {
         if (otherRing != null) {
-            text.text = $"{matchPercent}%";
+            //text.text = $"{matchPercent}%";
             text.color = Color.white;
         } else {
             text.color = Color.clear;
