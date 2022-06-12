@@ -57,10 +57,12 @@ public class SubmitBoardController : MonoBehaviour
         {
             if (isSubmittable())
             {
+                Debug.Log("HELP GOOD");
                 submitButton.GetComponent<Renderer>().material = shaders[1];
             }
             else
             {
+                Debug.Log("HELP BAD");
                 submitButton.GetComponent<Renderer>().material = shaders[0];
             }
         }
@@ -112,16 +114,17 @@ public class SubmitBoardController : MonoBehaviour
     {
         if (canSubmit && isSubmittable())
         {
-            if (buttons[GameObject.Find("Cube.001")] == true)
+            if (buttons[GameObject.Find("Slot 1")] == true)
             {
-                //aiVoice.ReadVoiceClip(74);
+                aiVoice.ReadVoiceClip(74);
                 Debug.Log("Correct answer! Returning to title screen.");
                 StartCoroutine(loadTitleScene());
             }
             else
             {
-                //aiVoice.ReadVoiceClip(73);
+                aiVoice.ReadVoiceClip(73);
                 Debug.Log("Incorrect answer");
+                StartCoroutine(restartGame());
                 //SceneManager.LoadScene("Wrap Up");
             }
         }
@@ -131,7 +134,14 @@ public class SubmitBoardController : MonoBehaviour
     IEnumerator loadTitleScene()
     {
         // Wait for 5 seconds and then load the title scene
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(32);
+        SceneManager.LoadScene("Title Scene");
+    }
+
+    IEnumerator restartGame()
+    {
+        // Wait for 5 seconds and then load the title scene
+        yield return new WaitForSeconds(36);
         SceneManager.LoadScene("Title Scene");
     }
 }

@@ -24,7 +24,7 @@ public class DNAResult : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (puzzle.puzzleSolved())
+        if (puzzle.puzzleSolved() && test_result.active == false)
         {
             test_result.SetActive(true);
             Level1Events.current.DNAMatched();

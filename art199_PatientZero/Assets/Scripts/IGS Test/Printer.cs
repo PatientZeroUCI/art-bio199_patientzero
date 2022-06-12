@@ -25,7 +25,7 @@ public class Printer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X)) {
             Debug.Log("Printing IGS Evidence");
             PrintWitnessReport1();
-            Level1Events.current.IGSDone();
+            //Level1Events.current.DNADone();
         }
     }
 

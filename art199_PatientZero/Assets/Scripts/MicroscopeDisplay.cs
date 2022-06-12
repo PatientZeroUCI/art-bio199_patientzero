@@ -27,7 +27,7 @@ public class MicroscopeDisplay : MonoBehaviour
 
         if ( snapped_object != null)
         {
-            if (snapped_object.tag == "DNA")
+            if (snapped_object.tag == "DNA"  && bacteria.active == false)
             {
                 bacteria.SetActive(true);
                 Level1Events.current.PetriInsertedInMicroscope();
