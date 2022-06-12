@@ -221,6 +221,7 @@ public class Level1Events : MonoBehaviour
         Debug.Log("Petri Inserted In Microscope");
         foreach (GameObject helpScreen in helpScreens) {
             helpScreen.GetComponent<MeshRenderer>().material = helpScreenMaterials[7];
+            //Debug.Log(helpScreenMaterials[7]);
         }
         // Set microscope section pointer inactive
         sectionPointers[2].GetComponent<Renderer>().material = sectionPointerShaders[0];

@@ -42,7 +42,7 @@ public class MicroscopeDisplay : MonoBehaviour
                 // Checks to ensure that the IGS test has been completed before displaying results                
                 Transform slide = snapped_object.transform.Find("Slide");
                 IGSTestSlide slideScript = slide.GetComponent<IGSTestSlide>();
-                if (slideScript.state == IGSTestSlide.State.Done)
+                if (slideScript.state == IGSTestSlide.State.Done  && gram_result.active == false)
                 {
                     gram_result.SetActive(true);
                     Level1Events.current.SlideInsertedInMicroscope();

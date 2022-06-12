@@ -18,23 +18,23 @@ public class HelpScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Level1Events.current.onSlideInsertedInMicroscope += LoadGramStain;
-        Level1Events.current.onPetriInsertedInMicroscope += LoadDNAMatch;
-        Level1Events.current.onDNAMatched += LoadDNAComapre;
+        //Level1Events.current.onSlideInsertedInMicroscope += LoadGramStain;
+        //Level1Events.current.onPetriInsertedInMicroscope += LoadDNAMatch;
+        //Level1Events.current.onDNAMatched += LoadDNAComapre;
     }
 
-    void LoadGramStain()
-    {
-        screen.material = GramStain;
-    }
+    //void LoadGramStain()
+    //{
+    //    screen.material = GramStain;
+    //}
 
-    void LoadDNAMatch()
-    {
-        screen.material = DNAMatch;
-    }
+    //void LoadDNAMatch()
+    //{
+    //    screen.material = DNAMatch;
+    //}
 
-    void LoadDNAComapre()
-    {
-        screen.material = DNACompare;
-    }
+    //void LoadDNAComapre()
+    //{
+    //    screen.material = DNACompare;
+    //}
 }
